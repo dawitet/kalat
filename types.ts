@@ -1,4 +1,4 @@
-// src/types.ts 
+// src/types.ts
 export type TileState = 'empty' | 'absent' | 'present' | 'correct' | 'filled';
 
 export type ModalType = 'difficulty' | 'settings' | 'rules' | 'streak' | 'credits' | null;
