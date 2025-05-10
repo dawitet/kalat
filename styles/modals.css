@@ -1,0 +1,267 @@
+/* src/styles/modals.css */
+
+/* --- Base Bottom Sheet Styles --- */
+/* Styles applied to the container managed by the BottomSheet component */
+/* Example styles (adjust based on BottomSheet implementation): */
+.bottom-sheet-overlay {
+    position: fixed;
+    inset: 0;
+    background-color: rgba(0, 0, 0, 0.4); /* Semi-transparent backdrop */
+    z-index: 100; /* Ensure overlay is above main content */
+    /* Animation handled by Framer Motion */
+}
+
+.bottom-sheet-container {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    max-height: 90vh; /* Maximum height */
+    background-color: var(--modal-bg-color, var(--tg-theme-secondary-bg-color)); /* Use theme variable */
+    border-top-left-radius: 16px; /* Rounded top corners */
+    border-top-right-radius: 16px;
+    box-shadow: 0 -4px 15px rgba(0, 0, 0, 0.15);
+    z-index: 110; /* Above overlay */
+    display: flex;
+    flex-direction: column; /* Stack header, content, footer */
+    overflow: hidden; /* Prevent content spilling before radius */
+    /* Animation handled by Framer Motion */
+    /* Add touch-action: none; if needed to prevent scrolling page behind */
+}
+
+.bottom-sheet-drag-handle {
+    width: 40px;
+    height: 4px;
+    background-color: var(--tg-theme-hint-color, #cccccc);
+    border-radius: 2px;
+    margin: 8px auto 4px auto; /* Centering and spacing */
+    flex-shrink: 0; /* Prevent shrinking */
+    cursor: grab;
+}
+.bottom-sheet-drag-handle:active {
+    cursor: grabbing;
+}
+
+/* --- Modal Header (Inside Bottom Sheet) --- */
+.bottom-sheet-header {
+    display: flex;
+    align-items: center;
+    justify-content: center; /* Center title by default */
+    padding: 10px 15px;
+    /* Optional border at the bottom of the header */
+    /* border-bottom: 1px solid var(--border-color, #e0e0e0); */
+    flex-shrink: 0; /* Prevent shrinking */
+    position: relative; /* For potential absolute elements */
+    min-height: 40px; /* Ensure space */
+}
+.bottom-sheet-title {
+    font-size: 1.1em;
+    font-weight: 600;
+    color: var(--tg-theme-text-color);
+    text-align: center; /* Ensure title text is centered */
+    flex-grow: 1; /* Allow title to take space */
+    margin: 0 30px; /* Ensure space for potential side buttons */
+}
+/* Optional close button if not using drag handle only */
+/* .bottom-sheet-close-button { position: absolute; right: 10px; top: 50%; transform: translateY(-50%); ... } */
+
+
+/* --- Modal Content Area (Inside Bottom Sheet) --- */
+.bottom-sheet-content {
+    flex-grow: 1; /* Allow content to take available space */
+    overflow-y: auto; /* Enable vertical scrolling for content */
+    -webkit-overflow-scrolling: touch; /* Smooth scrolling on iOS */
+    padding: 15px 20px; /* Padding inside the content area */
+    box-sizing: border-box;
+    /* Adjust padding-bottom if footer is NOT inside this element */
+    /* padding-bottom: 80px; */ /* Example if footer is separate */
+}
+
+/* Styling for standard text elements within the scrollable area */
+.bottom-sheet-content ul { list-style: disc; padding-left: 30px; margin-bottom: 15px; text-align: left; }
+.bottom-sheet-content li { margin-bottom: 10px; line-height: 1.6; }
+.bottom-sheet-content h3 { margin-top: 20px; margin-bottom: 10px; font-size: 1.15em; font-weight: 600; text-align: left; color: var(--tg-theme-text-color); }
+.bottom-sheet-content p { text-align: left; margin-bottom: 12px; font-size: 0.95em; line-height: 1.5; color: var(--tg-theme-text-color); }
+.bottom-sheet-content p.centered-text { text-align: center; }
+.bottom-sheet-content em { /* For emphasis like Wordle */
+    /* font-style: normal; */ /* Override default italic if needed */
+    /* font-weight: bold; */
+    /* color: inherit; */ /* Or specific color */
+}
+.bottom-sheet-content hr {
+    border: none;
+    border-top: 1px solid var(--border-color, #e0e0e0);
+    margin: 20px 0;
+}
+/* Strong tag styling (used in Rules examples) */
+.bottom-sheet-content strong.correct-color { color: var(--correct-color); font-weight: bold; }
+.bottom-sheet-content strong.present-color { color: var(--present-color); font-weight: bold; }
+.bottom-sheet-content strong.family-color { color: var(--family-color); font-weight: bold; }
+.bottom-sheet-content strong.absent-color { color: var(--absent-color); font-weight: bold; }
+
+
+/* --- Modal Footer / Bottom Button Area --- */
+/* This class styles the footer added within each modal content component */
+.modal-footer {
+    padding: 10px 15px; /* Base padding */
+    /* Add bottom safe area padding */
+    padding-bottom: calc(10px + var(--tg-safe-area-inset-bottom, 0px));
+    border-top: 1px solid var(--border-color, #e0e0e0);
+    background-color: var(--modal-bg-color, var(--tg-theme-secondary-bg-color)); /* Match sheet background */
+    display: flex;
+    justify-content: center; /* Center button(s) */
+    align-items: center;
+    flex-shrink: 0; /* Prevent shrinking */
+    margin-top: auto; /* Push to bottom if content is short */
+    position: sticky; /* Keep footer visible when content scrolls */
+    bottom: 0; /* Stick to bottom of the scrolling container */
+}
+
+/* Styling for the main button inside the footer */
+.modal-home-button {
+    display: flex;
+    flex-direction: column; /* Icon above text */
+    align-items: center;
+    justify-content: center;
+    background: none;
+    border: none;
+    padding: 5px 15px;
+    cursor: pointer;
+    border-radius: 8px;
+    color: var(--tg-theme-text-color);
+    transition: background-color 0.15s, transform 0.1s;
+    -webkit-tap-highlight-color: transparent;
+    touch-action: manipulation;
+}
+.modal-home-button .icon {
+    width: 30px; /* Adjust icon size */
+    height: 30px;
+    object-fit: contain;
+    margin-bottom: 4px; /* Space between icon and text */
+}
+.modal-home-button span {
+    font-size: 0.8em;
+    font-weight: 500;
+}
+/* Hover/Active styles for the footer button */
+.modal-home-button:hover {
+    background-color: rgba(var(--key-hover-color-rgb, 232, 232, 232), 0.4);
+}
+body.dark-mode .modal-home-button:hover {
+     background-color: rgba(var(--key-hover-color-rgb, 102, 102, 105), 0.4);
+}
+ .modal-home-button:active {
+     transform: scale(0.96); /* Press effect */
+ }
+
+
+/* --- Rules Modal Specific Styles --- */
+/* Scoped within .bottom-sheet-content */
+.bottom-sheet-content .example-description { margin-bottom: 15px; } /* Space between examples */
+.bottom-sheet-content .example-row { display: flex; justify-content: center; gap: 6px; margin-bottom: 8px; }
+.bottom-sheet-content .example-tile {
+    /* Inherits base .tile styles - these are overrides or additions */
+    width: 40px; height: 40px; /* Smaller size for examples */
+    font-size: 1.2rem;
+    border: 1px solid var(--border-color);
+    background-color: var(--tile-bg-color); /* Ensure base bg */
+    color: var(--tile-text-color); /* Ensure base text color */
+    border-radius: 4px;
+}
+/* Apply feedback colors specifically for example tiles */
+.bottom-sheet-content .example-tile.correct { background-color: var(--correct-color); color: var(--tile-feedback-text-color); border-color: var(--correct-color); }
+.bottom-sheet-content .example-tile.present { background-color: var(--present-color); color: var(--tile-feedback-text-color); border-color: var(--present-color); }
+.bottom-sheet-content .example-tile.family { background-color: var(--family-color); color: var(--tile-feedback-text-color); border-color: var(--family-color); }
+.bottom-sheet-content .example-tile.absent { background-color: var(--absent-color); color: var(--tile-feedback-text-color); border-color: var(--absent-color); }
+
+/* Difficulty explainer list styling */
+.bottom-sheet-content .difficulty-explainer { text-align: left; }
+.bottom-sheet-content .difficulty-explainer ul { list-style: none; padding-left: 10px; margin-top: 5px; }
+.bottom-sheet-content .difficulty-explainer li { margin-bottom: 8px; line-height: 1.4; }
+.bottom-sheet-content .difficulty-explainer strong { margin-right: 5px; }
+
+
+/* --- Notification Modal Specific Styles --- */
+/* Scoped within .bottom-sheet-content */
+.bottom-sheet-content .notification-item {
+    /* Layout handled by internal elements */
+    border-bottom: 1px solid var(--border-color, #e0e0e0);
+    padding-bottom: 10px;
+    margin-bottom: 15px;
+    transition: opacity 0.3s ease-in-out;
+}
+.bottom-sheet-content .notification-item:last-child {
+    border-bottom: none; /* No border on last item */
+    margin-bottom: 0;
+}
+.bottom-sheet-content .notification-item.unread .notification-message {
+    font-weight: bold; /* Make unread messages bold */
+}
+.bottom-sheet-content .notification-item.read {
+    opacity: 0.7; /* Dim read messages */
+}
+.bottom-sheet-content .notification-message {
+    /* Styles defined inline in NotificationsModal.tsx based on read status */
+}
+.bottom-sheet-content .notification-date {
+    /* Styles defined inline in NotificationsModal.tsx */
+}
+
+
+/* --- Grid Overlay Message (Game Over / Win Message) --- */
+/* This remains separate from the bottom sheet modals */
+#grid-overlay-message {
+    position: absolute; /* Position over the grid area */
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); /* Center precisely */
+    /* Use secondary background color with high opacity */
+    background-color: rgba(var(--tg-theme-secondary-bg-rgb, 239, 239, 244), 0.95);
+    color: var(--tg-theme-text-color);
+    padding: 25px 30px;
+    border-radius: 12px;
+    z-index: 150; /* Ensure it's above the grid */
+    text-align: center;
+    display: none; /* Controlled by React state */
+    flex-direction: column;
+    align-items: center;
+    /* Optional subtle blur effect */
+    /* backdrop-filter: blur(3px); */ /* Use with caution - performance */
+    width: 88%; /* Relative width */
+    max-width: 380px; /* Max width */
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+    border: 1px solid var(--modal-border-color, #d1d1d6); /* Use modal border color */
+    /* Animation applied inline or via dynamic class */
+}
+/* Apply fade-in animation when shown */
+#grid-overlay-message.visible { /* Assuming a .visible class is added */
+    display: flex; /* Show the element */
+    animation: fadeIn 0.3s ease-out forwards;
+}
+#grid-overlay-message .overlay-text {
+    margin-bottom: 20px;
+    font-size: 1.15em;
+    line-height: 1.4;
+    font-weight: 500;
+    text-align: center;
+}
+#grid-overlay-message .overlay-buttons {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap; /* Allow buttons to wrap */
+    gap: 15px; /* Space between buttons */
+    margin-top: 15px;
+}
+
+
+/* --- Share Button Style (Used in Streak Modal) --- */
+.modal-share-button {
+    background: none; border: none; padding: 5px; cursor: pointer;
+    opacity: 0.8; transition: opacity 0.2s, transform 0.2s;
+    position: absolute; /* Position relative to parent container */
+    right: 0; top: 50%; transform: translateY(-50%);
+    -webkit-tap-highlight-color: transparent;
+}
+.modal-share-button img { width: 24px; height: 24px; display: block; filter: grayscale(30%); }
+.modal-share-button:hover { opacity: 1; transform: translateY(-50%) scale(1.1); }
+.modal-share-button:active { transform: translateY(-50%) scale(0.95); }

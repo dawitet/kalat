@@ -1,0 +1,800 @@
+/* src/styles/components.css */
+
+/* --- Buttons --- */
+
+/* Base Menu Button Style (used in Main Menu, Modals, etc.) */
+.menu-button {
+    display: inline-flex; /* Align icon and text */
+    align-items: center;
+    justify-content: center;
+    padding: 10px 20px; /* Default padding */
+    font-size: 1em; /* Base font size */
+    font-weight: 600; /* Medium-bold weight */
+    color: var(--tg-theme-button-text-color, #ffffff); /* Text color from theme */
+    background-color: var(--tg-theme-button-color, #007aff); /* Background color from theme */
+    border: none; /* No border */
+    border-radius: 8px; /* Rounded corners */
+    cursor: pointer; /* Pointer cursor */
+    transition: background-color 0.2s, transform 0.1s, filter 0.2s, box-shadow 0.2s; /* Smooth transitions */
+    text-decoration: none; /* No underline */
+    white-space: nowrap; /* Prevent text wrapping */
+    -webkit-tap-highlight-color: transparent; /* Remove tap highlight */
+    touch-action: manipulation; /* Improve touch interaction */
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1); /* Subtle shadow */
+}
+.menu-button:hover:not(:disabled) {
+    filter: brightness(1.1); /* Slightly brighten on hover */
+    box-shadow: 0 3px 6px rgba(0,0,0,0.15); /* Increase shadow on hover */
+}
+.menu-button:active:not(:disabled) {
+    transform: scale(0.97); /* Slightly shrink on press */
+    filter: brightness(1.0); /* Reset brightness */
+    box-shadow: 0 1px 2px rgba(0,0,0,0.1); /* Reduce shadow on press */
+}
+.menu-button:disabled {
+    opacity: 0.6; /* Dim disabled button */
+    cursor: not-allowed; /* Not-allowed cursor */
+    box-shadow: none; /* Remove shadow when disabled */
+}
+/* Focus style handled in base.css */
+
+
+/* Secondary Button Style (less emphasis) */
+.menu-button.secondary-button {
+    background-color: var(--secondary-bg-color, #efeff4); /* Use secondary background */
+    color: var(--tg-theme-text-color, #000000); /* Use standard text color */
+    border: 1px solid var(--border-color, #d1d1d6); /* Add border */
+    box-shadow: none; /* Remove default shadow */
+}
+.menu-button.secondary-button:hover:not(:disabled) {
+    background-color: var(--key-hover-color, #e8e8e8); /* Use keyboard hover color */
+    filter: none; /* Remove brightness filter */
+    border-color: var(--tg-theme-hint-color, #999999); /* Hint color border on hover */
+}
+.menu-button.secondary-button:active:not(:disabled) {
+    background-color: var(--key-active-color, #c0c0c0); /* Use keyboard active color */
+    transform: scale(0.97);
+}
+.menu-button.secondary-button:disabled {
+    background-color: var(--secondary-bg-color, #efeff4) !important; /* Ensure bg doesn't change */
+    border-color: var(--border-color, #d1d1d6);
+    opacity: 0.6;
+}
+
+/* Bottom Home Button (Specific styles for the button at the very bottom) */
+/* No longer needed as footer style is now self-contained in relevant components */
+
+
+/* Confetti Container Style (Used for win animation) */
+/* Renamed from .ballpit-container to reflect new animation */
+.confetti-container {
+    position: absolute; /* Position relative to parent (usually #game-container) */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden; /* Prevent pieces going outside bounds */
+    pointer-events: none; /* Allow clicks to pass through */
+    z-index: 50; /* Ensure it's above game elements but below modals */
+}
+/* Individual confetti piece styling is handled inline in ballpit.tsx */
+
+
+/* Destructive Button Style (for Reset, etc.) */
+.menu-button.destructive-button,
+.settings-grid-item.destructive { /* Apply to settings reset too */
+    background-color: var(--tg-theme-destructive-text-color, #ff3b30);
+    color: var(--button-text-color, #ffffff); /* Typically white text */
+    border-color: transparent !important; /* Override border if secondary */
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+.menu-button.destructive-button:hover:not(:disabled),
+.settings-grid-item.destructive:hover:not(:disabled) {
+    filter: brightness(1.15);
+    background-color: var(--tg-theme-destructive-text-color, #ff3b30); /* Keep base color on hover */
+    box-shadow: 0 3px 6px rgba(0,0,0,0.15);
+}
+.menu-button.destructive-button:active:not(:disabled),
+.settings-grid-item.destructive:active:not(:disabled) {
+    filter: brightness(1.0);
+    transform: scale(0.97);
+    box-shadow: 0 1px 2px rgba(0,0,0,0.1);
+}
+/* Style for destructive text label in settings */
+.settings-grid-item.destructive .label {
+    color: var(--tg-theme-destructive-text-color, #ff3b30);
+}
+.settings-grid-item.destructive:hover .label {
+     color: var(--tg-theme-destructive-text-color, #ff3b30); /* Keep color on hover */
+}
+
+
+/* Smaller Buttons used within game overlay or similar (Example) */
+.game-button {
+    display: inline-flex;
+    align-items: center;
+    padding: 8px 15px;
+    font-size: 0.9em;
+    font-weight: 500;
+    border-radius: 6px;
+    background-color: var(--secondary-bg-color, #efeff4);
+    color: var(--tg-theme-text-color, #000000);
+    border: 1px solid var(--border-color, #d1d1d6);
+    cursor: pointer;
+    transition: background-color 0.2s, transform 0.1s;
+    text-decoration: none;
+    -webkit-tap-highlight-color: transparent;
+    touch-action: manipulation;
+}
+.game-button:hover:not(:disabled) {
+    background-color: var(--key-hover-color, #e8e8e8);
+    border-color: var(--tg-theme-hint-color, #999999);
+}
+.game-button:active:not(:disabled) {
+    transform: scale(0.96);
+    background-color: var(--key-active-color, #c0c0c0);
+}
+.game-button:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    background-color: var(--secondary-bg-color, #efeff4) !important;
+}
+/* Primary style for game button if needed */
+.game-button.primary-button {
+    background-color: var(--tg-theme-button-color, #007aff);
+    color: var(--tg-theme-button-text-color, #ffffff);
+    border: none;
+}
+.game-button.primary-button:hover:not(:disabled) {
+    filter: brightness(1.1);
+    background-color: var(--tg-theme-button-color, #007aff);
+    border: none;
+}
+
+
+/* Icon inside buttons (General) */
+.button-icon {
+    width: 1em; /* Relative to button font size */
+    height: 1em;
+    max-width: 18px; /* Max size constraint */
+    max-height: 18px;
+    margin-right: 8px; /* Space between icon and text */
+    vertical-align: middle; /* Align with text */
+    object-fit: contain; /* Scale nicely */
+    flex-shrink: 0; /* Don't shrink if text is long */
+}
+.button-text { /* Span wrapping text if needed */
+    vertical-align: middle;
+}
+
+
+/* --- Tile Styles --- */
+.tile {
+    display: flex; /* Center content */
+    align-items: center;
+    justify-content: center;
+    /* Responsive font size */
+    font-size: clamp(1.2rem, 6vw, 2rem); /* Min, Preferred (Viewport Width), Max */
+    font-weight: bold;
+    text-transform: uppercase;
+    box-sizing: border-box;
+    /* Base colors from theme */
+    background-color: var(--tile-bg-color, var(--primary-color));
+    color: var(--tile-text-color, var(--text-color));
+    border: 1px solid var(--tile-border-color-empty, #d3d6da); /* Default border */
+    border-radius: 5px; /* Rounded corners */
+    /* Transitions for color changes, flips handled by animation */
+    transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+    aspect-ratio: 1 / 1; /* Maintain square shape */
+    user-select: none; /* Prevent text selection */
+    margin: 0;
+    padding: 0;
+    overflow: hidden; /* Hide content during flip */
+    /* For 3D transform animations */
+    transform-style: preserve-3d;
+    backface-visibility: hidden;
+}
+/* State for tile with a letter typed but not submitted */
+.tile.filled:not(.correct):not(.present):not(.absent) {
+    border-color: var(--tile-border-color-filled, var(--text-color)); /* Darker border */
+}
+/* Feedback states - These override base background/border */
+.tile.correct {
+    background-color: var(--correct-color, #6aaa64) !important; /* Use !important if needed to override transitions */
+    color: var(--tile-feedback-text-color, #ffffff) !important;
+    border-color: var(--correct-color, #6aaa64) !important;
+}
+.tile.present {
+    background-color: var(--present-color, #c9b458) !important;
+    color: var(--tile-feedback-text-color, #ffffff) !important;
+    border-color: var(--present-color, #c9b458) !important;
+}
+.tile.absent {
+    background-color: var(--absent-color, #787c7e) !important;
+    color: var(--tile-feedback-text-color, #ffffff) !important;
+    border-color: var(--absent-color, #787c7e) !important;
+}
+
+/* --- Keyboard Keys --- */
+.key {
+    flex: 1 1 0%; /* Allow keys to flexibly share space */
+    margin: 0;
+    padding: 0;
+    border: none; /* Base keyboard keys have no border */
+    border-radius: 5px; /* Rounded corners */
+    /* Responsive font size */
+    font-size: clamp(0.8rem, 4vw, 1.25rem);
+    font-weight: 600; /* Medium-bold */
+    text-align: center;
+    cursor: pointer;
+    user-select: none;
+    /* Base colors from theme */
+    background-color: var(--key-bg-color, #d3d6da);
+    color: var(--key-text-color, #1a1a1b);
+    min-width: 0; /* Allow shrinking */
+    height: 50px; /* Fixed height for consistency */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* Transitions for feedback */
+    transition: background-color 0.1s ease, transform 0.1s ease, color 0.1s ease, opacity 0.1s ease, box-shadow 0.1s ease;
+    outline: none; /* Remove default browser outline */
+    box-shadow: 0 2px 1px rgba(0,0,0,0.2); /* Subtle bottom shadow */
+    -webkit-tap-highlight-color: transparent;
+    touch-action: manipulation;
+}
+/* Focus style handled in base.css */
+.key:hover:not(:disabled) { background-color: var(--key-hover-color, #e8e8e8); }
+.key:active:not(:disabled) {
+    background-color: var(--key-active-color, #c0c0c0);
+    transform: translateY(1px); /* Press effect */
+    box-shadow: none; /* Remove shadow on press */
+}
+.key:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    background-color: var(--key-bg-color, #d3d6da) !important; /* Prevent hover/active colors */
+    color: var(--key-text-color, #1a1a1b) !important;
+    box-shadow: none;
+    transform: none !important;
+}
+/* Feedback states on keyboard keys - override base colors */
+/* Use !important to ensure feedback color persists over hover/active states */
+.key.correct:not(:disabled) {
+    background-color: var(--correct-color, #6aaa64) !important;
+    color: var(--tile-feedback-text-color, #ffffff) !important;
+}
+.key.present:not(:disabled) {
+    background-color: var(--present-color, #c9b458) !important;
+    color: var(--tile-feedback-text-color, #ffffff) !important;
+}
+.key.absent:not(:disabled) {
+    background-color: var(--absent-color, #787c7e) !important;
+    color: var(--tile-feedback-text-color, #ffffff) !important;
+    opacity: 0.7; /* Dim absent keys slightly */
+}
+/* Styling for special function keys (if any were kept) */
+/* .key[data-key='ሰርዝ'] { ... } */
+/* .key[data-key='ገምት'] { display: none; } */
+
+
+/* --- Suggestion Area & Keys --- */
+#suggestion-placeholder {
+    font-size: 1.4em;
+    color: var(--tg-theme-hint-color, #888);
+    user-select: none;
+    margin: auto; /* Center vertically if area has fixed height */
+    opacity: 0.8;
+}
+/* Styles for suggestion keys, making them slightly different */
+#suggestion-area .key {
+    flex: 0 1 auto; /* Don't grow, allow shrinking, base on auto width */
+    min-width: 40px; /* Minimum width */
+    width: auto; /* Auto width based on content */
+    height: 44px; /* Slightly smaller height */
+    padding: 5px 12px; /* Adjust padding */
+    font-size: 1.2em; /* Slightly larger font */
+    margin: 4px; /* Adjust margin/gap */
+    box-shadow: 0 1px 1px rgba(0,0,0,0.1); /* Lighter shadow */
+    background-color: var(--key-bg-color); /* Use base key color */
+}
+#suggestion-area .key:hover:not(:disabled) { background-color: var(--suggestion-hover-color, #f0f0f0); }
+#suggestion-area .key:active:not(:disabled) {
+    background-color: var(--suggestion-active-color, #d9d9d9);
+    transform: scale(0.96) translateY(1px);
+    box-shadow: none;
+}
+/* Ensure suggestion keys don't show feedback colors */
+#suggestion-area .key.correct,
+#suggestion-area .key.present,
+#suggestion-area .key.absent {
+    background-color: var(--key-bg-color, #d3d6da) !important;
+    color: var(--key-text-color, #1a1a1b) !important;
+    opacity: 1 !important;
+}
+
+/* --- Game Info Area Components (Above Grid) --- */
+/* Buttons (Home, Hint) */
+.game-info-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    width: 44px; /* Fixed size */
+    height: 44px;
+    flex-shrink: 0; /* Prevent shrinking */
+    opacity: 0.9;
+    transition: opacity 0.2s, transform 0.1s, background-color 0.2s;
+    border-radius: 50%; /* Circular */
+    color: var(--tg-theme-text-color);
+    -webkit-tap-highlight-color: transparent;
+    touch-action: manipulation;
+}
+.game-info-button:hover:not(:disabled) {
+    opacity: 1;
+    /* Use calculated hover color from keyboard */
+    background-color: rgba(var(--key-hover-color-rgb, 232, 232, 232), 0.2);
+}
+body.dark-mode .game-info-button:hover:not(:disabled) {
+    /* Use dark mode hover color */
+    background-color: rgba(var(--key-hover-color-rgb, 102, 102, 105), 0.2);
+}
+.game-info-button:active:not(:disabled) {
+    transform: scale(0.92); /* Press effect */
+    background-color: rgba(var(--key-active-color-rgb, 192, 192, 192), 0.3);
+}
+body.dark-mode .game-info-button:active:not(:disabled) {
+    background-color: rgba(var(--key-active-color-rgb, 119, 119, 122), 0.3);
+}
+.game-info-button:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+/* Focus style handled in base.css */
+.game-info-icon {
+    width: 28px; /* Size of icon inside button */
+    height: 28px;
+    object-fit: contain;
+}
+
+/* Hint Display */
+#hint-display {
+    display: flex;
+    align-items: center;
+    justify-content: center; /* Center hint text/letters */
+    flex-grow: 1; /* Take available space between buttons */
+    text-align: center;
+    padding: 8px 15px; /* Internal padding */
+    border-radius: 8px; /* Rounded corners */
+    background-color: var(--secondary-bg-color, #efeff4); /* Background */
+    color: var(--tg-theme-text-color, #000000); /* Text color */
+    font-size: 1em; /* Base font size */
+    white-space: nowrap; /* Prevent wrapping by default */
+    overflow: hidden; /* Hide overflow */
+    border: 1px solid var(--border-color, #d1d1d6); /* Subtle border */
+    box-shadow: none;
+    transition: all 0.3s ease-in-out; /* Smooth transitions */
+    min-height: 44px; /* Match button height */
+    box-sizing: border-box;
+    cursor: default; /* Default cursor */
+}
+/* Style when showing initial hint letters */
+.initial-hint-active {
+    /* Inherits #hint-display styles, override as needed */
+    gap: 8px; /* Space between letters */
+    background-color: transparent; /* No background */
+    border: none;
+    padding: 6px 5px;
+    overflow: visible; /* Allow letters to be fully visible */
+    justify-content: center; /* Center the letters */
+    color: var(--tg-theme-hint-color);
+}
+.initial-hint-letter {
+    display: inline-block;
+    font-size: 1.6em; /* Larger font for placeholders */
+    font-weight: bold;
+    color: var(--tg-theme-hint-color);
+    opacity: 0.9;
+    user-select: none; /* Not selectable */
+}
+/* Style for disabled hints */
+.initial-hint-disabled {
+    /* Inherits #hint-display styles */
+     color: var(--tg-theme-hint-color);
+     opacity: 0.6;
+     font-style: italic;
+}
+/* Wrapper for scrolling hint text */
+.hint-text-wrapper {
+    overflow: hidden; /* Crucial for marquee */
+    width: 100%;
+    display: flex;
+    justify-content: center; /* Center text if it fits */
+}
+/* Inner span containing the actual hint text (and its duplicate for marquee) */
+.hint-text-inner {
+    display: inline-block; /* Allow transform */
+    white-space: nowrap; /* Prevent wrapping */
+    padding-left: 0; /* Reset padding */
+    /* Animation applied dynamically via class */
+}
+/* Style for scrolling state */
+.hint-text-wrapper.scrolling-hint {
+    justify-content: flex-start; /* Start animation from left */
+}
+.hint-text-wrapper.scrolling-hint .hint-text-inner {
+    /* Apply marquee animation */
+    animation: marquee-hint 15s linear infinite;
+    padding-left: 100%; /* Start second copy off-screen */
+    will-change: transform; /* Performance hint */
+}
+.hint-text-wrapper.scrolling-hint:hover .hint-text-inner {
+    animation-play-state: paused; /* Pause on hover */
+}
+
+
+/* --- Loading Screen --- */
+.loading-title {
+    font-size: 2.8em;
+    font-weight: bold;
+    color: var(--tg-theme-text-color);
+    margin-bottom: 30px;
+}
+/* Spinner style is inline */
+
+/* --- Footer --- */
+.footer-logo {
+    max-width: 35px; /* Adjust size */
+    max-height: 35px;
+    margin-bottom: 2px;
+    vertical-align: middle;
+}
+.footer .centered-content {
+    font-size: 0.75em;
+    color: var(--tg-theme-hint-color);
+    display: inline-block;
+    vertical-align: middle;
+    margin: 0 5px; /* Space around text */
+}
+
+/* --- Difficulty Selection (Inside Sheet) --- */
+/* Inherits general .bottom-sheet-content styles from modals.css */
+/* Difficulty button layout is in layout.css */
+.difficulty-button.large-difficulty {
+    flex: 1; /* Take equal space */
+    min-width: 150px;
+    max-width: 220px;
+    padding: 30px 20px;
+    border: 2px solid transparent; /* Transparent border initially */
+    border-radius: 16px;
+    cursor: pointer;
+    background-color: var(--secondary-bg-color);
+    color: var(--tg-theme-text-color);
+    transition: all 0.2s ease-out;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 15px; /* Space between icon and text */
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+    height: auto; /* Auto height */
+    min-height: 180px; /* Minimum height */
+}
+.difficulty-button.large-difficulty .difficulty-emoji {
+    width: 3.5em; /* Size relative to font size */
+    height: 3.5em;
+    object-fit: contain;
+    margin-bottom: 5px;
+    filter: grayscale(10%);
+    transition: filter 0.2s, transform 0.2s, opacity 0.2s;
+    opacity: 0.9;
+    flex-shrink: 0;
+}
+.difficulty-button.large-difficulty .difficulty-text {
+    font-weight: 600;
+    font-size: 1.3em;
+}
+/* Hover state */
+.difficulty-button.large-difficulty:hover:not(:disabled) {
+    border-color: var(--border-color); /* Show border on hover */
+    transform: translateY(-4px); /* Lift effect */
+    box-shadow: 0 5px 10px rgba(0,0,0,0.1);
+}
+.difficulty-button.large-difficulty:hover:not(:disabled) .difficulty-emoji {
+    opacity: 1.0;
+    filter: grayscale(0%); /* Full color on hover */
+    transform: scale(1.1); /* Enlarge icon */
+}
+/* Disabled/Completed state */
+.difficulty-button.large-difficulty:disabled,
+.difficulty-button.large-difficulty.completed-today {
+    opacity: 0.5;
+    cursor: not-allowed;
+    background-color: var(--secondary-bg-color) !important;
+    border-color: transparent !important;
+    color: var(--tg-theme-hint-color) !important;
+    transform: none !important;
+    box-shadow: none !important;
+}
+.difficulty-button.large-difficulty:disabled .difficulty-emoji,
+.difficulty-button.large-difficulty.completed-today .difficulty-emoji {
+    filter: grayscale(80%);
+    opacity: 0.6;
+    transform: none !important;
+}
+.difficulty-explainer {
+    /* Style defined in modals.css for consistency within sheet content */
+}
+
+/* --- Main Menu --- */
+/* Icon menu grid layout is in layout.css */
+.menu-item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    cursor: pointer;
+    padding: 15px 10px;
+    border-radius: 12px; /* More rounded corners */
+    transition: transform 0.15s ease-out, background-color 0.15s;
+    background-color: transparent; /* No base background */
+    color: var(--tg-theme-text-color);
+    -webkit-tap-highlight-color: transparent;
+    touch-action: manipulation;
+    position: relative; /* For badges/overlays */
+    min-height: 100px; /* Minimum height */
+}
+/* Hover effect for non-WIP/animating items */
+.menu-item:hover:not(.wip-active):not(.animating) {
+    background-color: rgba(var(--key-hover-color-rgb, 232, 232, 232), 0.4);
+    transform: translateY(-2px); /* Slight lift */
+}
+body.dark-mode .menu-item:hover:not(.wip-active):not(.animating) {
+    background-color: rgba(var(--key-hover-color-rgb, 102, 102, 105), 0.4);
+}
+/* Active (pressed) state */
+.menu-item:active:not(.wip-active):not(.animating) {
+    transform: scale(0.95); /* Shrink effect */
+    /* Removed background change on active */
+}
+/* Notification badge */
+.notification-badge {
+    position: absolute;
+    top: 0px; /* Position relative to menu-item */
+    right: 10px;
+    width: 10px;
+    height: 10px;
+    background-color: var(--tg-theme-destructive-text-color, #ff3b30); /* Use destructive color */
+    border-radius: 50%;
+    border: 1px solid var(--primary-color); /* Border matching background */
+    pointer-events: none; /* Don't interfere with clicks */
+}
+.menu-item-icon-img {
+    width: 60px; /* Icon size */
+    height: 60px;
+    object-fit: contain;
+    margin-bottom: 10px;
+    flex-shrink: 0;
+}
+.menu-item-text {
+    font-size: 1em; /* Adjust as needed */
+    font-weight: 500;
+    text-align: center;
+    line-height: 1.2;
+    color: var(--tg-theme-text-color);
+    min-height: 2.4em; /* Ensure space for two lines */
+    display: flex; /* Center text vertically */
+    align-items: center;
+    justify-content: center;
+}
+/* WIP Item Styling */
+.menu-item.wip-active {
+    opacity: 0.6;
+    cursor: default; /* Default cursor for WIP */
+}
+.menu-item.wip-active:hover {
+    background-color: transparent; /* No hover effect */
+    transform: none;
+}
+/* Icon overlay for WIP */
+.wip-overlay-icon {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 40%; /* Size relative to container */
+    height: auto;
+    opacity: 0.8;
+    pointer-events: none;
+}
+
+
+/* --- Profile Display in Main Menu --- */
+/* Layout handled by layout.css */
+#main-menu-view #profile-display {
+    /* Inherits layout from parent */
+    gap: 10px; /* Space between pic and text */
+    min-height: 44px; /* Ensure consistent height */
+    color: var(--tg-theme-hint-color);
+}
+#profile-display img.profile-pic,
+#profile-display .profile-pic-default {
+    width: 44px; /* Profile pic size */
+    height: 44px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid var(--tg-theme-button-color); /* Border matching button color */
+    flex-shrink: 0;
+}
+#profile-display .profile-pic-default {
+    background-color: var(--secondary-bg-color);
+    background-image: url('assets/images/icons/default_avatar.png'); /* Default avatar */
+    background-size: 70%;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+/* --- Streak Modal Styles --- */
+.streak-cards-wrapper {
+    /* Layout defined in layout.css */
+    perspective: 1000px; /* For 3D animations */
+}
+.streak-card {
+    /* Base styles for cards */
+    width: 110px;
+    height: 160px;
+    background-color: var(--secondary-bg-color);
+    color: var(--tg-theme-text-color);
+    border: 1px solid var(--border-color);
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 15px 10px;
+    text-align: center;
+    /* Animation transitions */
+    transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.5s ease-out;
+    backface-visibility: hidden; /* Prevent flickering during transform */
+    overflow: hidden; /* Clip content */
+    /* Subtle background pattern */
+    background-image: linear-gradient(45deg, rgba(255,255,255,0.03) 25%, transparent 25%, transparent 50%, rgba(255,255,255,0.03) 50%, rgba(255,255,255,0.03) 75%, transparent 75%, transparent);
+    background-size: 30px 30px;
+    /* Start hidden for animation */
+    opacity: 0;
+    transform: translateY(40px); /* Start slightly lower */
+}
+/* Card content styling */
+.streak-card-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+}
+.streak-card-icon { font-size: 1.8em; margin-bottom: 10px; }
+.streak-card-value { font-size: 2em; font-weight: bold; color: var(--tg-theme-accent-text-color); line-height: 1.1; margin-bottom: 5px; }
+.streak-card-label { font-size: 0.75em; color: var(--tg-theme-hint-color); line-height: 1.3; font-weight: 500; }
+/* Animation application class */
+.streak-card.animate-in {
+    opacity: 1;
+    transform: translateY(0);
+}
+/* Stagger delays for cards */
+.streak-cards-wrapper .streak-card:nth-child(1).animate-in { transition-delay: 0.1s; }
+.streak-cards-wrapper .streak-card:nth-child(2).animate-in { transition-delay: 0.2s; }
+.streak-cards-wrapper .streak-card:nth-child(3).animate-in { transition-delay: 0.3s; }
+
+/* Share button specific positioning if needed inside streak modal */
+/* .modal-share-button { position: absolute; ... } */
+
+
+/* --- Settings Panel Grid Styles --- */
+/* Grid layout defined in layout.css */
+/* Settings Grid Item - Button Style */
+.settings-grid-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    cursor: pointer;
+    padding: 10px 5px;
+    border-radius: 10px;
+    transition: transform 0.15s ease-out, background-color 0.15s;
+    width: 100%; /* Fill grid cell */
+    background-color: transparent !important; /* Ensure no default bg */
+    border: none !important;
+    min-height: 90px; /* Minimum height */
+    color: var(--tg-theme-text-color);
+    -webkit-tap-highlight-color: transparent;
+}
+.settings-grid-item .icon {
+    width: 50px; /* Icon size */
+    height: 50px;
+    object-fit: contain;
+    margin-bottom: 6px;
+}
+.settings-grid-item .label {
+    font-size: 0.8em;
+    font-weight: 500;
+    line-height: 1.2;
+    min-height: 2.4em; /* Space for two lines */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: auto; /* Push text down */
+}
+/* Hover effect */
+.settings-grid-item:hover:not(:disabled) {
+    background-color: rgba(var(--key-hover-color-rgb, 232, 232, 232), 0.4) !important;
+    transform: scale(1.03); /* Slight scale up */
+}
+body.dark-mode .settings-grid-item:hover:not(:disabled) {
+    background-color: rgba(var(--key-hover-color-rgb, 102, 102, 105), 0.4) !important;
+}
+/* Active (pressed) effect */
+.settings-grid-item:active:not(:disabled) {
+    transform: scale(0.97); /* Scale down */
+    /* Removed background change on active */
+}
+/* Disabled state */
+.settings-grid-item.disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    transform: none !important;
+    background-color: transparent !important;
+}
+.settings-grid-item:disabled .label {
+    color: var(--tg-theme-hint-color);
+}
+/* Destructive item hover (already defined above) */
+
+/* Optional description text */
+.settings-item-description {
+    font-size: 0.7em;
+    color: var(--tg-theme-hint-color);
+    margin-top: 4px;
+    width: 100%;
+}
+
+/* --- WIP View --- */
+.wip-icon {
+    width: 100px;
+    height: 100px;
+    object-fit: contain;
+    margin-bottom: 25px;
+    opacity: 0.7;
+    filter: grayscale(30%);
+}
+.wip-text {
+    font-size: 1.1em;
+    color: var(--tg-theme-hint-color);
+    line-height: 1.6;
+    max-width: 80%;
+    margin-bottom: 30px;
+    white-space: pre-line; /* Respect newlines in message */
+}
+
+/* --- Loading / Error Placeholders for Modals / Sheet Content --- */
+.modal-loading-placeholder,
+.modal-error-placeholder {
+    text-align: center;
+    padding: 40px 20px;
+    font-size: 1em;
+    color: var(--tg-theme-hint-color);
+    min-height: 100px; /* Ensure some minimum height */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-grow: 1; /* Take available space */
+}
+.modal-error-placeholder {
+    color: var(--tg-theme-destructive-text-color); /* Use destructive color for errors */
+    font-weight: 500;
+}
+
+/* --- Modal Footer --- */
+/* Styles defined in modals.css */

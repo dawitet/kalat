@@ -1,0 +1,302 @@
+/* src/styles/layout.css */
+
+/* Ensure html and body allow 100% height & prevent scroll */
+html, body {
+    height: 100%;
+    overflow: hidden; /* Critical to prevent double scrollbars */
+    margin: 0;
+    padding: 0;
+}
+
+/* --- App View Container --- */
+/* Base styles for all primary views (MainMenu, GameView, Loading, etc.) */
+.app-view {
+    display: flex;
+    flex-direction: column; /* Stack children vertically */
+    align-items: center; /* Center children horizontally */
+    width: 100%; /* Full width */
+    max-width: 500px; /* Max width for content area */
+    margin: 0 auto; /* Center view horizontally */
+    flex-grow: 1; /* Allow view to take up available vertical space */
+    box-sizing: border-box;
+    padding: 15px; /* Default padding */
+    text-align: center;
+    justify-content: flex-start; /* Align content to top by default */
+    height: 100%; /* Take full height of parent (#root) */
+    min-height: 0; /* Prevent flex items from overflowing */
+    position: relative; /* For positioning children */
+    overflow-x: hidden; /* Prevent horizontal scroll */
+    overflow-y: auto; /* Allow VERTICAL scrolling if content exceeds view height */
+    -webkit-overflow-scrolling: touch; /* Smooth scrolling on iOS */
+
+    /* Apply safe area padding using CSS variables */
+    /* Add base padding to safe area values */
+    padding-top: calc(15px + var(--tg-safe-area-inset-top, 0px));
+    padding-bottom: calc(15px + var(--tg-safe-area-inset-bottom, 0px));
+    padding-left: calc(15px + var(--tg-safe-area-inset-left, 0px));
+    padding-right: calc(15px + var(--tg-safe-area-inset-right, 0px));
+
+    background-color: var(--primary-color, #ffffff); /* Ensure view has background */
+}
+
+/* --- Specific View Layout Adjustments --- */
+
+/* Loading Screen: Center content, prevent scroll */
+.app-view.loading-view {
+    justify-content: center;
+    align-items: center;
+    overflow: hidden; /* Loading screen should never scroll */
+    /* Adjust bottom padding to make more room for footer */
+    padding-bottom: calc(15px + var(--tg-safe-area-inset-bottom, 0px) + 60px);
+}
+
+/* Difficulty Selector: Center content vertically */
+/* Use ID if specific view structure requires it */
+#difficulty-select-view, /* If using ID */
+.app-view.difficulty-view /* If using class */ {
+    justify-content: center;
+    padding-top: 30px; /* Extra space at top */
+}
+
+/* Main Menu: Justify content to top */
+.app-view.main-menu-view {
+    justify-content: flex-start;
+}
+
+/* --- Game Container Layout --- */
+/* Specific layout for the main game screen */
+.app-view.game-view {
+    padding: 0; /* Remove default app-view padding */
+    overflow: hidden; /* Prevent container scroll, manage internally */
+    display: flex;
+    flex-direction: column;
+    /* Push keyboard/suggestions to bottom, header to top */
+    justify-content: space-between;
+    height: 100%;
+    min-height: 0;
+    width: 100%;
+    max-width: 100%; /* Override app-view max-width */
+    box-sizing: border-box;
+
+    /* Apply safe area padding only where needed */
+    padding-left: var(--tg-safe-area-inset-left, 0px);
+    padding-right: var(--tg-safe-area-inset-right, 0px);
+    /* Top/Bottom padding handled by header/keyboard */
+}
+
+
+/* --- Game Info Area Layout (Header Above Grid) --- */
+.game-info-area {
+    display: flex;
+    align-items: center;
+    justify-content: space-between; /* Space out items */
+    width: 100%;
+    max-width: 450px; /* Max width */
+    margin: 0 auto; /* Center horizontally */
+    padding: 5px 10px; /* Internal padding */
+    padding-top: calc(5px + var(--tg-safe-area-inset-top, 0px)); /* Apply TOP safe area */
+    box-sizing: border-box;
+    flex-shrink: 0; /* Prevent shrinking */
+    position: relative;
+    gap: 10px;
+    min-height: 50px;
+    background-color: var(--primary-color); /* Match background */
+    z-index: 10; /* Keep above grid */
+    border-bottom: 1px solid var(--border-color, transparent); /* Optional separator */
+}
+
+/* --- Wordle Grid Area (Middle Section) --- */
+/* Wrapper around the grid component for centering and animation */
+.grid-wrapper {
+    flex-grow: 1; /* Allow grid area to take available vertical space */
+    flex-shrink: 1; /* Allow shrinking */
+    min-height: 0; /* Allow shrinking below content size */
+    width: 100%;
+    max-width: 350px; /* Max width for the grid itself */
+    margin: 10px auto; /* Vertical margin, horizontal centering */
+    display: flex; /* Use flex to center the grid component */
+    justify-content: center;
+    align-items: center;
+    position: relative; /* For overlay message positioning */
+    overflow: hidden; /* Prevent content overflow */
+}
+/* The actual grid component inside the wrapper */
+#wordle-grid-component { /* Target the component if needed */
+    width: 100%; /* Fill the wrapper */
+    height: auto; /* Adjust height based on content */
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start; /* Align rows to top */
+    gap: 5px; /* Space between rows */
+}
+/* Container for a single row of tiles */
+.grid-row-container {
+    display: grid;
+    /* Use CSS variable set by Grid component based on wordLength prop */
+    grid-template-columns: repeat(var(--word-length, 4), 1fr);
+    gap: 5px; /* Space between tiles */
+    width: 100%;
+}
+/* Set word length variable (can also be set inline in Grid component if needed) */
+:root { --word-length: 4; }
+
+
+/* --- Suggestion Area --- */
+#suggestion-area {
+    flex-shrink: 0; /* Prevent shrinking */
+    width: 95%;
+    max-width: 450px;
+    margin: 5px auto 5px auto; /* Spacing */
+    min-height: 55px; /* Consistent minimum height */
+    height: auto;
+    background-color: var(--secondary-bg-color);
+    border: 1px dashed var(--border-color);
+    display: flex;
+    flex-wrap: wrap; /* Allow suggestions to wrap */
+    justify-content: center;
+    align-items: center;
+    padding: 5px;
+    border-radius: 4px;
+    overflow-y: auto; /* Allow scroll if many suggestions */
+    box-sizing: border-box;
+    transition: background-color 0.2s ease-in-out, border-color 0.2s ease-in-out;
+}
+#suggestion-area:not(.active){ /* Styles when empty/inactive */
+    border-style: solid; /* Change border when inactive */
+    background-color: transparent; /* Transparent background */
+    /* Keep min-height */
+}
+
+/* --- Keyboard Container (Stays at Bottom) --- */
+.keyboard-container {
+    flex-shrink: 0; /* Prevent shrinking */
+    min-height: 0;
+    width: 100%;
+    max-width: 500px; /* Keyboard max width */
+    margin: 0 auto; /* Center */
+    padding: 5px 3px 10px 3px; /* Internal padding */
+    box-sizing: border-box;
+    background-color: var(--keyboard-bg-color, var(--secondary-bg-color)); /* Background */
+    padding-bottom: calc(10px + var(--tg-safe-area-inset-bottom, 0px)); /* Apply BOTTOM safe area */
+    /* border-top: 1px solid var(--border-color, transparent); */ /* Optional top border */
+}
+/* Inner div holding keyboard rows */
+#keyboard {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    gap: 5px; /* Space between rows */
+}
+/* Container for a single row of keys */
+.keyboard-row {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    gap: 5px; /* Space between keys */
+}
+
+
+/* --- Main Menu Grid --- */
+.icon-menu-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 3 columns */
+    gap: 15px 10px; /* Row gap, Column gap */
+    padding: 10px 5px;
+    width: 100%;
+    max-width: 380px;
+    margin: 10px auto 20px auto;
+}
+
+/* --- Settings Grid --- */
+.settings-grid {
+    display: grid;
+    /* Fit as many columns as possible, min 100px wide */
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+    gap: 20px 15px; /* Row gap, Column gap */
+    padding: 15px 5px;
+    width: 100%;
+    max-width: 400px;
+    margin: 20px auto;
+    justify-items: center; /* Center item content horizontally */
+}
+
+/* --- Leaderboard Layout --- */
+/* Container for the mode selection buttons */
+#leaderboard-mode-selection {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+}
+/* Container for the scrolling list of cards */
+/* Max height and scrolling handled by .bottom-sheet-content in modals.css */
+#leaderboard-cards-container {
+    position: relative;
+    margin-top: 10px;
+    padding: 5px;
+    width: 100%;
+    box-sizing: border-box;
+}
+/* Style for the list itself */
+.leaderboard-cards-list {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px; /* Space between cards */
+    padding: 0 5px;
+}
+
+/* --- Streak Card Layout --- */
+.streak-cards-wrapper {
+    position: relative; /* For positioning cards absolutely */
+    width: 100%;
+    min-height: 180px; /* Ensure space for cards */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px; /* Horizontal gap if wrapping */
+    margin: 30px 0 20px 0;
+    flex-wrap: wrap; /* Allow wrapping on small screens */
+}
+
+/* --- Footer --- */
+/* Positioned at the bottom of flex containers */
+.footer {
+    width: 100%;
+    text-align: center;
+    padding: 10px 0;
+    margin-top: auto; /* Push to bottom */
+    flex-shrink: 0; /* Prevent shrinking */
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-end; /* Align content to bottom */
+    min-height: 50px; /* Ensure minimum space */
+    padding-bottom: var(--tg-safe-area-inset-bottom, 0px); /* Respect safe area */
+}
+
+/* --- WIP View Layout --- */
+.app-view.wip-view {
+    justify-content: center; /* Center content vertically */
+    text-align: center;
+}
+/* Container for the home button at the bottom of WIP */
+.bottom-home-button-container {
+    /* Styles defined in components.css */
+    margin-top: 40px; /* Space above button */
+    /* Removed absolute positioning - rely on flex layout */
+}
+
+/* --- Difficulty Buttons Container --- */
+.difficulty-buttons-large {
+    display: flex;
+    flex-direction: row; /* Side-by-side */
+    justify-content: center;
+    align-items: stretch; /* Make buttons equal height */
+    gap: 20px;
+    width: 100%;
+    max-width: 500px;
+    margin: 20px auto;
+}

@@ -1,0 +1,213 @@
+/* src/styles/animations.css */
+
+/* --- Standard Spin (Loading) --- */
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+/* --- Menu Item Icon Click Animations --- */
+/* Define various animations used for main menu items */
+@keyframes spin-once {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+@keyframes zoom-in-icon {
+  0% { transform: scale(1); opacity: 1; }
+  50% { transform: scale(1.25); opacity: 0.9; }
+  100% { transform: scale(1); opacity: 1; }
+}
+@keyframes flip-y-icon {
+  0% { transform: perspective(400px) rotateY(0deg); }
+  100% { transform: perspective(400px) rotateY(360deg); }
+}
+@keyframes move-tr-icon {
+  0% { transform: translate(0, 0); }
+  50% { transform: translate(10px, -10px); }
+  100% { transform: translate(0, 0); }
+}
+@keyframes spin-increasing {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(720deg); } /* Spin twice */
+}
+@keyframes swing-bell {
+  0% { transform: rotate(0deg); }
+  20% { transform: rotate(15deg); }
+  40% { transform: rotate(-10deg); }
+  60% { transform: rotate(5deg); }
+  80% { transform: rotate(-5deg); }
+  100% { transform: rotate(0deg); }
+}
+@keyframes slap-badge {
+  0% { transform: scale(1) rotate(0deg); }
+  30% { transform: scale(0.8) rotate(-5deg); }
+  60% { transform: scale(1.15) rotate(3deg); }
+  100% { transform: scale(1) rotate(0deg); }
+}
+@keyframes spin-streak {
+  from { transform: rotateY(0deg); }
+  to { transform: rotateY(360deg); }
+}
+@keyframes multiply-paper {
+  0% { transform: scale(1); opacity: 1; }
+  50% { transform: scale(1.1); opacity: 0.7; }
+  100% { transform: scale(1); opacity: 1; }
+}
+@keyframes spin-alt-ring {
+  0% { transform: rotateY(0deg) translateX(0); }
+  50% { transform: rotateY(180deg) translateX(0); }
+  60% { transform: rotateY(180deg) translateX(-3px); }
+  70% { transform: rotateY(180deg) translateX(3px); }
+  80% { transform: rotateY(180deg) translateX(-2px); }
+  90% { transform: rotateY(180deg) translateX(2px); }
+  100% { transform: rotateY(360deg) translateX(0); }
+}
+@keyframes swap-faces {
+  0% { transform: rotateY(0deg) scale(1); }
+  50% { transform: rotateY(180deg) scale(1.1); }
+  100% { transform: rotateY(360deg) scale(1); }
+}
+
+/* --- Apply Menu Animations via Classes --- */
+/* Classes are added/removed dynamically in MainMenu.tsx */
+.menu-item-icon-img.animating-spin-increasing { animation: spin-increasing 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94); animation-fill-mode: forwards; }
+.menu-item-icon-img.animating-swing-bell { animation: swing-bell 0.6s ease-in-out; transform-origin: top center; animation-fill-mode: forwards; }
+.menu-item-icon-img.animating-slap-badge { animation: slap-badge 0.4s ease-out; animation-fill-mode: forwards; }
+.menu-item-icon-img.animating-spin-streak { animation: spin-streak 0.5s linear; animation-fill-mode: forwards; }
+.menu-item-icon-img.animating-multiply-paper { animation: multiply-paper 0.4s ease-in-out; animation-fill-mode: forwards; }
+.menu-item-icon-img.animating-spin-alt-ring { animation: spin-alt-ring 0.7s ease-in-out; backface-visibility: hidden; animation-fill-mode: forwards; }
+.menu-item-icon-img.animating-swap-faces { animation: swap-faces 0.6s ease-in-out; animation-fill-mode: forwards; backface-visibility: hidden; }
+/* Legacy/Unused Animations - Can be removed if not used by menu */
+/* .menu-item-icon-img.zooming-in, .top-control-icon.zooming-in { animation-name: zoom-in-icon; animation-duration: 0.4s; animation-timing-function: ease-in-out; animation-fill-mode: forwards; } */
+/* .menu-item-icon-img.flipping-y { animation-name: flip-y-icon; animation-duration: 0.5s; animation-timing-function: ease-in-out; backface-visibility: hidden; animation-fill-mode: forwards; } */
+/* .menu-item-icon-img.spinning-once { animation-name: spin-once; animation-duration: 0.4s; animation-timing-function: linear; animation-fill-mode: forwards; } */
+/* .menu-item-icon-img.moving-top-right { animation-name: move-tr-icon; animation-duration: 0.4s; animation-timing-function: ease-in-out; animation-fill-mode: forwards; } */
+
+/* Ensure WIP items don't animate */
+.menu-item.wip-active .menu-item-icon-img {
+    animation-name: none !important; /* Prevent animation */
+    filter: grayscale(80%) brightness(0.9); /* Static style for WIP */
+}
+
+
+/* --- Tile Flip Animation (Feedback Reveal) --- */
+@keyframes flipTileVertical {
+  0% {
+    transform: perspective(500px) rotateX(0deg);
+    /* Color is set by the tile's base state */
+  }
+  50% {
+    transform: perspective(500px) rotateX(-90deg);
+    /* Color still set by base state */
+  }
+  /* At 50%, React changes the className, which changes the background/border color via CSS */
+  100% {
+    transform: perspective(500px) rotateX(0deg);
+    /* Color now set by the new state class (correct, present, absent) */
+  }
+}
+/* Class applied by React state */
+.tile.flipping-vertical {
+    animation-name: flipTileVertical;
+    animation-duration: 0.6s; /* 600ms */
+    animation-timing-function: ease-in-out;
+    /* animation-delay is applied inline via style prop in Tile.tsx */
+    backface-visibility: hidden; /* Prevent seeing back during flip */
+}
+
+/* --- Grid Shake Animation (Invalid Guess) --- */
+@keyframes shake {
+  10%, 90% { transform: translateX(-1px); }
+  20%, 80% { transform: translateX(2px); }
+  30%, 50%, 70% { transform: translateX(-4px); } /* Slightly more shake */
+  40%, 60% { transform: translateX(4px); }
+}
+/* Class applied dynamically to the grid wrapper in GameView.tsx */
+.grid-wrapper.shake { /* Target the wrapper */
+  animation: shake 0.5s cubic-bezier(.36,.07,.19,.97) both; /* 500ms */
+}
+
+/* --- Tile Fall Animation (Losing Row) --- */
+@keyframes fallTile {
+  0% { transform: translateY(0) rotateZ(0); opacity: 1; }
+  100% { transform: translateY(250px) rotateZ(15deg); opacity: 0; } /* Fall further down */
+}
+/* Class applied dynamically to Tile components in the losing row */
+.tile.falling {
+    animation-name: fallTile;
+    animation-duration: 1.0s; /* Slightly longer duration */
+    animation-timing-function: ease-in;
+    animation-fill-mode: forwards; /* Keep the tile "fallen" (invisible) */
+    z-index: 1; /* Ensure falling tiles are visually above others if needed */
+    /* animation-delay can be added inline for stagger if desired */
+}
+
+/* --- Confetti Piece Animation --- */
+/* Keyframes are handled by framer-motion variants in ballpit.tsx */
+/* No specific @keyframes needed here for the confetti */
+
+/* --- Bottom Sheet / Modal Animations --- */
+/* Fade-in/out and slide-up/down are handled by Framer Motion in BottomSheet.tsx */
+/* No specific @keyframes needed here */
+
+/* --- Hint Display Marquee Animation --- */
+@keyframes marquee-hint {
+    0% { transform: translateX(0%); } /* Start fully visible */
+   20% { transform: translateX(0%); } /* Pause at start */
+   80% { transform: translateX(calc(-100% - 20px)); } /* Scroll left (adjust -20px buffer as needed) */
+  100% { transform: translateX(calc(-100% - 20px)); } /* Stay scrolled off-screen */
+}
+/* Apply animation via class in components.css or GameView.tsx logic */
+/* Example target (adjust selector based on actual structure): */
+/* .hint-text-wrapper.scrolling-hint .hint-text-inner { animation: marquee-hint 15s linear infinite; padding-left: 100%; } */
+
+/* --- Leaderboard Card Fall Animation --- */
+@keyframes fallFromTop {
+  0% { transform: translateY(-60px); opacity: 0; } /* Start further up */
+  100% { transform: translateY(0); opacity: 1; }
+}
+/* Class applied dynamically in LeaderboardModal.tsx */
+.leaderboard-card-animated {
+    animation-name: fallFromTop;
+    animation-duration: 0.6s; /* Adjust duration */
+    animation-timing-function: cubic-bezier(0.4, 0, 0.2, 1); /* Smoother ease-out */
+    animation-fill-mode: both; /* Keep the end state */
+    /* Delay is applied via specific rank classes */
+}
+.leaderboard-card-animated.rank-1 { animation-delay: 0.1s; }
+.leaderboard-card-animated.rank-2 { animation-delay: 0.2s; }
+.leaderboard-card-animated.rank-3 { animation-delay: 0.3s; }
+
+
+/* --- Streak Card Animations --- */
+/* Keyframes remain the same, check application classes in components.css/StreakModal.tsx */
+@keyframes slide-in-left {
+    from { transform: translateX(-100%) rotateZ(-20deg); opacity: 0; }
+    to { transform: translateX(0) rotateZ(0); opacity: 1; } /* Animate fully into place */
+}
+@keyframes slide-in-right {
+    from { transform: translateX(100%) rotateZ(20deg); opacity: 0; }
+    to { transform: translateX(0) rotateZ(0); opacity: 1; } /* Animate fully into place */
+}
+@keyframes slide-in-middle {
+    from { transform: translateY(50%) scale(0.8); opacity: 0; }
+    to { transform: translateY(0) scale(1); opacity: 1; } /* Animate fully into place */
+}
+/* Application classes are in components.css or applied dynamically */
+/* .streak-card.streak-card-left.animate-in { animation: slide-in-left ... } */
+/* .streak-card.streak-card-right.animate-in { animation: slide-in-right ... } */
+/* .streak-card.streak-card-middle.animate-in { animation: slide-in-middle ... } */
+
+
+/* --- Global Error Toast Animation (Example) --- */
+@keyframes slideInError {
+    from { transform: translateY(100%); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+}
+@keyframes slideOutError {
+    from { transform: translateY(0); opacity: 1; }
+    to { transform: translateY(100%); opacity: 0; }
+}
+/* Apply these via classes added/removed in App.tsx or a dedicated Toast component */
+/* .global-error-toast.show { animation: slideInError 0.3s ease-out forwards; } */
+/* .global-error-toast.hide { animation: slideOutError 0.3s ease-in forwards; } */

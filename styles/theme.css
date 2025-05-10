@@ -1,0 +1,166 @@
+/* src/styles/theme.css */
+
+/* --- Define CSS Variables --- */
+/* These variables are populated/overridden by Telegram Web App theme parameters */
+/* Default values (Light Theme) are provided as fallbacks */
+:root {
+  /* --- Telegram Theme Variables --- */
+  /* Backgrounds */
+  --tg-theme-bg-color: #ffffff;
+  --tg-theme-secondary-bg-color: #efeff4;
+  --tg-theme-header-bg-color: var(--tg-theme-bg-color); /* Usually matches main bg */
+  --tg-theme-section-bg-color: var(--tg-theme-secondary-bg-color); /* For distinct sections */
+
+  /* Text */
+  --tg-theme-text-color: #000000;
+  --tg-theme-hint-color: #999999;
+  --tg-theme-link-color: #007aff;
+  --tg-theme-button-text-color: #ffffff;
+  --tg-theme-destructive-text-color: #ff3b30;
+  --tg-theme-accent-text-color: var(--tg-theme-button-color); /* Accent often matches button */
+  --tg-theme-section-header-text-color: var(--tg-theme-text-color);
+  --tg-theme-subtitle-text-color: var(--tg-theme-hint-color);
+
+  /* Buttons */
+  --tg-theme-button-color: #007aff;
+
+  /* --- RGB Versions (Calculated by JS in old setup, define sensible defaults) --- */
+  /* Used for applying opacity via rgba() */
+  /* Light Mode Defaults */
+  --tg-theme-bg-rgb: 255, 255, 255;
+  --tg-theme-secondary-bg-rgb: 239, 239, 244;
+  --tg-theme-button-rgb: 0, 122, 255;
+  --tg-theme-destructive-rgb: 255, 59, 48;
+  --tg-theme-text-color-rgb: 0, 0, 0;
+  --tg-theme-hint-color-rgb: 153, 153, 153;
+
+
+  /* --- App Specific Semantic Variables (Mapped from TG Vars) --- */
+  /* Use these semantic names in component CSS for better readability */
+  --primary-color: var(--tg-theme-bg-color);
+  --secondary-bg-color: var(--tg-theme-secondary-bg-color);
+  --text-color: var(--tg-theme-text-color);
+  --hint-text-color: var(--tg-theme-hint-color);
+  --button-color: var(--tg-theme-button-color);
+  --button-text-color: var(--tg-theme-button-text-color);
+  --destructive-text-color: var(--tg-theme-destructive-text-color);
+  --header-bg-color: var(--tg-theme-header-bg-color);
+  --accent-text-color: var(--tg-theme-accent-text-color);
+  --link-color: var(--tg-theme-link-color);
+
+  /* Border Colors */
+  --border-color: var(--tg-theme-subtitle-text-color, #d1d1d6); /* General subtle border */
+  --container-border-color: var(--border-color); /* Borders for grid/modals etc. */
+
+  /* --- Tile Feedback Colors (Fixed, not from theme) --- */
+  --correct-color: #6aaa64; /* Green */
+  --present-color: #c9b458; /* Yellow */
+  /* --family-color:  #8c54c9; */ /* Purple - REMOVED if family hint not used */
+  --absent-color: #787c7e; /* Dark Gray */
+  --tile-feedback-text-color: #ffffff; /* White text on feedback tiles */
+
+  /* --- Tile Base Colors --- */
+  --tile-bg-color: var(--primary-color); /* Match main background */
+  --tile-text-color: var(--text-color); /* Match main text color */
+  --tile-border-color-empty: var(--tg-theme-hint-color); /* Hint color for empty border */
+  --tile-border-color-filled: var(--text-color); /* Text color for filled border */
+
+  /* --- Keyboard Colors --- */
+  --keyboard-bg-color: var(--tg-theme-section-bg-color, var(--secondary-bg-color)); /* Use section or secondary bg */
+  /* Light mode key colors */
+  --key-bg-color: #d3d6da;
+  --key-text-color: var(--text-color);
+  --key-hover-color: #e8e8e8;
+  --key-active-color: #c0c0c0;
+  --key-delete-bg: #b0b4b8; /* Special color for delete/function keys if needed */
+  --key-special-text-color: var(--text-color);
+  /* Suggestion key hover/active (lighter than keyboard) */
+  --suggestion-hover-color: #f0f0f0;
+  --suggestion-active-color: #d9d9d9;
+  /* RGB for keyboard hover/active used in rgba() */
+  --key-hover-color-rgb: 232, 232, 232;
+  --key-active-color-rgb: 192, 192, 192;
+
+
+  /* --- Modal / Bottom Sheet Colors --- */
+  --modal-bg-color: var(--tg-theme-secondary-bg-color, #f8f8f8); /* Usually secondary bg */
+  --modal-border-color: var(--border-color); /* Use general border color */
+
+  /* --- Hint Glow Color (Example) --- */
+  /* --hint-glow-color: var(--present-color); */
+
+  /* --- Safe Area Insets (Populated by SDK/JS) --- */
+  /* These are applied via padding/margin in layout.css */
+  --tg-safe-area-inset-top: 0px;
+  --tg-safe-area-inset-bottom: 0px;
+  --tg-safe-area-inset-left: 0px;
+  --tg-safe-area-inset-right: 0px;
+}
+
+/* --- Dark Mode Overrides --- */
+/* Applied when the body has the 'dark-mode' class (set by SDK init) */
+body.dark-mode {
+  /* --- Telegram Theme Variables (Dark) --- */
+  --tg-theme-bg-color: #1c1c1d;
+  --tg-theme-secondary-bg-color: #2c2c2e;
+  --tg-theme-text-color: #ffffff;
+  --tg-theme-hint-color: #8e8e93;
+  --tg-theme-link-color: #0a84ff; /* Often brighter blue in dark mode */
+  --tg-theme-button-color: #0a84ff;
+  --tg-theme-button-text-color: #ffffff;
+  --tg-theme-header-bg-color: var(--tg-theme-bg-color);
+  --tg-theme-destructive-text-color: #ff453a; /* Often brighter red */
+  --tg-theme-accent-text-color: var(--tg-theme-button-color);
+  --tg-theme-section-bg-color: var(--tg-theme-secondary-bg-color);
+  --tg-theme-section-header-text-color: var(--tg-theme-text-color);
+  --tg-theme-subtitle-text-color: var(--tg-theme-hint-color);
+
+  /* --- RGB Versions (Dark) --- */
+  --tg-theme-bg-rgb: 28, 28, 30;
+  --tg-theme-secondary-bg-rgb: 44, 44, 46;
+  --tg-theme-button-rgb: 10, 132, 255;
+  --tg-theme-destructive-rgb: 255, 69, 58;
+  --tg-theme-text-color-rgb: 255, 255, 255;
+  --tg-theme-hint-color-rgb: 142, 142, 147; /* Approx conversion */
+
+  /* --- App Specific Variables (Dark) --- */
+  /* Tile Base Colors (Dark) */
+  --tile-bg-color: var(--primary-color);
+  --tile-text-color: var(--text-color);
+  --tile-border-color-empty: #3a3a3c; /* Darker border for empty tiles */
+  --tile-border-color-filled: var(--tg-theme-hint-color); /* Lighter border for filled */
+
+  /* Keyboard Colors (Dark) */
+  --keyboard-bg-color: #000000; /* Often pure black */
+  --key-bg-color: #555558; /* Dark Gray */
+  --key-text-color: var(--text-color);
+  --key-hover-color: #666669;
+  --key-active-color: #77777a;
+  --key-delete-bg: #444447;
+  --suggestion-hover-color: #6b6b6e;
+  --suggestion-active-color: #7d7d80;
+  /* RGB for dark key hover/active */
+  --key-hover-color-rgb: 102, 102, 105;
+  --key-active-color-rgb: 119, 119, 122;
+
+  /* Modal Colors (Dark) */
+  --modal-bg-color: var(--tg-theme-secondary-bg-color, #2c2c2e);
+  --modal-border-color: #48484a; /* Darker border */
+
+  /* Border Colors (Dark) */
+  --border-color: #48484a;
+  --container-border-color: var(--border-color);
+
+  /* Feedback colors remain the same (usually bright on dark bg) */
+  /* --correct-color: #6aaa64; */
+  /* --present-color: #c9b458; */
+  /* --absent-color: #3a3a3c; */ /* Maybe slightly darker absent color */
+  /* --tile-feedback-text-color: #ffffff; */
+}
+
+/* --- Apply Base Background/Color --- */
+/* Ensures the theme colors are applied immediately */
+body {
+  background-color: var(--primary-color);
+  color: var(--text-color);
+}
