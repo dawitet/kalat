@@ -213,7 +213,7 @@ const StreakModal: React.FC<StreakModalProps> = ({visible, onClose}) => {
           <Button
             label="ማጋራት"
             onPress={handleShareStreak}
-            leftIcon={require('../../../assets/images/icons/icon_share.png')}
+            leftIcon={require('../../assets/images/icons/icon_share.png')}
             variant="secondary"
             disabled={
               currentStreak === 0 && maxStreak === 0 && bestTimeHard === null
@@ -224,7 +224,7 @@ const StreakModal: React.FC<StreakModalProps> = ({visible, onClose}) => {
           <Button
             label="ዝጋ"
             onPress={handleClose}
-            leftIcon={require('../../../assets/images/icons/icon_home.png')}
+            leftIcon={require('../../assets/images/icons/icon_home.png')}
             variant="primary"
           />
         </View>

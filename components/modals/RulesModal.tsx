@@ -258,7 +258,7 @@ const RulesModal: React.FC<RulesModalProps> = ({visible, onClose}) => {
           <Button
             label="ዝጋ"
             onPress={handleClose}
-            leftIcon={require('../../../assets/images/icons/icon_home.png')}
+            leftIcon={require('../../assets/images/icons/icon_home.png')}
             variant="primary"
           />
         </View>

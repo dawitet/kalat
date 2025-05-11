@@ -136,7 +136,7 @@ const CreditsModal: React.FC<CreditsModalProps> = ({visible, onClose}) => {
 
           <View style={styles.creatorSection}>
             <Image
-              source={require('../../../assets/images/dave.png')}
+              source={require('../../assets/images/dave.png')}
               style={styles.creatorImage}
               resizeMode="cover"
             />
@@ -151,7 +151,7 @@ const CreditsModal: React.FC<CreditsModalProps> = ({visible, onClose}) => {
             label="ግብረመልስ ይስጡ"
             variant="primary"
             onPress={handleFeedbackLink}
-            leftIcon={require('../../../assets/images/icons/icon_feedback.png')}
+            leftIcon={require('../../assets/images/icons/icon_feedback.png')}
             style={styles.feedbackButton}
           />
 
@@ -162,7 +162,7 @@ const CreditsModal: React.FC<CreditsModalProps> = ({visible, onClose}) => {
           <Button
             label="ዝጋ"
             onPress={handleClose}
-            leftIcon={require('../../../assets/images/icons/icon_home.png')}
+            leftIcon={require('../../assets/images/icons/icon_home.png')}
             variant="secondary"
             style={styles.footerButton}
           />
