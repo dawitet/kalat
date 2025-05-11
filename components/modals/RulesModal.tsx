@@ -14,6 +14,7 @@ import {useGameContext} from '../../context/hook';
 import {useTheme} from '../../providers/ThemeProvider';
 import Modal from '../common/Modal';
 import Button from '../common/Button';
+import {getImageSource} from '../../assets/imageRegistry';
 
 interface RulesModalProps {
   visible: boolean;
@@ -258,7 +259,7 @@ const RulesModal: React.FC<RulesModalProps> = ({visible, onClose}) => {
           <Button
             label="ዝጋ"
             onPress={handleClose}
-            leftIcon={require('../../assets/images/icons/icon_home.png')}
+            leftIcon={getImageSource('icon_home')}
             variant="primary"
           />
         </View>

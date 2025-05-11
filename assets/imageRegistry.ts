@@ -13,6 +13,7 @@ const imageAssets: Record<string, ReturnType<typeof require>> = {
   'adey_icon': require('./images/icons/adey.png'),
   'icon_home': require('./images/icons/icon_home.png'),
   'icon_feedback': require('./images/icons/icon_feedback.png'),
+  'icon_share': require('./images/icons/icon_share.png'),
   // SVG files
   'kalat_logo_svg': require('./images/ቃላት.svg'),
 };

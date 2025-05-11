@@ -8,6 +8,7 @@ import {
   Share,
   Alert,
 } from 'react-native';
+import {getImageSource} from '../../assets/imageRegistry';
 import * as Haptics from 'expo-haptics';
 import {
   useAnimatedStyle,
@@ -213,7 +214,7 @@ const StreakModal: React.FC<StreakModalProps> = ({visible, onClose}) => {
           <Button
             label="ማጋራት"
             onPress={handleShareStreak}
-            leftIcon={require('../../assets/images/icons/icon_share.png')}
+            leftIcon={getImageSource('icon_share')}
             variant="secondary"
             disabled={
               currentStreak === 0 && maxStreak === 0 && bestTimeHard === null
@@ -224,7 +225,7 @@ const StreakModal: React.FC<StreakModalProps> = ({visible, onClose}) => {
           <Button
             label="ዝጋ"
             onPress={handleClose}
-            leftIcon={require('../../assets/images/icons/icon_home.png')}
+            leftIcon={getImageSource('icon_home')}
             variant="primary"
           />
         </View>
