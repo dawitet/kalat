@@ -1,6 +1,6 @@
-// src/screens/MainMenu.tsx
 import React, {useContext, useEffect} from 'react';
 import {Text, StyleSheet, Image, View} from 'react-native';
+import {getImageSource} from '../assets/imageRegistry';
 import {GameContext} from '../context/GameContext';
 import {useTheme} from '../providers/ThemeProvider';
 import {Difficulty, ModalType} from '../types';
@@ -198,7 +198,7 @@ const MainMenu: React.FC = () => {
     <Container useSafeArea scrollable centerHorizontal>
       <View style={styles.logoContainer}>
         <Image
-          source={require('../assets/images/ቃላት.svg')}
+          source={getImageSource('kalat_logo_svg')}
           style={styles.logo}
         />
         <Text style={styles.title}>ቃላት</Text>

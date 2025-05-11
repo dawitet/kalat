@@ -2,6 +2,7 @@
 import React from 'react';
 import {View, Text, StyleSheet, TouchableOpacity, Image} from 'react-native';
 import {useTheme} from '../providers/ThemeProvider';
+import {getImageSource} from '../assets/imageRegistry';
 
 interface WipScreenProps {
   title?: string;
@@ -61,7 +62,7 @@ const WipScreen: React.FC<WipScreenProps> = ({
   return (
     <View style={styles.container}>
       <Image
-        source={require('../assets/images/icons/adey.png')}
+        source={getImageSource('adey_icon')}
         style={styles.icon}
       />
       <Text style={styles.titleText}>{title}</Text>

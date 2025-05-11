@@ -2,8 +2,8 @@
 import React, {useEffect, useRef} from 'react';
 import {View, Text, StyleSheet, Animated, ViewStyle} from 'react-native';
 import {useSafeAreaInsets} from 'react-native-safe-area-context';
-import {useTheme} from '../providers/ThemeProvider'; // Adjust path
-// import { Theme } from '../styles/theme'; // Type if needed
+import {useTheme} from '../providers/ThemeProvider'; 
+import {getImageSource} from '../assets/imageRegistry';
 
 // --- Props Interface ---
 interface LoadingScreenProps {
@@ -97,7 +97,7 @@ const LoadingScreen: React.FC<LoadingScreenProps> = React.memo(({style}) => {
       <View style={styles.contentContainer}>
         <Text style={styles.title}>ቃላት</Text>
         <Animated.Image
-          source={require('../assets/images/icons/adey.png')}
+          source={getImageSource('adey_icon')}
           style={[styles.spinnerImage, {transform: [{rotate: spin}]}]}
           resizeMode="contain"
         />
@@ -105,7 +105,7 @@ const LoadingScreen: React.FC<LoadingScreenProps> = React.memo(({style}) => {
 
       <View style={styles.footerContainer}>
         {/* <Image
-                     source={require('../assets/images/icons/dog.png')}
+                     source={getImageSource('dog')}
                      style={styles.footerLogo}
                      resizeMode="contain"
                  /> */}

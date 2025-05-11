@@ -3,6 +3,7 @@ import React, {useEffect, useRef, useMemo} from 'react';
 import {View, Text, StyleSheet, Animated, ViewStyle} from 'react-native';
 import {useSafeAreaInsets} from 'react-native-safe-area-context';
 import {useTheme} from '../providers/ThemeProvider';
+import {getImageSource} from '../assets/imageRegistry';
 
 /**
  * Props for the OptimizedLoadingScreen component
@@ -114,7 +115,7 @@ const OptimizedLoadingScreen: React.FC<OptimizedLoadingScreenProps> = ({
       <View style={styles.contentContainer}>
         <Text style={styles.title}>ቃላት</Text>
         <Animated.Image
-          source={require('../assets/images/icons/adey.png')}
+          source={getImageSource('adey_icon')}
           style={[styles.spinnerImage, {transform: [{rotate: spin}]}]}
           resizeMode="contain"
         />

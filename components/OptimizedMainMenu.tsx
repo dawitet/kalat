@@ -7,6 +7,7 @@ import {Difficulty} from '../types';
 import Container from './common/Container';
 import Button from './common/Button';
 import {GameAction, UIAction} from '../context/actions';
+import {getImageSource} from '../assets/imageRegistry';
 
 /**
  * Optimized main menu component with performance improvements
@@ -179,7 +180,7 @@ const OptimizedMainMenu: React.FC = () => {
     <Container useSafeArea scrollable centerHorizontal>
       <View style={styles.logoContainer}>
         <Image
-          source={require('../assets/images/ቃላት.svg')}
+          source={getImageSource('kalat_logo_svg')}
           style={styles.logo}
         />
         <Text style={styles.title}>ቃላት</Text>
