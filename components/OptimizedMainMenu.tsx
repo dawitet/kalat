@@ -27,7 +27,7 @@ const OptimizedMainMenu: React.FC = () => {
       if (!context) {
         return;
       }
-      
+
       if (screen === 'GameView') {
         if (params?.difficulty) {
           safeDispatch({

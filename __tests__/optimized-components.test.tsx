@@ -2,7 +2,9 @@
 import React from 'react';
 import {render, fireEvent} from '@testing-library/react-native';
 import OptimizedKey from '../components/OptimizedKey';
-import OptimizedKeyboard, {TileState} from '../components/OptimizedKeyboard';
+// Assuming TileState is exported from 'types' or a similar central location
+import {TileState} from '../types'; // CORRECTED: Import TileState from a central types file
+import OptimizedKeyboard from '../components/OptimizedKeyboard';
 import RefactoredGameView from '../components/RefactoredGameView';
 import {ThemeProvider} from '../providers/ThemeProvider';
 import {GameProvider} from '../context/GameContext';
@@ -74,7 +76,7 @@ describe('OptimizedKey Component', () => {
 
 describe('OptimizedKeyboard Component', () => {
   const mockOnKeyPress = jest.fn();
-  const letterHints: { [key: string]: TileState } = {ሀ: 'correct', ለ: 'present'};
+  const letterHints: {[key: string]: TileState} = {ሀ: 'correct', ለ: 'present'};
 
   it('renders with letter hints', () => {
     const {getByTestId} = render(

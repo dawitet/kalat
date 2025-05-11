@@ -44,7 +44,7 @@ const OptimizedSuggestionArea: React.FC<OptimizedSuggestionAreaProps> = () => {
 
   // Memoize the suggestion keys to prevent unnecessary re-renders
   const suggestionKeys = useMemo(() => {
-    if (!hasSuggestions) {return null;}
+    if (!hasSuggestions || !activeSuggestionFamily) {return null;}
 
     return activeSuggestionFamily.map((letter, index) => (
       <OptimizedKey

@@ -53,7 +53,7 @@ const OptimizedKey: React.FC<KeyProps> = React.memo(
 
     // Create memoized style overrides based on state
     const styleOverrides = useMemo((): ViewStyle => {
-      let overrideStyle: ViewStyle = {};
+      const overrideStyle: ViewStyle = {};
 
       if (state === 'present') {
         overrideStyle.backgroundColor = theme.colors.tile.present;
@@ -72,7 +72,7 @@ const OptimizedKey: React.FC<KeyProps> = React.memo(
 
     // Create memoized text style overrides based on state
     const textStyleOverrides = useMemo((): TextStyle => {
-      let overrideTextStyle: TextStyle = {};
+      const overrideTextStyle: TextStyle = {};
 
       if (state === 'correct' || state === 'present' || state === 'absent') {
         overrideTextStyle.color = theme.colors.tile.feedbackText;

@@ -56,7 +56,7 @@ export type UIAction =
   | {type: 'SET_THEME_PREFERENCE'; payload: ThemePreference}
   | {type: 'SET_HINTS_ENABLED'; payload: boolean}
   | {type: 'SET_MUTED'; payload: boolean}
-  | {type: 'SET_ACTIVE_SUGGESTION'; payload: string | null};
+  | {type: 'SET_ACTIVE_SUGGESTION'; payload: string[] | null};
 
 // Combine all action types
 export type GameAction =
@@ -296,7 +296,7 @@ export const uiActions = {
   /**
    * Set active suggestion family
    */
-  setActiveSuggestion: (suggestion: string | null): UIAction => ({
+  setActiveSuggestion: (suggestion: string[] | null): UIAction => ({
     type: 'SET_ACTIVE_SUGGESTION',
     payload: suggestion,
   }),

@@ -5,8 +5,6 @@ import OptimizedGridRow from './OptimizedGridRow';
 import {useAnimations} from '../hooks/useAnimations';
 import {TileState} from '../types';
 
-import {GridRowProps} from './GridRow';
-
 interface OptimizedGridProps {
   guesses: string[][];
   feedback: TileState[][];
@@ -21,6 +19,7 @@ interface OptimizedGridProps {
   onFlipComplete?: (rowIndex: number) => void;
   onWinAnimationComplete?: () => void;
   style?: StyleProp<ViewStyle>;
+  testID?: string; // Added testID prop for testing
 }
 
 /**
@@ -40,6 +39,7 @@ const OptimizedGrid: React.FC<OptimizedGridProps> = ({
   onFlipComplete,
   onWinAnimationComplete,
   style,
+  testID,
 }) => {
   // Track which row is currently flipping
   const [isFlippingRow, setIsFlippingRow] = useState<number | null>(null);
@@ -84,15 +84,7 @@ const OptimizedGrid: React.FC<OptimizedGridProps> = ({
         feedback[rowIndex] || Array(wordLength).fill('empty');
       const isFlipping = rowIndex === isFlippingRow;
 
-      const gridRowProps: GridRowProps = {
-        letters: displayGuess.split(''),
-        feedback: currentFeedback,
-        isFlipping,
-        shouldShake: isCurrentRow && shouldShake,
-        rowIndex,
-        onFlipComplete: () => handleRowFlipComplete(rowIndex),
-        onShakeComplete: isCurrentRow ? onShakeComplete : undefined,
-      };
+      // Direct props assignment without the intermediate variable
       return (
         <OptimizedGridRow
           key={`guess-${rowIndex}`}
@@ -136,7 +128,7 @@ const OptimizedGrid: React.FC<OptimizedGridProps> = ({
   }, [guesses.length, maxGuesses, wordLength]);
 
   return (
-    <View style={[styles.gridContainer, style, popAnimStyles]}>
+    <View style={[styles.gridContainer, style, popAnimStyles]} testID={testID}>
       {completedRows}
       {emptyRows}
     </View>

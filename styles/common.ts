@@ -4,6 +4,7 @@
 // theme-dependent common styles, but as utility classes, they are often generic.
 
 import {StyleSheet, ViewStyle, TextStyle, ImageStyle} from 'react-native';
+import { Theme } from './theme';
 // Removed theme imports as the original didn't use them.
 // If you want themed common styles, import { spacing, borderRadius, typography } from './theme';
 
@@ -133,7 +134,7 @@ export const combineStyles = <T extends ViewStyle | TextStyle | ImageStyle>(
     | false
     | null
     | undefined
-    | StyleSheet.NamedStyles<any>[keyof StyleSheet.NamedStyles<any>]
+    | StyleSheet.NamedStyles<Record<string, unknown>>[string]
   )[] // Allow passing style objects directly
 ): T[] => {
   // Return array for RN style prop
@@ -141,10 +142,9 @@ export const combineStyles = <T extends ViewStyle | TextStyle | ImageStyle>(
 };
 
 // Helper function to create themed styles (Keep as is)
-// Note: Theme type might need adjustment based on your final Theme structure
 export const createThemedStyles = <T extends StyleSheet.NamedStyles<T>>(
-  theme: any, // Replace 'any' with your actual Theme type from theme.ts
-  stylesFactory: (theme: any) => T, // Use the same Theme type here
+  theme: Theme, // Replaced any with Theme type
+  stylesFactory: (theme: Theme) => T, // Use the Theme type here
 ): T => {
   return StyleSheet.create(stylesFactory(theme));
 };

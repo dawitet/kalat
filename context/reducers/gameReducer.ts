@@ -13,11 +13,11 @@ export const gameLogicReducer = (
   state: GameLogicState,
   action: GameActionType,
 ): GameLogicState => {
-  const difficulty = state.currentDifficulty;
+  const currentDifficultyState = state.currentDifficulty;
   let difficultyKey: 'easy' | 'hard';
 
-  if (difficulty) {
-    difficultyKey = difficulty;
+  if (currentDifficultyState) {
+    difficultyKey = currentDifficultyState;
   }
 
   switch (action.type) {
@@ -107,17 +107,28 @@ export const gameLogicReducer = (
 
     case 'SET_CURRENT_DIFFICULTY': {
       const newDifficulty = action.payload;
+      // Return early if newDifficulty is null
+      if (newDifficulty === null) {
+        return {
+          ...state,
+          currentDifficulty: null,
+        };
+      }
+
+      // TypeScript needs help understanding newDifficulty is not null here
+      const difficultyValue = newDifficulty as 'easy' | 'hard';
+
       return {
         ...state,
-        currentDifficulty: newDifficulty,
+        currentDifficulty: difficultyValue,
         gameProgress: {
           ...state.gameProgress,
-          [newDifficulty]: state.gameProgress[newDifficulty]?.isFinished
-            ? state.gameProgress[newDifficulty]
+          [difficultyValue]: state.gameProgress[difficultyValue]?.isFinished
+            ? state.gameProgress[difficultyValue]
             : {
-                ...(state.gameProgress[newDifficulty] || createDefaultDifficultyState()),
-                targetWord: state.targetWords[newDifficulty]?.word || '',
-                currentHint: state.targetWords[newDifficulty]?.hint || '',
+                ...(state.gameProgress[difficultyValue] || createDefaultDifficultyState()),
+                targetWord: state.targetWords[difficultyValue]?.word || '',
+                currentHint: state.targetWords[difficultyValue]?.hint || '',
               },
         },
       };
@@ -206,7 +217,7 @@ export const gameLogicReducer = (
       const guessWord = progress.currentGuess.toUpperCase();
       const letterCounts: {[key: string]: number} = {};
 
-      for (let char of targetWord) {
+      for (const char of targetWord) {
         letterCounts[char] = (letterCounts[char] || 0) + 1;
       }
 
@@ -236,7 +247,7 @@ export const gameLogicReducer = (
           newLetterHints[letter] = currentTileState;
         }
       }
-      
+
       const won = guessWord === targetWord;
       const isFinished = won || progress.currentRow === MAX_GUESSES - 1;
       let gamesWon = state.gamesWon;
@@ -259,7 +270,7 @@ export const gameLogicReducer = (
       } else if (isFinished) {
         currentStreak = 0;
       }
-      
+
       const today = getDateString(new Date());
       let dailyStatusUpdate = {...state.dailyStatus};
       if (state.wordSourceInfo[difficultyKey].source === WordSource.Daily && state.wordSourceInfo[difficultyKey].date === today) {

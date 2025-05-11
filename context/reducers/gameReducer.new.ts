@@ -1,5 +1,15 @@
 // src/context/reducers/gameReducer.ts
-import {GameAction, TileState, WordSource, Difficulty, MobileDailyStatus} from '../../types';
+import {
+  GameActionType,
+  TileState,
+  WordSource,
+  Difficulty,
+  MobileDailyStatus,
+  UIAction,
+  SetCurrentDifficultyAction as ImportedSetCurrentDifficultyAction,
+  InitializeGameAction as ImportedInitializeGameAction,
+  LoadPersistedDataAction as ImportedLoadPersistedDataAction,
+} from '../../types';
 import {WORD_LENGTH, MAX_GUESSES} from '../../game-state';
 import {getDateString} from '../../core/utils/calendar';
 import {initialState, createDefaultDifficultyState} from '../initialState';
@@ -97,23 +107,26 @@ interface SetLosingAnimationAction {
   payload: boolean;
 }
 
-// Extend GameAction with these additional actions
-declare module '../../types' {
-  interface GameAction extends
-    SetLetterFeedbackAction,
-    ResetGameAction,
-    SetGameCompleteAction,
-    RevealHintAction,
-    SetHintLetterAction,
-    SetLosingAnimationAction {}
-}
+// Create a unified action type for the game reducer
+type GameReducerAction =
+  | GameActionType
+  | UIAction
+  | SetLetterFeedbackAction
+  | ResetGameAction
+  | SetGameCompleteAction
+  | RevealHintAction
+  | SetHintLetterAction
+  | SetLosingAnimationAction
+  | ImportedSetCurrentDifficultyAction
+  | ImportedInitializeGameAction
+  | ImportedLoadPersistedDataAction;
 
 /**
  * Reducer for managing game logic state like guesses, words, progress, etc.
  */
 export const gameLogicReducer = (
   state: GameLogicState,
-  action: GameAction,
+  action: GameReducerAction,
 ): GameLogicState => {
   switch (action.type) {
     case 'SET_INITIALIZING':

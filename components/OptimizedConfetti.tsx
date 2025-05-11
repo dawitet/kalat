@@ -24,7 +24,7 @@ interface OptimizedConfettiPieceProps {
 const OptimizedConfettiPiece: React.FC<OptimizedConfettiPieceProps> = React.memo(({ piece }) => {
     // Use the optimized animation hook for better performance
     const { animStyle } = useCardAnimation(true);
-    
+
     // Create combined style with the piece properties
     const combinedStyle = useMemo(() => ({
         transform: [

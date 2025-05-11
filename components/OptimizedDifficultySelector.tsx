@@ -13,7 +13,7 @@ const OptimizedDifficultySelector: React.FC = () => {
   // Context hooks - must be called unconditionally at the top level
   const context = useContext(GameContext);
   const {theme} = useTheme();
-  
+
   // Safely access context values with null coalescing and proper typing
   const gameState = context?.gameState || {
     currentDifficulty: undefined as Difficulty | undefined,
@@ -22,16 +22,16 @@ const OptimizedDifficultySelector: React.FC = () => {
   const safeDispatch = useMemo(() => {
     return context?.dispatch || ((() => {}) as React.Dispatch<any>);
   }, [context]);
-  
+
   // Memoized difficulty selection handler
   const handleSelectDifficulty = useCallback((difficulty: Difficulty) => {
       // Skip if context isn't loaded
       if (!context) {
         return;
       }
-      
+
       if (
-        gameState.currentDifficulty === difficulty && 
+        gameState.currentDifficulty === difficulty &&
         gameState.activeModal === null
       ) {
         return;
@@ -47,7 +47,7 @@ const OptimizedDifficultySelector: React.FC = () => {
     if (!context) {
       return;
     }
-    
+
     if (!gameState.currentDifficulty) {
       Alert.alert('ችግር ይምረጡ', 'ለመጀመር እባክዎ የችግር ደረጃ ይምረጡ።');
       return;

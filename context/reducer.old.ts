@@ -1,6 +1,7 @@
 // src/context/reducer.ts
+// DEPRECATED: This file is kept for reference but is no longer used in the active codebase
 
-import {GameState, GameAction, WordSource, TileState} from '../types'; // Removed Difficulty
+import {GameState, GameActionType as GameAction, WordSource, TileState} from '../types'; // Using GameActionType instead of GameAction
 import {WORD_LENGTH, MAX_GUESSES} from '../game-state';
 import {getDateString} from '../core/utils/calendar';
 import {initialState, createDefaultDifficultyState} from './initialState';
@@ -397,7 +398,7 @@ export const gameReducer = (
         return state;
       } // Added curly braces
       const progress = state.gameProgress[difficulty];
-      let nextActiveModal = state.activeModal;
+      const nextActiveModal = state.activeModal;
       if (
         progress.won &&
         progress.flippingRowIndex === action.payload.rowIndex

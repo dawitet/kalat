@@ -61,8 +61,8 @@ const OptimizedGridRow: React.FC<OptimizedGridRowProps> = ({
   // Memoize tiles to prevent unnecessary re-renders
   const tiles = useMemo(() => {
     return letters.map((letter, index) => {
-      let shouldFlip = isFlipping;
-      let tileState = feedback[index] || 'empty';
+      const shouldFlip = isFlipping;
+      const tileState = feedback[index] || 'empty';
 
       return (
         <OptimizedTile

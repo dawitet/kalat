@@ -74,7 +74,7 @@ export const useGameContext = () => {
   const revealHint = useCallback(() => {
     dispatch(actionCreators.revealHint());
   }, [dispatch]);
-  
+
   // Navigation helpers
   const startNewGame = useCallback((difficulty: Difficulty) => {
     dispatch({
@@ -82,7 +82,7 @@ export const useGameContext = () => {
       payload: {difficulty},
     });
   }, [dispatch]);
-  
+
   const goHome = useCallback(() => {
     dispatch({type: 'GO_HOME'});
   }, [dispatch]);

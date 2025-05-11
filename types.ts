@@ -332,7 +332,7 @@ export interface RevealMainHintAction {
 
 export interface SetCurrentDifficultyAction {
   type: 'SET_CURRENT_DIFFICULTY';
-  payload: Difficulty;
+  payload: Difficulty | null;
 }
 
 export interface LogAnalyticsEventAction {
@@ -428,6 +428,50 @@ export interface SetDailyChallengeInfoAction {
 }
 // End added for provider.tsx
 
+// Need to add missing types used in actions.ts
+export interface AddLetterInputAction {
+  type: 'ADD_LETTER';
+  payload: string;
+}
+
+export interface DeleteLetterInputAction {
+  type: 'DELETE_LETTER';
+}
+
+export interface SubmitGuessInputAction {
+  type: 'SUBMIT_GUESS';
+}
+
+export interface SetLetterFeedbackAction {
+  type: 'SET_LETTER_FEEDBACK';
+  payload: { rowIndex: number; feedback: TileState[] };
+}
+
+export interface SetShakeGridAction {
+  type: 'SET_SHAKE_GRID';
+  payload: boolean;
+}
+
+export interface SetShowWinAnimationAction {
+  type: 'SET_SHOW_WIN_ANIMATION';
+  payload: boolean;
+}
+
+export interface SetLosingAnimationAction {
+  type: 'SET_LOSING_ANIMATION';
+  payload: boolean;
+}
+
+export interface RevealHintAction {
+  type: 'REVEAL_HINT';
+  payload: boolean;
+}
+
+export interface SetHintLetterAction {
+  type: 'SET_HINT_LETTER';
+  payload: string;
+}
+
 export type GameActionType =
   | SetTargetWordsAction
   | SetDailyStatusAction
@@ -442,46 +486,33 @@ export type GameActionType =
   | LoadUserDataStartAction
   | LoadUserDataSuccessAction
   | LoadUserDataFailureAction
-  | ResumeGameAction // Added ResumeGameAction to GameActionType
+  | ResumeGameAction
   | ShowSuggestionsAction
-  | ClearSuggestionsAction
-  | ClearFlipAnimationAction
-  | TriggerShakeAction
-  | ClearShakeAnimationAction
-  | ShowWinAnimationAction
-  | HideWinAnimationAction
-  | UpdatePreferenceAction
-  | SaveUserDataStartAction
-  | SaveUserDataSuccessAction
-  | SaveUserDataFailureAction
-  | ResetUserDataStartAction
-  | ResetUserDataSuccessAction
-  | ResetUserDataFailureAction
-  | ShowModalAction
-  | CloseModalAction
-  | SetErrorAction
-  | RevealMainHintAction
   | SetCurrentDifficultyAction
-  | LogAnalyticsEventAction
-  | ClearAnalyticsEventAction
-  | SetDailyReminderEnabledAction
-  | LoadPersistedDataAction
   | InitializeGameAction
-  | OpenModalAction
-  | SetThemePreferenceAction
-  | SetHintsEnabledAction
-  | SetMutedStateAction
-  | ResetUserDataAction
-  | SetErrorMessageAction
-  | ClearErrorMessageAction
   | SetSubmittingAction
-  | SetFlippingRowAction
   | AnimationCompletedAction
-  | SetAppStateAction
-  // Added for provider.tsx
+  | RevealMainHintAction
+  | UpdatePreferenceAction
+  | ResetUserDataAction
   | SetUserDataLoadingAction
   | SetUserDataSavingAction
-  | SetDailyChallengeInfoAction;
+  | SetDailyReminderEnabledAction
+  | SetDailyChallengeInfoAction
+  | SetErrorMessageAction
+  | ShowModalAction
+  | SetMutedStateAction
+  | LoadPersistedDataAction
+  | OpenModalAction
+  | CloseModalAction
+  | SetThemePreferenceAction
+  | SetHintsEnabledAction
+  | ClearErrorMessageAction
+  | SetFlippingRowAction
+  | SetAppStateAction
+  | LogAnalyticsEventAction
+  | SetAppStateAction
+  | LogAnalyticsEventAction;
 
 export interface GameContextType {
   gameState: GameState;
