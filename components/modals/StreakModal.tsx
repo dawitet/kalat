@@ -1,332 +1,235 @@
-// src/mobile/components/modals/StreakModal.tsx OR src/screens/StreakScreen.tsx
-import React, { useEffect, useCallback, useContext } from 'react';
-import { View, Text, StyleSheet, ScrollView, TouchableOpacity, Image, Share, Alert, Platform } from 'react-native';
-import { useSafeAreaInsets } from 'react-native-safe-area-context';
+// src/components/modals/StreakModal.tsx
+import React, {useEffect, useCallback, useMemo} from 'react';
+import {
+  View,
+  Text,
+  StyleSheet,
+  ScrollView,
+  Share,
+  Alert,
+} from 'react-native';
 import * as Haptics from 'expo-haptics';
-import Animated, {
-    useAnimatedStyle,
-    withSpring,
-    useSharedValue,
-    withDelay,
-    interpolate,
-    Extrapolate,
+import {
+  useAnimatedStyle,
+  withSpring,
+  useSharedValue,
+  withDelay,
+  interpolate,
+  Extrapolate,
 } from 'react-native-reanimated';
 
-// Context Hook
-import { GameContext } from '../../context/GameContext'; // Adjust path
-import { useTheme } from '../../providers/ThemeProvider'; // Adjust path
+// Components and hooks
+import {useGameContext} from '../../context/hook';
+import {useTheme} from '../../providers/ThemeProvider';
+import Modal from '../common/Modal';
+import Button from '../common/Button';
+import StatCard from './StatCard';
 
-const StreakModal: React.FC = () => {
-    const context = useContext(GameContext);
-    const insets = useSafeAreaInsets();
-    const { theme } = useTheme();
+interface StreakModalProps {
+  visible: boolean;
+  onClose: () => void;
+}
 
-    // Animation values for each card
-    const card1Anim = useSharedValue(0);
-    const card2Anim = useSharedValue(0);
-    const card3Anim = useSharedValue(0);
+const StreakModal: React.FC<StreakModalProps> = ({visible, onClose}) => {
+  const {gameState, setActiveModal} = useGameContext();
+  const {theme} = useTheme();
 
-    useEffect(() => {
-        const springConfig = { damping: 12, stiffness: 100, mass: 0.8 };
-        card1Anim.value = withDelay(50, withSpring(1, springConfig));
-        card2Anim.value = withDelay(150, withSpring(1, springConfig));
-        card3Anim.value = withDelay(250, withSpring(1, springConfig));
-    }, [card1Anim, card2Anim, card3Anim]);
+  // Animation values for each card
+  const card1Anim = useSharedValue(0);
+  const card2Anim = useSharedValue(0);
+  const card3Anim = useSharedValue(0);
 
-    const useAnimatedCardStyle = (animValue: Animated.SharedValue<number>) => {
-        return useAnimatedStyle(() => ({
-            opacity: animValue.value,
-            transform: [{
-                scale: interpolate(animValue.value, [0, 1], [0.8, 1], Extrapolate.CLAMP),
-            }, {
-                translateY: interpolate(animValue.value, [0, 1], [20, 0], Extrapolate.CLAMP),
-            }],
-        }));
-    };
+  // Initialize animations when modal becomes visible
+  useEffect(() => {
+    if (visible) {
+      const springConfig = { damping: 12, stiffness: 100, mass: 0.8 };
+      card1Anim.value = withDelay(50, withSpring(1, springConfig));
+      card2Anim.value = withDelay(150, withSpring(1, springConfig));
+      card3Anim.value = withDelay(250, withSpring(1, springConfig));
+    } else {
+      card1Anim.value = 0;
+      card2Anim.value = 0;
+      card3Anim.value = 0;
+    }
+  }, [visible, card1Anim, card2Anim, card3Anim]);
 
-    const animatedCard1Style = useAnimatedCardStyle(card1Anim);
-    const animatedCard2Style = useAnimatedCardStyle(card2Anim);
-    const animatedCard3Style = useAnimatedCardStyle(card3Anim);
+  // Animated styles for cards (useAnimatedStyle must be top-level)
+  const animatedCard1Style = useAnimatedStyle(() => ({
+    opacity: card1Anim.value,
+    transform: [
+      { scale: interpolate(card1Anim.value, [0,1], [0.8,1], Extrapolate.CLAMP) },
+      { translateY: interpolate(card1Anim.value, [0,1], [20,0], Extrapolate.CLAMP) },
+    ],
+  }));
 
-    const { // Moved destructuring after hooks
-        userId,
-        currentStreak = 0,
-        maxStreak = 0,
-        bestTimeHard = null,
-        guessesInBestTimeHardGame = null,
-    } = context?.gameState || {}; // Added null check for context and gameState
+  const animatedCard2Style = useAnimatedStyle(() => ({
+    opacity: card2Anim.value,
+    transform: [
+      { scale: interpolate(card2Anim.value, [0,1], [0.8,1], Extrapolate.CLAMP) },
+      { translateY: interpolate(card2Anim.value, [0,1], [20,0], Extrapolate.CLAMP) },
+    ],
+  }));
 
-    const handleShareStreak = useCallback(async () => {
-        if (currentStreak === 0 && maxStreak === 0 && bestTimeHard === null) {
-            Haptics.notificationAsync(Haptics.NotificationFeedbackType.Warning);
-            Alert.alert('ምንም የለም', 'ለማጋራት ምንም ጉዞ የለም። መጀመሪያ ጨዋታ ይጫወቱ!');
-            return;
-        }
+  const animatedCard3Style = useAnimatedStyle(() => ({
+    opacity: card3Anim.value,
+    transform: [
+      { scale: interpolate(card3Anim.value, [0,1], [0.8,1], Extrapolate.CLAMP) },
+      { translateY: interpolate(card3Anim.value, [0,1], [20,0], Extrapolate.CLAMP) },
+    ],
+  }));
 
-        Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Light);
-        const WEBAPP_URL = 'https://example.com'; // Placeholder for WEBAPP_URL
-        const shareMessage = `🔥 የኔ የቃላት ጉዞ፦ ${currentStreak} (ከፍተኛ፦ ${maxStreak})!\n\nቃላት ይጫወቱ! ${WEBAPP_URL}`;
+  const handleClose = useCallback(() => {
+    Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Light);
+    setActiveModal(null);
+    onClose();
+  }, [setActiveModal, onClose]);
 
-        try {
-            await Share.share({
-                message: shareMessage,
-            });
-        } catch (error: any) {
-            console.error('Error sharing streak:', error);
-            Alert.alert('ስህተት', 'ጉዞውን ማጋራት አልተቻለም: ' + error.message);
-        }
-    }, [currentStreak, maxStreak, bestTimeHard]);
+  const {
+    userId,
+    currentStreak = 0,
+    maxStreak = 0,
+    bestTimeHard = null,
+    guessesInBestTimeHardGame = null,
+  } = gameState || {};
 
-    const styles = StyleSheet.create({
-        container: {
-            flex: 1,
-            backgroundColor: theme.colors.primary,
-        },
-        scrollContent: {
-            padding: 20,
-            paddingBottom: 20, // For content before footer
-        },
-        header: {
-            flexDirection: 'row',
-            alignItems: 'center',
-            justifyContent: 'center', // Center title
-            marginBottom: 20,
-            position: 'relative', // For absolute positioning share button
-            minHeight: 40, // Ensure space for share button
-        },
-        profileName: {
-            fontSize: 18,
-            fontWeight: 'bold',
-            color: theme.colors.text,
-            textAlign: 'center',
-        },
-        shareButton: {
-            position: 'absolute',
-            right: 0,
-            top: '50%',
-            transform: [{ translateY: -16 }], // Adjust based on icon size
-            padding: 8,
-        },
-        shareIcon: {
-            width: 28, // Slightly larger
-            height: 28,
-            tintColor: theme.colors.link, // Use theme link color for icon
-        },
-        profileImageContainer: {
-            alignItems: 'center',
-            marginBottom: 25,
-        },
-        profileImage: {
-            width: 80,
-            height: 80,
-            borderRadius: 40,
-            borderWidth: 2,
-            borderColor: theme.colors.accent,
-        },
-        defaultProfileImage: {
-            width: 80,
-            height: 80,
-            borderRadius: 40,
-            backgroundColor: theme.colors.secondary,
-            justifyContent: 'center',
-            alignItems: 'center',
-            borderWidth: 2,
-            borderColor: theme.colors.accent,
-        },
-        defaultProfileText: { // For initial letter if no image
-            fontSize: 36,
-            color: theme.colors.text,
-            fontWeight: 'bold',
-        },
-        cardsWrapper: {
-            flexDirection: Platform.OS === 'web' ? 'row' : 'column', // Row for web-like, column for mobile
-            justifyContent: 'space-around',
-            alignItems: Platform.OS === 'web' ? 'stretch' : 'center',
-        },
-        card: {
-            backgroundColor: theme.colors.secondary,
-            borderRadius: 12,
-            padding: 15,
-            alignItems: 'center',
-            justifyContent: 'center',
-            minWidth: Platform.OS === 'web' ? 110 : '80%', // Adjust width
-            height: Platform.OS === 'web' ? 160 : undefined,
-            marginVertical: Platform.OS === 'web' ? 5 : 10,
-            marginHorizontal: Platform.OS === 'web' ? 5 : 0,
-            shadowColor: '#000',
-            shadowOffset: { width: 0, height: 2 },
-            shadowOpacity: 0.1,
-            shadowRadius: 4,
-            elevation: 3,
-        },
-        cardIcon: {
-            fontSize: 28, // Larger icon
-            marginBottom: 10,
-        },
-        cardValue: {
-            fontSize: 22, // Larger value
-            fontWeight: 'bold',
-            color: theme.colors.accent, // Use theme accent
-            marginBottom: 5,
-        },
-        cardLabel: {
-            fontSize: 13,
-            color: theme.colors.hint,
-            textAlign: 'center',
-            lineHeight: 18,
-        },
-        cardSubLabel: {
-            fontSize: 11,
-            color: theme.colors.hint,
-            marginTop: 4,
-            textAlign: 'center',
-        },
-        footer: {
-            paddingVertical: 15,
-            paddingBottom: insets.bottom + 15,
-            borderTopWidth: 1,
-            borderTopColor: theme.colors.border,
-            backgroundColor: theme.colors.secondary,
-            alignItems: 'center',
-        },
-        footerButton: {
-            flexDirection: 'row',
-            alignItems: 'center',
-            paddingVertical: 12,
-            paddingHorizontal: 30,
-            borderRadius: 8,
-            backgroundColor: theme.colors.buttonText,
-        },
-        footerIcon: {
-            width: 22,
-            height: 22,
-            marginRight: 10,
-            tintColor: theme.colors.buttonText,
-        },
-        footerButtonText: {
-            fontSize: 16,
-            color: theme.colors.buttonText,
-            fontWeight: '600',
-        },
-         errorPlaceholder: {
-            flex: 1,
-            justifyContent: 'center',
-            alignItems: 'center',
-            padding: 20,
-        },
-        errorText: {
-            fontSize: 16,
-            color: theme.colors.destructive,
-            textAlign: 'center',
-        },
-    });
-
-    if (!context || !context.gameState) { // Check if context or gameState is null/undefined
-        console.error('GameContext or gameState is not available in StreakModal');
-        return (
-            <View style={styles.container}>
-                <Text>Error: Game data is unavailable.</Text>
-            </View>
-        );
+  const handleShareStreak = useCallback(async () => {
+    if (currentStreak === 0 && maxStreak === 0 && bestTimeHard === null) {
+      // Use impactAsync instead of notificationAsync which might not be supported
+      Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Heavy);
+      Alert.alert('ምንም የለም', 'ለማጋራት ምንም ጉዞ የለም። መጀመሪያ ጨዋታ ይጫወቱ!');
+      return;
     }
 
-    // Derive username from userId or use a default
-    const username = userId ? `ተጫዋች ${userId.substring(0, 5)}` : 'ገማች';
+    Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Light);
+    const WEBAPP_URL = 'https://example.com'; // Placeholder for WEBAPP_URL
+    const shareMessage = `🔥 የኔ የቃላት ጉዞ፦ ${currentStreak} (ከፍተኛ፦ ${maxStreak})!\n\nቃላት ይጫወቱ! ${WEBAPP_URL}`;
 
-    const formatTime = (timeInSeconds: number | null | undefined): string => {
-        if (typeof timeInSeconds !== 'number' || timeInSeconds < 0) { return 'N/A'; }
-        const minutes = Math.floor(timeInSeconds / 60);
-        const seconds = Math.floor(timeInSeconds % 60); // No decimals for simpler display
-        return `${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
-    };
-
-    const displayBestTime = formatTime(bestTimeHard);
-
-    if (!userId) { // Check if any user identifier exists
-        return (
-            <View style={[styles.container, styles.errorPlaceholder]}>
-                <Text style={styles.errorText}>
-                    የተጠቃሚ መረጃን ማግኘት አልተቻለም። እባክዎ እንደገና ይሞክሩ።
-                </Text>
-            </View>
-        );
+    try {
+      await Share.share({
+        message: shareMessage,
+      });
+    } catch (error: any) {
+      console.error('Error sharing streak:', error);
+      Alert.alert('ስህተት', 'ጉዞውን ማጋራት አልተቻለም: ' + error.message);
     }
+  }, [currentStreak, maxStreak, bestTimeHard]);
 
+  const styles = useMemo(() => StyleSheet.create({
+    scrollContent: { padding: 20, paddingBottom: 20 },
+    header: { flexDirection: 'row', alignItems: 'center', justifyContent: 'center', marginBottom: 20, position: 'relative', minHeight: 40 },
+    profileName: { fontSize: 18, fontWeight: 'bold', color: theme.colors.text, textAlign: 'center' },
+    profileImageContainer: { alignItems: 'center', marginBottom: 25 },
+    defaultProfileImage: { width: 80, height: 80, borderRadius: 40, backgroundColor: theme.colors.border, justifyContent: 'center', alignItems: 'center' },
+    defaultProfileText: { fontSize: 32, color: theme.colors.text },
+    cardsWrapper: { flexDirection: 'row', justifyContent: 'space-around', marginBottom: 20 },
+    footer: { flexDirection: 'row', justifyContent: 'space-between', paddingHorizontal: 20 },
+    buttonSpacing: { marginTop: 10 },
+    // added modalContent style
+    modalContent: { padding: 0 },
+    errorPlaceholder: { padding: 20, alignItems: 'center', justifyContent: 'center' },
+    errorText: { fontSize: 16, color: theme.colors.text },
+  }), [theme]);
+
+  // Format time helper
+  const formatTime = useCallback(
+    (timeInSeconds: number | null | undefined): string => {
+      if (typeof timeInSeconds !== 'number' || timeInSeconds < 0) {
+        return 'N/A';
+      }
+      const minutes = Math.floor(timeInSeconds / 60);
+      const seconds = Math.floor(timeInSeconds % 60);
+      return `${minutes.toString().padStart(2, '0')}:${seconds
+        .toString()
+        .padStart(2, '0')}`;
+    },
+    [],
+  );
+
+  const displayBestTime = formatTime(bestTimeHard);
+
+  // Error state - user not found
+  if (!userId) {
     return (
-        <View style={styles.container}>
-            <ScrollView
-                contentContainerStyle={styles.scrollContent}
-                showsVerticalScrollIndicator={false}
-            >
-                <View style={styles.header}>
-                    <Text style={styles.profileName}>{username}</Text>
-                    {(currentStreak > 0 || maxStreak > 0 || bestTimeHard !== null) && (
-                        <TouchableOpacity
-                            style={styles.shareButton}
-                            onPress={handleShareStreak}
-                            accessibilityLabel="Share My Streak"
-                        >
-                            <Image
-                                source={require('../../../assets/images/icons/icon_share.png')} // Adjust path
-                                style={styles.shareIcon}
-                            />
-                        </TouchableOpacity>
-                    )}
-                </View>
-
-                <View style={styles.profileImageContainer}>
-                    <View style={styles.defaultProfileImage}>
-                        <Text style={styles.defaultProfileText}>
-                            {username.charAt(0).toUpperCase()}
-                        </Text>
-                    </View>
-                </View>
-
-                <View style={styles.cardsWrapper}>
-                    <Animated.View style={[styles.card, animatedCard1Style]}>
-                        <Text style={styles.cardIcon}>⏱️</Text>
-                        <Text style={styles.cardValue}>{displayBestTime}</Text>
-                        <Text style={styles.cardLabel}>ምርጥ ሰዓት{'\n'}(ከባድ)</Text>
-                        {bestTimeHard !== null && guessesInBestTimeHardGame !== null && (
-                            <Text style={styles.cardSubLabel}>({guessesInBestTimeHardGame} ግምት)</Text>
-                        )}
-                    </Animated.View>
-
-                    <Animated.View style={[styles.card, animatedCard2Style]}>
-                        <Text style={styles.cardIcon}>🔥</Text>
-                        <Text style={styles.cardValue}>{currentStreak}</Text>
-                        <Text style={styles.cardLabel}>የአሁኑ ጉዞ{'\n'}(ቀናት)</Text>
-                    </Animated.View>
-
-                    <Animated.View style={[styles.card, animatedCard3Style]}>
-                        <Text style={styles.cardIcon}>🏆</Text>
-                        <Text style={styles.cardValue}>{maxStreak}</Text>
-                        <Text style={styles.cardLabel}>ከፍተኛው ጉዞ{'\n'}(ቀናት)</Text>
-                    </Animated.View>
-                </View>
-            </ScrollView>
-
-            <View style={styles.footer}>
-                <TouchableOpacity
-                    style={styles.footerButton}
-                    onPress={() => {
-                        Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Light);
-                        if (context) {
-                            context.dispatch({ type: 'CLOSE_MODAL' });
-                        }
-                         // navigation.goBack();
-                    }}
-                    accessibilityLabel="ዝጋ"
-                >
-                    <Image
-                        source={require('../../../assets/images/icons/icon_home.png')} // Adjust path
-                        style={styles.footerIcon}
-                    />
-                    <Text style={styles.footerButtonText}>ዝጋ</Text>
-                </TouchableOpacity>
-            </View>
+      <Modal visible={visible} onClose={onClose}>
+        <View style={styles.errorPlaceholder}>
+          <Text style={styles.errorText}>
+            የተጠቃሚ መረጃን ማግኘት አልተቻለም። እባክዎ እንደገና ይሞክሩ።
+          </Text>
         </View>
+      </Modal>
     );
+  }
+
+  // Derive username from userId or use a default
+  const username = userId ? `ተጫዋች ${userId.substring(0, 5)}` : 'ገማች';
+
+  return (
+    <Modal visible={visible} onClose={handleClose} contentStyle={styles.modalContent}>
+      <ScrollView
+        contentContainerStyle={styles.scrollContent}
+        showsVerticalScrollIndicator={false}>
+        <View style={styles.header}>
+          <Text style={styles.profileName}>{username}</Text>
+        </View>
+
+        <View style={styles.profileImageContainer}>
+          <View style={styles.defaultProfileImage}>
+            <Text style={styles.defaultProfileText}>
+              {username.charAt(0).toUpperCase()}
+            </Text>
+          </View>
+        </View>
+
+        <View style={styles.cardsWrapper}>
+          <StatCard
+            icon="⏱️"
+            value={displayBestTime}
+            label={'ምርጥ ሰዓት\n(ከባድ)'}
+            subLabel={
+              bestTimeHard !== null && guessesInBestTimeHardGame !== null
+                ? `(${guessesInBestTimeHardGame} ግምት)`
+                : undefined
+            }
+            animatedStyle={animatedCard1Style}
+          />
+
+          <StatCard
+            icon="🔥"
+            value={currentStreak.toString()}
+            label={'የአሁኑ ጉዞ\n(ቀናት)'}
+            animatedStyle={animatedCard2Style}
+          />
+
+          <StatCard
+            icon="🏆"
+            value={maxStreak.toString()}
+            label={'ከፍተኛው ጉዞ\n(ቀናት)'}
+            animatedStyle={animatedCard3Style}
+          />
+        </View>
+
+        <View style={styles.footer}>
+          <Button
+            label="ማጋራት"
+            onPress={handleShareStreak}
+            leftIcon={require('../../../assets/images/icons/icon_share.png')}
+            variant="secondary"
+            disabled={
+              currentStreak === 0 && maxStreak === 0 && bestTimeHard === null
+            }
+            style={styles.buttonSpacing}
+          />
+
+          <Button
+            label="ዝጋ"
+            onPress={handleClose}
+            leftIcon={require('../../../assets/images/icons/icon_home.png')}
+            variant="primary"
+          />
+        </View>
+      </ScrollView>
+    </Modal>
+  );
 };
 
-export default StreakModal;
+export default React.memo(StreakModal);

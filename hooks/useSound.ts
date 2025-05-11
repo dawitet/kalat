@@ -1,5 +1,5 @@
-import { useCallback, useEffect, useRef } from 'react';
-import { Platform } from 'react-native';
+import {useCallback, useEffect, useRef} from 'react';
+import {Platform} from 'react-native';
 // import { useTheme } from '../context/ThemeContext'; // Removed unused theme import
 
 // type SoundEffect = { // Removed unused SoundEffect type
@@ -9,7 +9,7 @@ import { Platform } from 'react-native';
 
 export const useSound = () => {
   // const { theme } = useTheme(); // Removed unused theme variable
-  const sounds = useRef<{ [key: string]: any /* HTMLAudioElement */ }>({}); // Changed HTMLAudioElement to any for now
+  const sounds = useRef<{[key: string]: any /* HTMLAudioElement */}>({}); // Changed HTMLAudioElement to any for now
 
   const loadSound = useCallback((name: string, url: string) => {
     if (Platform.OS === 'web') {
@@ -48,33 +48,39 @@ export const useSound = () => {
     // await sounds.current[name]?.setPositionAsync(0);
   }, []);
 
-  const playHapticFeedback = useCallback((type: 'light' | 'medium' | 'heavy' = 'medium') => {
-    const nav = (globalThis as any).navigator as { vibrate?: (pattern: number | number[]) => boolean };
-    if (Platform.OS === 'web' && nav.vibrate) {
-      // Comment out navigator.vibrate usage (not available in React Native)
-      // switch (type) { // Commented out navigator.vibrate calls
-      //   case 'light':
-      //     // navigator.vibrate(10); // Commented out
-      //     break;
-      //   case 'medium':
-      //     // navigator.vibrate(20); // Commented out
-      //     break;
-      //   case 'heavy':
-      //     // navigator.vibrate(30); // Commented out
-      //     break;
-      // }
-      console.log(`Web haptic (mock): ${type}`);
-    }
-    // For React Native haptics, you'd use expo-haptics
-    // import * as Haptics from 'expo-haptics';
-    // if (type === 'light') Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Light);
-    // etc.
-  }, []);
+  const playHapticFeedback = useCallback(
+    (type: 'light' | 'medium' | 'heavy' = 'medium') => {
+      const nav = (globalThis as any).navigator as {
+        vibrate?: (pattern: number | number[]) => boolean;
+      };
+      if (Platform.OS === 'web' && nav.vibrate) {
+        // Comment out navigator.vibrate usage (not available in React Native)
+        // switch (type) { // Commented out navigator.vibrate calls
+        //   case 'light':
+        //     // navigator.vibrate(10); // Commented out
+        //     break;
+        //   case 'medium':
+        //     // navigator.vibrate(20); // Commented out
+        //     break;
+        //   case 'heavy':
+        //     // navigator.vibrate(30); // Commented out
+        //     break;
+        // }
+        console.log(`Web haptic (mock): ${type}`);
+      }
+      // For React Native haptics, you'd use expo-haptics
+      // import * as Haptics from 'expo-haptics';
+      // if (type === 'light') Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Light);
+      // etc.
+    },
+    [],
+  );
 
   useEffect(() => {
     return () => {
       if (Platform.OS === 'web') {
-        Object.values(sounds.current).forEach((_sound: any) => { // Marked sound as unused
+        Object.values(sounds.current).forEach((_sound: any) => {
+          // Marked sound as unused
           // _sound.pause(); // Commented out Web Audio API specific code
           // _sound.src = '';
         });

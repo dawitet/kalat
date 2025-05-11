@@ -11,7 +11,8 @@ export const MAX_GUESSES = 3; // Maximum number of attempts allowed per game
 // Define the base path for your API calls. Adjust if your worker has a custom domain.
 // Using a relative path assumes the frontend and backend are served from the same origin
 // or that a proxy handles routing. If they are on different domains, use the full worker URL.
-export const API_BASE_URL = 'https://kalat-bot-backend.dawitfikadu3.workers.dev'; // Relative path to the API endpoints on your worker
+export const API_BASE_URL =
+  'https://kalat-bot-backend.dawitfikadu3.workers.dev'; // Relative path to the API endpoints on your worker
 
 // --- Device Storage Keys REMOVED ---
 // export const DEVICE_STORAGE_ALL_DATA_KEY = 'kalatoch_device_data_v3'; // REMOVED
@@ -20,4 +21,6 @@ export const API_BASE_URL = 'https://kalat-bot-backend.dawitfikadu3.workers.dev'
 
 // --- Backend-Specific Constants REMOVED ---
 
-console.log(`Game State Constants: WORD_LENGTH=${WORD_LENGTH}, MAX_GUESSES=${MAX_GUESSES}, API_BASE_URL=${API_BASE_URL}`);
+console.log(
+  `Game State Constants: WORD_LENGTH=${WORD_LENGTH}, MAX_GUESSES=${MAX_GUESSES}, API_BASE_URL=${API_BASE_URL}`,
+);

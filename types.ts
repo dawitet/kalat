@@ -1,7 +1,13 @@
 // src/types.ts
 export type TileState = 'empty' | 'absent' | 'present' | 'correct' | 'filled';
 
-export type ModalType = 'difficulty' | 'settings' | 'rules' | 'streak' | 'credits' | null;
+export type ModalType =
+  | 'difficulty'
+  | 'settings'
+  | 'rules'
+  | 'streak'
+  | 'credits'
+  | null;
 
 export type Difficulty = 'easy' | 'hard';
 
@@ -14,7 +20,81 @@ export enum WordSource {
   Backup = 'backup',
 }
 
-// Removed duplicate declaration of RootStackParamList.
+// UI State interface for uiReducer
+export interface UIState {
+  activeModal: ModalType | null;
+  errorMessage?: string | null;
+  shouldShakeGrid?: boolean;
+  shouldShowWinAnimation?: boolean;
+  activeSuggestionFamily?: string[] | null; // Changed from string | null
+  flippingRowIndex?: number | null; // This is the UI-specific flipping row
+  themePreference?: ThemePreference;
+  hintsEnabled?: boolean;
+  isMuted?: boolean;
+}
+
+// Represents the state managed by the gameLogicReducer
+export interface GameLogicState {
+  isInitializing: boolean;
+  userId: string | null;
+  isBaseDataLoaded: boolean;
+  isUserDataLoading: boolean;
+  isUserDataSaving: boolean;
+  isUserDataResetting: boolean;
+  targetWords: {
+    easy: { word: string; hint: string };
+    hard: { word: string; hint: string };
+  };
+  currentDifficulty: Difficulty | null;
+  gameProgress: {
+    easy: MobileDifficultyProgress;
+    hard: MobileDifficultyProgress;
+  };
+  preferredDifficulty: Difficulty;
+  gamesPlayed: number;
+  gamesWon: number;
+  currentStreak: number;
+  maxStreak: number;
+  lastPlayedDate: string | null;
+  lastWinDate: string | null;
+  gamesPlayedEasy: number;
+  gamesWonEasy: number;
+  totalGuessesEasy: number;
+  gamesPlayedHard: number;
+  gamesWonHard: number;
+  totalTimePlayedHard: number;
+  bestTimeHard: number | null;
+  guessesInBestTimeHardGame: number;
+  dailyStatus: MobileDailyStatus;
+  wordSourceInfo: {
+    easy: { source: WordSource; date: string };
+    hard: { source: WordSource; date: string };
+  };
+  hapticType?: 'success' | 'error' | 'light' | null;
+  accessibilityAnnouncement?: string | null;
+  lastAnalyticsEvent?: { event: string; data?: object };
+  dailyReminderEnabled?: boolean;
+  isSubmitting: boolean;
+}
+
+// GameState is the combination of GameLogicState and UIState
+export interface GameState extends GameLogicState, UIState {
+  flippingRowIndex?: number | null; // Ensuring GameState has this, as UIState does.
+}
+
+// UI Action interface for uiReducer
+export type UIAction =
+  | { type: 'SET_ACTIVE_MODAL'; payload: ModalType | null }
+  | { type: 'SET_ERROR'; payload: string | null }
+  | { type: 'SET_THEME_PREFERENCE'; payload: ThemePreference }
+  | { type: 'SET_SHAKE_GRID'; payload: boolean }
+  | { type: 'SET_SHOW_WIN_ANIMATION'; payload: boolean }
+  | { type: 'SET_ACTIVE_SUGGESTION_FAMILY'; payload: string[] | null }
+  | { type: 'SET_ACTIVE_SUGGESTION'; payload: string[] | null }
+  | { type: 'SET_HINTS_ENABLED'; payload: boolean }
+  | { type: 'SET_MUTED'; payload: boolean }
+  | { type: 'SET_FLIPPING_ROW'; payload: number | null }
+  | { type: 'LOAD_PERSISTED_DATA'; payload: any };
 
 export interface MobileDifficultyProgress {
   guesses: string[][];
@@ -103,105 +183,252 @@ export type RootStackParamList = {
   Wip: undefined;
 };
 
-interface SetTargetWordsAction {
+export interface SetTargetWordsAction {
   type: 'SET_TARGET_WORDS';
-  payload: { easy: { word: string; hint: string; }; hard: { word: string; hint: string; }; };
+  payload: {
+    easy: { word: string; hint: string };
+    hard: { word: string; hint: string };
+  };
 }
 
-interface SetDailyStatusAction {
+export interface SetDailyStatusAction {
   type: 'SET_DAILY_STATUS';
   payload: MobileDailyStatus;
 }
 
-interface SetInitializingAction {
+export interface SetInitializingAction {
   type: 'SET_INITIALIZING';
   payload: boolean;
 }
 
-interface AddLetterAction { type: 'ADD_LETTER'; payload: string; }
-interface DeleteLetterAction { type: 'DELETE_LETTER'; }
-interface SubmitGuessAction { type: 'SUBMIT_GUESS'; }
-interface StartNewGameAction { type: 'START_NEW_GAME'; payload: { difficulty: Difficulty }; }
-interface GoHomeAction { type: 'GO_HOME'; }
-interface SetUserIdAction { type: 'SET_USER_ID'; payload: string | null; }
-interface BaseDataLoadedAction { type: 'BASE_DATA_LOADED'; }
-interface LoadUserDataStartAction { type: 'LOAD_USER_DATA_START'; }
-interface LoadUserDataSuccessAction { type: 'LOAD_USER_DATA_SUCCESS'; payload: Partial<GameState>; }
-interface LoadUserDataFailureAction { type: 'LOAD_USER_DATA_FAILURE'; payload: string; }
-interface ResumeGameAction { type: 'RESUME_GAME'; payload: { difficulty: Difficulty }; }
-interface ShowSuggestionsAction { type: 'SHOW_SUGGESTIONS'; payload: string[]; }
-interface ClearSuggestionsAction { type: 'CLEAR_SUGGESTIONS'; }
-interface ClearFlipAnimationAction { type: 'CLEAR_FLIP_ANIMATION'; }
-interface TriggerShakeAction { type: 'TRIGGER_SHAKE'; payload?: string; }
-interface ClearShakeAnimationAction { type: 'CLEAR_SHAKE_ANIMATION'; }
-interface ShowWinAnimationAction { type: 'SHOW_WIN_ANIMATION'; }
-interface HideWinAnimationAction { type: 'HIDE_WIN_ANIMATION'; }
-interface UpdatePreferenceAction { type: 'UPDATE_PREFERENCE'; payload: { key: keyof GameState; value: any }; }
-interface SaveUserDataStartAction { type: 'SAVE_USER_DATA_START'; }
-interface SaveUserDataSuccessAction { type: 'SAVE_USER_DATA_SUCCESS'; }
-interface SaveUserDataFailureAction { type: 'SAVE_USER_DATA_FAILURE'; payload: { error: string }; }
-interface ResetUserDataStartAction { type: 'RESET_USER_DATA_START'; }
-interface ResetUserDataSuccessAction { type: 'RESET_USER_DATA_SUCCESS'; }
-interface ResetUserDataFailureAction { type: 'RESET_USER_DATA_FAILURE'; payload: string; }
-interface ShowModalAction { type: 'SHOW_MODAL'; payload: ModalType; }
-interface CloseModalAction { type: 'CLOSE_MODAL'; }
-interface SetErrorAction { type: 'SET_ERROR'; payload: string | null; }
-interface RevealMainHintAction { type: 'REVEAL_MAIN_HINT'; }
-interface SetCurrentDifficultyAction { type: 'SET_CURRENT_DIFFICULTY'; payload: Difficulty; }
-interface LogAnalyticsEventAction { type: 'LOG_ANALYTICS_EVENT'; payload: { event: string; data?: object } }
-interface ClearAnalyticsEventAction { type: 'CLEAR_ANALYTICS_EVENT' }
-interface SetDailyReminderEnabledAction { type: 'SET_DAILY_REMINDER_ENABLED'; payload: boolean }
-interface LoadPersistedDataAction {
+export interface AddLetterAction {
+  type: 'ADD_LETTER';
+  payload: string;
+}
+
+export interface DeleteLetterAction {
+  type: 'DELETE_LETTER';
+}
+
+export interface SubmitGuessAction {
+  type: 'SUBMIT_GUESS';
+}
+
+export interface StartNewGameAction {
+  type: 'START_NEW_GAME';
+  payload: { difficulty: Difficulty };
+}
+
+export interface GoHomeAction {
+  type: 'GO_HOME';
+}
+
+export interface SetUserIdAction {
+  type: 'SET_USER_ID';
+  payload: string | null;
+}
+
+export interface BaseDataLoadedAction {
+  type: 'BASE_DATA_LOADED';
+}
+
+export interface LoadUserDataStartAction {
+  type: 'LOAD_USER_DATA_START';
+}
+
+export interface LoadUserDataSuccessAction {
+  type: 'LOAD_USER_DATA_SUCCESS';
+  payload: Partial<GameState>;
+}
+
+export interface LoadUserDataFailureAction {
+  type: 'LOAD_USER_DATA_FAILURE';
+  payload: string;
+}
+
+export interface ResumeGameAction {
+  type: 'RESUME_GAME';
+  payload: { difficulty: Difficulty };
+}
+
+export interface ShowSuggestionsAction {
+  type: 'SHOW_SUGGESTIONS';
+  payload: string[];
+}
+
+export interface ClearSuggestionsAction {
+  type: 'CLEAR_SUGGESTIONS';
+}
+
+export interface ClearFlipAnimationAction {
+  type: 'CLEAR_FLIP_ANIMATION';
+}
+
+export interface TriggerShakeAction {
+  type: 'TRIGGER_SHAKE';
+  payload?: string;
+}
+
+export interface ClearShakeAnimationAction {
+  type: 'CLEAR_SHAKE_ANIMATION';
+}
+
+export interface ShowWinAnimationAction {
+  type: 'SHOW_WIN_ANIMATION';
+}
+
+export interface HideWinAnimationAction {
+  type: 'HIDE_WIN_ANIMATION';
+}
+
+export interface UpdatePreferenceAction {
+  type: 'UPDATE_PREFERENCE';
+  payload: { key: keyof GameState; value: any };
+}
+
+export interface SaveUserDataStartAction {
+  type: 'SAVE_USER_DATA_START';
+}
+
+export interface SaveUserDataSuccessAction {
+  type: 'SAVE_USER_DATA_SUCCESS';
+}
+
+export interface SaveUserDataFailureAction {
+  type: 'SAVE_USER_DATA_FAILURE';
+  payload: { error: string };
+}
+
+export interface ResetUserDataStartAction {
+  type: 'RESET_USER_DATA_START';
+}
+
+export interface ResetUserDataSuccessAction {
+  type: 'RESET_USER_DATA_SUCCESS';
+}
+
+export interface ResetUserDataFailureAction {
+  type: 'RESET_USER_DATA_FAILURE';
+  payload: string;
+}
+
+export interface ShowModalAction {
+  type: 'SHOW_MODAL';
+  payload: ModalType;
+}
+
+export interface CloseModalAction {
+  type: 'CLOSE_MODAL';
+}
+
+export interface SetErrorAction {
+  type: 'SET_ERROR';
+  payload: string | null;
+}
+
+export interface RevealMainHintAction {
+  type: 'REVEAL_MAIN_HINT';
+}
+
+export interface SetCurrentDifficultyAction {
+  type: 'SET_CURRENT_DIFFICULTY';
+  payload: Difficulty;
+}
+
+export interface LogAnalyticsEventAction {
+  type: 'LOG_ANALYTICS_EVENT';
+  payload: { event: string; data?: object };
+}
+
+export interface ClearAnalyticsEventAction {
+  type: 'CLEAR_ANALYTICS_EVENT';
+}
+
+export interface SetDailyReminderEnabledAction {
+  type: 'SET_DAILY_REMINDER_ENABLED';
+  payload: boolean;
+}
+
+export interface LoadPersistedDataAction {
   type: 'LOAD_PERSISTED_DATA';
   payload: PersistedData;
 }
-interface InitializeGameAction {
+
+export interface InitializeGameAction {
   type: 'INITIALIZE_GAME';
 }
-interface OpenModalAction {
+
+export interface OpenModalAction {
   type: 'OPEN_MODAL';
   payload: ModalType;
 }
-interface SetThemePreferenceAction {
+
+export interface SetThemePreferenceAction {
   type: 'SET_THEME_PREFERENCE';
   payload: ThemePreference;
 }
-interface SetHintsEnabledAction {
+
+export interface SetHintsEnabledAction {
   type: 'SET_HINTS_ENABLED';
   payload: boolean;
 }
-interface SetMutedStateAction {
+
+export interface SetMutedStateAction {
   type: 'SET_MUTED_STATE';
   payload: boolean;
 }
-interface ResetUserDataAction {
+
+export interface ResetUserDataAction {
   type: 'RESET_USER_DATA';
 }
-interface SetErrorMessageAction {
+
+export interface SetErrorMessageAction {
   type: 'SET_ERROR_MESSAGE';
   payload: string;
 }
-interface ClearErrorMessageAction {
+
+export interface ClearErrorMessageAction {
   type: 'CLEAR_ERROR_MESSAGE';
 }
-interface SetSubmittingAction {
+
+export interface SetSubmittingAction {
   type: 'SET_SUBMITTING';
   payload: boolean;
 }
-interface SetFlippingRowAction {
+
+export interface SetFlippingRowAction {
   type: 'SET_FLIPPING_ROW';
-  payload: number;
+  payload: number | null;
 }
-interface AnimationCompletedAction {
+
+export interface AnimationCompletedAction {
   type: 'ANIMATION_COMPLETED';
   payload: { rowIndex: number };
 }
-interface SetAppStateAction {
+
+export interface SetAppStateAction {
   type: 'SET_APP_STATE';
   payload: any;
 }
 
-export type GameAction =
+// Added for provider.tsx
+export interface SetUserDataLoadingAction {
+  type: 'SET_USER_DATA_LOADING';
+  payload: boolean;
+}
+
+export interface SetUserDataSavingAction {
+  type: 'SET_USER_DATA_SAVING';
+  payload: boolean;
+}
+
+export interface SetDailyChallengeInfoAction {
+  type: 'SET_DAILY_CHALLENGE_INFO';
+  payload: DailyChallenge; // Assuming DailyChallenge is the correct type
+}
+// End added for provider.tsx
+
+export type GameActionType =
   | SetTargetWordsAction
   | SetDailyStatusAction
   | SetInitializingAction
@@ -215,7 +442,7 @@ export type GameAction =
   | LoadUserDataStartAction
   | LoadUserDataSuccessAction
   | LoadUserDataFailureAction
-  | ResumeGameAction
+  | ResumeGameAction // Added ResumeGameAction to GameActionType
   | ShowSuggestionsAction
   | ClearSuggestionsAction
   | ClearFlipAnimationAction
@@ -250,60 +477,13 @@ export type GameAction =
   | SetSubmittingAction
   | SetFlippingRowAction
   | AnimationCompletedAction
-  | SetAppStateAction;
-
-export interface GameState {
-  isInitializing: boolean;
-  userId: string | null;
-  isBaseDataLoaded: boolean;
-  isUserDataLoading: boolean;
-  isUserDataSaving: boolean;
-  isUserDataResetting: boolean;
-  targetWords: {
-    easy: { word: string; hint: string };
-    hard: { word: string; hint: string };
-  };
-  currentDifficulty: Difficulty | null;
-  gameProgress: {
-    easy: MobileDifficultyProgress;
-    hard: MobileDifficultyProgress;
-  };
-  activeModal: ModalType | null;
-  errorMessage: string | null;
-  shouldShakeGrid: boolean;
-  isSubmitting: boolean;
-  activeSuggestionFamily: string[] | null;
-  shouldShowWinAnimation: boolean;
-  preferredDifficulty: Difficulty;
-  themePreference: ThemePreference;
-  hintsEnabled: boolean;
-  isMuted: boolean;
-  gamesPlayed: number;
-  gamesWon: number;
-  currentStreak: number;
-  maxStreak: number;
-  lastPlayedDate: string | null;
-  lastWinDate: string | null;
-  gamesPlayedEasy: number;
-  gamesWonEasy: number;
-  totalGuessesEasy: number;
-  gamesPlayedHard: number;
-  gamesWonHard: number;
-  totalTimePlayedHard: number;
-  bestTimeHard: number | null;
-  guessesInBestTimeHardGame: number;
-  dailyStatus: MobileDailyStatus;
-  wordSourceInfo: {
-    easy: { source: WordSource; date: string };
-    hard: { source: WordSource; date: string };
-  };
-  hapticType?: 'success' | 'error' | 'light' | null;
-  accessibilityAnnouncement?: string | null;
-  lastAnalyticsEvent?: { event: string; data?: object };
-  dailyReminderEnabled?: boolean;
-}
+  | SetAppStateAction
+  // Added for provider.tsx
+  | SetUserDataLoadingAction
+  | SetUserDataSavingAction
+  | SetDailyChallengeInfoAction;
 
 export interface GameContextType {
   gameState: GameState;
-  dispatch: React.Dispatch<GameAction>;
+  dispatch: React.Dispatch<GameActionType | UIAction>; // Updated dispatch type
 }

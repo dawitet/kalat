@@ -1,4 +1,4 @@
-import { useCallback, useState } from 'react';
+import {useCallback, useState} from 'react';
 
 export type LeaderboardEntry = {
   id: string;
@@ -54,39 +54,52 @@ export const useLeaderboard = () => {
     }
   }, []);
 
-  const getTopScores = useCallback((limit: number = 10) => {
-    return entries
-      .sort((a, b) => b.score - a.score)
-      .slice(0, limit);
-  }, [entries]);
+  const getTopScores = useCallback(
+    (limit: number = 10) => {
+      return entries.sort((a, b) => b.score - a.score).slice(0, limit);
+    },
+    [entries],
+  );
 
-  const getPlayerRank = useCallback((playerId: string) => {
-    const sortedEntries = [...entries].sort((a, b) => b.score - a.score);
-    const rank = sortedEntries.findIndex(entry => entry.id === playerId) + 1;
-    return rank > 0 ? rank : null;
-  }, [entries]);
+  const getPlayerRank = useCallback(
+    (playerId: string) => {
+      const sortedEntries = [...entries].sort((a, b) => b.score - a.score);
+      const rank = sortedEntries.findIndex(entry => entry.id === playerId) + 1;
+      return rank > 0 ? rank : null;
+    },
+    [entries],
+  );
 
-  const getPlayerStats = useCallback((playerId: string) => {
-    const playerEntries = entries.filter(entry => entry.id === playerId);
-    if (playerEntries.length === 0) {
-      return null;
-    }
+  const getPlayerStats = useCallback(
+    (playerId: string) => {
+      const playerEntries = entries.filter(entry => entry.id === playerId);
+      if (playerEntries.length === 0) {
+        return null;
+      }
 
-    const totalGames = playerEntries.length;
-    const totalScore = playerEntries.reduce((sum, entry) => sum + entry.score, 0);
-    const averageScore = totalScore / totalGames;
-    const highestScore = Math.max(...playerEntries.map(entry => entry.score));
-    const totalTimeSpent = playerEntries.reduce((sum, entry) => sum + entry.timeSpent, 0);
+      const totalGames = playerEntries.length;
+      const totalScore = playerEntries.reduce(
+        (sum, entry) => sum + entry.score,
+        0,
+      );
+      const averageScore = totalScore / totalGames;
+      const highestScore = Math.max(...playerEntries.map(entry => entry.score));
+      const totalTimeSpent = playerEntries.reduce(
+        (sum, entry) => sum + entry.timeSpent,
+        0,
+      );
 
-    return {
-      totalGames,
-      totalScore,
-      averageScore,
-      highestScore,
-      totalTimeSpent,
-      rank: getPlayerRank(playerId),
-    };
-  }, [entries, getPlayerRank]);
+      return {
+        totalGames,
+        totalScore,
+        averageScore,
+        highestScore,
+        totalTimeSpent,
+        rank: getPlayerRank(playerId),
+      };
+    },
+    [entries, getPlayerRank],
+  );
 
   return {
     entries,

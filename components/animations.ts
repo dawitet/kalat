@@ -1,4 +1,4 @@
-import { Animated, Easing } from 'react-native';
+import {Animated, Easing} from 'react-native';
 
 // Fade animation
 export const fadeIn = (value: Animated.Value, duration = 300) => {
@@ -109,4 +109,4 @@ export const bounce = (value: Animated.Value) => {
       useNativeDriver: true,
     }),
   ]);
-}; 
+};

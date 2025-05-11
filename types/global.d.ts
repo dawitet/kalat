@@ -4,8 +4,12 @@ declare module '@telegram-apps/sdk-react' {
 }
 
 declare module 'expo-haptics' {
-  export const notificationAsync: (type: 'success' | 'warning' | 'error') => Promise<void>;
-  export const impactAsync: (style: 'light' | 'medium' | 'heavy') => Promise<void>;
+  export const notificationAsync: (
+    type: 'success' | 'warning' | 'error',
+  ) => Promise<void>;
+  export const impactAsync: (
+    style: 'light' | 'medium' | 'heavy',
+  ) => Promise<void>;
 }
 
 declare module '*.json' {
@@ -24,12 +28,12 @@ declare module '*.svg' {
 }
 
 declare module 'expo-notifications' {
-  export const requestPermissionsAsync: () => Promise<{ status: string }>;
+  export const requestPermissionsAsync: () => Promise<{status: string}>;
   export const cancelAllScheduledNotificationsAsync: () => Promise<void>;
   export const scheduleNotificationAsync: (options: any) => Promise<string>;
 }
 
 declare module 'expo-permissions' {
-  export const askAsync: (...args: any[]) => Promise<{ status: string }>;
-  export const getAsync: (...args: any[]) => Promise<{ status: string }>;
+  export const askAsync: (...args: any[]) => Promise<{status: string}>;
+  export const getAsync: (...args: any[]) => Promise<{status: string}>;
 }

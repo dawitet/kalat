@@ -1,0 +1,257 @@
+// src/components/common/Modal.tsx
+import React, {useEffect} from 'react';
+import {
+  View,
+  StyleSheet,
+  TouchableWithoutFeedback,
+  StyleProp,
+  ViewStyle,
+  KeyboardAvoidingView,
+  Platfor        <Animated.View
+          style={[
+            styles.contentContainer,
+            {backgroundColor: theme.colors.modal.background},
+            safeAreaPadding,
+            contentAnimatedStyle,
+            contentStyle,
+          ]}>tusBar,
+  Dimensions,
+} from 'react-native';
+import Animated, {
+  useSharedValue,
+  withTiming,
+  useAnimatedStyle,
+  Easing,
+} from 'react-native-reanimated';
+import {useSafeAreaInsets} from 'react-native-safe-area-context';
+import {useTheme} from '../../providers/ThemeProvider';
+
+const {height: WINDOW_HEIGHT} = Dimensions.get('window');
+
+export interface ModalProps {
+  /**
+   * Whether the modal is visible
+   */
+  visible: boolean;
+
+  /**
+   * Callback when modal is requested to close (via backdrop press or close button)
+   */
+  onClose: () => void;
+
+  /**
+   * Modal content
+   */
+  children: React.ReactNode;
+
+  /**
+   * Should the modal close when backdrop is pressed
+   * @default true
+   */
+  closeOnBackdropPress?: boolean;
+
+  /**
+   * Animation duration in milliseconds
+   * @default 300
+   */
+  animationDuration?: number;
+
+  /**
+   * Custom style for the modal container
+   */
+  style?: StyleProp<ViewStyle>;
+
+  /**
+   * Custom style for the modal content wrapper
+   */
+  contentStyle?: StyleProp<ViewStyle>;
+
+  /**
+   * Whether the modal should avoid the keyboard
+   * @default true
+   */
+  avoidKeyboard?: boolean;
+
+  /**
+   * Whether to use slide-in animation instead of fade-in
+   * @default false
+   */
+  slideAnimation?: boolean;
+
+  /**
+   * Test ID for the modal component
+   */
+  testID?: string;
+}
+
+/**
+ * Base modal component with consistent styling, animations, and behavior
+ */
+const Modal: React.FC<ModalProps> = ({
+  visible,
+  onClose,
+  children,
+  closeOnBackdropPress = true,
+  animationDuration = 300,
+  style,
+  contentStyle,
+  avoidKeyboard = true,
+  slideAnimation = false,
+  testID,
+}) => {
+  const {theme} = useTheme();
+  const insets = useSafeAreaInsets();
+
+  // Animation values
+  const opacity = useSharedValue(0);
+  const translateY = useSharedValue(slideAnimation ? WINDOW_HEIGHT : 0);
+  const scale = useSharedValue(slideAnimation ? 1 : 0.95);
+
+  // Handle visibility changes
+  useEffect(() => {
+    if (visible) {
+      opacity.value = withTiming(1, {
+        duration: animationDuration,
+        easing: Easing.out(Easing.cubic),
+      });
+
+      translateY.value = withTiming(0, {
+        duration: animationDuration,
+        easing: Easing.out(Easing.cubic),
+      });
+
+      scale.value = withTiming(1, {
+        duration: animationDuration,
+        easing: Easing.out(Easing.cubic),
+      });
+    } else {
+      opacity.value = withTiming(0, {
+        duration: animationDuration,
+        easing: Easing.in(Easing.cubic),
+      });
+
+      if (slideAnimation) {
+        translateY.value = withTiming(WINDOW_HEIGHT, {
+          duration: animationDuration,
+          easing: Easing.in(Easing.cubic),
+        });
+      } else {
+        scale.value = withTiming(0.95, {
+          duration: animationDuration,
+          easing: Easing.in(Easing.cubic),
+        });
+      }
+    }
+  }, [visible, animationDuration, opacity, translateY, scale, slideAnimation]);
+
+  const backdropAnimatedStyle = useAnimatedStyle(() => {
+    return {
+      opacity: opacity.value * 0.7, // Semi-transparent backdrop
+    };
+  });
+
+  const contentAnimatedStyle = useAnimatedStyle(() => {
+    return {
+      opacity: opacity.value,
+      transform: [{translateY: translateY.value}, {scale: scale.value}],
+    };
+  });
+
+  const handleBackdropPress = () => {
+    if (closeOnBackdropPress) {
+      onClose();
+    }
+  };
+
+  if (!visible && opacity.value === 0) {
+    return null; // Don't render if not visible and animation complete
+  }
+
+  // Determine safe area padding
+  const safeAreaPadding = {
+    paddingTop: insets.top || 20,
+    paddingBottom: insets.bottom || 20,
+    paddingLeft: insets.left || 20,
+    paddingRight: insets.right || 20,
+  };
+
+  return (
+    <View style={[styles.container, style]} testID={testID}>
+      <StatusBar translucent backgroundColor="rgba(0,0,0,0.5)" />
+
+      {/* Backdrop */}
+      <TouchableWithoutFeedback onPress={handleBackdropPress}>
+        <Animated.View
+          style={[styles.backdrop, backdropAnimatedStyle]}
+          testID="modal-backdrop"
+        />
+      </TouchableWithoutFeedback>
+
+      {/* Modal Content */}
+      <KeyboardAvoidingView
+        behavior={
+          avoidKeyboard
+            ? Platform.OS === 'ios'
+              ? 'padding'
+              : 'height'
+            : undefined
+        }
+        style={styles.keyboardAvoidingView}>
+        <Animated.View
+          style={[
+            styles.contentContainer,
+            {backgroundColor: theme.colors.secondary},
+            safeAreaPadding,
+            contentAnimatedStyle,
+            contentStyle,
+          ]}>
+          {children}
+        </Animated.View>
+      </KeyboardAvoidingView>
+    </View>
+  );
+};
+
+const styles = StyleSheet.create({
+  container: {
+    position: 'absolute',
+    top: 0,
+    left: 0,
+    right: 0,
+    bottom: 0,
+    justifyContent: 'center',
+    alignItems: 'center',
+    zIndex: 1000,
+  },
+  backdrop: {
+    position: 'absolute',
+    top: 0,
+    left: 0,
+    right: 0,
+    bottom: 0,
+    backgroundColor: '#000',
+  },
+  keyboardAvoidingView: {
+    flex: 1,
+    width: '100%',
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  contentContainer: {
+    margin: 20,
+    width: '90%',
+    maxHeight: '80%',
+    borderRadius: 12,
+    padding: 20,
+    shadowColor: '#000',
+    shadowOffset: {
+      width: 0,
+      height: 2,
+    },
+    shadowOpacity: 0.25,
+    shadowRadius: 3.84,
+    elevation: 5,
+  },
+});
+
+export default React.memo(Modal);

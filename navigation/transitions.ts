@@ -1,8 +1,8 @@
-import { TransitionPresets } from '@react-navigation/stack';
+import {TransitionPresets} from '@react-navigation/stack';
 
 export const slideTransition = {
   ...TransitionPresets.SlideFromRightIOS,
-  cardStyleInterpolator: ({ current, layouts }: any) => ({
+  cardStyleInterpolator: ({current, layouts}: any) => ({
     cardStyle: {
       transform: [
         {
@@ -24,7 +24,7 @@ export const slideTransition = {
 
 export const fadeTransition = {
   ...TransitionPresets.FadeFromBottomAndroid,
-  cardStyleInterpolator: ({ current, layouts }: any) => ({
+  cardStyleInterpolator: ({current, layouts}: any) => ({
     cardStyle: {
       transform: [
         {
@@ -46,7 +46,7 @@ export const fadeTransition = {
 
 export const modalTransition = {
   ...TransitionPresets.ModalPresentationIOS,
-  cardStyleInterpolator: ({ current }: any) => ({
+  cardStyleInterpolator: ({current}: any) => ({
     cardStyle: {
       transform: [
         {

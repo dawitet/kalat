@@ -1,7 +1,7 @@
 import React from 'react';
-import { View, Text, FlatList, StyleSheet } from 'react-native';
-import { useTheme } from '@react-navigation/native';
-import type { Theme } from '../styles/theme';
+import {View, Text, FlatList, StyleSheet} from 'react-native';
+import {useTheme} from '@react-navigation/native';
+import type {Theme} from '../styles/theme';
 
 export interface LeaderboardEntry {
   id: string;
@@ -16,7 +16,10 @@ interface LeaderboardProps {
   limit?: number;
 }
 
-export const Leaderboard: React.FC<LeaderboardProps> = ({ entries = [], limit = 10 }) => {
+export const Leaderboard: React.FC<LeaderboardProps> = ({
+  entries = [],
+  limit = 10,
+}) => {
   const theme = useTheme() as unknown as Theme;
 
   const styles = StyleSheet.create({
@@ -51,33 +54,29 @@ export const Leaderboard: React.FC<LeaderboardProps> = ({ entries = [], limit = 
     },
   });
 
-  const renderItem = ({ item }: { item: LeaderboardEntry }) => (
+  const renderItem = ({item}: {item: LeaderboardEntry}) => (
     <View style={styles.row}>
       <Text style={styles.text}>
         {item.rank}. {item.name}
       </Text>
-      <Text style={styles.text}>
-        {item.score}
-      </Text>
+      <Text style={styles.text}>{item.score}</Text>
     </View>
   );
 
   if (!entries.length) {
     return (
-      <View style={[styles.container, { backgroundColor: theme.colors.primary }]}>
-        <Text style={styles.errorText}>
-          No entries found
-        </Text>
+      <View style={[styles.container, {backgroundColor: theme.colors.primary}]}>
+        <Text style={styles.errorText}>No entries found</Text>
       </View>
     );
   }
 
   return (
-    <View style={[styles.container, { backgroundColor: theme.colors.secondary }]}>
+    <View style={[styles.container, {backgroundColor: theme.colors.secondary}]}>
       <FlatList
         data={entries.slice(0, limit)}
         renderItem={renderItem}
-        keyExtractor={(item) => item.id}
+        keyExtractor={item => item.id}
         contentContainerStyle={styles.list}
       />
     </View>

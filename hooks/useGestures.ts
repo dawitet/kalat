@@ -1,5 +1,9 @@
-import { useCallback } from 'react';
-import { GestureResponderEvent, PanResponder, PanResponderGestureState } from 'react-native';
+import {useCallback} from 'react';
+import {
+  GestureResponderEvent,
+  PanResponder,
+  PanResponderGestureState,
+} from 'react-native';
 
 type GestureCallbacks = {
   onSwipeLeft?: () => void;
@@ -17,10 +21,13 @@ export const useGestures = (callbacks: GestureCallbacks) => {
 
   const handlePanResponderRelease = useCallback(
     (event: GestureResponderEvent, gestureState: PanResponderGestureState) => {
-      const { dx, dy, vx, vy } = gestureState;
+      const {dx, dy, vx, vy} = gestureState;
 
       // Handle horizontal swipes
-      if (Math.abs(dx) > SWIPE_THRESHOLD || Math.abs(vx) > SWIPE_VELOCITY_THRESHOLD) {
+      if (
+        Math.abs(dx) > SWIPE_THRESHOLD ||
+        Math.abs(vx) > SWIPE_VELOCITY_THRESHOLD
+      ) {
         if (dx > 0) {
           callbacks.onSwipeRight?.();
         } else {
@@ -30,7 +37,10 @@ export const useGestures = (callbacks: GestureCallbacks) => {
       }
 
       // Handle vertical swipes
-      if (Math.abs(dy) > SWIPE_THRESHOLD || Math.abs(vy) > SWIPE_VELOCITY_THRESHOLD) {
+      if (
+        Math.abs(dy) > SWIPE_THRESHOLD ||
+        Math.abs(vy) > SWIPE_VELOCITY_THRESHOLD
+      ) {
         if (dy > 0) {
           callbacks.onSwipeDown?.();
         } else {
@@ -44,7 +54,7 @@ export const useGestures = (callbacks: GestureCallbacks) => {
         callbacks.onTap?.();
       }
     },
-    [callbacks]
+    [callbacks],
   );
 
   const panResponder = PanResponder.create({

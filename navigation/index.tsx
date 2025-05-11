@@ -1,24 +1,33 @@
 import React from 'react';
-import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import type { NativeStackNavigationOptions } from '@react-navigation/native-stack';
-import type { RootStackParamList } from '../types';
+import {createNativeStackNavigator} from '@react-navigation/native-stack';
+import type {NativeStackNavigationOptions} from '@react-navigation/native-stack';
+import type {RootStackParamList} from '../types';
 
-// Screens
-import MainMenu from '../components/MainMenu';
-import GameView from '../components/GameView';
+// Screens and Components
+import MainMenuWrapper from '../components/MainMenuWrapper';
+import RefactoredGameView from '../components/RefactoredGameView';
 import Leaderboard from '../components/Leaderboard';
 import SettingsPanel from '../components/SettingsPanel';
-import LoadingScreen from '../components/LoadingScreen';
-import RulesModal from '../components/modals/RulesModal';
-import CreditsModal from '../components/modals/CreditsModal';
-// import FeedbackModal from '../components/modals/FeedbackModal';
-// import InviteModal from '../components/modals/InviteModal';
-import StreakModal from '../components/modals/StreakModal';
+import LoadingScreenWrapper from '../components/LoadingScreenWrapper';
 import WipScreen from '../components/WipView';
 
-// Wrap GameView and Leaderboard to provide required props for navigation
-const GameViewScreen = (props: any) => <GameView initialDifficulty={props.route?.params?.initialDifficulty ?? 'easy'} {...props} />;
-const LeaderboardScreen = (props: any) => <Leaderboard entries={[]} {...props} />;
+// Modal Wrappers
+import RulesModalWrapper from '../components/modal-wrappers/RulesModalWrapper';
+import CreditsModalWrapper from '../components/modal-wrappers/CreditsModalWrapper';
+import StreakModalWrapper from '../components/modal-wrappers/StreakModalWrapper';
+// import FeedbackModal from '../components/modals/FeedbackModal';
+// import InviteModal from '../components/modals/InviteModal';
+
+// Wrap RefactoredGameView and Leaderboard to provide required props for navigation
+const GameViewScreen = (props: any) => (
+  <RefactoredGameView
+    initialDifficulty={props.route?.params?.initialDifficulty ?? 'easy'}
+    {...props}
+  />
+);
+const LeaderboardScreen = (props: any) => (
+  <Leaderboard entries={[]} {...props} />
+);
 
 const Stack = createNativeStackNavigator<RootStackParamList>();
 
@@ -38,17 +47,33 @@ const modalScreenOptions: NativeStackNavigationOptions = {
 export const Navigation: React.FC = () => {
   return (
     <Stack.Navigator screenOptions={defaultScreenOptions}>
-      <Stack.Screen name="MainMenu" component={MainMenu} />
+      <Stack.Screen name="MainMenu" component={MainMenuWrapper} />
       <Stack.Screen name="Game" component={GameViewScreen} />
       <Stack.Screen name="Leaderboard" component={LeaderboardScreen} />
-      <Stack.Screen name="Settings" component={SettingsPanel} options={modalScreenOptions} />
-      <Stack.Screen name="Loading" component={LoadingScreen} />
-      <Stack.Screen name="Rules" component={RulesModal} options={modalScreenOptions} />
-      <Stack.Screen name="Credits" component={CreditsModal} options={modalScreenOptions} />
+      <Stack.Screen
+        name="Settings"
+        component={SettingsPanel}
+        options={modalScreenOptions}
+      />
+      <Stack.Screen name="Loading" component={LoadingScreenWrapper} />
+      <Stack.Screen
+        name="Rules"
+        component={RulesModalWrapper}
+        options={modalScreenOptions}
+      />
+      <Stack.Screen
+        name="Credits"
+        component={CreditsModalWrapper}
+        options={modalScreenOptions}
+      />
       {/* <Stack.Screen name="Feedback" component={FeedbackModal} /> */}
       {/* <Stack.Screen name="Invite" component={InviteModal} /> */}
-      <Stack.Screen name="Streaks" component={StreakModal} />
-      <Stack.Screen name="Wip" component={WipScreen} options={modalScreenOptions} />
+      <Stack.Screen name="Streaks" component={StreakModalWrapper} />
+      <Stack.Screen
+        name="Wip"
+        component={WipScreen}
+        options={modalScreenOptions}
+      />
     </Stack.Navigator>
   );
 };
