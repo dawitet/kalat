@@ -1,7 +1,7 @@
 // src/__tests__/rootReducer.test.ts
 import {rootReducer} from '../context/reducers/rootReducer';
 import {initialState} from '../context/initialState';
-import {actions} from '../context/actions';
+import {actionCreators as actions} from '../context/actions';
 import {Difficulty, TileState, GameActionType, UIAction} from '../types';
 
 describe('rootReducer', () => {
@@ -21,8 +21,8 @@ describe('rootReducer', () => {
     const errorState = rootReducer(initialState, errorAction);
     expect(errorState.errorMessage).toBe('Test error message');
 
-    // Test SET_ACTIVE_SUGGESTION
-    const suggestionAction = actions.setActiveSuggestion(['test']) as UIAction;
+    // Test SET_ACTIVE_SUGGESTION_FAMILY
+    const suggestionAction = actions.setActiveSuggestionFamily(['test']) as UIAction;
     const suggestionState = rootReducer(initialState, suggestionAction);
     expect(suggestionState.activeSuggestionFamily).toEqual(['test']);
   });

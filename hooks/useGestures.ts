@@ -3,7 +3,13 @@ import {
   GestureResponderEvent,
   PanResponder,
   PanResponderGestureState,
+  PanResponderInstance,
 } from 'react-native';
+
+// Custom type to include the longPressTimer property
+interface EnhancedPanResponder extends PanResponderInstance {
+  longPressTimer?: NodeJS.Timeout;
+}
 
 type GestureCallbacks = {
   onSwipeLeft?: () => void;
@@ -14,7 +20,7 @@ type GestureCallbacks = {
   onLongPress?: () => void;
 };
 
-export const useGestures = (callbacks: GestureCallbacks) => {
+export const useGestures = (callbacks: GestureCallbacks): EnhancedPanResponder => {
   const SWIPE_THRESHOLD = 50;
   const SWIPE_VELOCITY_THRESHOLD = 0.3;
   const LONG_PRESS_DURATION = 500;
@@ -67,13 +73,13 @@ export const useGestures = (callbacks: GestureCallbacks) => {
       }, LONG_PRESS_DURATION);
 
       // Store timer ID for cleanup
-      (panResponder as any).longPressTimer = longPressTimer;
+      (panResponder as EnhancedPanResponder).longPressTimer = longPressTimer;
     },
     onPanResponderRelease: handlePanResponderRelease,
     onPanResponderTerminate: () => {
       // Clear long press timer
-      if ((panResponder as any).longPressTimer) {
-        clearTimeout((panResponder as any).longPressTimer);
+      if ((panResponder as EnhancedPanResponder).longPressTimer) {
+        clearTimeout((panResponder as EnhancedPanResponder).longPressTimer);
       }
     },
   });

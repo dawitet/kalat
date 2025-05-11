@@ -1,11 +1,12 @@
 // src/components/OptimizedMainMenu.tsx
 import React, {useContext, useCallback, useMemo} from 'react';
-import {Text, StyleSheet, Image, View} from 'react-native';
+import {Text, StyleSheet, Image, View, ViewStyle, TextStyle} from 'react-native';
 import {GameContext} from '../context/GameContext';
 import {useTheme} from '../providers/ThemeProvider';
 import {Difficulty} from '../types';
 import Container from './common/Container';
 import Button from './common/Button';
+import {GameAction, UIAction} from '../context/actions';
 
 /**
  * Optimized main menu component with performance improvements
@@ -17,12 +18,18 @@ const OptimizedMainMenu: React.FC = () => {
 
   // Memoized dispatch function to avoid changing on every render
   const safeDispatch = useMemo(() => {
-    return context?.dispatch || ((() => {}) as React.Dispatch<any>);
+    return context?.dispatch || ((() => {}) as React.Dispatch<GameAction | UIAction>);
   }, [context]);
 
+  // Define the navigation params type
+  interface NavigationParams {
+    difficulty?: Difficulty;
+    [key: string]: unknown;
+  }
+  
   // Memoized navigation handler - must be called regardless of context availability
   const handleNavigation = useCallback(
-    (screen: string, params?: any) => {
+    (screen: string, params?: NavigationParams) => {
       // Skip if context isn't loaded
       if (!context) {
         return;
@@ -31,19 +38,19 @@ const OptimizedMainMenu: React.FC = () => {
       if (screen === 'GameView') {
         if (params?.difficulty) {
           safeDispatch({
-            type: 'SET_CURRENT_DIFFICULTY' as any,
+            type: 'SET_CURRENT_DIFFICULTY',
             payload: params.difficulty,
           });
-          safeDispatch({type: 'NAVIGATE_TO_GAME' as any});
+          safeDispatch({type: 'INITIALIZE_GAME'}); // Corrected action type
         }
       } else if (screen === 'Settings') {
-        safeDispatch({type: 'SET_ACTIVE_MODAL' as any, payload: 'Settings'});
+        safeDispatch({type: 'SET_ACTIVE_MODAL', payload: 'settings'});
       } else if (screen === 'Rules') {
-        safeDispatch({type: 'SET_ACTIVE_MODAL' as any, payload: 'Rules'});
+        safeDispatch({type: 'SET_ACTIVE_MODAL', payload: 'rules'});
       } else if (screen === 'Credits') {
-        safeDispatch({type: 'SET_ACTIVE_MODAL' as any, payload: 'Credits'});
+        safeDispatch({type: 'SET_ACTIVE_MODAL', payload: 'credits'});
       } else if (screen === 'Streak') {
-        safeDispatch({type: 'SET_ACTIVE_MODAL' as any, payload: 'Streak'});
+        safeDispatch({type: 'SET_ACTIVE_MODAL', payload: 'streak'});
       }
     },
     [context, safeDispatch],
@@ -240,9 +247,9 @@ interface MenuItemButtonProps {
   variant: 'primary' | 'outline' | 'secondary';
   size?: 'large' | 'medium' | 'small';
   onPress: () => void;
-  style: any;
+  style: ViewStyle | ViewStyle[];
   icon: string;
-  buttonIconStyle: any;
+  buttonIconStyle: TextStyle | TextStyle[];
 }
 
 const MenuItemButton = React.memo(

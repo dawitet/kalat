@@ -19,7 +19,7 @@ jest.mock('expo-haptics', () => ({
 
 // Mock react-native-reanimated
 jest.mock('react-native-reanimated', () => {
-  const Reanimated = require('react-native-reanimated/mock');
+  const Reanimated = jest.requireActual('react-native-reanimated/mock');
   Reanimated.default.call = () => {};
   return {
     ...Reanimated,
@@ -131,7 +131,8 @@ describe('Modal Components', () => {
         fireEvent.press(feedbackButton);
       });
 
-      const Linking = require('react-native/Libraries/Linking/Linking');
+      // Using jest.requireMock instead of require
+      const Linking = jest.requireMock('react-native/Libraries/Linking/Linking');
       expect(Linking.canOpenURL).toHaveBeenCalled();
       expect(Linking.openURL).toHaveBeenCalled();
     });

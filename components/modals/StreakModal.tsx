@@ -108,9 +108,10 @@ const StreakModal: React.FC<StreakModalProps> = ({visible, onClose}) => {
       await Share.share({
         message: shareMessage,
       });
-    } catch (error: any) {
+    } catch (error: Error | unknown) {
       console.error('Error sharing streak:', error);
-      Alert.alert('ስህተት', 'ጉዞውን ማጋራት አልተቻለም: ' + error.message);
+      const errorMessage = error instanceof Error ? error.message : 'Unknown error';
+      Alert.alert('ስህተት', 'ጉዞውን ማጋራት አልተቻለም: ' + errorMessage);
     }
   }, [currentStreak, maxStreak, bestTimeHard]);
 

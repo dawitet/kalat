@@ -1,9 +1,10 @@
 // src/components/OptimizedKey.tsx
 import React, {useMemo} from 'react';
 import {StyleSheet, ViewStyle, TextStyle} from 'react-native';
-import Button from './common/Button';
+import Button, {ButtonVariant} from './common/Button';
 import {TileState} from '../types';
 import {useTheme} from '../providers/ThemeProvider';
+import {Theme} from '../styles/theme';
 
 interface KeyProps {
   value: string;
@@ -107,7 +108,7 @@ const OptimizedKey: React.FC<KeyProps> = React.memo(
         textStyle={textStyleOverrides}
         disabled={isDisabled}
         hapticFeedback={true}
-        variant={buttonVariant as any} // Type assertion needed because we have custom variants
+        variant={buttonVariant as ButtonVariant} // Type assertion needed because we have custom variants
         // Using our Button's built-in accessibility props
         accessibilityLabel={
           value === 'ENTER'
@@ -122,7 +123,7 @@ const OptimizedKey: React.FC<KeyProps> = React.memo(
 );
 
 // Extract styles creation to a function for memoization
-const createStyles = (theme: any) =>
+const createStyles = (_theme: Theme) =>
   StyleSheet.create({
     keyBase: {
       height: 52,

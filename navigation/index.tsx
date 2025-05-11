@@ -18,14 +18,17 @@ import StreakModalWrapper from '../components/modal-wrappers/StreakModalWrapper'
 // import FeedbackModal from '../components/modals/FeedbackModal';
 // import InviteModal from '../components/modals/InviteModal';
 
+// Import required types
+import type { NativeStackScreenProps } from '@react-navigation/native-stack';
+
 // Wrap RefactoredGameView and Leaderboard to provide required props for navigation
-const GameViewScreen = (props: any) => (
+const GameViewScreen = (props: NativeStackScreenProps<RootStackParamList, 'Game'>) => (
   <RefactoredGameView
     initialDifficulty={props.route?.params?.initialDifficulty ?? 'easy'}
     {...props}
   />
 );
-const LeaderboardScreen = (props: any) => (
+const LeaderboardScreen = (props: NativeStackScreenProps<RootStackParamList, 'Leaderboard'>) => (
   <Leaderboard entries={[]} {...props} />
 );
 

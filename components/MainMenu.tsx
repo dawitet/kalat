@@ -3,7 +3,8 @@ import React, {useContext, useEffect} from 'react';
 import {Text, StyleSheet, Image, View} from 'react-native';
 import {GameContext} from '../context/GameContext';
 import {useTheme} from '../providers/ThemeProvider';
-import {Difficulty} from '../types';
+import {Difficulty, ModalType} from '../types';
+import {GameSetupAction, UIAction} from '../context/actions';
 import Container from './common/Container';
 import Button from './common/Button';
 
@@ -21,24 +22,27 @@ const MainMenu: React.FC = () => {
 
   const {dispatch} = context;
 
-  const handleNavigation = (screen: string, params?: any) => {
+  const handleNavigation = (
+    screen: 'GameView' | 'Settings' | 'Rules' | 'Credits' | 'Streak',
+    params?: {difficulty?: Difficulty},
+  ) => {
     console.log(`Navigating to ${screen} with params:`, params);
     if (screen === 'GameView') {
-      if (params.difficulty) {
+      if (params?.difficulty) {
         dispatch({
-          type: 'SET_CURRENT_DIFFICULTY' as any,
+          type: 'SET_CURRENT_DIFFICULTY',
           payload: params.difficulty,
-        });
-        dispatch({type: 'NAVIGATE_TO_GAME' as any});
+        } as GameSetupAction);
+        dispatch({type: 'INITIALIZE_GAME'} as GameSetupAction);
       }
     } else if (screen === 'Settings') {
-      dispatch({type: 'SET_ACTIVE_MODAL' as any, payload: 'Settings'});
+      dispatch({type: 'SET_ACTIVE_MODAL', payload: 'settings' as ModalType} as UIAction);
     } else if (screen === 'Rules') {
-      dispatch({type: 'SET_ACTIVE_MODAL' as any, payload: 'Rules'});
+      dispatch({type: 'SET_ACTIVE_MODAL', payload: 'rules' as ModalType} as UIAction);
     } else if (screen === 'Credits') {
-      dispatch({type: 'SET_ACTIVE_MODAL' as any, payload: 'Credits'});
+      dispatch({type: 'SET_ACTIVE_MODAL', payload: 'credits' as ModalType} as UIAction);
     } else if (screen === 'Streak') {
-      dispatch({type: 'SET_ACTIVE_MODAL' as any, payload: 'Streak'});
+      dispatch({type: 'SET_ACTIVE_MODAL', payload: 'streak' as ModalType} as UIAction);
     }
   };
 

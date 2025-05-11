@@ -8,6 +8,7 @@ import React, {
 } from 'react';
 import {View, Text, StyleSheet} from 'react-native';
 import {GameContext} from '../context/GameContext';
+import {TileState} from '../types';
 import OptimizedGrid from './OptimizedGrid';
 import OptimizedKeyboard from './OptimizedKeyboard';
 import OptimizedTile from './OptimizedTile';
@@ -51,7 +52,7 @@ export const OptimizedComponents = {
       disabled,
     }: {
       onKeyPress: (key: string) => void;
-      letterHints: Record<string, any>;
+      letterHints: Record<string, TileState>;
       disabled?: boolean;
     }) => {
       return (

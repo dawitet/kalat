@@ -7,7 +7,7 @@ import {GameProvider} from '../context/GameContext';
 
 // Mock the native modules used in animations
 jest.mock('react-native-reanimated', () => {
-  const Reanimated = require('react-native-reanimated/mock');
+  const Reanimated = jest.requireActual('react-native-reanimated/mock');
   Reanimated.default.call = () => {};
   return Reanimated;
 });

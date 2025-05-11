@@ -1,11 +1,13 @@
 // src/context/actions.ts
+
 import {
-  Difficulty,
-  TileState,
   ModalType,
   ThemePreference,
+  TileState,
   MobileDailyStatus,
+  Difficulty,
   WordData,
+  MobileDifficultyProgress,
 } from '../types';
 
 /**
@@ -13,10 +15,33 @@ import {
  * This pattern ensures type safety when handling different action types
  */
 
+// Define a type for persisted data structure
+export interface PersistedGameData {
+  userId?: string | null;
+  gameProgress?: {
+    easy?: MobileDifficultyProgress;
+    hard?: MobileDifficultyProgress;
+  };
+  dailyStatus?: MobileDailyStatus;
+  themePreference?: ThemePreference;
+  hintsEnabled?: boolean;
+  isMuted?: boolean;
+  statistics?: {
+    gamesPlayed?: number;
+    gamesWon?: number;
+    currentStreak?: number;
+    maxStreak?: number;
+    guessDistribution?: Record<number, number>;
+    lastPlayedDate?: string;
+    [key: string]: unknown;
+  };
+  [key: string]: unknown; // Allow for future extensions
+}
+
 // System/App Actions
 export type AppSystemAction =
   | {type: 'SET_INITIALIZING'; payload: boolean}
-  | {type: 'LOAD_PERSISTED_DATA'; payload: Record<string, any>}
+  | {type: 'LOAD_PERSISTED_DATA'; payload: PersistedGameData}
   | {type: 'BASE_DATA_LOADED'}
   | {type: 'SET_USER_ID'; payload: string | null}
   | {type: 'SET_ERROR'; payload: string | null};
@@ -34,31 +59,39 @@ export type GameInputAction =
   | {type: 'DELETE_LETTER'}
   | {type: 'SUBMIT_GUESS'}
   | {type: 'SET_SUBMITTING'; payload: boolean}
-  | {type: 'SET_SHAKE_GRID'; payload: boolean}
-  | {type: 'SET_FLIPPING_ROW'; payload: number | null}
   | {
-      type: 'SET_LETTER_FEEDBACK';
+      type: 'SET_FEEDBACK';
       payload: {rowIndex: number; feedback: TileState[]};
-    };
+    }
+  | {type: 'RESET_GAME'}
+  | {type: 'WIN_GAME'}
+  | {type: 'LOSE_GAME'};
 
 // Game State Actions
 export type GameStateAction =
-  | {type: 'SET_GAME_COMPLETE'; payload: {won: boolean}}
-  | {type: 'RESET_GAME'}
-  | {type: 'SET_SHOW_WIN_ANIMATION'; payload: boolean}
-  | {type: 'SET_LOSING_ANIMATION'; payload: boolean}
-  | {type: 'REVEAL_HINT'; payload: boolean}
-  | {type: 'SET_HINT_LETTER'; payload: string};
+  | {type: 'SET_SAVED_STATE'; payload: MobileDifficultyProgress}
+  | {type: 'UPDATE_HINTS'; payload: {letter: string; state: TileState}}
+  | {type: 'REVEAL_HINT_LETTER'; payload: number}
+  | {type: 'REVEAL_MAIN_HINT'}
+  | {type: 'START_GAME'; payload: {targetWord: string; hint: string}}
+  | {type: 'SET_FLIPPING_ROW'; payload: number | null}
+  | {type: 'ACTIVATE_LOSING_ANIMATION'; payload: boolean}
+  | {type: 'SET_BACKUP_MODE'; payload: boolean}
+  | {type: 'SET_WORD_SOURCE'; payload: string};
 
-// UI Actions
+// UI State Actions
 export type UIAction =
   | {type: 'SET_ACTIVE_MODAL'; payload: ModalType}
   | {type: 'SET_THEME_PREFERENCE'; payload: ThemePreference}
+  | {type: 'SET_ERROR_MESSAGE'; payload: string | null}
+  | {type: 'SET_SHOULD_SHAKE_GRID'; payload: boolean}
+  | {type: 'SET_SHOW_WIN_ANIMATION'; payload: boolean}
+  | {type: 'SET_ACTIVE_SUGGESTION_FAMILY'; payload: string[] | null}
+  | {type: 'SET_FLIPPING_ROW_UI'; payload: number | null}
   | {type: 'SET_HINTS_ENABLED'; payload: boolean}
-  | {type: 'SET_MUTED'; payload: boolean}
-  | {type: 'SET_ACTIVE_SUGGESTION'; payload: string[] | null};
+  | {type: 'SET_MUTED'; payload: boolean};
 
-// Combine all action types
+// Combined action type used by the reducer
 export type GameAction =
   | AppSystemAction
   | GameSetupAction
@@ -67,14 +100,12 @@ export type GameAction =
   | UIAction;
 
 /**
- * Action creator functions to ensure type safety when dispatching actions
+ * Action creators
+ * These functions create action objects with the correct type and payload
  */
 
-// System action creators
-export const systemActions = {
-  /**
-   * Set the initializing state of the application
-   */
+// System/App action creators
+export const appSystemActionCreators = {
   setInitializing: (isInitializing: boolean): AppSystemAction => ({
     type: 'SET_INITIALIZING',
     payload: isInitializing,
@@ -83,230 +114,186 @@ export const systemActions = {
   /**
    * Load persisted data from storage into the state
    */
-  loadPersistedData: (data: Record<string, any>): AppSystemAction => ({
+  loadPersistedData: (data: PersistedGameData): AppSystemAction => ({
     type: 'LOAD_PERSISTED_DATA',
     payload: data,
   }),
 
-  /**
-   * Signal that base game data has been loaded
-   */
   baseDataLoaded: (): AppSystemAction => ({
     type: 'BASE_DATA_LOADED',
   }),
 
-  /**
-   * Set the user ID
-   */
   setUserId: (userId: string | null): AppSystemAction => ({
     type: 'SET_USER_ID',
     payload: userId,
   }),
 
-  /**
-   * Set an error message to display to the user
-   */
-  setError: (message: string | null): AppSystemAction => ({
+  setError: (error: string | null): AppSystemAction => ({
     type: 'SET_ERROR',
-    payload: message,
+    payload: error,
   }),
 };
 
 // Game setup action creators
-export const gameSetupActions = {
-  /**
-   * Set the target words for each difficulty level
-   */
-  setTargetWords: (words: {
-    easy: WordData;
-    hard: WordData;
-  }): GameSetupAction => ({
+export const gameSetupActionCreators = {
+  setTargetWords: (targetWords: {easy: WordData; hard: WordData}): GameSetupAction => ({
     type: 'SET_TARGET_WORDS',
-    payload: words,
+    payload: targetWords,
   }),
 
-  /**
-   * Update the daily status tracking
-   */
   setDailyStatus: (status: MobileDailyStatus): GameSetupAction => ({
     type: 'SET_DAILY_STATUS',
     payload: status,
   }),
 
-  /**
-   * Set the current difficulty level
-   */
   setCurrentDifficulty: (difficulty: Difficulty | null): GameSetupAction => ({
     type: 'SET_CURRENT_DIFFICULTY',
     payload: difficulty,
   }),
 
-  /**
-   * Initialize a new game with the current settings
-   */
   initializeGame: (): GameSetupAction => ({
     type: 'INITIALIZE_GAME',
   }),
 };
 
 // Game input action creators
-export const gameInputActions = {
-  /**
-   * Add a letter to the current guess
-   */
+export const gameInputActionCreators = {
   addLetter: (letter: string): GameInputAction => ({
     type: 'ADD_LETTER',
     payload: letter,
   }),
 
-  /**
-   * Delete the last letter from the current guess
-   */
   deleteLetter: (): GameInputAction => ({
     type: 'DELETE_LETTER',
   }),
 
-  /**
-   * Submit the current guess for validation
-   */
   submitGuess: (): GameInputAction => ({
     type: 'SUBMIT_GUESS',
   }),
 
-  /**
-   * Set submitting state while processing guess
-   */
   setSubmitting: (isSubmitting: boolean): GameInputAction => ({
     type: 'SET_SUBMITTING',
     payload: isSubmitting,
   }),
 
-  /**
-   * Set whether the grid should shake (invalid input)
-   */
-  setShakeGrid: (shouldShake: boolean): GameInputAction => ({
-    type: 'SET_SHAKE_GRID',
-    payload: shouldShake,
-  }),
-
-  /**
-   * Set which row is currently flipping
-   */
-  setFlippingRow: (rowIndex: number | null): GameInputAction => ({
-    type: 'SET_FLIPPING_ROW',
-    payload: rowIndex,
-  }),
-
-  /**
-   * Update the feedback for a specific row
-   */
-  setLetterFeedback: (
-    rowIndex: number,
-    feedback: TileState[],
-  ): GameInputAction => ({
-    type: 'SET_LETTER_FEEDBACK',
+  setFeedback: (rowIndex: number, feedback: TileState[]): GameInputAction => ({
+    type: 'SET_FEEDBACK',
     payload: {rowIndex, feedback},
+  }),
+
+  resetGame: (): GameInputAction => ({
+    type: 'RESET_GAME',
+  }),
+
+  winGame: (): GameInputAction => ({
+    type: 'WIN_GAME',
+  }),
+
+  loseGame: (): GameInputAction => ({
+    type: 'LOSE_GAME',
   }),
 };
 
 // Game state action creators
-export const gameStateActions = {
-  /**
-   * Set the game as complete
-   */
-  setGameComplete: (won: boolean): GameStateAction => ({
-    type: 'SET_GAME_COMPLETE',
-    payload: {won},
+export const gameStateActionCreators = {
+  setSavedState: (state: MobileDifficultyProgress): GameStateAction => ({
+    type: 'SET_SAVED_STATE',
+    payload: state,
   }),
 
-  /**
-   * Reset the current game
-   */
-  resetGame: (): GameStateAction => ({
-    type: 'RESET_GAME',
+  updateHints: (letter: string, state: TileState): GameStateAction => ({
+    type: 'UPDATE_HINTS',
+    payload: {letter, state},
   }),
 
-  /**
-   * Show or hide win animation
-   */
-  setShowWinAnimation: (show: boolean): GameStateAction => ({
-    type: 'SET_SHOW_WIN_ANIMATION',
-    payload: show,
+  revealHintLetter: (index: number): GameStateAction => ({
+    type: 'REVEAL_HINT_LETTER',
+    payload: index,
   }),
 
-  /**
-   * Show or hide losing animation
-   */
-  setLosingAnimation: (show: boolean): GameStateAction => ({
-    type: 'SET_LOSING_ANIMATION',
-    payload: show,
+  revealMainHint: (): GameStateAction => ({
+    type: 'REVEAL_MAIN_HINT',
   }),
 
-  /**
-   * Reveal or hide the hint
-   */
-  revealHint: (reveal: boolean): GameStateAction => ({
-    type: 'REVEAL_HINT',
-    payload: reveal,
+  startGame: (targetWord: string, hint: string): GameStateAction => ({
+    type: 'START_GAME',
+    payload: {targetWord, hint},
   }),
 
-  /**
-   * Set a specific hint letter
-   */
-  setHintLetter: (letter: string): GameStateAction => ({
-    type: 'SET_HINT_LETTER',
-    payload: letter,
+  setFlippingRow: (rowIndex: number | null): GameStateAction => ({
+    type: 'SET_FLIPPING_ROW',
+    payload: rowIndex,
+  }),
+
+  activateLosingAnimation: (isActive: boolean): GameStateAction => ({
+    type: 'ACTIVATE_LOSING_ANIMATION',
+    payload: isActive,
+  }),
+
+  setBackupMode: (isBackupMode: boolean): GameStateAction => ({
+    type: 'SET_BACKUP_MODE',
+    payload: isBackupMode,
+  }),
+
+  setWordSource: (source: string): GameStateAction => ({
+    type: 'SET_WORD_SOURCE',
+    payload: source,
   }),
 };
 
 // UI action creators
-export const uiActions = {
-  /**
-   * Set which modal is currently active
-   */
-  setActiveModal: (modal: ModalType): UIAction => ({
+export const uiActionCreators = {
+  setActiveModal: (modalType: ModalType): UIAction => ({
     type: 'SET_ACTIVE_MODAL',
-    payload: modal,
+    payload: modalType,
   }),
 
-  /**
-   * Set theme preference
-   */
   setThemePreference: (preference: ThemePreference): UIAction => ({
     type: 'SET_THEME_PREFERENCE',
     payload: preference,
   }),
 
-  /**
-   * Enable or disable hints
-   */
+  setErrorMessage: (message: string | null): UIAction => ({
+    type: 'SET_ERROR_MESSAGE',
+    payload: message,
+  }),
+
+  setShouldShakeGrid: (shouldShake: boolean): UIAction => ({
+    type: 'SET_SHOULD_SHAKE_GRID',
+    payload: shouldShake,
+  }),
+
+  setShowWinAnimation: (shouldShow: boolean): UIAction => ({
+    type: 'SET_SHOW_WIN_ANIMATION',
+    payload: shouldShow,
+  }),
+
+  setActiveSuggestionFamily: (family: string[] | null): UIAction => ({
+    type: 'SET_ACTIVE_SUGGESTION_FAMILY',
+    payload: family,
+  }),
+
+  setFlippingRowUI: (rowIndex: number | null): UIAction => ({
+    type: 'SET_FLIPPING_ROW_UI',
+    payload: rowIndex,
+  }),
+
   setHintsEnabled: (enabled: boolean): UIAction => ({
     type: 'SET_HINTS_ENABLED',
     payload: enabled,
   }),
 
-  /**
-   * Mute or unmute sound
-   */
   setMuted: (muted: boolean): UIAction => ({
     type: 'SET_MUTED',
     payload: muted,
   }),
-
-  /**
-   * Set active suggestion family
-   */
-  setActiveSuggestion: (suggestion: string[] | null): UIAction => ({
-    type: 'SET_ACTIVE_SUGGESTION',
-    payload: suggestion,
-  }),
 };
 
-// Export all action creators in a single object
-export const actions = {
-  ...systemActions,
-  ...gameSetupActions,
-  ...gameInputActions,
-  ...gameStateActions,
-  ...uiActions,
+// Combined action creators
+export const actionCreators = {
+  ...appSystemActionCreators,
+  ...gameSetupActionCreators,
+  ...gameInputActionCreators,
+  ...gameStateActionCreators,
+  ...uiActionCreators,
 };

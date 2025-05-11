@@ -13,7 +13,7 @@ import {
 } from 'react-native';
 import {useTheme} from '../providers/ThemeProvider';
 import {GameContext} from '../context/GameContext';
-import {ThemePreference} from '../types';
+import {ThemePreference, UpdatePreferenceAction, GameActionType} from '../types';
 
 const SettingsPanel: React.FC = () => {
   const context = useContext(GameContext);
@@ -29,28 +29,28 @@ const SettingsPanel: React.FC = () => {
       toggleTheme();
     }
     dispatch({
-      type: 'UPDATE_PREFERENCE' as any,
+      type: 'UPDATE_PREFERENCE',
       payload: {key: 'themePreference', value: value},
     });
   };
 
   const handleHintsToggle = (value: boolean) => {
     dispatch({
-      type: 'UPDATE_PREFERENCE' as any,
+      type: 'UPDATE_PREFERENCE',
       payload: {key: 'hintsEnabled', value: value},
     });
   };
 
   const handleSoundToggle = (value: boolean) => {
     dispatch({
-      type: 'UPDATE_PREFERENCE' as any,
+      type: 'UPDATE_PREFERENCE',
       payload: {key: 'isMuted', value: value},
     });
   };
 
   const handleDailyReminderToggle = (value: boolean) => {
     dispatch({
-      type: 'UPDATE_PREFERENCE' as any,
+      type: 'UPDATE_PREFERENCE',
       payload: {key: 'dailyReminderEnabled', value: value},
     });
     if (Platform.OS !== 'web') {
@@ -73,7 +73,7 @@ const SettingsPanel: React.FC = () => {
         },
         {
           text: 'ዳግም ያስጀምሩ',
-          onPress: () => dispatch({type: 'RESET_ALL_DATA' as any}),
+          onPress: () => dispatch({type: 'RESET_USER_DATA'}),
           style: 'destructive',
         },
       ],

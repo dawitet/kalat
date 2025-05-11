@@ -1,17 +1,17 @@
 // src/context/initialState.ts
 
-import {GameState, WordSource} from '../types'; // Removed Difficulty, ThemePreference
+import {GameState, WordSource, MobileDifficultyProgress, TileState} from '../types'; // Added needed types
 import {getDateString} from '../core/utils/calendar';
 import {WORD_LENGTH, MAX_GUESSES} from '../game-state';
 
 // Function to create the initial state for a specific difficulty level
 export const createDefaultDifficultyState =
-  (): any /* MobileDifficultyProgress */ => ({
+  (): MobileDifficultyProgress => ({
     guesses: Array.from({length: MAX_GUESSES}, () =>
       Array(WORD_LENGTH).fill(''),
     ),
     feedback: Array.from({length: MAX_GUESSES}, () =>
-      Array(WORD_LENGTH).fill('empty' as any /* TileState */),
+      Array(WORD_LENGTH).fill('empty' as TileState),
     ), // Ensure type
     letterHints: {},
     currentRow: 0,

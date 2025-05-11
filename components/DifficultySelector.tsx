@@ -5,6 +5,7 @@ import {GameContext} from '../context/GameContext';
 import {useTheme} from '../providers/ThemeProvider';
 import {Difficulty} from '../types'; // Assuming Difficulty type is defined
 import Button from './common/Button';
+import {GameSetupAction, GameStateAction} from '../context/actions';
 
 const DifficultySelector: React.FC = () => {
   const context = useContext(GameContext);
@@ -23,8 +24,8 @@ const DifficultySelector: React.FC = () => {
     ) {
       return;
     }
-    // TODO: Verify 'SET_CURRENT_DIFFICULTY' is the correct action type
-    dispatch({type: 'SET_CURRENT_DIFFICULTY' as any, payload: difficulty});
+    // Uses the proper action type for selecting difficulty
+    dispatch({type: 'SET_CURRENT_DIFFICULTY', payload: difficulty} as GameSetupAction);
   };
 
   const handleStartGame = () => {
@@ -32,8 +33,8 @@ const DifficultySelector: React.FC = () => {
       Alert.alert('ችግር ይምረጡ', 'ለመጀመር እባክዎ የችግር ደረጃ ይምረጡ።');
       return;
     }
-    // TODO: Verify 'INITIALIZE_GAME' is the correct action type
-    dispatch({type: 'INITIALIZE_GAME' as any});
+    // Uses the proper action type for initializing the game
+    dispatch({type: 'INITIALIZE_GAME'} as GameSetupAction);
   };
 
   const styles = StyleSheet.create({

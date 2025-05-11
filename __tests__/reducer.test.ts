@@ -147,21 +147,23 @@ describe('Root Reducer', () => {
 describe('Memoization examples', () => {
   test('Memoization pattern example', () => {
     // This is just a demonstration, not an actual test
-    const memoizedFn = (fn: Function, dependencies: any[]) => {
-      let lastArgs: any[] = [];
-      let lastResult: any;
-      let lastDependencies: any[] = [];
+    const memoizedFn = <T extends unknown[], R>(fn: (...args: T) => R, dependencies: unknown[]) => {
+      let lastArgs: T = [] as unknown as T;
+      let lastResult: R;
+      let lastDependencies: unknown[] = [];
+      let hasResult = false;
 
-      return (...args: any[]) => {
+      return (...args: T): R => {
         const argsChanged = args.some((arg, i) => arg !== lastArgs[i]);
         const depsChanged = dependencies.some(
           (dep, i) => dep !== lastDependencies[i],
         );
 
-        if (argsChanged || depsChanged) {
+        if (argsChanged || depsChanged || !hasResult) {
           lastResult = fn(...args);
-          lastArgs = args;
-          lastDependencies = dependencies;
+          lastArgs = [...args] as T;
+          lastDependencies = [...dependencies];
+          hasResult = true;
         }
 
         return lastResult;

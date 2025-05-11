@@ -46,8 +46,8 @@ const GameView: React.FC<GameViewProps> = ({initialDifficulty}) => {
       }
       try {
         // Actual API call or word fetching logic would go here
-      } catch (err: any) {
-        setError(err.message || 'Failed to load word. Please try again.');
+      } catch (err: Error | unknown) {
+        setError(err instanceof Error ? err.message : 'Failed to load word. Please try again.');
       }
     },
     [dispatch],

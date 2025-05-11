@@ -1,10 +1,11 @@
 // src/components/OptimizedDifficultySelector.tsx
 import React, {useContext, useCallback, useMemo} from 'react';
-import {View, Text, StyleSheet, Platform, Alert} from 'react-native';
+import {View, Text, StyleSheet, Platform, Alert, ViewStyle} from 'react-native';
 import {GameContext} from '../context/GameContext';
 import {useTheme} from '../providers/ThemeProvider';
 import {Difficulty, ModalType} from '../types';
 import Button from './common/Button';
+import {GameAction, GameSetupAction} from '../context/actions';
 
 /**
  * Optimized difficulty selector component with performance improvements
@@ -20,7 +21,7 @@ const OptimizedDifficultySelector: React.FC = () => {
     activeModal: null as ModalType,
   };
   const safeDispatch = useMemo(() => {
-    return context?.dispatch || ((() => {}) as React.Dispatch<any>);
+    return context?.dispatch || ((() => {}) as React.Dispatch<GameAction>);
   }, [context]);
 
   // Memoized difficulty selection handler
@@ -36,7 +37,7 @@ const OptimizedDifficultySelector: React.FC = () => {
       ) {
         return;
       }
-      safeDispatch({type: 'SET_CURRENT_DIFFICULTY' as any, payload: difficulty});
+      safeDispatch({type: 'SET_CURRENT_DIFFICULTY', payload: difficulty} as GameSetupAction);
     },
     [context, gameState.currentDifficulty, gameState.activeModal, safeDispatch],
   );
@@ -52,7 +53,7 @@ const OptimizedDifficultySelector: React.FC = () => {
       Alert.alert('ችግር ይምረጡ', 'ለመጀመር እባክዎ የችግር ደረጃ ይምረጡ።');
       return;
     }
-    safeDispatch({type: 'INITIALIZE_GAME' as any});
+    safeDispatch({type: 'INITIALIZE_GAME'} as GameSetupAction);
   }, [context, gameState.currentDifficulty, safeDispatch]);
 
   // Memoized styles based on theme
@@ -149,7 +150,7 @@ interface DifficultyButtonProps {
   label: string;
   isSelected: boolean;
   onPress: () => void;
-  style?: any;
+  style?: ViewStyle;
 }
 
 const DifficultyButton = React.memo(

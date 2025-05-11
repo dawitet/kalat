@@ -10,7 +10,8 @@ import {ThemeProvider} from '../providers/ThemeProvider';
 
 // Mock the animations modules to avoid test errors
 jest.mock('react-native-reanimated', () => {
-  const Reanimated = require('react-native-reanimated/mock');
+  // Using jest.requireActual instead of require
+  const Reanimated = jest.requireActual('react-native-reanimated/mock');
   Reanimated.default.call = () => {};
   return {
     ...Reanimated,

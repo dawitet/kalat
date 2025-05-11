@@ -7,9 +7,12 @@ import {Platform} from 'react-native';
 //   stop: () => void;
 // };
 
+// Define a type for sound objects that works across platforms
+type SoundObject = HTMLAudioElement | Record<string, unknown>;
+
 export const useSound = () => {
   // const { theme } = useTheme(); // Removed unused theme variable
-  const sounds = useRef<{[key: string]: any /* HTMLAudioElement */}>({}); // Changed HTMLAudioElement to any for now
+  const sounds = useRef<{[key: string]: SoundObject}>({}); // Use a more specific type
 
   const loadSound = useCallback((name: string, url: string) => {
     if (Platform.OS === 'web') {
@@ -50,7 +53,8 @@ export const useSound = () => {
 
   const playHapticFeedback = useCallback(
     (type: 'light' | 'medium' | 'heavy' = 'medium') => {
-      const nav = (globalThis as any).navigator as {
+      // Use Record<string, unknown> for better type safety than any
+      const nav = (globalThis as Record<string, unknown>).navigator as {
         vibrate?: (pattern: number | number[]) => boolean;
       };
       if (Platform.OS === 'web' && nav.vibrate) {
@@ -79,7 +83,7 @@ export const useSound = () => {
   useEffect(() => {
     return () => {
       if (Platform.OS === 'web') {
-        Object.values(sounds.current).forEach((_sound: any) => {
+        Object.values(sounds.current).forEach((_sound: SoundObject) => {
           // Marked sound as unused
           // _sound.pause(); // Commented out Web Audio API specific code
           // _sound.src = '';

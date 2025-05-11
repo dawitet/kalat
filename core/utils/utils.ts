@@ -89,7 +89,7 @@ export const uniqueId = (prefix = 'id'): string => {
 };
 
 // Debounce function to limit the rate at which a function can fire.
-export const debounce = <F extends (...args: any[]) => any>(
+export const debounce = <F extends (...args: unknown[]) => unknown>(
   func: F,
   waitFor: number,
 ): ((...args: Parameters<F>) => void) => {
@@ -104,7 +104,7 @@ export const debounce = <F extends (...args: any[]) => any>(
 };
 
 // Throttle function to ensure a function is not called more than once in a given period.
-export const throttle = <F extends (...args: any[]) => any>(
+export const throttle = <F extends (...args: unknown[]) => unknown>(
   func: F,
   limit: number,
 ): ((...args: Parameters<F>) => void) => {
