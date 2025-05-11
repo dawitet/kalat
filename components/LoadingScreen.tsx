@@ -97,7 +97,7 @@ const LoadingScreen: React.FC<LoadingScreenProps> = React.memo(({style}) => {
       <View style={styles.contentContainer}>
         <Text style={styles.title}>ቃላት</Text>
         <Animated.Image
-          source={require('../../assets/images/adey.png')} // Adjust path
+          source={require('../assets/images/icons/adey.png')}
           style={[styles.spinnerImage, {transform: [{rotate: spin}]}]}
           resizeMode="contain"
         />
@@ -105,7 +105,7 @@ const LoadingScreen: React.FC<LoadingScreenProps> = React.memo(({style}) => {
 
       <View style={styles.footerContainer}>
         {/* <Image
-                     source={require('../../assets/images/dog.png')} // Adjust path if using logo
+                     source={require('../assets/images/icons/dog.png')}
                      style={styles.footerLogo}
                      resizeMode="contain"
                  /> */}
