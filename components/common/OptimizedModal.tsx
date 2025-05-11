@@ -16,7 +16,6 @@ import Animated, {
   withTiming,
   useAnimatedStyle,
   Easing,
-  runOnJS,
 } from 'react-native-reanimated';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { useTheme as useAppTheme } from '../../providers/ThemeProvider';

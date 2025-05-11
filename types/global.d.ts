@@ -1,6 +1,6 @@
 declare module '@telegram-apps/sdk-react' {
-  export const popup: any;
-  export const initData: any;
+  export const popup: unknown; // Changed from any
+  export const initData: unknown; // Changed from any
 }
 
 declare module 'expo-haptics' {
@@ -13,27 +13,40 @@ declare module 'expo-haptics' {
 }
 
 declare module '*.json' {
-  const value: any;
+  const value: unknown; // Changed from any
   export default value;
 }
 
 declare module '*.png' {
-  const value: any;
+  const value: string; // Assuming it resolves to a path or data URI
   export default value;
 }
 
 declare module '*.svg' {
-  const value: any;
+  const value: React.FC<React.SVGProps<SVGSVGElement>> | string; // For React components or paths
   export default value;
+}
+
+interface NotificationRequestInput {
+  content: {
+    title?: string;
+    body?: string;
+    data?: Record<string, unknown>;
+    sound?: boolean | string;
+    // ... other notification content options
+  };
+  trigger: null | Record<string, unknown> | Date | number; // Example triggers
+  identifier?: string;
 }
 
 declare module 'expo-notifications' {
   export const requestPermissionsAsync: () => Promise<{status: string}>;
   export const cancelAllScheduledNotificationsAsync: () => Promise<void>;
-  export const scheduleNotificationAsync: (options: any) => Promise<string>;
+  export const scheduleNotificationAsync: (request: NotificationRequestInput) => Promise<string>; // Changed from any
 }
 
 declare module 'expo-permissions' {
-  export const askAsync: (...args: any[]) => Promise<{status: string}>;
-  export const getAsync: (...args: any[]) => Promise<{status: string}>;
+  type PermissionType = string;
+  export const askAsync: (...types: PermissionType[]) => Promise<{status: string}>; // Changed from any[]
+  export const getAsync: (...types: PermissionType[]) => Promise<{status: string}>; // Changed from any[]
 }

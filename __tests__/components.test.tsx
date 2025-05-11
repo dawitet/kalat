@@ -53,13 +53,13 @@ describe('Component Optimization', () => {
     const countValue = getByTestId('count-value');
 
     // Initial state
-    expect(countValue.props.children).toContain('0');
+    expect(countValue.props.children.join('')).toBe('Count: 0'); // Corrected assertion
 
     // Click button
     fireEvent.press(button);
 
     // Value should update
-    expect(countValue.props.children).toContain('1');
+    expect(countValue.props.children.join('')).toBe('Count: 1'); // Corrected assertion
 
     // In a real component, the MemoizedButton would not re-render
     // when parent re-renders, unless its props changed

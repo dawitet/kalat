@@ -26,7 +26,6 @@ const OptimizedMainMenu: React.FC = () => {
     difficulty?: Difficulty;
     [key: string]: unknown;
   }
-  
   // Memoized navigation handler - must be called regardless of context availability
   const handleNavigation = useCallback(
     (screen: string, params?: NavigationParams) => {
@@ -145,80 +144,30 @@ const OptimizedMainMenu: React.FC = () => {
     [theme],
   );
 
-  // Memoized menu item renderer
-  const renderMenuItems = useCallback(() => {
-    return (
+  // Simplified menu item renderer
+  const renderMenuItems = useCallback(
+    () => (
       <View style={styles.menuGrid}>
-        {menuItems.map((item, index) => {
-          if (item.fullWidth) {
-            return (
-              <MenuItemButton
-                key={item.id}
-                id={item.id}
-                label={item.label}
-                variant="primary"
-                size="large"
-                onPress={item.action}
-                style={[styles.menuButton, styles.fullWidthButton]}
-                icon={item.icon}
-                buttonIconStyle={styles.buttonIcon}
-              />
-            );
-          }
-
-          // Pair items side by side
-          if (
-            index % 2 === 0 &&
-            index + 1 < menuItems.length &&
-            !menuItems[index + 1].fullWidth
-          ) {
-            const nextItem = menuItems[index + 1];
-            return (
-              <React.Fragment key={`pair-${item.id}`}>
-                <MenuItemButton
-                  key={item.id}
-                  id={item.id}
-                  label={item.label}
-                  variant="outline"
-                  onPress={item.action}
-                  style={styles.menuButton}
-                  icon={item.icon}
-                  buttonIconStyle={styles.buttonIcon}
-                />
-                <MenuItemButton
-                  key={nextItem.id}
-                  id={nextItem.id}
-                  label={nextItem.label}
-                  variant="outline"
-                  onPress={nextItem.action}
-                  style={styles.menuButton}
-                  icon={nextItem.icon}
-                  buttonIconStyle={styles.buttonIcon}
-                />
-              </React.Fragment>
-            );
-          } else if (index % 2 !== 0) {
-            // Skip odd indices as they're handled in the previous iteration
-            return null;
-          }
-
-          // Handle remaining single item
-          return (
-            <MenuItemButton
-              key={item.id}
-              id={item.id}
-              label={item.label}
-              variant="outline"
-              onPress={item.action}
-              style={styles.menuButton}
-              icon={item.icon}
-              buttonIconStyle={styles.buttonIcon}
-            />
-          );
-        })}
+        {menuItems.map(item => (
+          <MenuItemButton
+            key={item.id}
+            id={item.id}
+            label={item.label}
+            variant={item.fullWidth ? 'primary' : 'outline'}
+            size={item.fullWidth ? 'large' : undefined}
+            onPress={item.action}
+            style={[
+              styles.menuButton,
+              item.fullWidth ? styles.fullWidthButton : {},
+            ]}
+            icon={item.icon}
+            buttonIconStyle={styles.buttonIcon}
+          />
+        ))}
       </View>
-    );
-  }, [menuItems, styles]);
+    ),
+    [menuItems, styles],
+  );
 
   // Early return after all hooks if context is not available
   if (!context) {

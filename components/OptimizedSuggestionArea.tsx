@@ -1,6 +1,6 @@
 // src/components/OptimizedSuggestionArea.tsx
 import React, {memo, useCallback, useMemo} from 'react';
-import {View, Text, StyleSheet} from 'react-native';
+import {Text, StyleSheet} from 'react-native'; // Removed View
 import {useGameContext} from '../context/hook';
 import OptimizedKey from './OptimizedKey';
 import * as Haptics from 'expo-haptics';
@@ -46,7 +46,7 @@ const OptimizedSuggestionArea: React.FC<OptimizedSuggestionAreaProps> = () => {
   const suggestionKeys = useMemo(() => {
     if (!hasSuggestions || !activeSuggestionFamily) {return null;}
 
-    return activeSuggestionFamily.map((letter, index) => (
+    return activeSuggestionFamily.map((letter, _index) => ( // Prefixed index
       <OptimizedKey
         key={`suggestion-${letter}`}
         value={letter}
@@ -84,7 +84,7 @@ const OptimizedSuggestionArea: React.FC<OptimizedSuggestionAreaProps> = () => {
 };
 
 // Move style creation outside component for performance
-const createStyles = (theme: any) =>
+const createStyles = (theme: ReturnType<typeof useTheme>['theme']) => // Added specific type for theme
   StyleSheet.create({
     container: {
       flexDirection: 'row',

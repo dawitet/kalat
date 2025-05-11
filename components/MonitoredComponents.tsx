@@ -1,5 +1,4 @@
 // src/components/MonitoredComponents.tsx
-import React from 'react';
 import {withPerformanceMonitoring} from './OptimizedPerformanceWrapper';
 
 // Import original components

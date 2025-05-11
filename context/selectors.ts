@@ -1,5 +1,5 @@
 // src/context/selectors.ts
-import {GameState, Difficulty, MobileDifficultyProgress} from '../types';
+import {GameState, MobileDifficultyProgress} from '../types';
 
 /**
  * UI Selectors

@@ -4,7 +4,6 @@ import {Text, StyleSheet, Image, View} from 'react-native';
 import {GameContext} from '../context/GameContext';
 import {useTheme} from '../providers/ThemeProvider';
 import {Difficulty, ModalType} from '../types';
-import {GameSetupAction, UIAction} from '../context/actions';
 import Container from './common/Container';
 import Button from './common/Button';
 
@@ -32,17 +31,17 @@ const MainMenu: React.FC = () => {
         dispatch({
           type: 'SET_CURRENT_DIFFICULTY',
           payload: params.difficulty,
-        } as GameSetupAction);
-        dispatch({type: 'INITIALIZE_GAME'} as GameSetupAction);
+        });
+        dispatch({type: 'INITIALIZE_GAME'});
       }
     } else if (screen === 'Settings') {
-      dispatch({type: 'SET_ACTIVE_MODAL', payload: 'settings' as ModalType} as UIAction);
+      dispatch({type: 'SET_ACTIVE_MODAL', payload: 'settings' as ModalType});
     } else if (screen === 'Rules') {
-      dispatch({type: 'SET_ACTIVE_MODAL', payload: 'rules' as ModalType} as UIAction);
+      dispatch({type: 'SET_ACTIVE_MODAL', payload: 'rules' as ModalType});
     } else if (screen === 'Credits') {
-      dispatch({type: 'SET_ACTIVE_MODAL', payload: 'credits' as ModalType} as UIAction);
+      dispatch({type: 'SET_ACTIVE_MODAL', payload: 'credits' as ModalType});
     } else if (screen === 'Streak') {
-      dispatch({type: 'SET_ACTIVE_MODAL', payload: 'streak' as ModalType} as UIAction);
+      dispatch({type: 'SET_ACTIVE_MODAL', payload: 'streak' as ModalType});
     }
   };
 

@@ -10,11 +10,15 @@ import {ThemeProvider} from '../providers/ThemeProvider';
 import {GameProvider} from '../context/GameContext';
 
 // Mock the native modules
-import ReanimatedMock from 'react-native-reanimated/mock';
-
 jest.mock('react-native-reanimated', () => {
-  const Reanimated = { ...ReanimatedMock };
-  Reanimated.default.call = () => {};
+  const ActualReanimatedMock = jest.requireActual('react-native-reanimated/mock');
+  const Reanimated = {
+    ...ActualReanimatedMock,
+    default: {
+      ...(ActualReanimatedMock.default || {}),
+      call: () => {},
+    },
+  };
   return Reanimated;
 });
 

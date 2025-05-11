@@ -1,13 +1,6 @@
 // src/components/OptimizedComponents.tsx
-import React, {
-  useContext,
-  useEffect,
-  useState,
-  useCallback,
-  useMemo,
-} from 'react';
+import React from 'react'; // Removed unused hooks
 import {View, Text, StyleSheet} from 'react-native';
-import {GameContext} from '../context/GameContext';
 import {TileState} from '../types';
 import OptimizedGrid from './OptimizedGrid';
 import OptimizedKeyboard from './OptimizedKeyboard';

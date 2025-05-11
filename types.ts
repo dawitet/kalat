@@ -94,7 +94,7 @@ export type UIAction =
   | { type: 'SET_HINTS_ENABLED'; payload: boolean }
   | { type: 'SET_MUTED'; payload: boolean }
   | { type: 'SET_FLIPPING_ROW'; payload: number | null }
-  | { type: 'LOAD_PERSISTED_DATA'; payload: any };
+  | { type: 'LOAD_PERSISTED_DATA'; payload: PersistedData };
 
 export interface MobileDifficultyProgress {
   guesses: string[][];
@@ -283,7 +283,7 @@ export interface HideWinAnimationAction {
 
 export interface UpdatePreferenceAction {
   type: 'UPDATE_PREFERENCE';
-  payload: { key: keyof GameState; value: any };
+  payload: { key: keyof GameState; value: unknown };
 }
 
 export interface SaveUserDataStartAction {
@@ -408,7 +408,7 @@ export interface AnimationCompletedAction {
 
 export interface SetAppStateAction {
   type: 'SET_APP_STATE';
-  payload: any;
+  payload: import('react-native').AppStateStatus;
 }
 
 // Added for provider.tsx

@@ -1,12 +1,16 @@
 // Mock for react-native-reanimated used in tests
-import reanimatedMock from 'react-native-reanimated/mock';
+import originalReanimatedMock from 'react-native-reanimated/mock';
 
-// Set up the mock
-reanimatedMock.default.call = () => {};
-
-// Add additional mock implementations
+// Create an enhanced mock object
 const enhancedMock = {
-  ...reanimatedMock,
+  // Spread the original mock to get all its properties
+  ...originalReanimatedMock,
+  // Ensure default and default.call are defined
+  default: {
+    ...(originalReanimatedMock.default || {}),
+    call: () => {},
+  },
+  // Add or override other mock implementations as needed
   useSharedValue: jest.fn((initialValue) => ({ value: initialValue })),
   useAnimatedStyle: jest.fn(() => ({})),
   withTiming: jest.fn((value) => value),
@@ -16,7 +20,7 @@ const enhancedMock = {
   withRepeat: jest.fn((value) => value),
   runOnJS: jest.fn((callback) => callback),
   interpolate: jest.fn(() => 0),
-  Extrapolate: { CLAMP: 'clamp' },
+  Extrapolate: { ...(originalReanimatedMock.Extrapolate || {}), CLAMP: 'clamp' },
 };
 
 export default enhancedMock;

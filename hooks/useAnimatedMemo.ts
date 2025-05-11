@@ -13,10 +13,10 @@ import {
  * @param deps Array of values that the animated style depends on (SharedValues are handled automatically)
  * @returns Memoized animated style object
  */
-export function useAnimatedMemo(
-  styleFactory: () => any,
+export function useAnimatedMemo<T extends Record<string, unknown>>(
+  styleFactory: () => T,
   deps: React.DependencyList = [],
-): any {
+): T {
   // Filter out shared values from deps as they are tracked by Reanimated internally
   const filteredDeps = deps.filter(
     dep => !(dep && typeof dep === 'object' && 'value' in (dep as SharedValue<unknown>)),
@@ -30,10 +30,10 @@ export function useAnimatedMemo(
  * Hook that creates an animated style dependent on a shared value
  * Automatically handles adding the shared value to dependencies
  */
-export function useAnimatedDependentStyle<T>(
-  styleFactory: () => any,
+export function useAnimatedDependentStyle<T, S extends Record<string, unknown>>(
+  styleFactory: () => S,
   value: SharedValue<T>,
   deps: React.DependencyList = [],
-): any {
+): S {
   return useAnimatedMemo(styleFactory, [value, ...deps]);
 }

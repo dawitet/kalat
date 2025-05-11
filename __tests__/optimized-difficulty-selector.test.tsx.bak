@@ -1,0 +1,161 @@
+// src/__tests__/optimized-difficulty-selector.test.tsx
+import React from 'react';
+import {render, fireEvent} from '@testing-library/react-native'; // Removed unused 'act'
+import OptimizedDifficultySelector from '../components/OptimizedDifficultySelector';
+import {ThemeProvider} from '../providers/ThemeProvider';
+import {GameProvider} from '../context/GameContext';
+// Removed unused GameContext import as useGameContext hook is mocked
+import * as ReactNative from 'react-native';
+
+// Mock useAnimations to stub animation hooks
+jest.mock('../hooks/useAnimations', () => ({
+  useAnimations: () => ({
+    bounceAnimValue: { value: 1 },
+    triggerBounce: () => {},
+  }),
+}));
+
+// Mock Alert
+// Correcting the Alert mock to handle different signatures
+const mockAlert = jest.fn();
+jest.spyOn(ReactNative.Alert, 'alert').mockImplementation(mockAlert);
+
+// Mock the dispatch function
+const mockDispatch = jest.fn();
+jest.mock('../context/hook', () => ({
+  useGameContext: () => ({
+    // Provide a default for currentDifficulty, or ensure tests cover the null case
+    gameState: {currentDifficulty: 'easy', activeModal: null}, // Added activeModal for completeness
+    dispatch: mockDispatch,
+  }),
+}));
+
+// Wrapper component for tests
+const TestWrapper: React.FC<{children: React.ReactNode}> = ({children}) => (
+  <ThemeProvider>
+    <GameProvider>{children}</GameProvider>
+  </ThemeProvider>
+);
+
+describe('OptimizedDifficultySelector Component', () => {
+  beforeEach(() => {
+    // Clear any previous mock calls
+    mockDispatch.mockClear();
+    mockAlert.mockClear(); // Clear the mockAlert
+  });
+
+  it('renders without crashing', () => {
+    const {getByText} = render(
+      <TestWrapper>
+        <OptimizedDifficultySelector />
+      </TestWrapper>,
+    );
+
+    // Check if the title is rendered
+    expect(getByText('የችግር ደረጃ ይምረጡ')).toBeTruthy();
+  });
+
+  it('renders difficulty buttons', () => {
+    const {getByText} = render(
+      <TestWrapper>
+        <OptimizedDifficultySelector />
+      </TestWrapper>,
+    );
+
+    // Check for difficulty buttons
+    expect(getByText('ቀላል')).toBeTruthy(); // Easy
+    expect(getByText('ከባድ')).toBeTruthy(); // Hard
+    expect(getByText('ጀምር')).toBeTruthy(); // Start
+  });
+
+  it('handles difficulty selection correctly', () => {
+    const {getByText} = render(
+      <TestWrapper>
+        <OptimizedDifficultySelector />
+      </TestWrapper>,
+    );
+
+    // Click the hard difficulty button
+    const hardButton = getByText('ከባድ');
+    fireEvent.press(hardButton);
+
+    // Check that the dispatch was called with the correct action
+    expect(mockDispatch).toHaveBeenCalledWith({
+      type: 'SET_CURRENT_DIFFICULTY',
+      payload: 'hard',
+    });
+  });
+
+  it('handles start button press correctly', () => {
+    const {getByText} = render(
+      <TestWrapper>
+        <OptimizedDifficultySelector />
+      </TestWrapper>,
+    );
+
+    // Press the start button
+    const startButton = getByText('ጀምር');
+    fireEvent.press(startButton);
+
+    // Check that the dispatch was called with the correct action
+    expect(mockDispatch).toHaveBeenCalledWith({
+      type: 'INITIALIZE_GAME',
+    });
+  });
+
+  it('shows alert when trying to start without selecting difficulty', () => { // Removed async
+    jest.resetModules(); // Reset modules to ensure fresh mocks
+    const mockDispatchForAlertTest = jest.fn();
+    const mockAlertForAlertTest = jest.fn();
+    // Ensure ReactNative.Alert is spied on correctly for this scope
+    jest.spyOn(ReactNative.Alert, 'alert').mockImplementation(mockAlertForAlertTest);
+
+    jest.doMock('../context/hook', () => ({
+      useGameContext: () => ({
+        gameState: {currentDifficulty: null, activeModal: null},
+        dispatch: mockDispatchForAlertTest,
+      }),
+    }));
+
+    // Mock useTheme for this specific test to provide a stable theme object
+    jest.doMock('../providers/ThemeProvider', () => ({
+      ...jest.requireActual('../providers/ThemeProvider'), // Keep other exports like ThemeProvider itself
+      useTheme: () => ({
+        theme: {
+          // Provide a minimal mock theme object based on your Theme type
+          colors: {
+            primary: '#fff',
+            text: '#000',
+            border: '#ccc',
+            accent: 'blue',
+            // Add other necessary colors from your theme structure
+          },
+          // Add other theme properties like typography, spacing if used by the component
+        },
+        isDark: false,
+        toggleTheme: jest.fn(),
+      }),
+    }));
+
+    // Dynamically require the component *after* the mock is set up
+    // eslint-disable-next-line @typescript-eslint/no-var-requires
+    const OptimizedDifficultySelectorWithMock = require('../components/OptimizedDifficultySelector').default;
+
+    const {getByText} = render(
+      // ThemeProvider might still be useful if the component structure relies on it,
+      // but useTheme is now directly mocked.
+      <ThemeProvider>
+        <OptimizedDifficultySelectorWithMock />
+      </ThemeProvider>,
+    );
+
+    const startButton = getByText('ጀምር');
+    fireEvent.press(startButton);
+
+    expect(mockAlertForAlertTest).toHaveBeenCalledWith(
+      'ችግር ይምረጡ',
+      'ለመጀመር እባክዎ የችግር ደረጃ ይምረጡ።'
+    );
+    expect(mockDispatchForAlertTest).not.toHaveBeenCalled();
+  });
+});

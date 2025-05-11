@@ -1,8 +1,7 @@
 // src/components/ConfettiWrapper.tsx
-import React, { useCallback, useMemo, useState } from 'react';
+import React, { useMemo, useState } from 'react';
 import { ViewStyle } from 'react-native';
 import OptimizedConfetti from './OptimizedConfetti';
-import { usePerformanceMonitor } from '../hooks/usePerformanceMonitor';
 
 interface ConfettiPiece {
     id: string;
@@ -35,12 +34,6 @@ const ConfettiWrapper: React.FC<ConfettiWrapperProps> = ({
     colors = ['#FF5252', '#FFD740', '#00C853', '#2196F3', '#9C27B0', '#FF9800'],
 }) => {
     const [pieces, setPieces] = useState<ConfettiPiece[]>([]);
-
-    // Performance monitoring
-    const metrics = usePerformanceMonitor({
-        componentName: 'ConfettiWrapper',
-        enableLogging: __DEV__,
-    });
 
     // Generate confetti pieces only when active
     useMemo(() => {

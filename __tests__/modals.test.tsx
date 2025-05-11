@@ -2,7 +2,10 @@
 import React from 'react';
 import {render, fireEvent, act} from '@testing-library/react-native';
 import {ThemeProvider} from '../providers/ThemeProvider';
-import {GameProvider} from '../context/provider';
+import {GameContext} from '../context/GameContext';
+import {initialState} from '../context/initialState';
+import {GameContextType, GameState, GameActionType, UIAction} from '../types';
+import {SafeAreaProvider} from 'react-native-safe-area-context';
 import RulesModal from '../components/modals/RulesModal';
 import StreakModal from '../components/modals/StreakModal';
 import CreditsModal from '../components/modals/CreditsModal';
@@ -32,18 +35,41 @@ jest.mock('react-native-reanimated', () => {
   };
 });
 
-// Mock Linking
+// Mock only the Linking module to avoid native DevMenu error
 jest.mock('react-native/Libraries/Linking/Linking', () => ({
   openURL: jest.fn(() => Promise.resolve()),
   canOpenURL: jest.fn(() => Promise.resolve(true)),
+  addEventListener: jest.fn(),
+  removeEventListener: jest.fn(),
+  getInitialURL: jest.fn(() => Promise.resolve(null)),
 }));
 
 // Wrap component with necessary providers
 const renderWithProviders = (ui: React.ReactElement) => {
+  const mockGameState: GameState = {
+    ...initialState, // Spread initial state
+    userId: 'test-user', // Provide userId so modal renders properly
+    // Add specific streak data for StreakModal tests
+    currentStreak: 5,
+    maxStreak: 10,
+    bestTimeHard: 120000, // Example time in ms
+    gamesPlayed: 20,
+    // Ensure other necessary fields from GameState are present if StreakModal uses them
+  };
+  const mockDispatch = jest.fn();
+  const mockContextValue: GameContextType = {
+    gameState: mockGameState,
+    dispatch: mockDispatch as React.Dispatch<GameActionType | UIAction>,
+  };
+
   return render(
-    <ThemeProvider>
-      <GameProvider>{ui}</GameProvider>
-    </ThemeProvider>,
+    <SafeAreaProvider initialMetrics={{frame: {x: 0, y: 0, width: 0, height: 0}, insets: {top: 0, left: 0, right: 0, bottom: 0}}}>
+      <ThemeProvider>
+        <GameContext.Provider value={mockContextValue}>
+          {ui}
+        </GameContext.Provider>
+      </ThemeProvider>
+    </SafeAreaProvider>,
   );
 };
 

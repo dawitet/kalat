@@ -6,9 +6,11 @@ import {
   StyleSheet,
   ScrollView,
   Image,
-  Linking,
   Alert,
 } from 'react-native';
+// Use require for native Linking so jest.mock('react-native/Libraries/Linking/Linking') applies
+// eslint-disable-next-line @typescript-eslint/no-var-requires
+const LinkingNative = require('react-native/Libraries/Linking/Linking') as typeof import('react-native').Linking;
 import * as Haptics from 'expo-haptics';
 
 // Config Import
@@ -47,9 +49,9 @@ const CreditsModal: React.FC<CreditsModalProps> = ({visible, onClose}) => {
   const handleFeedbackLink = async () => {
     try {
       Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Light);
-      const supported = await Linking.canOpenURL(feedbackLink);
+      const supported = await LinkingNative.canOpenURL(feedbackLink);
       if (supported) {
-        await Linking.openURL(feedbackLink);
+        await LinkingNative.openURL(feedbackLink);
       } else {
         Alert.alert('ስህተት', `ቴሌግራምን መክፈት አልተቻለም። በ ${feedbackLink} ያግኙን።`);
       }

@@ -1,6 +1,6 @@
 // src/components/OptimizedGridRow.tsx
 import React, {memo, useCallback, useMemo} from 'react';
-import {View, StyleSheet, ViewStyle} from 'react-native';
+import {StyleSheet} from 'react-native'; // Removed View, ViewStyle
 import OptimizedTile from './OptimizedTile';
 import {TileState} from '../types';
 import {useAnimations} from '../hooks/useAnimations';
@@ -24,7 +24,7 @@ export interface OptimizedGridRowProps {
 const OptimizedGridRow: React.FC<OptimizedGridRowProps> = ({
   letters,
   feedback,
-  isCurrentRow = false,
+  isCurrentRow: _isCurrentRow = false, // Prefixed unused variable
   isFlipping = false,
   shouldShake = false,
   rowIndex,

@@ -11,7 +11,7 @@ interface WipScreenProps {
 
 const WipScreen: React.FC<WipScreenProps> = ({
   title = 'በቅርብ ቀን',
-  message = 'ይህ ገጽ በግንባታ ላይ ነው። እባክዎ በቅርቡ ተመልሰው ይምጡ!',
+  message = 'ይህ ገጽ በግንባታ ላይ ነው። እባክዎ በቅርቡ ተመልሰው ይምጡ! ግንባታውን ቆሞ እያዩ መዋል የተክከለከለ ነው',
   onBack,
 }) => {
   const {theme} = useTheme();

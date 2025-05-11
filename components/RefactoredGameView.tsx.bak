@@ -52,7 +52,7 @@ const RefactoredGameView: React.FC<GameViewProps> = ({initialDifficulty}) => {
 
   // Track active timers for cleanup
   const activeTimerRef = useRef<NodeJS.Timeout | null>(null);
-
+  
   // Cleanup function to be used in useEffect
   const cleanupTimers = useCallback(() => {
     if (activeTimerRef.current) {
@@ -60,12 +60,12 @@ const RefactoredGameView: React.FC<GameViewProps> = ({initialDifficulty}) => {
       activeTimerRef.current = null;
     }
   }, []);
-
+  
   // Fetch initial word with error handling
   const fetchInitialWord = useCallback(async (_difficulty: Difficulty) => {
     setIsLoading(true);
     setError(null);
-
+    
     // Clean up any existing timer
     cleanupTimers();
 
@@ -79,14 +79,14 @@ const RefactoredGameView: React.FC<GameViewProps> = ({initialDifficulty}) => {
       setError(err instanceof Error ? err.message : 'Failed to load word. Please try again.');
       setIsLoading(false);
     }
-  }, [cleanupTimers]);
+  }, []);
 
   // Initialize game on component mount
   useEffect(() => {
     if (initialDifficulty) {
       fetchInitialWord(initialDifficulty);
     }
-
+    
     // Clean up any timers when component unmounts
     return () => {
       if (activeTimerRef.current) {

@@ -65,9 +65,9 @@ const OptimizedKeyboard: React.FC<KeyboardProps> = memo(
     const keyboardRows = useMemo(() => {
       return amharicKeyboardLayout.map((row, rowIndex) => (
         <View key={`row-${rowIndex}`} style={styles.row}>
-          {row.map(keyVal => (
+          {row.map((keyVal, keyIndex) => (
             <OptimizedKey
-              key={keyVal}
+              key={`key-${rowIndex}-${keyVal}-${keyIndex}`}
               value={keyVal}
               onClick={onKeyPress}
               state={letterHints[keyVal]}

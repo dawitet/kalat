@@ -9,7 +9,7 @@ interface StatCardProps {
   value: string;
   label: string;
   subLabel?: string;
-  animatedStyle: any;
+  animatedStyle: Record<string, unknown>;
 }
 
 const StatCard: React.FC<StatCardProps> = ({

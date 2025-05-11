@@ -5,10 +5,8 @@ import {
   Text,
   StyleSheet,
   ScrollView,
-  Image,
   Platform,
 } from 'react-native';
-import {useSafeAreaInsets} from 'react-native-safe-area-context';
 import * as Haptics from 'expo-haptics';
 
 // Context Hook & Components
@@ -24,7 +22,6 @@ interface RulesModalProps {
 
 const RulesModal: React.FC<RulesModalProps> = ({visible, onClose}) => {
   const {setActiveModal} = useGameContext();
-  const insets = useSafeAreaInsets();
   const {theme} = useTheme();
 
   const handleClose = () => {
@@ -39,6 +36,9 @@ const RulesModal: React.FC<RulesModalProps> = ({visible, onClose}) => {
       paddingHorizontal: 20,
       paddingTop: 20,
       paddingBottom: 20,
+    },
+    modalContentStyle: {
+      padding: 0,
     },
     section: {
       marginBottom: 20,
@@ -139,7 +139,7 @@ const RulesModal: React.FC<RulesModalProps> = ({visible, onClose}) => {
       visible={visible}
       onClose={onClose}
       slideAnimation={true}
-      contentStyle={{padding: 0}}>
+      contentStyle={styles.modalContentStyle}>
       <ScrollView
         contentContainerStyle={styles.scrollContent}
         showsVerticalScrollIndicator={false}>

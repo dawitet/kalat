@@ -13,7 +13,7 @@ import {
 } from 'react-native';
 import {useTheme} from '../providers/ThemeProvider';
 import {GameContext} from '../context/GameContext';
-import {ThemePreference, UpdatePreferenceAction, GameActionType} from '../types';
+import {ThemePreference} from '../types';
 
 const SettingsPanel: React.FC = () => {
   const context = useContext(GameContext);

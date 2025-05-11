@@ -5,7 +5,7 @@ import {GameContext} from '../context/GameContext';
 import {useTheme} from '../providers/ThemeProvider';
 import {Difficulty} from '../types'; // Assuming Difficulty type is defined
 import Button from './common/Button';
-import {GameSetupAction, GameStateAction} from '../context/actions';
+import {GameSetupAction} from '../context/actions';
 
 const DifficultySelector: React.FC = () => {
   const context = useContext(GameContext);
