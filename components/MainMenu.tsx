@@ -1,6 +1,5 @@
 import React, {useContext, useEffect} from 'react';
-import {Text, StyleSheet, Image, View} from 'react-native';
-import {getImageSource} from '../assets/imageRegistry';
+import {Text, StyleSheet, View} from 'react-native';
 import {GameContext} from '../context/GameContext';
 import {useTheme} from '../providers/ThemeProvider';
 import {Difficulty, ModalType} from '../types';
@@ -197,10 +196,6 @@ const MainMenu: React.FC = () => {
   return (
     <Container useSafeArea scrollable centerHorizontal>
       <View style={styles.logoContainer}>
-        <Image
-          source={getImageSource('kalat_logo_svg')}
-          style={styles.logo}
-        />
         <Text style={styles.title}>ቃላት</Text>
       </View>
       {renderMenuItems()}

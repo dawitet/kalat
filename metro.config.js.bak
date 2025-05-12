@@ -1,0 +1,37 @@
+const {getDefaultConfig} = require('@react-native/metro-config');
+const path = require('path');
+
+/**
+ * Metro configuration
+ * https://reactnative.dev/docs/metro
+ */
+const config = getDefaultConfig(__dirname);
+
+// Add svg support
+const { assetExts, sourceExts } = config.resolver;
+
+// Properly extend the default configuration
+config.transformer = {
+  ...config.transformer,
+  getTransformOptions: async () => ({
+    transform: {
+      experimentalImportSupport: false,
+      inlineRequires: true,
+    },
+  }),
+  babelTransformerPath: require.resolve('react-native-svg-transformer'),
+  // Add asset handling
+  assetPlugins: [],
+};
+
+config.resolver = {
+  ...config.resolver,
+  assetExts: assetExts.filter(ext => ext !== 'svg'),
+  sourceExts: [...sourceExts, 'svg'],
+  // Ensure assets are found correctly
+  extraNodeModules: {
+    assets: path.resolve(__dirname, 'assets'),
+  },
+};
+
+module.exports = config;

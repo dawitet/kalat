@@ -14,7 +14,6 @@ module.exports = {
           '.json',
           '.png',
           '.jpg',
-          '.svg',
         ],
         alias: {
           'assets': './assets',

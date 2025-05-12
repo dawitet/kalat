@@ -1,13 +1,12 @@
 // src/components/OptimizedMainMenu.tsx
 import React, {useContext, useCallback, useMemo} from 'react';
-import {Text, StyleSheet, Image, View, ViewStyle, TextStyle} from 'react-native';
+import {Text, StyleSheet, View, ViewStyle, TextStyle} from 'react-native';
 import {GameContext} from '../context/GameContext';
 import {useTheme} from '../providers/ThemeProvider';
 import {Difficulty} from '../types';
 import Container from './common/Container';
 import Button from './common/Button';
 import {GameAction, UIAction} from '../context/actions';
-import {getImageSource} from '../assets/imageRegistry';
 
 /**
  * Optimized main menu component with performance improvements
@@ -179,10 +178,6 @@ const OptimizedMainMenu: React.FC = () => {
   return (
     <Container useSafeArea scrollable centerHorizontal>
       <View style={styles.logoContainer}>
-        <Image
-          source={getImageSource('kalat_logo_svg')}
-          style={styles.logo}
-        />
         <Text style={styles.title}>ቃላት</Text>
       </View>
       {renderMenuItems()}

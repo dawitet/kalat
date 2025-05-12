@@ -1,0 +1,101 @@
+// filepath: /Users/dawitsahle/Documents/kalat/assets/imageRegistry.ts
+import { Platform } from 'react-native';
+
+// Main images
+const adey = require('./images/adey.png');
+const dave = require('./images/dave.png');
+const dog = require('./images/dog.png');
+
+// Icons
+const adey_icon = require('./images/icons/adey.png');
+const icon_home = require('./images/icons/icon_home.png');
+const icon_feedback = require('./images/icons/icon_feedback.png');
+const icon_share = require('./images/icons/icon_share.png');
+
+// SVG files
+const kalat_logo_svg = require('./images/ቃላት.svg');
+
+// Additional icons
+const icon_about = require('./images/icons/icon_about.png');
+const icon_add_home = require('./images/icons/icon_add_home.png');
+const icon_close = require('./images/icons/icon_close.png');
+const icon_continue = require('./images/icons/icon_continue.png');
+const icon_difficulty_easy = require('./images/icons/icon_difficulty_easy.png');
+const icon_difficulty_hard = require('./images/icons/icon_difficulty_hard.png');
+const icon_feedback_wip = require('./images/icons/icon_feedback_wip.png');
+const icon_friends = require('./images/icons/icon_friends.png');
+const icon_fullscreen_enter = require('./images/icons/icon_fullscreen_enter.png');
+const icon_fullscreen_exit = require('./images/icons/icon_fullscreen_exit.png');
+const icon_hint = require('./images/icons/icon_hint.png');
+const icon_hints_off = require('./images/icons/icon_hints_off.png');
+const icon_hints_on = require('./images/icons/icon_hints_on.png');
+const icon_leaderboard = require('./images/icons/icon_leaderboard.png');
+const icon_mute_off = require('./images/icons/icon_mute_off.png');
+const icon_mute_on = require('./images/icons/icon_mute_on.png');
+const icon_reset = require('./images/icons/icon_reset.png');
+const icon_reset_on = require('./images/icons/icon_reset_on.png');
+const icon_rules = require('./images/icons/icon_rules.png');
+const icon_settings = require('./images/icons/icon_settings.png');
+const icon_start = require('./images/icons/icon_start.png');
+const icon_streak = require('./images/icons/icon_streak.png');
+const icon_theme_dark = require('./images/icons/icon_theme_dark.png');
+const icon_theme_light = require('./images/icons/icon_theme_light.png');
+const icon_theme_system = require('./images/icons/icon_theme_system.png');
+
+// Create image dictionary with explicitly named variables
+const imageAssets = {
+  adey,
+  dave,
+  dog,
+  adey_icon,
+  icon_home,
+  icon_feedback,
+  icon_share,
+  kalat_logo_svg,
+  icon_about,
+  icon_add_home,
+  icon_close,
+  icon_continue,
+  icon_difficulty_easy,
+  icon_difficulty_hard,
+  icon_feedback_wip,
+  icon_friends,
+  icon_fullscreen_enter,
+  icon_fullscreen_exit,
+  icon_hint,
+  icon_hints_off,
+  icon_hints_on,
+  icon_leaderboard,
+  icon_mute_off,
+  icon_mute_on,
+  icon_reset,
+  icon_reset_on,
+  icon_rules,
+  icon_settings,
+  icon_start,
+  icon_streak,
+  icon_theme_dark,
+  icon_theme_light,
+  icon_theme_system
+};
+
+/**
+ * Get an image source from the registry
+ */
+export const getImageSource = (name) => {
+  if (Platform.OS === 'web') {
+    // For web, return the URI directly
+    return { uri: name };
+  }
+  // For native platforms, return the required module
+  return imageAssets[name] || null;
+};
+
+/**
+ * For backwards compatibility
+ */
+export const registerImages = () => {
+  return imageAssets;
+};
+
+export default imageAssets;

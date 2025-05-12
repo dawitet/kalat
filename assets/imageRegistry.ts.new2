@@ -1,3 +1,4 @@
+// filepath: /Users/dawitsahle/Documents/kalat/assets/imageRegistry.ts
 import { Platform, ImageSourcePropType } from 'react-native';
 
 // Define image paths for static import
@@ -16,8 +17,8 @@ const imageAssets = {
   icon_feedback: require('./images/icons/icon_feedback.png'),
   icon_share: require('./images/icons/icon_share.png'),
   
-  // Using PNG instead of SVG to avoid build issues
-  kalat_logo_svg: require('./images/adey.png'),
+  // SVG files
+  kalat_logo_svg: require('./images/ቃላት.svg'),
   
   // Additional icons
   icon_about: require('./images/icons/icon_about.png'),

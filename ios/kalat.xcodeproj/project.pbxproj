@@ -44,7 +44,7 @@
 		BFCE424F9DEE459CB3146F7C /* dave.png in Resources */ = {isa = PBXBuildFile; fileRef = 5B946E901D5342CABDF8A662 /* dave.png */; };
 		C17CC416B6F447069DEC97E0 /* icon_share.png in Resources */ = {isa = PBXBuildFile; fileRef = B0EF2C39C8554E6EB0751B0E /* icon_share.png */; };
 		C1D5B2FDA76F4EA29C0B3095 /* icon_streak.png in Resources */ = {isa = PBXBuildFile; fileRef = 9ED36E01B7194B10A96CEE6B /* icon_streak.png */; };
-		C30CD8DEC8109E481489B07B /* libPods-kalat.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8FD66169B52DE28F3F3B28D3 /* libPods-kalat.a */; };
+		C3DFA1EA2516005BD034C0D6 /* libPods-kalat.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C844D9D426C84E2E71EC0A61 /* libPods-kalat.a */; };
 		C646E8619D2749D58482901A /* icon_continue.png in Resources */ = {isa = PBXBuildFile; fileRef = 12F6AA2DA39B4A0EAF25A044 /* icon_continue.png */; };
 		C75E59D580414EA58384D9FD /* icon_add_home.png in Resources */ = {isa = PBXBuildFile; fileRef = 2C351DD8053142A591D29E73 /* icon_add_home.png */; };
 		CB08E7E8DAB949B9B8F161E0 /* one.png in Resources */ = {isa = PBXBuildFile; fileRef = 2EF02D17EC344727BC45139B /* one.png */; };
@@ -77,6 +77,7 @@
 		4CDB692679C34F0DB203D78D /* icon_feedback.png */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = icon_feedback.png; path = ../assets/images/icons/icon_feedback.png; sourceTree = "<group>"; };
 		5B946E901D5342CABDF8A662 /* dave.png */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = dave.png; path = ../assets/images/dave.png; sourceTree = "<group>"; };
 		5EFCB82516F34C518FE720CA /* j.png */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = j.png; path = ../assets/images/icons/j.png; sourceTree = "<group>"; };
+		60DB6472C558C3F5B7E068F6 /* Pods-kalat.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-kalat.release.xcconfig"; path = "Target Support Files/Pods-kalat/Pods-kalat.release.xcconfig"; sourceTree = "<group>"; };
 		6A38C096445443ACB082D089 /* c.png */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = c.png; path = ../assets/images/icons/c.png; sourceTree = "<group>"; };
 		6D476FED025B4279A00C715F /* icon_difficulty_easy.png */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = icon_difficulty_easy.png; path = ../assets/images/icons/icon_difficulty_easy.png; sourceTree = "<group>"; };
 		6D786A47661F4D53B0DBCAB1 /* ቃላት.svg */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "ቃላት.svg"; path = "../assets/images/icons/ቃላት.svg"; sourceTree = "<group>"; };
@@ -87,7 +88,6 @@
 		81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = kalat/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		83102FB92220475BAAF0901E /* icon_theme_dark.png */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = icon_theme_dark.png; path = ../assets/images/icons/icon_theme_dark.png; sourceTree = "<group>"; };
 		870A9E8EC0F246AE827DDA5D /* icon_difficulty_hard.png */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = icon_difficulty_hard.png; path = ../assets/images/icons/icon_difficulty_hard.png; sourceTree = "<group>"; };
-		8FD66169B52DE28F3F3B28D3 /* libPods-kalat.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-kalat.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		993D940878AE4A3A9E7C21A1 /* default_avatar.png */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = default_avatar.png; path = ../assets/images/icons/default_avatar.png; sourceTree = "<group>"; };
 		9B285DD3654948E6B1BF7EF6 /* icon_hint.png */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = icon_hint.png; path = ../assets/images/icons/icon_hint.png; sourceTree = "<group>"; };
 		9ED36E01B7194B10A96CEE6B /* icon_streak.png */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = icon_streak.png; path = ../assets/images/icons/icon_streak.png; sourceTree = "<group>"; };
@@ -96,10 +96,12 @@
 		A95333E979AC4F7CBE37D342 /* icon_fullscreen_enter.png */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = icon_fullscreen_enter.png; path = ../assets/images/icons/icon_fullscreen_enter.png; sourceTree = "<group>"; };
 		AACC6AC8B1C042CDA5664068 /* icon_hints_on.png */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = icon_hints_on.png; path = ../assets/images/icons/icon_hints_on.png; sourceTree = "<group>"; };
 		B0EF2C39C8554E6EB0751B0E /* icon_share.png */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = icon_share.png; path = ../assets/images/icons/icon_share.png; sourceTree = "<group>"; };
+		B392763E4C43249D85C9CB2C /* Pods-kalat.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-kalat.debug.xcconfig"; path = "Target Support Files/Pods-kalat/Pods-kalat.debug.xcconfig"; sourceTree = "<group>"; };
 		B8F0B6FDA26D4E4C8676B505 /* icon_theme_light.png */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = icon_theme_light.png; path = ../assets/images/icons/icon_theme_light.png; sourceTree = "<group>"; };
 		BDAE4744B9C9437392AC5692 /* icon_feedback_wip.png */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = icon_feedback_wip.png; path = ../assets/images/icons/icon_feedback_wip.png; sourceTree = "<group>"; };
 		BF0523E871634FE8BDD295BB /* invite.png */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = invite.png; path = ../assets/images/icons/invite.png; sourceTree = "<group>"; };
 		C2EDC6A1163248D8B60B4D41 /* icon_settings.png */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = icon_settings.png; path = ../assets/images/icons/icon_settings.png; sourceTree = "<group>"; };
+		C844D9D426C84E2E71EC0A61 /* libPods-kalat.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-kalat.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D0B812A5668945A0AEDB85F9 /* icon_about.png */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = icon_about.png; path = ../assets/images/icons/icon_about.png; sourceTree = "<group>"; };
 		DB6ECD2BD950467E8232BED1 /* icon_start.png */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = icon_start.png; path = ../assets/images/icons/icon_start.png; sourceTree = "<group>"; };
 		E1C377B54A704190BA26BC57 /* s.png */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = s.png; path = ../assets/images/icons/s.png; sourceTree = "<group>"; };
@@ -107,9 +109,7 @@
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
 		F065C128EA094DCB8D201BAA /* adey.png */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = adey.png; path = ../assets/images/adey.png; sourceTree = "<group>"; };
 		F075CED019D743A6BB721960 /* icon_leaderboard.png */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = icon_leaderboard.png; path = ../assets/images/icons/icon_leaderboard.png; sourceTree = "<group>"; };
-		F0A447FC2EC63DDF3D6A5C2D /* Pods-kalat.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-kalat.release.xcconfig"; path = "Target Support Files/Pods-kalat/Pods-kalat.release.xcconfig"; sourceTree = "<group>"; };
 		F717EDE2D4C4412D93942846 /* icon_fullscreen_exit.png */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = icon_fullscreen_exit.png; path = ../assets/images/icons/icon_fullscreen_exit.png; sourceTree = "<group>"; };
-		FB02FC5E160BC386DA7330E5 /* Pods-kalat.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-kalat.debug.xcconfig"; path = "Target Support Files/Pods-kalat/Pods-kalat.debug.xcconfig"; sourceTree = "<group>"; };
 		FEB1D8756F5F443F9F03D22C /* icon_reset_on.png */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = icon_reset_on.png; path = ../assets/images/icons/icon_reset_on.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -118,7 +118,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C30CD8DEC8109E481489B07B /* libPods-kalat.a in Frameworks */,
+				C3DFA1EA2516005BD034C0D6 /* libPods-kalat.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -192,7 +192,7 @@
 			isa = PBXGroup;
 			children = (
 				ED297162215061F000B7C4FE /* JavaScriptCore.framework */,
-				8FD66169B52DE28F3F3B28D3 /* libPods-kalat.a */,
+				C844D9D426C84E2E71EC0A61 /* libPods-kalat.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -230,8 +230,8 @@
 		BBD78D7AC51CEA395F1C20DB /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				FB02FC5E160BC386DA7330E5 /* Pods-kalat.debug.xcconfig */,
-				F0A447FC2EC63DDF3D6A5C2D /* Pods-kalat.release.xcconfig */,
+				B392763E4C43249D85C9CB2C /* Pods-kalat.debug.xcconfig */,
+				60DB6472C558C3F5B7E068F6 /* Pods-kalat.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -243,13 +243,13 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 13B07F931A680F5B00A75B9A /* Build configuration list for PBXNativeTarget "kalat" */;
 			buildPhases = (
-				413D4E1D338B50620359D1A7 /* [CP] Check Pods Manifest.lock */,
+				74BE7836A89128B12A9E494C /* [CP] Check Pods Manifest.lock */,
 				13B07F871A680F5B00A75B9A /* Sources */,
 				13B07F8C1A680F5B00A75B9A /* Frameworks */,
 				13B07F8E1A680F5B00A75B9A /* Resources */,
 				00DD1BFF1BD5951E006B06BC /* Bundle React Native code and images */,
-				25C701829E3884071300D0CC /* [CP] Embed Pods Frameworks */,
-				D959FCE239537CA0C281C06B /* [CP] Copy Pods Resources */,
+				94A071A4073ECF5B62A6AA8F /* [CP] Embed Pods Frameworks */,
+				4E6CE5C59FE4655999073748 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -364,24 +364,24 @@
 			shellPath = /bin/sh;
 			shellScript = "set -e\n\nWITH_ENVIRONMENT=\"$REACT_NATIVE_PATH/scripts/xcode/with-environment.sh\"\nREACT_NATIVE_XCODE=\"$REACT_NATIVE_PATH/scripts/react-native-xcode.sh\"\n\n/bin/sh -c \"$WITH_ENVIRONMENT $REACT_NATIVE_XCODE\"\n";
 		};
-		25C701829E3884071300D0CC /* [CP] Embed Pods Frameworks */ = {
+		4E6CE5C59FE4655999073748 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-kalat/Pods-kalat-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+				"${PODS_ROOT}/Target Support Files/Pods-kalat/Pods-kalat-resources-${CONFIGURATION}-input-files.xcfilelist",
 			);
-			name = "[CP] Embed Pods Frameworks";
+			name = "[CP] Copy Pods Resources";
 			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-kalat/Pods-kalat-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+				"${PODS_ROOT}/Target Support Files/Pods-kalat/Pods-kalat-resources-${CONFIGURATION}-output-files.xcfilelist",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-kalat/Pods-kalat-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-kalat/Pods-kalat-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		413D4E1D338B50620359D1A7 /* [CP] Check Pods Manifest.lock */ = {
+		74BE7836A89128B12A9E494C /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -403,21 +403,21 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		D959FCE239537CA0C281C06B /* [CP] Copy Pods Resources */ = {
+		94A071A4073ECF5B62A6AA8F /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-kalat/Pods-kalat-resources-${CONFIGURATION}-input-files.xcfilelist",
+				"${PODS_ROOT}/Target Support Files/Pods-kalat/Pods-kalat-frameworks-${CONFIGURATION}-input-files.xcfilelist",
 			);
-			name = "[CP] Copy Pods Resources";
+			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-kalat/Pods-kalat-resources-${CONFIGURATION}-output-files.xcfilelist",
+				"${PODS_ROOT}/Target Support Files/Pods-kalat/Pods-kalat-frameworks-${CONFIGURATION}-output-files.xcfilelist",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-kalat/Pods-kalat-resources.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-kalat/Pods-kalat-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -436,7 +436,7 @@
 /* Begin XCBuildConfiguration section */
 		13B07F941A680F5B00A75B9A /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = FB02FC5E160BC386DA7330E5 /* Pods-kalat.debug.xcconfig */;
+			baseConfigurationReference = B392763E4C43249D85C9CB2C /* Pods-kalat.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
@@ -465,7 +465,7 @@
 		};
 		13B07F951A680F5B00A75B9A /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = F0A447FC2EC63DDF3D6A5C2D /* Pods-kalat.release.xcconfig */;
+			baseConfigurationReference = 60DB6472C558C3F5B7E068F6 /* Pods-kalat.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;

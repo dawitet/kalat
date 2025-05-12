@@ -8,5 +8,5 @@
       "*": ["./types/*"]
     }
   },
-  "include": ["src/**/*", "types/**/*", "**/*.tsx", "**/*.ts"]
+  "include": ["src/**/*", "types/**/*", "**/*.tsx", "**/*.ts", "react-native.d.ts"]
 }
