@@ -880,32 +880,6 @@ GatherProvisioningInputs
 
 CreateBuildDescription
 
-ExecuteExternalTool /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -v -E -dM -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator18.4.sdk -x objective-c -c /dev/null
-
-ExecuteExternalTool /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -v -E -dM -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator18.4.sdk -x c++ -c /dev/null
-
-ExecuteExternalTool /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -v -E -dM -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator18.4.sdk -x objective-c++ -c /dev/null
-
-ExecuteExternalTool /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -v -E -dM -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator18.4.sdk -x c -c /dev/null
-
-ExecuteExternalTool /Applications/Xcode.app/Contents/Developer/usr/bin/ibtool --version --output-format xml1
-
-ExecuteExternalTool /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -v -E -dM -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator18.4.sdk -x c -c /dev/null
-
-ExecuteExternalTool /Applications/Xcode.app/Contents/Developer/usr/bin/actool --print-asset-tag-combinations --output-format xml1 /Users/dawitsahle/Documents/kalat/ios/kalat/Images.xcassets
-
-ExecuteExternalTool /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/libtool -V
-
-ExecuteExternalTool /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -v -E -dM -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator18.4.sdk -x assembler-with-cpp -c /dev/null
-
-ExecuteExternalTool /Applications/Xcode.app/Contents/Developer/usr/bin/actool --version --output-format xml1
-
-ExecuteExternalTool /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/swiftc --version
-
-ExecuteExternalTool /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/ld -version_details
-
-Build description signature: b7a280b7e6b1665d5f961f56626c8c46
-Build description path: /Users/dawitsahle/Library/Developer/Xcode/DerivedData/kalat-guvktuqfjhpnxhbmofycdlivdirv/Build/Intermediates.noindex/XCBuildData/b7a280b7e6b1665d5f961f56626c8c46.xcbuilddata
 ClangStatCache /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang-stat-cache /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator18.4.sdk /Users/dawitsahle/Library/Developer/Xcode/DerivedData/SDKStatCaches.noindex/iphonesimulator18.4-22E235-71825a6d136aa4733edcbe86ece5525b.sdkstatcache
     cd /Users/dawitsahle/Documents/kalat/ios
     /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang-stat-cache /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator18.4.sdk -o /Users/dawitsahle/Library/Developer/Xcode/DerivedData/SDKStatCaches.noindex/iphonesimulator18.4-22E235-71825a6d136aa4733edcbe86ece5525b.sdkstatcache
@@ -1416,547 +1390,7 @@ PhaseScriptExecution [CP-User]\ [Hermes]\ Replace\ Hermes\ for\ the\ right\ conf
 Node found at: /opt/homebrew/Cellar/node/23.11.0/bin/node
 No previous build detected, but Debug Configuration. No need to replace Hermes engine
 
-ProcessInfoPlistFile /Users/dawitsahle/Library/Developer/Xcode/DerivedData/kalat-guvktuqfjhpnxhbmofycdlivdirv/Build/Products/Debug-iphonesimulator/boost/boost_privacy.bundle/Info.plist /Users/dawitsahle/Documents/kalat/ios/Pods/Target\ Support\ Files/boost/ResourceBundle-boost_privacy-boost-Info.plist (in target 'boost-boost_privacy' from project 'Pods')
-    cd /Users/dawitsahle/Documents/kalat/ios/Pods
-    builtin-infoPlistUtility /Users/dawitsahle/Documents/kalat/ios/Pods/Target\ Support\ Files/boost/ResourceBundle-boost_privacy-boost-Info.plist -producttype com.apple.product-type.bundle -expandbuildsettings -format binary -platform iphonesimulator -o /Users/dawitsahle/Library/Developer/Xcode/DerivedData/kalat-guvktuqfjhpnxhbmofycdlivdirv/Build/Products/Debug-iphonesimulator/boost/boost_privacy.bundle/Info.plist
-
-ProcessInfoPlistFile /Users/dawitsahle/Library/Developer/Xcode/DerivedData/kalat-guvktuqfjhpnxhbmofycdlivdirv/Build/Products/Debug-iphonesimulator/glog/glog_privacy.bundle/Info.plist /Users/dawitsahle/Documents/kalat/ios/Pods/Target\ Support\ Files/glog/ResourceBundle-glog_privacy-glog-Info.plist (in target 'glog-glog_privacy' from project 'Pods')
-    cd /Users/dawitsahle/Documents/kalat/ios/Pods
-    builtin-infoPlistUtility /Users/dawitsahle/Documents/kalat/ios/Pods/Target\ Support\ Files/glog/ResourceBundle-glog_privacy-glog-Info.plist -producttype com.apple.product-type.bundle -expandbuildsettings -format binary -platform iphonesimulator -o /Users/dawitsahle/Library/Developer/Xcode/DerivedData/kalat-guvktuqfjhpnxhbmofycdlivdirv/Build/Products/Debug-iphonesimulator/glog/glog_privacy.bundle/Info.plist
-
-ProcessInfoPlistFile /Users/dawitsahle/Library/Developer/Xcode/DerivedData/kalat-guvktuqfjhpnxhbmofycdlivdirv/Build/Products/Debug-iphonesimulator/RCT-Folly/RCT-Folly_privacy.bundle/Info.plist /Users/dawitsahle/Documents/kalat/ios/Pods/Target\ Support\ Files/RCT-Folly/ResourceBundle-RCT-Folly_privacy-RCT-Folly-Info.plist (in target 'RCT-Folly-RCT-Folly_privacy' from project 'Pods')
-    cd /Users/dawitsahle/Documents/kalat/ios/Pods
-    builtin-infoPlistUtility /Users/dawitsahle/Documents/kalat/ios/Pods/Target\ Support\ Files/RCT-Folly/ResourceBundle-RCT-Folly_privacy-RCT-Folly-Info.plist -producttype com.apple.product-type.bundle -expandbuildsettings -format binary -platform iphonesimulator -o /Users/dawitsahle/Library/Developer/Xcode/DerivedData/kalat-guvktuqfjhpnxhbmofycdlivdirv/Build/Products/Debug-iphonesimulator/RCT-Folly/RCT-Folly_privacy.bundle/Info.plist
-
-ProcessInfoPlistFile /Users/dawitsahle/Library/Developer/Xcode/DerivedData/kalat-guvktuqfjhpnxhbmofycdlivdirv/Build/Products/Debug-iphonesimulator/React-cxxreact/React-cxxreact_privacy.bundle/Info.plist /Users/dawitsahle/Documents/kalat/ios/Pods/Target\ Support\ Files/React-cxxreact/ResourceBundle-React-cxxreact_privacy-React-cxxreact-Info.plist (in target 'React-cxxreact-React-cxxreact_privacy' from project 'Pods')
-    cd /Users/dawitsahle/Documents/kalat/ios/Pods
-    builtin-infoPlistUtility /Users/dawitsahle/Documents/kalat/ios/Pods/Target\ Support\ Files/React-cxxreact/ResourceBundle-React-cxxreact_privacy-React-cxxreact-Info.plist -producttype com.apple.product-type.bundle -expandbuildsettings -format binary -platform iphonesimulator -o /Users/dawitsahle/Library/Developer/Xcode/DerivedData/kalat-guvktuqfjhpnxhbmofycdlivdirv/Build/Products/Debug-iphonesimulator/React-cxxreact/React-cxxreact_privacy.bundle/Info.plist
-
-ProcessInfoPlistFile /Users/dawitsahle/Library/Developer/Xcode/DerivedData/kalat-guvktuqfjhpnxhbmofycdlivdirv/Build/Products/Debug-iphonesimulator/React-Core/React-Core_privacy.bundle/Info.plist /Users/dawitsahle/Documents/kalat/ios/Pods/Target\ Support\ Files/React-Core/ResourceBundle-React-Core_privacy-React-Core-Info.plist (in target 'React-Core-React-Core_privacy' from project 'Pods')
-    cd /Users/dawitsahle/Documents/kalat/ios/Pods
-    builtin-infoPlistUtility /Users/dawitsahle/Documents/kalat/ios/Pods/Target\ Support\ Files/React-Core/ResourceBundle-React-Core_privacy-React-Core-Info.plist -producttype com.apple.product-type.bundle -expandbuildsettings -format binary -platform iphonesimulator -o /Users/dawitsahle/Library/Developer/Xcode/DerivedData/kalat-guvktuqfjhpnxhbmofycdlivdirv/Build/Products/Debug-iphonesimulator/React-Core/React-Core_privacy.bundle/Info.plist
-
-note: Run script build phase '[CP-User] [RN]Check FBReactNativeSpec' will be run during every build because the option to run the script phase "Based on dependency analysis" is unchecked. (in target 'React-RCTFBReactNativeSpec' from project 'Pods')
-PhaseScriptExecution [CP-User]\ [RN]Check\ FBReactNativeSpec /Users/dawitsahle/Library/Developer/Xcode/DerivedData/kalat-guvktuqfjhpnxhbmofycdlivdirv/Build/Intermediates.noindex/Pods.build/Debug-iphonesimulator/React-RCTFBReactNativeSpec.build/Script-46EB2E0001E020.sh (in target 'React-RCTFBReactNativeSpec' from project 'Pods')
-    cd /Users/dawitsahle/Documents/kalat/ios/Pods
-    export ACTION\=build
-    export AD_HOC_CODE_SIGNING_ALLOWED\=YES
-    export ALLOW_BUILD_REQUEST_OVERRIDES\=NO
-    export ALLOW_TARGET_PLATFORM_SPECIALIZATION\=NO
-    export ALTERNATE_GROUP\=staff
-    export ALTERNATE_MODE\=u+w,go-w,a+rX
-    export ALTERNATE_OWNER\=dawitsahle
-    export ALTERNATIVE_DISTRIBUTION_WEB\=NO
-    export ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES\=NO
-    export ALWAYS_SEARCH_USER_PATHS\=NO
-    export ALWAYS_USE_SEPARATE_HEADERMAPS\=NO
-    export APPLICATION_EXTENSION_API_ONLY\=NO
-    export APPLY_RULES_IN_COPY_FILES\=NO
-    export APPLY_RULES_IN_COPY_HEADERS\=NO
-    export APP_SHORTCUTS_ENABLE_FLEXIBLE_MATCHING\=YES
-    export ARCHS\=arm64
-    export ARCHS_STANDARD\=arm64\ x86_64
-    export ARCHS_STANDARD_32_64_BIT\=arm64\ x86_64
-    export ARCHS_STANDARD_64_BIT\=arm64\ x86_64
-    export ARCHS_STANDARD_INCLUDING_64_BIT\=arm64\ x86_64
-    export ARCHS_UNIVERSAL_IPHONE_OS\=arm64\ x86_64
-    export ASSETCATALOG_FILTER_FOR_DEVICE_MODEL\=iPhone17,4
-    export ASSETCATALOG_FILTER_FOR_DEVICE_OS_VERSION\=18.4
-    export ASSETCATALOG_FILTER_FOR_THINNING_DEVICE_CONFIGURATION\=iPhone17,4
-    export AUTOMATICALLY_MERGE_DEPENDENCIES\=NO
-    export AVAILABLE_PLATFORMS\=android\ appletvos\ appletvsimulator\ driverkit\ iphoneos\ iphonesimulator\ macosx\ qnx\ watchos\ watchsimulator\ xros\ xrsimulator
-    export BITCODE_GENERATION_MODE\=marker
-    export BUILD_ACTIVE_RESOURCES_ONLY\=YES
-    export BUILD_COMPONENTS\=headers\ build
-    export BUILD_DIR\=/Users/dawitsahle/Library/Developer/Xcode/DerivedData/kalat-guvktuqfjhpnxhbmofycdlivdirv/Build/Products
-    export BUILD_LIBRARY_FOR_DISTRIBUTION\=NO
-    export BUILD_ROOT\=/Users/dawitsahle/Library/Developer/Xcode/DerivedData/kalat-guvktuqfjhpnxhbmofycdlivdirv/Build/Products
-    export BUILD_STYLE\=
-    export BUILD_VARIANTS\=normal
-    export BUILT_PRODUCTS_DIR\=/Users/dawitsahle/Library/Developer/Xcode/DerivedData/kalat-guvktuqfjhpnxhbmofycdlivdirv/Build/Products/Debug-iphonesimulator/React-RCTFBReactNativeSpec
-    export BUNDLE_CONTENTS_FOLDER_PATH_deep\=Contents/
-    export BUNDLE_EXECUTABLE_FOLDER_NAME_deep\=MacOS
-    export BUNDLE_EXTENSIONS_FOLDER_PATH\=Extensions
-    export BUNDLE_FORMAT\=shallow
-    export BUNDLE_FRAMEWORKS_FOLDER_PATH\=Frameworks
-    export BUNDLE_PLUGINS_FOLDER_PATH\=PlugIns
-    export BUNDLE_PRIVATE_HEADERS_FOLDER_PATH\=PrivateHeaders
-    export BUNDLE_PUBLIC_HEADERS_FOLDER_PATH\=Headers
-    export CACHE_ROOT\=/var/folders/h3/8_jrkyks2kx46sx9w63fvgcw0000gn/C/com.apple.DeveloperTools/16.3-16E140/Xcode
-    export CCHROOT\=/var/folders/h3/8_jrkyks2kx46sx9w63fvgcw0000gn/C/com.apple.DeveloperTools/16.3-16E140/Xcode
-    export CHMOD\=/bin/chmod
-    export CHOWN\=/usr/sbin/chown
-    export CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED\=YES
-    export CLANG_ANALYZER_NONNULL\=YES
-    export CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION\=YES_AGGRESSIVE
-    export CLANG_CACHE_FINE_GRAINED_OUTPUTS\=YES
-    export CLANG_CXX_LANGUAGE_STANDARD\=c++20
-    export CLANG_CXX_LIBRARY\=libc++
-    export CLANG_ENABLE_EXPLICIT_MODULES\=YES
-    export CLANG_ENABLE_MODULES\=YES
-    export CLANG_ENABLE_MODULE_DEBUGGING\=NO
-    export CLANG_ENABLE_OBJC_ARC\=YES
-    export CLANG_ENABLE_OBJC_WEAK\=NO
-    export CLANG_MODULES_BUILD_SESSION_FILE\=/Users/dawitsahle/Library/Developer/Xcode/DerivedData/ModuleCache.noindex/Session.modulevalidation
-    export CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING\=YES
-    export CLANG_WARN_BOOL_CONVERSION\=YES
-    export CLANG_WARN_COMMA\=YES
-    export CLANG_WARN_CONSTANT_CONVERSION\=YES
-    export CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS\=YES
-    export CLANG_WARN_DIRECT_OBJC_ISA_USAGE\=YES_ERROR
-    export CLANG_WARN_DOCUMENTATION_COMMENTS\=YES
-    export CLANG_WARN_EMPTY_BODY\=YES
-    export CLANG_WARN_ENUM_CONVERSION\=YES
-    export CLANG_WARN_INFINITE_RECURSION\=YES
-    export CLANG_WARN_INT_CONVERSION\=YES
-    export CLANG_WARN_NON_LITERAL_NULL_CONVERSION\=YES
-    export CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF\=YES
-    export CLANG_WARN_OBJC_LITERAL_CONVERSION\=YES
-    export CLANG_WARN_OBJC_ROOT_CLASS\=YES_ERROR
-    export CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER\=NO
-    export CLANG_WARN_RANGE_LOOP_ANALYSIS\=YES
-    export CLANG_WARN_STRICT_PROTOTYPES\=YES
-    export CLANG_WARN_SUSPICIOUS_MOVE\=YES
-    export CLANG_WARN_UNGUARDED_AVAILABILITY\=YES_AGGRESSIVE
-    export CLANG_WARN_UNREACHABLE_CODE\=YES
-    export CLANG_WARN__DUPLICATE_METHOD_MATCH\=YES
-    export CLASS_FILE_DIR\=/Users/dawitsahle/Library/Developer/Xcode/DerivedData/kalat-guvktuqfjhpnxhbmofycdlivdirv/Build/Intermediates.noindex/Pods.build/Debug-iphonesimulator/React-RCTFBReactNativeSpec.build/JavaClasses
-    export CLEAN_PRECOMPS\=YES
-    export CLONE_HEADERS\=NO
-    export CODESIGNING_FOLDER_PATH\=/Users/dawitsahle/Library/Developer/Xcode/DerivedData/kalat-guvktuqfjhpnxhbmofycdlivdirv/Build/Products/Debug-iphonesimulator/React-RCTFBReactNativeSpec/libReact-RCTFBReactNativeSpec.a
-    export CODE_SIGNING_ALLOWED\=NO
-    export CODE_SIGNING_REQUIRED\=YES
-    export CODE_SIGN_CONTEXT_CLASS\=XCiPhoneSimulatorCodeSignContext
-    export CODE_SIGN_IDENTITY\=-
-    export CODE_SIGN_INJECT_BASE_ENTITLEMENTS\=YES
-    export COLOR_DIAGNOSTICS\=NO
-    export COMBINE_HIDPI_IMAGES\=NO
-    export COMPILATION_CACHE_CAS_PATH\=/Users/dawitsahle/Library/Developer/Xcode/DerivedData/CompilationCache.noindex
-    export COMPILATION_CACHE_KEEP_CAS_DIRECTORY\=YES
-    export COMPILER_INDEX_STORE_ENABLE\=Default
-    export COMPOSITE_SDK_DIRS\=/Users/dawitsahle/Library/Developer/Xcode/DerivedData/kalat-guvktuqfjhpnxhbmofycdlivdirv/Build/Intermediates.noindex/CompositeSDKs
-    export COMPRESS_PNG_FILES\=YES
-    export CONFIGURATION\=Debug
-    export CONFIGURATION_BUILD_DIR\=/Users/dawitsahle/Library/Developer/Xcode/DerivedData/kalat-guvktuqfjhpnxhbmofycdlivdirv/Build/Products/Debug-iphonesimulator/React-RCTFBReactNativeSpec
-    export CONFIGURATION_TEMP_DIR\=/Users/dawitsahle/Library/Developer/Xcode/DerivedData/kalat-guvktuqfjhpnxhbmofycdlivdirv/Build/Intermediates.noindex/Pods.build/Debug-iphonesimulator
-    export COPYING_PRESERVES_HFS_DATA\=NO
-    export COPY_HEADERS_RUN_UNIFDEF\=NO
-    export COPY_PHASE_STRIP\=NO
-    export CORRESPONDING_DEVICE_PLATFORM_DIR\=/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform
-    export CORRESPONDING_DEVICE_PLATFORM_NAME\=iphoneos
-    export CORRESPONDING_DEVICE_SDK_DIR\=/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS18.4.sdk
-    export CORRESPONDING_DEVICE_SDK_NAME\=iphoneos18.4
-    export CP\=/bin/cp
-    export CREATE_INFOPLIST_SECTION_IN_BINARY\=NO
-    export CURRENT_ARCH\=undefined_arch
-    export CURRENT_VARIANT\=normal
-    export DEAD_CODE_STRIPPING\=YES
-    export DEBUGGING_SYMBOLS\=YES
-    export DEBUG_INFORMATION_FORMAT\=dwarf
-    export DEBUG_INFORMATION_VERSION\=compiler-default
-    export DEFAULT_COMPILER\=com.apple.compilers.llvm.clang.1_0
-    export DEFAULT_DEXT_INSTALL_PATH\=/System/Library/DriverExtensions
-    export DEFAULT_KEXT_INSTALL_PATH\=/System/Library/Extensions
-    export DEFINES_MODULE\=NO
-    export DEPLOYMENT_LOCATION\=NO
-    export DEPLOYMENT_POSTPROCESSING\=NO
-    export DEPLOYMENT_TARGET_SETTING_NAME\=IPHONEOS_DEPLOYMENT_TARGET
-    export DEPLOYMENT_TARGET_SUGGESTED_VALUES\=12.0\ 12.1\ 12.2\ 12.3\ 12.4\ 13.0\ 13.1\ 13.2\ 13.3\ 13.4\ 13.5\ 13.6\ 14.0\ 14.1\ 14.2\ 14.3\ 14.4\ 14.5\ 14.6\ 14.7\ 15.0\ 15.1\ 15.2\ 15.3\ 15.4\ 15.5\ 15.6\ 16.0\ 16.1\ 16.2\ 16.3\ 16.4\ 16.5\ 16.6\ 17.0\ 17.1\ 17.2\ 17.3\ 17.4\ 17.5\ 17.6\ 18.0\ 18.1\ 18.2\ 18.3\ 18.4
-    export DERIVED_FILES_DIR\=/Users/dawitsahle/Library/Developer/Xcode/DerivedData/kalat-guvktuqfjhpnxhbmofycdlivdirv/Build/Intermediates.noindex/Pods.build/Debug-iphonesimulator/React-RCTFBReactNativeSpec.build/DerivedSources
-    export DERIVED_FILE_DIR\=/Users/dawitsahle/Library/Developer/Xcode/DerivedData/kalat-guvktuqfjhpnxhbmofycdlivdirv/Build/Intermediates.noindex/Pods.build/Debug-iphonesimulator/React-RCTFBReactNativeSpec.build/DerivedSources
-    export DERIVED_SOURCES_DIR\=/Users/dawitsahle/Library/Developer/Xcode/DerivedData/kalat-guvktuqfjhpnxhbmofycdlivdirv/Build/Intermediates.noindex/Pods.build/Debug-iphonesimulator/React-RCTFBReactNativeSpec.build/DerivedSources
-    export DEVELOPER_APPLICATIONS_DIR\=/Applications/Xcode.app/Contents/Developer/Applications
-    export DEVELOPER_BIN_DIR\=/Applications/Xcode.app/Contents/Developer/usr/bin
-    export DEVELOPER_DIR\=/Applications/Xcode.app/Contents/Developer
-    export DEVELOPER_FRAMEWORKS_DIR\=/Applications/Xcode.app/Contents/Developer/Library/Frameworks
-    export DEVELOPER_FRAMEWORKS_DIR_QUOTED\=/Applications/Xcode.app/Contents/Developer/Library/Frameworks
-    export DEVELOPER_LIBRARY_DIR\=/Applications/Xcode.app/Contents/Developer/Library
-    export DEVELOPER_SDK_DIR\=/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs
-    export DEVELOPER_TOOLS_DIR\=/Applications/Xcode.app/Contents/Developer/Tools
-    export DEVELOPER_USR_DIR\=/Applications/Xcode.app/Contents/Developer/usr
-    export DEVELOPMENT_LANGUAGE\=en
-    export DIAGNOSE_MISSING_TARGET_DEPENDENCIES\=YES
-    export DIFF\=/usr/bin/diff
-    export DONT_GENERATE_INFOPLIST_FILE\=NO
-    export DSTROOT\=/tmp/Pods.dst
-    export DT_TOOLCHAIN_DIR\=/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain
-    export DWARF_DSYM_FILE_NAME\=libReact-RCTFBReactNativeSpec.a.dSYM
-    export DWARF_DSYM_FILE_SHOULD_ACCOMPANY_PRODUCT\=NO
-    export DWARF_DSYM_FOLDER_PATH\=/Users/dawitsahle/Library/Developer/Xcode/DerivedData/kalat-guvktuqfjhpnxhbmofycdlivdirv/Build/Products/Debug-iphonesimulator/React-RCTFBReactNativeSpec
-    export DYNAMIC_LIBRARY_EXTENSION\=dylib
-    export EAGER_COMPILATION_ALLOW_SCRIPTS\=NO
-    export EAGER_LINKING\=NO
-    export EFFECTIVE_PLATFORM_NAME\=-iphonesimulator
-    export EMBEDDED_CONTENT_CONTAINS_SWIFT\=NO
-    export EMBED_ASSET_PACKS_IN_PRODUCT_BUNDLE\=NO
-    export ENABLE_APP_SANDBOX\=NO
-    export ENABLE_BITCODE\=NO
-    export ENABLE_CODE_COVERAGE\=YES
-    export ENABLE_DEFAULT_HEADER_SEARCH_PATHS\=YES
-    export ENABLE_DEFAULT_SEARCH_PATHS\=YES
-    export ENABLE_HARDENED_RUNTIME\=NO
-    export ENABLE_HEADER_DEPENDENCIES\=YES
-    export ENABLE_INCOMING_NETWORK_CONNECTIONS\=NO
-    export ENABLE_MODULE_VERIFIER\=NO
-    export ENABLE_ON_DEMAND_RESOURCES\=NO
-    export ENABLE_OUTGOING_NETWORK_CONNECTIONS\=NO
-    export ENABLE_PREVIEWS\=NO
-    export ENABLE_RESOURCE_ACCESS_AUDIO_INPUT\=NO
-    export ENABLE_RESOURCE_ACCESS_BLUETOOTH\=NO
-    export ENABLE_RESOURCE_ACCESS_CALENDARS\=NO
-    export ENABLE_RESOURCE_ACCESS_CAMERA\=NO
-    export ENABLE_RESOURCE_ACCESS_CONTACTS\=NO
-    export ENABLE_RESOURCE_ACCESS_LOCATION\=NO
-    export ENABLE_RESOURCE_ACCESS_PRINTING\=NO
-    export ENABLE_RESOURCE_ACCESS_USB\=NO
-    export ENABLE_SDK_IMPORTS\=NO
-    export ENABLE_STRICT_OBJC_MSGSEND\=YES
-    export ENABLE_TESTABILITY\=YES
-    export ENABLE_TESTING_SEARCH_PATHS\=NO
-    export ENABLE_USER_SCRIPT_SANDBOXING\=NO
-    export ENABLE_XOJIT_PREVIEWS\=YES
-    export ENFORCE_VALID_ARCHS\=YES
-    export ENTITLEMENTS_DESTINATION\=__entitlements
-    export ENTITLEMENTS_REQUIRED\=YES
-    export EXCLUDED_INSTALLSRC_SUBDIRECTORY_PATTERNS\=.DS_Store\ .svn\ .git\ .hg\ CVS
-    export EXCLUDED_RECURSIVE_SEARCH_PATH_SUBDIRECTORIES\=\*.nib\ \*.lproj\ \*.framework\ \*.gch\ \*.xcode\*\ \*.xcassets\ \(\*\)\ .DS_Store\ CVS\ .svn\ .git\ .hg\ \*.pbproj\ \*.pbxproj
-    export EXECUTABLE_EXTENSION\=a
-    export EXECUTABLE_NAME\=libReact-RCTFBReactNativeSpec.a
-    export EXECUTABLE_PATH\=libReact-RCTFBReactNativeSpec.a
-    export EXECUTABLE_PREFIX\=lib
-    export EXECUTABLE_SUFFIX\=.a
-    export FILE_LIST\=/Users/dawitsahle/Library/Developer/Xcode/DerivedData/kalat-guvktuqfjhpnxhbmofycdlivdirv/Build/Intermediates.noindex/Pods.build/Debug-iphonesimulator/React-RCTFBReactNativeSpec.build/Objects/LinkFileList
-    export FIXED_FILES_DIR\=/Users/dawitsahle/Library/Developer/Xcode/DerivedData/kalat-guvktuqfjhpnxhbmofycdlivdirv/Build/Intermediates.noindex/Pods.build/Debug-iphonesimulator/React-RCTFBReactNativeSpec.build/FixedFiles
-    export FRAMEWORK_FLAG_PREFIX\=-framework
-    export FRAMEWORK_SEARCH_PATHS\=/Users/dawitsahle/Library/Developer/Xcode/DerivedData/kalat-guvktuqfjhpnxhbmofycdlivdirv/Build/Products/Debug-iphonesimulator/React-RCTFBReactNativeSpec\ \ \"/Users/dawitsahle/Documents/kalat/ios/Pods/hermes-engine/destroot/Library/Frameworks/universal\"\ \"/Users/dawitsahle/Library/Developer/Xcode/DerivedData/kalat-guvktuqfjhpnxhbmofycdlivdirv/Build/Products/Debug-iphonesimulator/XCFrameworkIntermediates/hermes-engine/Pre-built\"
-    export FRAMEWORK_VERSION\=A
-    export FULL_PRODUCT_NAME\=libReact-RCTFBReactNativeSpec.a
-    export FUSE_BUILD_PHASES\=YES
-    export FUSE_BUILD_SCRIPT_PHASES\=NO
-    export GCC3_VERSION\=3.3
-    export GCC_C_LANGUAGE_STANDARD\=gnu11
-    export GCC_DYNAMIC_NO_PIC\=NO
-    export GCC_NO_COMMON_BLOCKS\=YES
-    export GCC_OBJC_LEGACY_DISPATCH\=YES
-    export GCC_OPTIMIZATION_LEVEL\=0
-    export GCC_PFE_FILE_C_DIALECTS\=c\ objective-c\ c++\ objective-c++
-    export GCC_PREFIX_HEADER\=Target\ Support\ Files/React-RCTFBReactNativeSpec/React-RCTFBReactNativeSpec-prefix.pch
-    export GCC_PREPROCESSOR_DEFINITIONS\=POD_CONFIGURATION_DEBUG\=1\ DEBUG\=1\ \ COCOAPODS\=1
-    export GCC_TREAT_WARNINGS_AS_ERRORS\=NO
-    export GCC_VERSION\=com.apple.compilers.llvm.clang.1_0
-    export GCC_VERSION_IDENTIFIER\=com_apple_compilers_llvm_clang_1_0
-    export GCC_WARN_64_TO_32_BIT_CONVERSION\=YES
-    export GCC_WARN_ABOUT_RETURN_TYPE\=YES_ERROR
-    export GCC_WARN_UNDECLARED_SELECTOR\=YES
-    export GCC_WARN_UNINITIALIZED_AUTOS\=YES_AGGRESSIVE
-    export GCC_WARN_UNUSED_FUNCTION\=YES
-    export GCC_WARN_UNUSED_VARIABLE\=YES
-    export GENERATED_MODULEMAP_DIR\=/Users/dawitsahle/Library/Developer/Xcode/DerivedData/kalat-guvktuqfjhpnxhbmofycdlivdirv/Build/Intermediates.noindex/GeneratedModuleMaps-iphonesimulator
-    export GENERATE_INFOPLIST_FILE\=NO
-    export GENERATE_INTERMEDIATE_TEXT_BASED_STUBS\=YES
-    export GENERATE_MASTER_OBJECT_FILE\=NO
-    export GENERATE_PKGINFO_FILE\=NO
-    export GENERATE_PROFILING_CODE\=NO
-    export GENERATE_TEXT_BASED_STUBS\=NO
-    export GID\=20
-    export GROUP\=staff
-    export HEADERMAP_INCLUDES_FLAT_ENTRIES_FOR_TARGET_BEING_BUILT\=YES
-    export HEADERMAP_INCLUDES_FRAMEWORK_ENTRIES_FOR_ALL_PRODUCT_TYPES\=YES
-    export HEADERMAP_INCLUDES_FRAMEWORK_ENTRIES_FOR_TARGETS_NOT_BEING_BUILT\=YES
-    export HEADERMAP_INCLUDES_NONPUBLIC_NONPRIVATE_HEADERS\=YES
-    export HEADERMAP_INCLUDES_PROJECT_HEADERS\=YES
-    export HEADERMAP_USES_FRAMEWORK_PREFIX_ENTRIES\=YES
-    export HEADERMAP_USES_VFS\=NO
-    export HEADER_SEARCH_PATHS\=/Users/dawitsahle/Library/Developer/Xcode/DerivedData/kalat-guvktuqfjhpnxhbmofycdlivdirv/Build/Products/Debug-iphonesimulator/React-RCTFBReactNativeSpec/include\ \ \"/Users/dawitsahle/Documents/kalat/ios/Pods/Headers/Private\"\ \"/Users/dawitsahle/Documents/kalat/ios/Pods/Headers/Private/React-RCTFBReactNativeSpec\"\ \"/Users/dawitsahle/Documents/kalat/ios/Pods/Headers/Public\"\ \"/Users/dawitsahle/Documents/kalat/ios/Pods/Headers/Public/DoubleConversion\"\ \"/Users/dawitsahle/Documents/kalat/ios/Pods/Headers/Public/FBLazyVector\"\ \"/Users/dawitsahle/Documents/kalat/ios/Pods/Headers/Public/RCT-Folly\"\ \"/Users/dawitsahle/Documents/kalat/ios/Pods/Headers/Public/RCTDeprecation\"\ \"/Users/dawitsahle/Documents/kalat/ios/Pods/Headers/Public/RCTRequired\"\ \"/Users/dawitsahle/Documents/kalat/ios/Pods/Headers/Public/RCTTypeSafety\"\ \"/Users/dawitsahle/Documents/kalat/ios/Pods/Headers/Public/React-Core\"\ \"/Users/dawitsahle/Documents/kalat/ios/Pods/Headers/Public/React-NativeModulesApple\"\ \"/Users/dawitsahle/Documents/kalat/ios/Pods/Headers/Public/React-RCTFBReactNativeSpec\"\ \"/Users/dawitsahle/Documents/kalat/ios/Pods/Headers/Public/React-callinvoker\"\ \"/Users/dawitsahle/Documents/kalat/ios/Pods/Headers/Public/React-cxxreact\"\ \"/Users/dawitsahle/Documents/kalat/ios/Pods/Headers/Public/React-debug\"\ \"/Users/dawitsahle/Documents/kalat/ios/Pods/Headers/Public/React-featureflags\"\ \"/Users/dawitsahle/Documents/kalat/ios/Pods/Headers/Public/React-hermes\"\ \"/Users/dawitsahle/Documents/kalat/ios/Pods/Headers/Public/React-jsi\"\ \"/Users/dawitsahle/Documents/kalat/ios/Pods/Headers/Public/React-jsiexecutor\"\ \"/Users/dawitsahle/Documents/kalat/ios/Pods/Headers/Public/React-jsinspector\"\ \"/Users/dawitsahle/Documents/kalat/ios/Pods/Headers/Public/React-jsinspectortracing\"\ \"/Users/dawitsahle/Documents/kalat/ios/Pods/Headers/Public/React-jsitooling\"\ \"/Users/dawitsahle/Documents/kalat/ios/Pods/Headers/Public/React-logger\"\ \"/Users/dawitsahle/Documents/kalat/ios/Pods/Headers/Public/React-oscompat\"\ \"/Users/dawitsahle/Documents/kalat/ios/Pods/Headers/Public/React-perflogger\"\ \"/Users/dawitsahle/Documents/kalat/ios/Pods/Headers/Public/React-performancetimeline\"\ \"/Users/dawitsahle/Documents/kalat/ios/Pods/Headers/Public/React-rendererconsistency\"\ \"/Users/dawitsahle/Documents/kalat/ios/Pods/Headers/Public/React-rendererdebug\"\ \"/Users/dawitsahle/Documents/kalat/ios/Pods/Headers/Public/React-runtimeexecutor\"\ \"/Users/dawitsahle/Documents/kalat/ios/Pods/Headers/Public/React-runtimescheduler\"\ \"/Users/dawitsahle/Documents/kalat/ios/Pods/Headers/Public/React-timing\"\ \"/Users/dawitsahle/Documents/kalat/ios/Pods/Headers/Public/React-utils\"\ \"/Users/dawitsahle/Documents/kalat/ios/Pods/Headers/Public/ReactCommon\"\ \"/Users/dawitsahle/Documents/kalat/ios/Pods/Headers/Public/SocketRocket\"\ \"/Users/dawitsahle/Documents/kalat/ios/Pods/Headers/Public/Yoga\"\ \"/Users/dawitsahle/Documents/kalat/ios/Pods/Headers/Public/boost\"\ \"/Users/dawitsahle/Documents/kalat/ios/Pods/Headers/Public/fast_float\"\ \"/Users/dawitsahle/Documents/kalat/ios/Pods/Headers/Public/fmt\"\ \"/Users/dawitsahle/Documents/kalat/ios/Pods/Headers/Public/glog\"\ \"/Users/dawitsahle/Documents/kalat/ios/Pods/Headers/Public/hermes-engine\"\ \"/Users/dawitsahle/Documents/kalat/ios/Pods/RCT-Folly\"\ \"/Users/dawitsahle/Library/Developer/Xcode/DerivedData/kalat-guvktuqfjhpnxhbmofycdlivdirv/Build/Products/Debug-iphonesimulator/ReactCommon/ReactCommon.framework/Headers\"\ \"/Users/dawitsahle/Library/Developer/Xcode/DerivedData/kalat-guvktuqfjhpnxhbmofycdlivdirv/Build/Products/Debug-iphonesimulator/ReactCommon/ReactCommon.framework/Headers/react/nativemodule/core\"\ \"/Users/dawitsahle/Library/Developer/Xcode/DerivedData/kalat-guvktuqfjhpnxhbmofycdlivdirv/Build/Products/Debug-iphonesimulator/ReactCommon/ReactCommon.framework/Headers\"\ \"/Users/dawitsahle/Library/Developer/Xcode/DerivedData/kalat-guvktuqfjhpnxhbmofycdlivdirv/Build/Products/Debug-iphonesimulator/ReactCommon/ReactCommon.framework/Headers/react/nativemodule/bridging\"
-    export HIDE_BITCODE_SYMBOLS\=YES
-    export HOME\=/Users/dawitsahle
-    export HOST_ARCH\=arm64
-    export HOST_PLATFORM\=macosx
-    export ICONV\=/usr/bin/iconv
-    export IMPLICIT_DEPENDENCY_DOMAIN\=default
-    export INFOPLIST_ENABLE_CFBUNDLEICONS_MERGE\=YES
-    export INFOPLIST_EXPAND_BUILD_SETTINGS\=YES
-    export INFOPLIST_OUTPUT_FORMAT\=binary
-    export INFOPLIST_PREPROCESS\=NO
-    export INLINE_PRIVATE_FRAMEWORKS\=NO
-    export INSTALLAPI_IGNORE_SKIP_INSTALL\=YES
-    export INSTALLHDRS_COPY_PHASE\=NO
-    export INSTALLHDRS_SCRIPT_PHASE\=NO
-    export INSTALL_DIR\=/tmp/Pods.dst/usr/local/lib
-    export INSTALL_GROUP\=staff
-    export INSTALL_MODE_FLAG\=u+w,go-w,a+rX
-    export INSTALL_OWNER\=dawitsahle
-    export INSTALL_PATH\=/usr/local/lib
-    export INSTALL_ROOT\=/tmp/Pods.dst
-    export IPHONEOS_DEPLOYMENT_TARGET\=15.1
-    export IS_UNOPTIMIZED_BUILD\=YES
-    export JAVAC_DEFAULT_FLAGS\=-J-Xms64m\ -J-XX:NewSize\=4M\ -J-Dfile.encoding\=UTF8
-    export JAVA_APP_STUB\=/System/Library/Frameworks/JavaVM.framework/Resources/MacOS/JavaApplicationStub
-    export JAVA_ARCHIVE_CLASSES\=YES
-    export JAVA_ARCHIVE_TYPE\=JAR
-    export JAVA_COMPILER\=/usr/bin/javac
-    export JAVA_FRAMEWORK_RESOURCES_DIRS\=Resources
-    export JAVA_JAR_FLAGS\=cv
-    export JAVA_SOURCE_SUBDIR\=.
-    export JAVA_USE_DEPENDENCIES\=YES
-    export JAVA_ZIP_FLAGS\=-urg
-    export JIKES_DEFAULT_FLAGS\=+E\ +OLDCSO
-    export KEEP_PRIVATE_EXTERNS\=NO
-    export LD_DEPENDENCY_INFO_FILE\=/Users/dawitsahle/Library/Developer/Xcode/DerivedData/kalat-guvktuqfjhpnxhbmofycdlivdirv/Build/Intermediates.noindex/Pods.build/Debug-iphonesimulator/React-RCTFBReactNativeSpec.build/Objects-normal/undefined_arch/React-RCTFBReactNativeSpec_dependency_info.dat
-    export LD_EXPORT_SYMBOLS\=YES
-    export LD_GENERATE_MAP_FILE\=NO
-    export LD_MAP_FILE_PATH\=/Users/dawitsahle/Library/Developer/Xcode/DerivedData/kalat-guvktuqfjhpnxhbmofycdlivdirv/Build/Intermediates.noindex/Pods.build/Debug-iphonesimulator/React-RCTFBReactNativeSpec.build/React-RCTFBReactNativeSpec-LinkMap-normal-undefined_arch.txt
-    export LD_NO_PIE\=NO
-    export LD_QUOTE_LINKER_ARGUMENTS_FOR_COMPILER_DRIVER\=YES
-    export LD_SHARED_CACHE_ELIGIBLE\=Automatic
-    export LD_WARN_DUPLICATE_LIBRARIES\=NO
-    export LD_WARN_UNUSED_DYLIBS\=NO
-    export LEGACY_DEVELOPER_DIR\=/Applications/Xcode.app/Contents/PlugIns/Xcode3Core.ideplugin/Contents/SharedSupport/Developer
-    export LEX\=lex
-    export LIBRARY_DEXT_INSTALL_PATH\=/Library/DriverExtensions
-    export LIBRARY_FLAG_NOSPACE\=YES
-    export LIBRARY_FLAG_PREFIX\=-l
-    export LIBRARY_KEXT_INSTALL_PATH\=/Library/Extensions
-    export LIBRARY_SEARCH_PATHS\=/Users/dawitsahle/Library/Developer/Xcode/DerivedData/kalat-guvktuqfjhpnxhbmofycdlivdirv/Build/Products/Debug-iphonesimulator/React-RCTFBReactNativeSpec\ 
-    export LINKER_DISPLAYS_MANGLED_NAMES\=NO
-    export LINK_FILE_LIST_normal_arm64\=/Users/dawitsahle/Library/Developer/Xcode/DerivedData/kalat-guvktuqfjhpnxhbmofycdlivdirv/Build/Intermediates.noindex/Pods.build/Debug-iphonesimulator/React-RCTFBReactNativeSpec.build/Objects-normal/arm64/React-RCTFBReactNativeSpec.LinkFileList
-    export LINK_OBJC_RUNTIME\=YES
-    export LINK_WITH_STANDARD_LIBRARIES\=YES
-    export LLVM_TARGET_TRIPLE_OS_VERSION\=ios15.1
-    export LLVM_TARGET_TRIPLE_SUFFIX\=-simulator
-    export LLVM_TARGET_TRIPLE_VENDOR\=apple
-    export LM_AUX_CONST_METADATA_LIST_PATH_normal_arm64\=/Users/dawitsahle/Library/Developer/Xcode/DerivedData/kalat-guvktuqfjhpnxhbmofycdlivdirv/Build/Intermediates.noindex/Pods.build/Debug-iphonesimulator/React-RCTFBReactNativeSpec.build/Objects-normal/arm64/React-RCTFBReactNativeSpec.SwiftConstValuesFileList
-    export LOCALIZATION_EXPORT_SUPPORTED\=YES
-    export LOCALIZATION_PREFERS_STRING_CATALOGS\=NO
-    export LOCALIZED_STRING_MACRO_NAMES\=NSLocalizedString\ CFCopyLocalizedString
-    export LOCALIZED_STRING_SWIFTUI_SUPPORT\=YES
-    export LOCAL_ADMIN_APPS_DIR\=/Applications/Utilities
-    export LOCAL_APPS_DIR\=/Applications
-    export LOCAL_DEVELOPER_DIR\=/Library/Developer
-    export LOCAL_LIBRARY_DIR\=/Library
-    export LOCROOT\=/Users/dawitsahle/Documents/kalat/ios/Pods
-    export LOCSYMROOT\=/Users/dawitsahle/Documents/kalat/ios/Pods
-    export MACH_O_TYPE\=staticlib
-    export MAC_OS_X_PRODUCT_BUILD_VERSION\=24E263
-    export MAC_OS_X_VERSION_ACTUAL\=150401
-    export MAC_OS_X_VERSION_MAJOR\=150000
-    export MAC_OS_X_VERSION_MINOR\=150400
-    export MAKE_MERGEABLE\=NO
-    export MERGEABLE_LIBRARY\=NO
-    export MERGED_BINARY_TYPE\=none
-    export MERGE_LINKED_LIBRARIES\=NO
-    export METAL_LIBRARY_FILE_BASE\=default
-    export METAL_LIBRARY_OUTPUT_DIR\=/Users/dawitsahle/Library/Developer/Xcode/DerivedData/kalat-guvktuqfjhpnxhbmofycdlivdirv/Build/Products/Debug-iphonesimulator/React-RCTFBReactNativeSpec/
-    export MODULE_CACHE_DIR\=/Users/dawitsahle/Library/Developer/Xcode/DerivedData/ModuleCache.noindex
-    export MTL_ENABLE_DEBUG_INFO\=INCLUDE_SOURCE
-    export MTL_FAST_MATH\=YES
-    export NATIVE_ARCH\=arm64
-    export NATIVE_ARCH_32_BIT\=arm
-    export NATIVE_ARCH_64_BIT\=arm64
-    export NATIVE_ARCH_ACTUAL\=arm64
-    export NO_COMMON\=YES
-    export OBJC_ABI_VERSION\=2
-    export OBJECT_FILE_DIR\=/Users/dawitsahle/Library/Developer/Xcode/DerivedData/kalat-guvktuqfjhpnxhbmofycdlivdirv/Build/Intermediates.noindex/Pods.build/Debug-iphonesimulator/React-RCTFBReactNativeSpec.build/Objects
-    export OBJECT_FILE_DIR_normal\=/Users/dawitsahle/Library/Developer/Xcode/DerivedData/kalat-guvktuqfjhpnxhbmofycdlivdirv/Build/Intermediates.noindex/Pods.build/Debug-iphonesimulator/React-RCTFBReactNativeSpec.build/Objects-normal
-    export OBJROOT\=/Users/dawitsahle/Library/Developer/Xcode/DerivedData/kalat-guvktuqfjhpnxhbmofycdlivdirv/Build/Intermediates.noindex
-    export ONLY_ACTIVE_ARCH\=YES
-    export OS\=MACOS
-    export OSAC\=/usr/bin/osacompile
-    export OTHER_CFLAGS\=\ -fmodule-map-file\=\"/Users/dawitsahle/Documents/kalat/ios/Pods/Headers/Public/DoubleConversion/DoubleConversion.modulemap\"\ -fmodule-map-file\=\"/Users/dawitsahle/Documents/kalat/ios/Pods/Headers/Public/RCTDeprecation/RCTDeprecation.modulemap\"\ -fmodule-map-file\=\"/Users/dawitsahle/Documents/kalat/ios/Pods/Headers/Public/RCTTypeSafety/RCTTypeSafety.modulemap\"\ -fmodule-map-file\=\"/Users/dawitsahle/Documents/kalat/ios/Pods/Headers/Public/React/React-Core.modulemap\"\ -fmodule-map-file\=\"/Users/dawitsahle/Documents/kalat/ios/Pods/Headers/Public/ReactCommon/ReactCommon.modulemap\"\ -fmodule-map-file\=\"/Users/dawitsahle/Documents/kalat/ios/Pods/Headers/Public/React_NativeModulesApple/React-NativeModulesApple.modulemap\"\ -fmodule-map-file\=\"/Users/dawitsahle/Documents/kalat/ios/Pods/Headers/Public/folly/RCT-Folly.modulemap\"\ -fmodule-map-file\=\"/Users/dawitsahle/Documents/kalat/ios/Pods/Headers/Public/glog/glog.modulemap\"\ -fmodule-map-file\=\"/Users/dawitsahle/Documents/kalat/ios/Pods/Headers/Public/jsi/React-jsi.modulemap\"\ -fmodule-map-file\=\"/Users/dawitsahle/Documents/kalat/ios/Pods/Headers/Public/jsinspector_modern/React-jsinspector.modulemap\"\ -fmodule-map-file\=\"/Users/dawitsahle/Documents/kalat/ios/Pods/Headers/Public/jsinspector_modern_tracing/React-jsinspectortracing.modulemap\"\ -fmodule-map-file\=\"/Users/dawitsahle/Documents/kalat/ios/Pods/Headers/Public/react_debug/React-debug.modulemap\"\ -fmodule-map-file\=\"/Users/dawitsahle/Documents/kalat/ios/Pods/Headers/Public/react_featureflags/React-featureflags.modulemap\"\ -fmodule-map-file\=\"/Users/dawitsahle/Documents/kalat/ios/Pods/Headers/Public/react_renderer_debug/React-rendererdebug.modulemap\"\ -fmodule-map-file\=\"/Users/dawitsahle/Documents/kalat/ios/Pods/Headers/Public/react_runtime/React-jsitooling.modulemap\"\ -fmodule-map-file\=\"/Users/dawitsahle/Documents/kalat/ios/Pods/Headers/Public/react_utils/React-utils.modulemap\"\ -fmodule-map-file\=\"/Users/dawitsahle/Documents/kalat/ios/Pods/Headers/Public/reacthermes/React-hermes.modulemap\"\ -fmodule-map-file\=\"/Users/dawitsahle/Documents/kalat/ios/Pods/Headers/Public/yoga/Yoga.modulemap\"\ \ -DFOLLY_NO_CONFIG\ -DFOLLY_MOBILE\=1\ -DFOLLY_USE_LIBCPP\=1\ -DFOLLY_CFG_NO_COROUTINES\=1\ -DFOLLY_HAVE_CLOCK_GETTIME\=1\ -Wno-comma\ -Wno-shorten-64-to-32\ -DRCT_NEW_ARCH_ENABLED\=1
-    export OTHER_CPLUSPLUSFLAGS\=\ -fmodule-map-file\=\"/Users/dawitsahle/Documents/kalat/ios/Pods/Headers/Public/DoubleConversion/DoubleConversion.modulemap\"\ -fmodule-map-file\=\"/Users/dawitsahle/Documents/kalat/ios/Pods/Headers/Public/RCTDeprecation/RCTDeprecation.modulemap\"\ -fmodule-map-file\=\"/Users/dawitsahle/Documents/kalat/ios/Pods/Headers/Public/RCTTypeSafety/RCTTypeSafety.modulemap\"\ -fmodule-map-file\=\"/Users/dawitsahle/Documents/kalat/ios/Pods/Headers/Public/React/React-Core.modulemap\"\ -fmodule-map-file\=\"/Users/dawitsahle/Documents/kalat/ios/Pods/Headers/Public/ReactCommon/ReactCommon.modulemap\"\ -fmodule-map-file\=\"/Users/dawitsahle/Documents/kalat/ios/Pods/Headers/Public/React_NativeModulesApple/React-NativeModulesApple.modulemap\"\ -fmodule-map-file\=\"/Users/dawitsahle/Documents/kalat/ios/Pods/Headers/Public/folly/RCT-Folly.modulemap\"\ -fmodule-map-file\=\"/Users/dawitsahle/Documents/kalat/ios/Pods/Headers/Public/glog/glog.modulemap\"\ -fmodule-map-file\=\"/Users/dawitsahle/Documents/kalat/ios/Pods/Headers/Public/jsi/React-jsi.modulemap\"\ -fmodule-map-file\=\"/Users/dawitsahle/Documents/kalat/ios/Pods/Headers/Public/jsinspector_modern/React-jsinspector.modulemap\"\ -fmodule-map-file\=\"/Users/dawitsahle/Documents/kalat/ios/Pods/Headers/Public/jsinspector_modern_tracing/React-jsinspectortracing.modulemap\"\ -fmodule-map-file\=\"/Users/dawitsahle/Documents/kalat/ios/Pods/Headers/Public/react_debug/React-debug.modulemap\"\ -fmodule-map-file\=\"/Users/dawitsahle/Documents/kalat/ios/Pods/Headers/Public/react_featureflags/React-featureflags.modulemap\"\ -fmodule-map-file\=\"/Users/dawitsahle/Documents/kalat/ios/Pods/Headers/Public/react_renderer_debug/React-rendererdebug.modulemap\"\ -fmodule-map-file\=\"/Users/dawitsahle/Documents/kalat/ios/Pods/Headers/Public/react_runtime/React-jsitooling.modulemap\"\ -fmodule-map-file\=\"/Users/dawitsahle/Documents/kalat/ios/Pods/Headers/Public/react_utils/React-utils.modulemap\"\ -fmodule-map-file\=\"/Users/dawitsahle/Documents/kalat/ios/Pods/Headers/Public/reacthermes/React-hermes.modulemap\"\ -fmodule-map-file\=\"/Users/dawitsahle/Documents/kalat/ios/Pods/Headers/Public/yoga/Yoga.modulemap\"\ \ -DFOLLY_NO_CONFIG\ -DFOLLY_MOBILE\=1\ -DFOLLY_USE_LIBCPP\=1\ -DFOLLY_CFG_NO_COROUTINES\=1\ -DFOLLY_HAVE_CLOCK_GETTIME\=1\ -Wno-comma\ -Wno-shorten-64-to-32\ -DRCT_NEW_ARCH_ENABLED\=1
-    export PACKAGE_TYPE\=com.apple.package-type.static-library
-    export PASCAL_STRINGS\=YES
-    export PATH\=/Applications/Xcode.app/Contents/SharedFrameworks/SwiftBuild.framework/Versions/A/PlugIns/SWBBuildService.bundle/Contents/PlugIns/SWBUniversalPlatformPlugin.bundle/Contents/Frameworks/SWBUniversalPlatform.framework/Resources:/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin:/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/local/bin:/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/libexec:/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/usr/bin:/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/usr/local/bin:/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/local/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/local/bin:/Users/dawitsahle/Documents/kalat/node_modules/.bin:/Users/dawitsahle/Documents/node_modules/.bin:/Users/dawitsahle/node_modules/.bin:/Users/node_modules/.bin:/node_modules/.bin:/opt/homebrew/lib/node_modules/npm/node_modules/@npmcli/run-script/lib/node-gyp-bin:/Users/dawitsahle/google-cloud-sdk/bin:/opt/homebrew/bin:/opt/homebrew/sbin:/Users/dawitsahle/.rbenv/shims:/usr/local/bin:/System/Cryptexes/App/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/local/bin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/bin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin:/Library/Apple/usr/bin:/Users/dawitsahle/.npm-global/bin
-    export PATH_PREFIXES_EXCLUDED_FROM_HEADER_DEPENDENCIES\=/usr/include\ /usr/local/include\ /System/Library/Frameworks\ /System/Library/PrivateFrameworks\ /Applications/Xcode.app/Contents/Developer/Headers\ /Applications/Xcode.app/Contents/Developer/SDKs\ /Applications/Xcode.app/Contents/Developer/Platforms
-    export PER_ARCH_MODULE_FILE_DIR\=/Users/dawitsahle/Library/Developer/Xcode/DerivedData/kalat-guvktuqfjhpnxhbmofycdlivdirv/Build/Intermediates.noindex/Pods.build/Debug-iphonesimulator/React-RCTFBReactNativeSpec.build/Objects-normal/undefined_arch
-    export PER_ARCH_OBJECT_FILE_DIR\=/Users/dawitsahle/Library/Developer/Xcode/DerivedData/kalat-guvktuqfjhpnxhbmofycdlivdirv/Build/Intermediates.noindex/Pods.build/Debug-iphonesimulator/React-RCTFBReactNativeSpec.build/Objects-normal/undefined_arch
-    export PER_VARIANT_OBJECT_FILE_DIR\=/Users/dawitsahle/Library/Developer/Xcode/DerivedData/kalat-guvktuqfjhpnxhbmofycdlivdirv/Build/Intermediates.noindex/Pods.build/Debug-iphonesimulator/React-RCTFBReactNativeSpec.build/Objects-normal
-    export PKGINFO_FILE_PATH\=/Users/dawitsahle/Library/Developer/Xcode/DerivedData/kalat-guvktuqfjhpnxhbmofycdlivdirv/Build/Intermediates.noindex/Pods.build/Debug-iphonesimulator/React-RCTFBReactNativeSpec.build/PkgInfo
-    export PLATFORM_DEVELOPER_APPLICATIONS_DIR\=/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/Applications
-    export PLATFORM_DEVELOPER_BIN_DIR\=/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin
-    export PLATFORM_DEVELOPER_LIBRARY_DIR\=/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/Library
-    export PLATFORM_DEVELOPER_SDK_DIR\=/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs
-    export PLATFORM_DEVELOPER_TOOLS_DIR\=/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/Tools
-    export PLATFORM_DEVELOPER_USR_DIR\=/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/usr
-    export PLATFORM_DIR\=/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform
-    export PLATFORM_DISPLAY_NAME\=iOS\ Simulator
-    export PLATFORM_FAMILY_NAME\=iOS
-    export PLATFORM_NAME\=iphonesimulator
-    export PLATFORM_PREFERRED_ARCH\=x86_64
-    export PLATFORM_PRODUCT_BUILD_VERSION\=22E235
-    export PLATFORM_REQUIRES_SWIFT_AUTOLINK_EXTRACT\=NO
-    export PLATFORM_REQUIRES_SWIFT_MODULEWRAP\=NO
-    export PLIST_FILE_OUTPUT_FORMAT\=binary
-    export PODS_BUILD_DIR\=/Users/dawitsahle/Library/Developer/Xcode/DerivedData/kalat-guvktuqfjhpnxhbmofycdlivdirv/Build/Products
-    export PODS_CONFIGURATION_BUILD_DIR\=/Users/dawitsahle/Library/Developer/Xcode/DerivedData/kalat-guvktuqfjhpnxhbmofycdlivdirv/Build/Products/Debug-iphonesimulator
-    export PODS_DEVELOPMENT_LANGUAGE\=en
-    export PODS_ROOT\=/Users/dawitsahle/Documents/kalat/ios/Pods
-    export PODS_TARGET_SRCROOT\=/Users/dawitsahle/Documents/kalat/ios/Pods/../../node_modules/react-native/React
-    export PODS_XCFRAMEWORKS_BUILD_DIR\=/Users/dawitsahle/Library/Developer/Xcode/DerivedData/kalat-guvktuqfjhpnxhbmofycdlivdirv/Build/Products/Debug-iphonesimulator/XCFrameworkIntermediates
-    export PRECOMPS_INCLUDE_HEADERS_FROM_BUILT_PRODUCTS_DIR\=YES
-    export PRECOMP_DESTINATION_DIR\=/Users/dawitsahle/Library/Developer/Xcode/DerivedData/kalat-guvktuqfjhpnxhbmofycdlivdirv/Build/Intermediates.noindex/Pods.build/Debug-iphonesimulator/React-RCTFBReactNativeSpec.build/PrefixHeaders
-    export PROCESSED_INFOPLIST_PATH\=/Users/dawitsahle/Library/Developer/Xcode/DerivedData/kalat-guvktuqfjhpnxhbmofycdlivdirv/Build/Intermediates.noindex/Pods.build/Debug-iphonesimulator/React-RCTFBReactNativeSpec.build/Objects-normal/undefined_arch/Processed-Info.plist
-    export PRODUCT_BUNDLE_IDENTIFIER\=org.cocoapods.React-RCTFBReactNativeSpec
-    export PRODUCT_MODULE_NAME\=FBReactNativeSpec
-    export PRODUCT_NAME\=React-RCTFBReactNativeSpec
-    export PRODUCT_SETTINGS_PATH\=
-    export PRODUCT_TYPE\=com.apple.product-type.library.static
-    export PROFILING_CODE\=NO
-    export PROJECT\=Pods
-    export PROJECT_DERIVED_FILE_DIR\=/Users/dawitsahle/Library/Developer/Xcode/DerivedData/kalat-guvktuqfjhpnxhbmofycdlivdirv/Build/Intermediates.noindex/Pods.build/DerivedSources
-    export PROJECT_DIR\=/Users/dawitsahle/Documents/kalat/ios/Pods
-    export PROJECT_FILE_PATH\=/Users/dawitsahle/Documents/kalat/ios/Pods/Pods.xcodeproj
-    export PROJECT_GUID\=8699adb1dd336b26511df848a716bd42
-    export PROJECT_NAME\=Pods
-    export PROJECT_TEMP_DIR\=/Users/dawitsahle/Library/Developer/Xcode/DerivedData/kalat-guvktuqfjhpnxhbmofycdlivdirv/Build/Intermediates.noindex/Pods.build
-    export PROJECT_TEMP_ROOT\=/Users/dawitsahle/Library/Developer/Xcode/DerivedData/kalat-guvktuqfjhpnxhbmofycdlivdirv/Build/Intermediates.noindex
-    export REACT_NATIVE_PATH\=/Users/dawitsahle/Documents/kalat/ios/Pods/../../node_modules/react-native
-    export RECOMMENDED_IPHONEOS_DEPLOYMENT_TARGET\=15.0
-    export RECURSIVE_SEARCH_PATHS_FOLLOW_SYMLINKS\=YES
-    export REMOVE_CVS_FROM_RESOURCES\=YES
-    export REMOVE_GIT_FROM_RESOURCES\=YES
-    export REMOVE_HEADERS_FROM_EMBEDDED_BUNDLES\=YES
-    export REMOVE_HG_FROM_RESOURCES\=YES
-    export REMOVE_STATIC_EXECUTABLES_FROM_EMBEDDED_BUNDLES\=YES
-    export REMOVE_SVN_FROM_RESOURCES\=YES
-    export RESCHEDULE_INDEPENDENT_HEADERS_PHASES\=YES
-    export REZ_COLLECTOR_DIR\=/Users/dawitsahle/Library/Developer/Xcode/DerivedData/kalat-guvktuqfjhpnxhbmofycdlivdirv/Build/Intermediates.noindex/Pods.build/Debug-iphonesimulator/React-RCTFBReactNativeSpec.build/ResourceManagerResources
-    export REZ_EXECUTABLE\=YES
-    export REZ_OBJECTS_DIR\=/Users/dawitsahle/Library/Developer/Xcode/DerivedData/kalat-guvktuqfjhpnxhbmofycdlivdirv/Build/Intermediates.noindex/Pods.build/Debug-iphonesimulator/React-RCTFBReactNativeSpec.build/ResourceManagerResources/Objects
-    export REZ_SEARCH_PATHS\=/Users/dawitsahle/Library/Developer/Xcode/DerivedData/kalat-guvktuqfjhpnxhbmofycdlivdirv/Build/Products/Debug-iphonesimulator/React-RCTFBReactNativeSpec\ 
-    export SCAN_ALL_SOURCE_FILES_FOR_INCLUDES\=NO
-    export SCRIPT_INPUT_FILE_COUNT\=0
-    export SCRIPT_INPUT_FILE_LIST_COUNT\=0
-    export SCRIPT_OUTPUT_FILE_COUNT\=0
-    export SCRIPT_OUTPUT_FILE_LIST_COUNT\=0
-    export SDKROOT\=/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator18.4.sdk
-    export SDK_DIR\=/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator18.4.sdk
-    export SDK_DIR_iphonesimulator\=/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator18.4.sdk
-    export SDK_DIR_iphonesimulator18_4\=/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator18.4.sdk
-    export SDK_NAME\=iphonesimulator18.4
-    export SDK_NAMES\=iphonesimulator18.4
-    export SDK_PRODUCT_BUILD_VERSION\=22E235
-    export SDK_STAT_CACHE_DIR\=/Users/dawitsahle/Library/Developer/Xcode/DerivedData
-    export SDK_STAT_CACHE_ENABLE\=YES
-    export SDK_STAT_CACHE_PATH\=/Users/dawitsahle/Library/Developer/Xcode/DerivedData/SDKStatCaches.noindex/iphonesimulator18.4-22E235-71825a6d136aa4733edcbe86ece5525b.sdkstatcache
-    export SDK_VERSION\=18.4
-    export SDK_VERSION_ACTUAL\=180400
-    export SDK_VERSION_MAJOR\=180000
-    export SDK_VERSION_MINOR\=180400
-    export SED\=/usr/bin/sed
-    export SEPARATE_STRIP\=NO
-    export SEPARATE_SYMBOL_EDIT\=NO
-    export SET_DIR_MODE_OWNER_GROUP\=YES
-    export SET_FILE_MODE_OWNER_GROUP\=NO
-    export SHALLOW_BUNDLE\=NO
-    export SHARED_DERIVED_FILE_DIR\=/Users/dawitsahle/Library/Developer/Xcode/DerivedData/kalat-guvktuqfjhpnxhbmofycdlivdirv/Build/Products/Debug-iphonesimulator/React-RCTFBReactNativeSpec/DerivedSources
-    export SHARED_PRECOMPS_DIR\=/Users/dawitsahle/Library/Developer/Xcode/DerivedData/kalat-guvktuqfjhpnxhbmofycdlivdirv/Build/Intermediates.noindex/PrecompiledHeaders
-    export SKIP_INSTALL\=YES
-    export SOURCE_ROOT\=/Users/dawitsahle/Documents/kalat/ios/Pods
-    export SRCROOT\=/Users/dawitsahle/Documents/kalat/ios/Pods
-    export STRINGSDATA_DIR\=/Users/dawitsahle/Library/Developer/Xcode/DerivedData/kalat-guvktuqfjhpnxhbmofycdlivdirv/Build/Intermediates.noindex/Pods.build/Debug-iphonesimulator/React-RCTFBReactNativeSpec.build/Objects-normal/undefined_arch
-    export STRINGSDATA_ROOT\=/Users/dawitsahle/Library/Developer/Xcode/DerivedData/kalat-guvktuqfjhpnxhbmofycdlivdirv/Build/Intermediates.noindex/Pods.build/Debug-iphonesimulator/React-RCTFBReactNativeSpec.build
-    export STRINGS_FILE_INFOPLIST_RENAME\=YES
-    export STRINGS_FILE_OUTPUT_ENCODING\=binary
-    export STRIP_BITCODE_FROM_COPIED_FILES\=NO
-    export STRIP_INSTALLED_PRODUCT\=NO
-    export STRIP_STYLE\=debugging
-    export STRIP_SWIFT_SYMBOLS\=YES
-    export SUPPORTED_DEVICE_FAMILIES\=1,2
-    export SUPPORTED_PLATFORMS\=iphoneos\ iphonesimulator
-    export SUPPORTS_TEXT_BASED_API\=NO
-    export SUPPRESS_WARNINGS\=NO
-    export SWIFT_ACTIVE_COMPILATION_CONDITIONS\=\ DEBUG\ 
-    export SWIFT_EMIT_LOC_STRINGS\=NO
-    export SWIFT_INSTALL_OBJC_HEADER\=YES
-    export SWIFT_OPTIMIZATION_LEVEL\=-Onone
-    export SWIFT_PLATFORM_TARGET_PREFIX\=ios
-    export SWIFT_RESPONSE_FILE_PATH_normal_arm64\=/Users/dawitsahle/Library/Developer/Xcode/DerivedData/kalat-guvktuqfjhpnxhbmofycdlivdirv/Build/Intermediates.noindex/Pods.build/Debug-iphonesimulator/React-RCTFBReactNativeSpec.build/Objects-normal/arm64/React-RCTFBReactNativeSpec.SwiftFileList
-    export SWIFT_VERSION\=5.0
-    export SYMROOT\=/Users/dawitsahle/Library/Developer/Xcode/DerivedData/kalat-guvktuqfjhpnxhbmofycdlivdirv/Build/Products
-    export SYSTEM_ADMIN_APPS_DIR\=/Applications/Utilities
-    export SYSTEM_APPS_DIR\=/Applications
-    export SYSTEM_CORE_SERVICES_DIR\=/System/Library/CoreServices
-    export SYSTEM_DEMOS_DIR\=/Applications/Extras
-    export SYSTEM_DEVELOPER_APPS_DIR\=/Applications/Xcode.app/Contents/Developer/Applications
-    export SYSTEM_DEVELOPER_BIN_DIR\=/Applications/Xcode.app/Contents/Developer/usr/bin
-    export SYSTEM_DEVELOPER_DEMOS_DIR\=/Applications/Xcode.app/Contents/Developer/Applications/Utilities/Built\ Examples
-    export SYSTEM_DEVELOPER_DIR\=/Applications/Xcode.app/Contents/Developer
-    export SYSTEM_DEVELOPER_DOC_DIR\=/Applications/Xcode.app/Contents/Developer/ADC\ Reference\ Library
-    export SYSTEM_DEVELOPER_GRAPHICS_TOOLS_DIR\=/Applications/Xcode.app/Contents/Developer/Applications/Graphics\ Tools
-    export SYSTEM_DEVELOPER_JAVA_TOOLS_DIR\=/Applications/Xcode.app/Contents/Developer/Applications/Java\ Tools
-    export SYSTEM_DEVELOPER_PERFORMANCE_TOOLS_DIR\=/Applications/Xcode.app/Contents/Developer/Applications/Performance\ Tools
-    export SYSTEM_DEVELOPER_RELEASENOTES_DIR\=/Applications/Xcode.app/Contents/Developer/ADC\ Reference\ Library/releasenotes
-    export SYSTEM_DEVELOPER_TOOLS\=/Applications/Xcode.app/Contents/Developer/Tools
-    export SYSTEM_DEVELOPER_TOOLS_DOC_DIR\=/Applications/Xcode.app/Contents/Developer/ADC\ Reference\ Library/documentation/DeveloperTools
-    export SYSTEM_DEVELOPER_TOOLS_RELEASENOTES_DIR\=/Applications/Xcode.app/Contents/Developer/ADC\ Reference\ Library/releasenotes/DeveloperTools
-    export SYSTEM_DEVELOPER_USR_DIR\=/Applications/Xcode.app/Contents/Developer/usr
-    export SYSTEM_DEVELOPER_UTILITIES_DIR\=/Applications/Xcode.app/Contents/Developer/Applications/Utilities
-    export SYSTEM_DEXT_INSTALL_PATH\=/System/Library/DriverExtensions
-    export SYSTEM_DOCUMENTATION_DIR\=/Library/Documentation
-    export SYSTEM_KEXT_INSTALL_PATH\=/System/Library/Extensions
-    export SYSTEM_LIBRARY_DIR\=/System/Library
-    export TAPI_DEMANGLE\=YES
-    export TAPI_ENABLE_PROJECT_HEADERS\=NO
-    export TAPI_LANGUAGE\=objective-c
-    export TAPI_LANGUAGE_STANDARD\=compiler-default
-    export TAPI_USE_SRCROOT\=YES
-    export TAPI_VERIFY_MODE\=Pedantic
-    export TARGETED_DEVICE_FAMILY\=1,2
-    export TARGETNAME\=React-RCTFBReactNativeSpec
-    export TARGET_BUILD_DIR\=/Users/dawitsahle/Library/Developer/Xcode/DerivedData/kalat-guvktuqfjhpnxhbmofycdlivdirv/Build/Products/Debug-iphonesimulator/React-RCTFBReactNativeSpec
-    export TARGET_DEVICE_IDENTIFIER\=301E4219-49AB-4C5F-999E-4CECCEAF2923
-    export TARGET_DEVICE_MODEL\=iPhone17,4
-    export TARGET_DEVICE_OS_VERSION\=18.4
-    export TARGET_DEVICE_PLATFORM_NAME\=iphonesimulator
-    export TARGET_NAME\=React-RCTFBReactNativeSpec
-    export TARGET_TEMP_DIR\=/Users/dawitsahle/Library/Developer/Xcode/DerivedData/kalat-guvktuqfjhpnxhbmofycdlivdirv/Build/Intermediates.noindex/Pods.build/Debug-iphonesimulator/React-RCTFBReactNativeSpec.build
-    export TEMP_DIR\=/Users/dawitsahle/Library/Developer/Xcode/DerivedData/kalat-guvktuqfjhpnxhbmofycdlivdirv/Build/Intermediates.noindex/Pods.build/Debug-iphonesimulator/React-RCTFBReactNativeSpec.build
-    export TEMP_FILES_DIR\=/Users/dawitsahle/Library/Developer/Xcode/DerivedData/kalat-guvktuqfjhpnxhbmofycdlivdirv/Build/Intermediates.noindex/Pods.build/Debug-iphonesimulator/React-RCTFBReactNativeSpec.build
-    export TEMP_FILE_DIR\=/Users/dawitsahle/Library/Developer/Xcode/DerivedData/kalat-guvktuqfjhpnxhbmofycdlivdirv/Build/Intermediates.noindex/Pods.build/Debug-iphonesimulator/React-RCTFBReactNativeSpec.build
-    export TEMP_ROOT\=/Users/dawitsahle/Library/Developer/Xcode/DerivedData/kalat-guvktuqfjhpnxhbmofycdlivdirv/Build/Intermediates.noindex
-    export TEMP_SANDBOX_DIR\=/Users/dawitsahle/Library/Developer/Xcode/DerivedData/kalat-guvktuqfjhpnxhbmofycdlivdirv/Build/Intermediates.noindex/TemporaryTaskSandboxes
-    export TEST_FRAMEWORK_SEARCH_PATHS\=\ /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/Library/Frameworks\ /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator18.4.sdk/Developer/Library/Frameworks
-    export TEST_LIBRARY_SEARCH_PATHS\=\ /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/lib
-    export TOOLCHAINS\=com.apple.dt.toolchain.XcodeDefault
-    export TOOLCHAIN_DIR\=/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain
-    export TREAT_MISSING_BASELINES_AS_TEST_FAILURES\=NO
-    export TREAT_MISSING_SCRIPT_PHASE_OUTPUTS_AS_ERRORS\=NO
-    export UID\=501
-    export UNINSTALLED_PRODUCTS_DIR\=/Users/dawitsahle/Library/Developer/Xcode/DerivedData/kalat-guvktuqfjhpnxhbmofycdlivdirv/Build/Intermediates.noindex/UninstalledProducts
-    export UNSTRIPPED_PRODUCT\=NO
-    export USER\=dawitsahle
-    export USER_APPS_DIR\=/Users/dawitsahle/Applications
-    export USER_LIBRARY_DIR\=/Users/dawitsahle/Library
-    export USE_DYNAMIC_NO_PIC\=YES
-    export USE_HEADERMAP\=YES
-    export USE_HEADER_SYMLINKS\=NO
-    export USE_HERMES\=true
-    export USE_RECURSIVE_SCRIPT_INPUTS_IN_SCRIPT_PHASES\=YES
-    export VALIDATE_DEVELOPMENT_ASSET_PATHS\=YES_ERROR
-    export VALIDATE_PRODUCT\=NO
-    export VALID_ARCHS\=arm64\ arm64e\ x86_64
-    export VERBOSE_PBXCP\=NO
-    export VERSION_INFO_BUILDER\=dawitsahle
-    export VERSION_INFO_FILE\=React-RCTFBReactNativeSpec_vers.c
-    export VERSION_INFO_STRING\=\"@\(\#\)PROGRAM:React-RCTFBReactNativeSpec\ \ PROJECT:Pods-\"
-    export WORKSPACE_DIR\=/Users/dawitsahle/Documents/kalat/ios
-    export WRAP_ASSET_PACKS_IN_SEPARATE_DIRECTORIES\=NO
-    export XCODE_APP_SUPPORT_DIR\=/Applications/Xcode.app/Contents/Developer/Library/Xcode
-    export XCODE_PRODUCT_BUILD_VERSION\=16E140
-    export XCODE_VERSION_ACTUAL\=1630
-    export XCODE_VERSION_MAJOR\=1600
-    export XCODE_VERSION_MINOR\=1630
-    export XPCSERVICES_FOLDER_PATH\=/XPCServices
-    export YACC\=yacc
-    export _DISCOVER_COMMAND_LINE_LINKER_INPUTS\=YES
-    export _DISCOVER_COMMAND_LINE_LINKER_INPUTS_INCLUDE_WL\=YES
-    export __DIAGNOSE_DEPRECATED_ARCHS\=YES
-    export arch\=undefined_arch
-    export variant\=normal
-    /bin/sh -c /Users/dawitsahle/Library/Developer/Xcode/DerivedData/kalat-guvktuqfjhpnxhbmofycdlivdirv/Build/Intermediates.noindex/Pods.build/Debug-iphonesimulator/React-RCTFBReactNativeSpec.build/Script-46EB2E0001E020.sh
-Checking whether Codegen has run...
-
+note: Run script build phase '[CP-User] [RN]Check rncore' will be run during every build because the option to run the script phase "Based on dependency analysis" is unchecked. (in target 'React-Fabric' from project 'Pods')
 PhaseScriptExecution [CP-User]\ [RN]Check\ rncore /Users/dawitsahle/Library/Developer/Xcode/DerivedData/kalat-guvktuqfjhpnxhbmofycdlivdirv/Build/Intermediates.noindex/Pods.build/Debug-iphonesimulator/React-Fabric.build/Script-46EB2E0001E000.sh (in target 'React-Fabric' from project 'Pods')
     cd /Users/dawitsahle/Documents/kalat/ios/Pods
     export ACTION\=build
@@ -2477,6 +1911,526 @@ PhaseScriptExecution [CP-User]\ [RN]Check\ rncore /Users/dawitsahle/Library/Deve
     export arch\=undefined_arch
     export variant\=normal
     /bin/sh -c /Users/dawitsahle/Library/Developer/Xcode/DerivedData/kalat-guvktuqfjhpnxhbmofycdlivdirv/Build/Intermediates.noindex/Pods.build/Debug-iphonesimulator/React-Fabric.build/Script-46EB2E0001E000.sh
+Checking whether Codegen has run...
+
+PhaseScriptExecution [CP-User]\ [RN]Check\ FBReactNativeSpec /Users/dawitsahle/Library/Developer/Xcode/DerivedData/kalat-guvktuqfjhpnxhbmofycdlivdirv/Build/Intermediates.noindex/Pods.build/Debug-iphonesimulator/React-RCTFBReactNativeSpec.build/Script-46EB2E0001E020.sh (in target 'React-RCTFBReactNativeSpec' from project 'Pods')
+    cd /Users/dawitsahle/Documents/kalat/ios/Pods
+    export ACTION\=build
+    export AD_HOC_CODE_SIGNING_ALLOWED\=YES
+    export ALLOW_BUILD_REQUEST_OVERRIDES\=NO
+    export ALLOW_TARGET_PLATFORM_SPECIALIZATION\=NO
+    export ALTERNATE_GROUP\=staff
+    export ALTERNATE_MODE\=u+w,go-w,a+rX
+    export ALTERNATE_OWNER\=dawitsahle
+    export ALTERNATIVE_DISTRIBUTION_WEB\=NO
+    export ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES\=NO
+    export ALWAYS_SEARCH_USER_PATHS\=NO
+    export ALWAYS_USE_SEPARATE_HEADERMAPS\=NO
+    export APPLICATION_EXTENSION_API_ONLY\=NO
+    export APPLY_RULES_IN_COPY_FILES\=NO
+    export APPLY_RULES_IN_COPY_HEADERS\=NO
+    export APP_SHORTCUTS_ENABLE_FLEXIBLE_MATCHING\=YES
+    export ARCHS\=arm64
+    export ARCHS_STANDARD\=arm64\ x86_64
+    export ARCHS_STANDARD_32_64_BIT\=arm64\ x86_64
+    export ARCHS_STANDARD_64_BIT\=arm64\ x86_64
+    export ARCHS_STANDARD_INCLUDING_64_BIT\=arm64\ x86_64
+    export ARCHS_UNIVERSAL_IPHONE_OS\=arm64\ x86_64
+    export ASSETCATALOG_FILTER_FOR_DEVICE_MODEL\=iPhone17,4
+    export ASSETCATALOG_FILTER_FOR_DEVICE_OS_VERSION\=18.4
+    export ASSETCATALOG_FILTER_FOR_THINNING_DEVICE_CONFIGURATION\=iPhone17,4
+    export AUTOMATICALLY_MERGE_DEPENDENCIES\=NO
+    export AVAILABLE_PLATFORMS\=android\ appletvos\ appletvsimulator\ driverkit\ iphoneos\ iphonesimulator\ macosx\ qnx\ watchos\ watchsimulator\ xros\ xrsimulator
+    export BITCODE_GENERATION_MODE\=marker
+    export BUILD_ACTIVE_RESOURCES_ONLY\=YES
+    export BUILD_COMPONENTS\=headers\ build
+    export BUILD_DIR\=/Users/dawitsahle/Library/Developer/Xcode/DerivedData/kalat-guvktuqfjhpnxhbmofycdlivdirv/Build/Products
+    export BUILD_LIBRARY_FOR_DISTRIBUTION\=NO
+    export BUILD_ROOT\=/Users/dawitsahle/Library/Developer/Xcode/DerivedData/kalat-guvktuqfjhpnxhbmofycdlivdirv/Build/Products
+    export BUILD_STYLE\=
+    export BUILD_VARIANTS\=normal
+    export BUILT_PRODUCTS_DIR\=/Users/dawitsahle/Library/Developer/Xcode/DerivedData/kalat-guvktuqfjhpnxhbmofycdlivdirv/Build/Products/Debug-iphonesimulator/React-RCTFBReactNativeSpec
+    export BUNDLE_CONTENTS_FOLDER_PATH_deep\=Contents/
+    export BUNDLE_EXECUTABLE_FOLDER_NAME_deep\=MacOS
+    export BUNDLE_EXTENSIONS_FOLDER_PATH\=Extensions
+    export BUNDLE_FORMAT\=shallow
+    export BUNDLE_FRAMEWORKS_FOLDER_PATH\=Frameworks
+    export BUNDLE_PLUGINS_FOLDER_PATH\=PlugIns
+    export BUNDLE_PRIVATE_HEADERS_FOLDER_PATH\=PrivateHeaders
+    export BUNDLE_PUBLIC_HEADERS_FOLDER_PATH\=Headers
+    export CACHE_ROOT\=/var/folders/h3/8_jrkyks2kx46sx9w63fvgcw0000gn/C/com.apple.DeveloperTools/16.3-16E140/Xcode
+    export CCHROOT\=/var/folders/h3/8_jrkyks2kx46sx9w63fvgcw0000gn/C/com.apple.DeveloperTools/16.3-16E140/Xcode
+    export CHMOD\=/bin/chmod
+    export CHOWN\=/usr/sbin/chown
+    export CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED\=YES
+    export CLANG_ANALYZER_NONNULL\=YES
+    export CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION\=YES_AGGRESSIVE
+    export CLANG_CACHE_FINE_GRAINED_OUTPUTS\=YES
+    export CLANG_CXX_LANGUAGE_STANDARD\=c++20
+    export CLANG_CXX_LIBRARY\=libc++
+    export CLANG_ENABLE_EXPLICIT_MODULES\=YES
+    export CLANG_ENABLE_MODULES\=YES
+    export CLANG_ENABLE_MODULE_DEBUGGING\=NO
+    export CLANG_ENABLE_OBJC_ARC\=YES
+    export CLANG_ENABLE_OBJC_WEAK\=NO
+    export CLANG_MODULES_BUILD_SESSION_FILE\=/Users/dawitsahle/Library/Developer/Xcode/DerivedData/ModuleCache.noindex/Session.modulevalidation
+    export CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING\=YES
+    export CLANG_WARN_BOOL_CONVERSION\=YES
+    export CLANG_WARN_COMMA\=YES
+    export CLANG_WARN_CONSTANT_CONVERSION\=YES
+    export CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS\=YES
+    export CLANG_WARN_DIRECT_OBJC_ISA_USAGE\=YES_ERROR
+    export CLANG_WARN_DOCUMENTATION_COMMENTS\=YES
+    export CLANG_WARN_EMPTY_BODY\=YES
+    export CLANG_WARN_ENUM_CONVERSION\=YES
+    export CLANG_WARN_INFINITE_RECURSION\=YES
+    export CLANG_WARN_INT_CONVERSION\=YES
+    export CLANG_WARN_NON_LITERAL_NULL_CONVERSION\=YES
+    export CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF\=YES
+    export CLANG_WARN_OBJC_LITERAL_CONVERSION\=YES
+    export CLANG_WARN_OBJC_ROOT_CLASS\=YES_ERROR
+    export CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER\=NO
+    export CLANG_WARN_RANGE_LOOP_ANALYSIS\=YES
+    export CLANG_WARN_STRICT_PROTOTYPES\=YES
+    export CLANG_WARN_SUSPICIOUS_MOVE\=YES
+    export CLANG_WARN_UNGUARDED_AVAILABILITY\=YES_AGGRESSIVE
+    export CLANG_WARN_UNREACHABLE_CODE\=YES
+    export CLANG_WARN__DUPLICATE_METHOD_MATCH\=YES
+    export CLASS_FILE_DIR\=/Users/dawitsahle/Library/Developer/Xcode/DerivedData/kalat-guvktuqfjhpnxhbmofycdlivdirv/Build/Intermediates.noindex/Pods.build/Debug-iphonesimulator/React-RCTFBReactNativeSpec.build/JavaClasses
+    export CLEAN_PRECOMPS\=YES
+    export CLONE_HEADERS\=NO
+    export CODESIGNING_FOLDER_PATH\=/Users/dawitsahle/Library/Developer/Xcode/DerivedData/kalat-guvktuqfjhpnxhbmofycdlivdirv/Build/Products/Debug-iphonesimulator/React-RCTFBReactNativeSpec/libReact-RCTFBReactNativeSpec.a
+    export CODE_SIGNING_ALLOWED\=NO
+    export CODE_SIGNING_REQUIRED\=YES
+    export CODE_SIGN_CONTEXT_CLASS\=XCiPhoneSimulatorCodeSignContext
+    export CODE_SIGN_IDENTITY\=-
+    export CODE_SIGN_INJECT_BASE_ENTITLEMENTS\=YES
+    export COLOR_DIAGNOSTICS\=NO
+    export COMBINE_HIDPI_IMAGES\=NO
+    export COMPILATION_CACHE_CAS_PATH\=/Users/dawitsahle/Library/Developer/Xcode/DerivedData/CompilationCache.noindex
+    export COMPILATION_CACHE_KEEP_CAS_DIRECTORY\=YES
+    export COMPILER_INDEX_STORE_ENABLE\=Default
+    export COMPOSITE_SDK_DIRS\=/Users/dawitsahle/Library/Developer/Xcode/DerivedData/kalat-guvktuqfjhpnxhbmofycdlivdirv/Build/Intermediates.noindex/CompositeSDKs
+    export COMPRESS_PNG_FILES\=YES
+    export CONFIGURATION\=Debug
+    export CONFIGURATION_BUILD_DIR\=/Users/dawitsahle/Library/Developer/Xcode/DerivedData/kalat-guvktuqfjhpnxhbmofycdlivdirv/Build/Products/Debug-iphonesimulator/React-RCTFBReactNativeSpec
+    export CONFIGURATION_TEMP_DIR\=/Users/dawitsahle/Library/Developer/Xcode/DerivedData/kalat-guvktuqfjhpnxhbmofycdlivdirv/Build/Intermediates.noindex/Pods.build/Debug-iphonesimulator
+    export COPYING_PRESERVES_HFS_DATA\=NO
+    export COPY_HEADERS_RUN_UNIFDEF\=NO
+    export COPY_PHASE_STRIP\=NO
+    export CORRESPONDING_DEVICE_PLATFORM_DIR\=/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform
+    export CORRESPONDING_DEVICE_PLATFORM_NAME\=iphoneos
+    export CORRESPONDING_DEVICE_SDK_DIR\=/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS18.4.sdk
+    export CORRESPONDING_DEVICE_SDK_NAME\=iphoneos18.4
+    export CP\=/bin/cp
+    export CREATE_INFOPLIST_SECTION_IN_BINARY\=NO
+    export CURRENT_ARCH\=undefined_arch
+    export CURRENT_VARIANT\=normal
+    export DEAD_CODE_STRIPPING\=YES
+    export DEBUGGING_SYMBOLS\=YES
+    export DEBUG_INFORMATION_FORMAT\=dwarf
+    export DEBUG_INFORMATION_VERSION\=compiler-default
+    export DEFAULT_COMPILER\=com.apple.compilers.llvm.clang.1_0
+    export DEFAULT_DEXT_INSTALL_PATH\=/System/Library/DriverExtensions
+    export DEFAULT_KEXT_INSTALL_PATH\=/System/Library/Extensions
+    export DEFINES_MODULE\=NO
+    export DEPLOYMENT_LOCATION\=NO
+    export DEPLOYMENT_POSTPROCESSING\=NO
+    export DEPLOYMENT_TARGET_SETTING_NAME\=IPHONEOS_DEPLOYMENT_TARGET
+    export DEPLOYMENT_TARGET_SUGGESTED_VALUES\=12.0\ 12.1\ 12.2\ 12.3\ 12.4\ 13.0\ 13.1\ 13.2\ 13.3\ 13.4\ 13.5\ 13.6\ 14.0\ 14.1\ 14.2\ 14.3\ 14.4\ 14.5\ 14.6\ 14.7\ 15.0\ 15.1\ 15.2\ 15.3\ 15.4\ 15.5\ 15.6\ 16.0\ 16.1\ 16.2\ 16.3\ 16.4\ 16.5\ 16.6\ 17.0\ 17.1\ 17.2\ 17.3\ 17.4\ 17.5\ 17.6\ 18.0\ 18.1\ 18.2\ 18.3\ 18.4
+    export DERIVED_FILES_DIR\=/Users/dawitsahle/Library/Developer/Xcode/DerivedData/kalat-guvktuqfjhpnxhbmofycdlivdirv/Build/Intermediates.noindex/Pods.build/Debug-iphonesimulator/React-RCTFBReactNativeSpec.build/DerivedSources
+    export DERIVED_FILE_DIR\=/Users/dawitsahle/Library/Developer/Xcode/DerivedData/kalat-guvktuqfjhpnxhbmofycdlivdirv/Build/Intermediates.noindex/Pods.build/Debug-iphonesimulator/React-RCTFBReactNativeSpec.build/DerivedSources
+    export DERIVED_SOURCES_DIR\=/Users/dawitsahle/Library/Developer/Xcode/DerivedData/kalat-guvktuqfjhpnxhbmofycdlivdirv/Build/Intermediates.noindex/Pods.build/Debug-iphonesimulator/React-RCTFBReactNativeSpec.build/DerivedSources
+    export DEVELOPER_APPLICATIONS_DIR\=/Applications/Xcode.app/Contents/Developer/Applications
+    export DEVELOPER_BIN_DIR\=/Applications/Xcode.app/Contents/Developer/usr/bin
+    export DEVELOPER_DIR\=/Applications/Xcode.app/Contents/Developer
+    export DEVELOPER_FRAMEWORKS_DIR\=/Applications/Xcode.app/Contents/Developer/Library/Frameworks
+    export DEVELOPER_FRAMEWORKS_DIR_QUOTED\=/Applications/Xcode.app/Contents/Developer/Library/Frameworks
+    export DEVELOPER_LIBRARY_DIR\=/Applications/Xcode.app/Contents/Developer/Library
+    export DEVELOPER_SDK_DIR\=/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs
+    export DEVELOPER_TOOLS_DIR\=/Applications/Xcode.app/Contents/Developer/Tools
+    export DEVELOPER_USR_DIR\=/Applications/Xcode.app/Contents/Developer/usr
+    export DEVELOPMENT_LANGUAGE\=en
+    export DIAGNOSE_MISSING_TARGET_DEPENDENCIES\=YES
+    export DIFF\=/usr/bin/diff
+    export DONT_GENERATE_INFOPLIST_FILE\=NO
+    export DSTROOT\=/tmp/Pods.dst
+    export DT_TOOLCHAIN_DIR\=/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain
+    export DWARF_DSYM_FILE_NAME\=libReact-RCTFBReactNativeSpec.a.dSYM
+    export DWARF_DSYM_FILE_SHOULD_ACCOMPANY_PRODUCT\=NO
+    export DWARF_DSYM_FOLDER_PATH\=/Users/dawitsahle/Library/Developer/Xcode/DerivedData/kalat-guvktuqfjhpnxhbmofycdlivdirv/Build/Products/Debug-iphonesimulator/React-RCTFBReactNativeSpec
+    export DYNAMIC_LIBRARY_EXTENSION\=dylib
+    export EAGER_COMPILATION_ALLOW_SCRIPTS\=NO
+    export EAGER_LINKING\=NO
+    export EFFECTIVE_PLATFORM_NAME\=-iphonesimulator
+    export EMBEDDED_CONTENT_CONTAINS_SWIFT\=NO
+    export EMBED_ASSET_PACKS_IN_PRODUCT_BUNDLE\=NO
+    export ENABLE_APP_SANDBOX\=NO
+    export ENABLE_BITCODE\=NO
+    export ENABLE_CODE_COVERAGE\=YES
+    export ENABLE_DEFAULT_HEADER_SEARCH_PATHS\=YES
+    export ENABLE_DEFAULT_SEARCH_PATHS\=YES
+    export ENABLE_HARDENED_RUNTIME\=NO
+    export ENABLE_HEADER_DEPENDENCIES\=YES
+    export ENABLE_INCOMING_NETWORK_CONNECTIONS\=NO
+    export ENABLE_MODULE_VERIFIER\=NO
+    export ENABLE_ON_DEMAND_RESOURCES\=NO
+    export ENABLE_OUTGOING_NETWORK_CONNECTIONS\=NO
+    export ENABLE_PREVIEWS\=NO
+    export ENABLE_RESOURCE_ACCESS_AUDIO_INPUT\=NO
+    export ENABLE_RESOURCE_ACCESS_BLUETOOTH\=NO
+    export ENABLE_RESOURCE_ACCESS_CALENDARS\=NO
+    export ENABLE_RESOURCE_ACCESS_CAMERA\=NO
+    export ENABLE_RESOURCE_ACCESS_CONTACTS\=NO
+    export ENABLE_RESOURCE_ACCESS_LOCATION\=NO
+    export ENABLE_RESOURCE_ACCESS_PRINTING\=NO
+    export ENABLE_RESOURCE_ACCESS_USB\=NO
+    export ENABLE_SDK_IMPORTS\=NO
+    export ENABLE_STRICT_OBJC_MSGSEND\=YES
+    export ENABLE_TESTABILITY\=YES
+    export ENABLE_TESTING_SEARCH_PATHS\=NO
+    export ENABLE_USER_SCRIPT_SANDBOXING\=NO
+    export ENABLE_XOJIT_PREVIEWS\=YES
+    export ENFORCE_VALID_ARCHS\=YES
+    export ENTITLEMENTS_DESTINATION\=__entitlements
+    export ENTITLEMENTS_REQUIRED\=YES
+    export EXCLUDED_INSTALLSRC_SUBDIRECTORY_PATTERNS\=.DS_Store\ .svn\ .git\ .hg\ CVS
+    export EXCLUDED_RECURSIVE_SEARCH_PATH_SUBDIRECTORIES\=\*.nib\ \*.lproj\ \*.framework\ \*.gch\ \*.xcode\*\ \*.xcassets\ \(\*\)\ .DS_Store\ CVS\ .svn\ .git\ .hg\ \*.pbproj\ \*.pbxproj
+    export EXECUTABLE_EXTENSION\=a
+    export EXECUTABLE_NAME\=libReact-RCTFBReactNativeSpec.a
+    export EXECUTABLE_PATH\=libReact-RCTFBReactNativeSpec.a
+    export EXECUTABLE_PREFIX\=lib
+    export EXECUTABLE_SUFFIX\=.a
+    export FILE_LIST\=/Users/dawitsahle/Library/Developer/Xcode/DerivedData/kalat-guvktuqfjhpnxhbmofycdlivdirv/Build/Intermediates.noindex/Pods.build/Debug-iphonesimulator/React-RCTFBReactNativeSpec.build/Objects/LinkFileList
+    export FIXED_FILES_DIR\=/Users/dawitsahle/Library/Developer/Xcode/DerivedData/kalat-guvktuqfjhpnxhbmofycdlivdirv/Build/Intermediates.noindex/Pods.build/Debug-iphonesimulator/React-RCTFBReactNativeSpec.build/FixedFiles
+    export FRAMEWORK_FLAG_PREFIX\=-framework
+    export FRAMEWORK_SEARCH_PATHS\=/Users/dawitsahle/Library/Developer/Xcode/DerivedData/kalat-guvktuqfjhpnxhbmofycdlivdirv/Build/Products/Debug-iphonesimulator/React-RCTFBReactNativeSpec\ \ \"/Users/dawitsahle/Documents/kalat/ios/Pods/hermes-engine/destroot/Library/Frameworks/universal\"\ \"/Users/dawitsahle/Library/Developer/Xcode/DerivedData/kalat-guvktuqfjhpnxhbmofycdlivdirv/Build/Products/Debug-iphonesimulator/XCFrameworkIntermediates/hermes-engine/Pre-built\"
+    export FRAMEWORK_VERSION\=A
+    export FULL_PRODUCT_NAME\=libReact-RCTFBReactNativeSpec.a
+    export FUSE_BUILD_PHASES\=YES
+    export FUSE_BUILD_SCRIPT_PHASES\=NO
+    export GCC3_VERSION\=3.3
+    export GCC_C_LANGUAGE_STANDARD\=gnu11
+    export GCC_DYNAMIC_NO_PIC\=NO
+    export GCC_NO_COMMON_BLOCKS\=YES
+    export GCC_OBJC_LEGACY_DISPATCH\=YES
+    export GCC_OPTIMIZATION_LEVEL\=0
+    export GCC_PFE_FILE_C_DIALECTS\=c\ objective-c\ c++\ objective-c++
+    export GCC_PREFIX_HEADER\=Target\ Support\ Files/React-RCTFBReactNativeSpec/React-RCTFBReactNativeSpec-prefix.pch
+    export GCC_PREPROCESSOR_DEFINITIONS\=POD_CONFIGURATION_DEBUG\=1\ DEBUG\=1\ \ COCOAPODS\=1
+    export GCC_TREAT_WARNINGS_AS_ERRORS\=NO
+    export GCC_VERSION\=com.apple.compilers.llvm.clang.1_0
+    export GCC_VERSION_IDENTIFIER\=com_apple_compilers_llvm_clang_1_0
+    export GCC_WARN_64_TO_32_BIT_CONVERSION\=YES
+    export GCC_WARN_ABOUT_RETURN_TYPE\=YES_ERROR
+    export GCC_WARN_UNDECLARED_SELECTOR\=YES
+    export GCC_WARN_UNINITIALIZED_AUTOS\=YES_AGGRESSIVE
+    export GCC_WARN_UNUSED_FUNCTION\=YES
+    export GCC_WARN_UNUSED_VARIABLE\=YES
+    export GENERATED_MODULEMAP_DIR\=/Users/dawitsahle/Library/Developer/Xcode/DerivedData/kalat-guvktuqfjhpnxhbmofycdlivdirv/Build/Intermediates.noindex/GeneratedModuleMaps-iphonesimulator
+    export GENERATE_INFOPLIST_FILE\=NO
+    export GENERATE_INTERMEDIATE_TEXT_BASED_STUBS\=YES
+    export GENERATE_MASTER_OBJECT_FILE\=NO
+    export GENERATE_PKGINFO_FILE\=NO
+    export GENERATE_PROFILING_CODE\=NO
+    export GENERATE_TEXT_BASED_STUBS\=NO
+    export GID\=20
+    export GROUP\=staff
+    export HEADERMAP_INCLUDES_FLAT_ENTRIES_FOR_TARGET_BEING_BUILT\=YES
+    export HEADERMAP_INCLUDES_FRAMEWORK_ENTRIES_FOR_ALL_PRODUCT_TYPES\=YES
+    export HEADERMAP_INCLUDES_FRAMEWORK_ENTRIES_FOR_TARGETS_NOT_BEING_BUILT\=YES
+    export HEADERMAP_INCLUDES_NONPUBLIC_NONPRIVATE_HEADERS\=YES
+    export HEADERMAP_INCLUDES_PROJECT_HEADERS\=YES
+    export HEADERMAP_USES_FRAMEWORK_PREFIX_ENTRIES\=YES
+    export HEADERMAP_USES_VFS\=NO
+    export HEADER_SEARCH_PATHS\=/Users/dawitsahle/Library/Developer/Xcode/DerivedData/kalat-guvktuqfjhpnxhbmofycdlivdirv/Build/Products/Debug-iphonesimulator/React-RCTFBReactNativeSpec/include\ \ \"/Users/dawitsahle/Documents/kalat/ios/Pods/Headers/Private\"\ \"/Users/dawitsahle/Documents/kalat/ios/Pods/Headers/Private/React-RCTFBReactNativeSpec\"\ \"/Users/dawitsahle/Documents/kalat/ios/Pods/Headers/Public\"\ \"/Users/dawitsahle/Documents/kalat/ios/Pods/Headers/Public/DoubleConversion\"\ \"/Users/dawitsahle/Documents/kalat/ios/Pods/Headers/Public/FBLazyVector\"\ \"/Users/dawitsahle/Documents/kalat/ios/Pods/Headers/Public/RCT-Folly\"\ \"/Users/dawitsahle/Documents/kalat/ios/Pods/Headers/Public/RCTDeprecation\"\ \"/Users/dawitsahle/Documents/kalat/ios/Pods/Headers/Public/RCTRequired\"\ \"/Users/dawitsahle/Documents/kalat/ios/Pods/Headers/Public/RCTTypeSafety\"\ \"/Users/dawitsahle/Documents/kalat/ios/Pods/Headers/Public/React-Core\"\ \"/Users/dawitsahle/Documents/kalat/ios/Pods/Headers/Public/React-NativeModulesApple\"\ \"/Users/dawitsahle/Documents/kalat/ios/Pods/Headers/Public/React-RCTFBReactNativeSpec\"\ \"/Users/dawitsahle/Documents/kalat/ios/Pods/Headers/Public/React-callinvoker\"\ \"/Users/dawitsahle/Documents/kalat/ios/Pods/Headers/Public/React-cxxreact\"\ \"/Users/dawitsahle/Documents/kalat/ios/Pods/Headers/Public/React-debug\"\ \"/Users/dawitsahle/Documents/kalat/ios/Pods/Headers/Public/React-featureflags\"\ \"/Users/dawitsahle/Documents/kalat/ios/Pods/Headers/Public/React-hermes\"\ \"/Users/dawitsahle/Documents/kalat/ios/Pods/Headers/Public/React-jsi\"\ \"/Users/dawitsahle/Documents/kalat/ios/Pods/Headers/Public/React-jsiexecutor\"\ \"/Users/dawitsahle/Documents/kalat/ios/Pods/Headers/Public/React-jsinspector\"\ \"/Users/dawitsahle/Documents/kalat/ios/Pods/Headers/Public/React-jsinspectortracing\"\ \"/Users/dawitsahle/Documents/kalat/ios/Pods/Headers/Public/React-jsitooling\"\ \"/Users/dawitsahle/Documents/kalat/ios/Pods/Headers/Public/React-logger\"\ \"/Users/dawitsahle/Documents/kalat/ios/Pods/Headers/Public/React-oscompat\"\ \"/Users/dawitsahle/Documents/kalat/ios/Pods/Headers/Public/React-perflogger\"\ \"/Users/dawitsahle/Documents/kalat/ios/Pods/Headers/Public/React-performancetimeline\"\ \"/Users/dawitsahle/Documents/kalat/ios/Pods/Headers/Public/React-rendererconsistency\"\ \"/Users/dawitsahle/Documents/kalat/ios/Pods/Headers/Public/React-rendererdebug\"\ \"/Users/dawitsahle/Documents/kalat/ios/Pods/Headers/Public/React-runtimeexecutor\"\ \"/Users/dawitsahle/Documents/kalat/ios/Pods/Headers/Public/React-runtimescheduler\"\ \"/Users/dawitsahle/Documents/kalat/ios/Pods/Headers/Public/React-timing\"\ \"/Users/dawitsahle/Documents/kalat/ios/Pods/Headers/Public/React-utils\"\ \"/Users/dawitsahle/Documents/kalat/ios/Pods/Headers/Public/ReactCommon\"\ \"/Users/dawitsahle/Documents/kalat/ios/Pods/Headers/Public/SocketRocket\"\ \"/Users/dawitsahle/Documents/kalat/ios/Pods/Headers/Public/Yoga\"\ \"/Users/dawitsahle/Documents/kalat/ios/Pods/Headers/Public/boost\"\ \"/Users/dawitsahle/Documents/kalat/ios/Pods/Headers/Public/fast_float\"\ \"/Users/dawitsahle/Documents/kalat/ios/Pods/Headers/Public/fmt\"\ \"/Users/dawitsahle/Documents/kalat/ios/Pods/Headers/Public/glog\"\ \"/Users/dawitsahle/Documents/kalat/ios/Pods/Headers/Public/hermes-engine\"\ \"/Users/dawitsahle/Documents/kalat/ios/Pods/RCT-Folly\"\ \"/Users/dawitsahle/Library/Developer/Xcode/DerivedData/kalat-guvktuqfjhpnxhbmofycdlivdirv/Build/Products/Debug-iphonesimulator/ReactCommon/ReactCommon.framework/Headers\"\ \"/Users/dawitsahle/Library/Developer/Xcode/DerivedData/kalat-guvktuqfjhpnxhbmofycdlivdirv/Build/Products/Debug-iphonesimulator/ReactCommon/ReactCommon.framework/Headers/react/nativemodule/core\"\ \"/Users/dawitsahle/Library/Developer/Xcode/DerivedData/kalat-guvktuqfjhpnxhbmofycdlivdirv/Build/Products/Debug-iphonesimulator/ReactCommon/ReactCommon.framework/Headers\"\ \"/Users/dawitsahle/Library/Developer/Xcode/DerivedData/kalat-guvktuqfjhpnxhbmofycdlivdirv/Build/Products/Debug-iphonesimulator/ReactCommon/ReactCommon.framework/Headers/react/nativemodule/bridging\"
+    export HIDE_BITCODE_SYMBOLS\=YES
+    export HOME\=/Users/dawitsahle
+    export HOST_ARCH\=arm64
+    export HOST_PLATFORM\=macosx
+    export ICONV\=/usr/bin/iconv
+    export IMPLICIT_DEPENDENCY_DOMAIN\=default
+    export INFOPLIST_ENABLE_CFBUNDLEICONS_MERGE\=YES
+    export INFOPLIST_EXPAND_BUILD_SETTINGS\=YES
+    export INFOPLIST_OUTPUT_FORMAT\=binary
+    export INFOPLIST_PREPROCESS\=NO
+    export INLINE_PRIVATE_FRAMEWORKS\=NO
+    export INSTALLAPI_IGNORE_SKIP_INSTALL\=YES
+    export INSTALLHDRS_COPY_PHASE\=NO
+    export INSTALLHDRS_SCRIPT_PHASE\=NO
+    export INSTALL_DIR\=/tmp/Pods.dst/usr/local/lib
+    export INSTALL_GROUP\=staff
+    export INSTALL_MODE_FLAG\=u+w,go-w,a+rX
+    export INSTALL_OWNER\=dawitsahle
+    export INSTALL_PATH\=/usr/local/lib
+    export INSTALL_ROOT\=/tmp/Pods.dst
+    export IPHONEOS_DEPLOYMENT_TARGET\=15.1
+    export IS_UNOPTIMIZED_BUILD\=YES
+    export JAVAC_DEFAULT_FLAGS\=-J-Xms64m\ -J-XX:NewSize\=4M\ -J-Dfile.encoding\=UTF8
+    export JAVA_APP_STUB\=/System/Library/Frameworks/JavaVM.framework/Resources/MacOS/JavaApplicationStub
+    export JAVA_ARCHIVE_CLASSES\=YES
+    export JAVA_ARCHIVE_TYPE\=JAR
+    export JAVA_COMPILER\=/usr/bin/javac
+    export JAVA_FRAMEWORK_RESOURCES_DIRS\=Resources
+    export JAVA_JAR_FLAGS\=cv
+    export JAVA_SOURCE_SUBDIR\=.
+    export JAVA_USE_DEPENDENCIES\=YES
+    export JAVA_ZIP_FLAGS\=-urg
+    export JIKES_DEFAULT_FLAGS\=+E\ +OLDCSO
+    export KEEP_PRIVATE_EXTERNS\=NO
+    export LD_DEPENDENCY_INFO_FILE\=/Users/dawitsahle/Library/Developer/Xcode/DerivedData/kalat-guvktuqfjhpnxhbmofycdlivdirv/Build/Intermediates.noindex/Pods.build/Debug-iphonesimulator/React-RCTFBReactNativeSpec.build/Objects-normal/undefined_arch/React-RCTFBReactNativeSpec_dependency_info.dat
+    export LD_EXPORT_SYMBOLS\=YES
+    export LD_GENERATE_MAP_FILE\=NO
+    export LD_MAP_FILE_PATH\=/Users/dawitsahle/Library/Developer/Xcode/DerivedData/kalat-guvktuqfjhpnxhbmofycdlivdirv/Build/Intermediates.noindex/Pods.build/Debug-iphonesimulator/React-RCTFBReactNativeSpec.build/React-RCTFBReactNativeSpec-LinkMap-normal-undefined_arch.txt
+    export LD_NO_PIE\=NO
+    export LD_QUOTE_LINKER_ARGUMENTS_FOR_COMPILER_DRIVER\=YES
+    export LD_SHARED_CACHE_ELIGIBLE\=Automatic
+    export LD_WARN_DUPLICATE_LIBRARIES\=NO
+    export LD_WARN_UNUSED_DYLIBS\=NO
+    export LEGACY_DEVELOPER_DIR\=/Applications/Xcode.app/Contents/PlugIns/Xcode3Core.ideplugin/Contents/SharedSupport/Developer
+    export LEX\=lex
+    export LIBRARY_DEXT_INSTALL_PATH\=/Library/DriverExtensions
+    export LIBRARY_FLAG_NOSPACE\=YES
+    export LIBRARY_FLAG_PREFIX\=-l
+    export LIBRARY_KEXT_INSTALL_PATH\=/Library/Extensions
+    export LIBRARY_SEARCH_PATHS\=/Users/dawitsahle/Library/Developer/Xcode/DerivedData/kalat-guvktuqfjhpnxhbmofycdlivdirv/Build/Products/Debug-iphonesimulator/React-RCTFBReactNativeSpec\ 
+    export LINKER_DISPLAYS_MANGLED_NAMES\=NO
+    export LINK_FILE_LIST_normal_arm64\=/Users/dawitsahle/Library/Developer/Xcode/DerivedData/kalat-guvktuqfjhpnxhbmofycdlivdirv/Build/Intermediates.noindex/Pods.build/Debug-iphonesimulator/React-RCTFBReactNativeSpec.build/Objects-normal/arm64/React-RCTFBReactNativeSpec.LinkFileList
+    export LINK_OBJC_RUNTIME\=YES
+    export LINK_WITH_STANDARD_LIBRARIES\=YES
+    export LLVM_TARGET_TRIPLE_OS_VERSION\=ios15.1
+    export LLVM_TARGET_TRIPLE_SUFFIX\=-simulator
+    export LLVM_TARGET_TRIPLE_VENDOR\=apple
+    export LM_AUX_CONST_METADATA_LIST_PATH_normal_arm64\=/Users/dawitsahle/Library/Developer/Xcode/DerivedData/kalat-guvktuqfjhpnxhbmofycdlivdirv/Build/Intermediates.noindex/Pods.build/Debug-iphonesimulator/React-RCTFBReactNativeSpec.build/Objects-normal/arm64/React-RCTFBReactNativeSpec.SwiftConstValuesFileList
+    export LOCALIZATION_EXPORT_SUPPORTED\=YES
+    export LOCALIZATION_PREFERS_STRING_CATALOGS\=NO
+    export LOCALIZED_STRING_MACRO_NAMES\=NSLocalizedString\ CFCopyLocalizedString
+    export LOCALIZED_STRING_SWIFTUI_SUPPORT\=YES
+    export LOCAL_ADMIN_APPS_DIR\=/Applications/Utilities
+    export LOCAL_APPS_DIR\=/Applications
+    export LOCAL_DEVELOPER_DIR\=/Library/Developer
+    export LOCAL_LIBRARY_DIR\=/Library
+    export LOCROOT\=/Users/dawitsahle/Documents/kalat/ios/Pods
+    export LOCSYMROOT\=/Users/dawitsahle/Documents/kalat/ios/Pods
+    export MACH_O_TYPE\=staticlib
+    export MAC_OS_X_PRODUCT_BUILD_VERSION\=24E263
+    export MAC_OS_X_VERSION_ACTUAL\=150401
+    export MAC_OS_X_VERSION_MAJOR\=150000
+    export MAC_OS_X_VERSION_MINOR\=150400
+    export MAKE_MERGEABLE\=NO
+    export MERGEABLE_LIBRARY\=NO
+    export MERGED_BINARY_TYPE\=none
+    export MERGE_LINKED_LIBRARIES\=NO
+    export METAL_LIBRARY_FILE_BASE\=default
+    export METAL_LIBRARY_OUTPUT_DIR\=/Users/dawitsahle/Library/Developer/Xcode/DerivedData/kalat-guvktuqfjhpnxhbmofycdlivdirv/Build/Products/Debug-iphonesimulator/React-RCTFBReactNativeSpec/
+    export MODULE_CACHE_DIR\=/Users/dawitsahle/Library/Developer/Xcode/DerivedData/ModuleCache.noindex
+    export MTL_ENABLE_DEBUG_INFO\=INCLUDE_SOURCE
+    export MTL_FAST_MATH\=YES
+    export NATIVE_ARCH\=arm64
+    export NATIVE_ARCH_32_BIT\=arm
+    export NATIVE_ARCH_64_BIT\=arm64
+    export NATIVE_ARCH_ACTUAL\=arm64
+    export NO_COMMON\=YES
+    export OBJC_ABI_VERSION\=2
+    export OBJECT_FILE_DIR\=/Users/dawitsahle/Library/Developer/Xcode/DerivedData/kalat-guvktuqfjhpnxhbmofycdlivdirv/Build/Intermediates.noindex/Pods.build/Debug-iphonesimulator/React-RCTFBReactNativeSpec.build/Objects
+    export OBJECT_FILE_DIR_normal\=/Users/dawitsahle/Library/Developer/Xcode/DerivedData/kalat-guvktuqfjhpnxhbmofycdlivdirv/Build/Intermediates.noindex/Pods.build/Debug-iphonesimulator/React-RCTFBReactNativeSpec.build/Objects-normal
+    export OBJROOT\=/Users/dawitsahle/Library/Developer/Xcode/DerivedData/kalat-guvktuqfjhpnxhbmofycdlivdirv/Build/Intermediates.noindex
+    export ONLY_ACTIVE_ARCH\=YES
+    export OS\=MACOS
+    export OSAC\=/usr/bin/osacompile
+    export OTHER_CFLAGS\=\ -fmodule-map-file\=\"/Users/dawitsahle/Documents/kalat/ios/Pods/Headers/Public/DoubleConversion/DoubleConversion.modulemap\"\ -fmodule-map-file\=\"/Users/dawitsahle/Documents/kalat/ios/Pods/Headers/Public/RCTDeprecation/RCTDeprecation.modulemap\"\ -fmodule-map-file\=\"/Users/dawitsahle/Documents/kalat/ios/Pods/Headers/Public/RCTTypeSafety/RCTTypeSafety.modulemap\"\ -fmodule-map-file\=\"/Users/dawitsahle/Documents/kalat/ios/Pods/Headers/Public/React/React-Core.modulemap\"\ -fmodule-map-file\=\"/Users/dawitsahle/Documents/kalat/ios/Pods/Headers/Public/ReactCommon/ReactCommon.modulemap\"\ -fmodule-map-file\=\"/Users/dawitsahle/Documents/kalat/ios/Pods/Headers/Public/React_NativeModulesApple/React-NativeModulesApple.modulemap\"\ -fmodule-map-file\=\"/Users/dawitsahle/Documents/kalat/ios/Pods/Headers/Public/folly/RCT-Folly.modulemap\"\ -fmodule-map-file\=\"/Users/dawitsahle/Documents/kalat/ios/Pods/Headers/Public/glog/glog.modulemap\"\ -fmodule-map-file\=\"/Users/dawitsahle/Documents/kalat/ios/Pods/Headers/Public/jsi/React-jsi.modulemap\"\ -fmodule-map-file\=\"/Users/dawitsahle/Documents/kalat/ios/Pods/Headers/Public/jsinspector_modern/React-jsinspector.modulemap\"\ -fmodule-map-file\=\"/Users/dawitsahle/Documents/kalat/ios/Pods/Headers/Public/jsinspector_modern_tracing/React-jsinspectortracing.modulemap\"\ -fmodule-map-file\=\"/Users/dawitsahle/Documents/kalat/ios/Pods/Headers/Public/react_debug/React-debug.modulemap\"\ -fmodule-map-file\=\"/Users/dawitsahle/Documents/kalat/ios/Pods/Headers/Public/react_featureflags/React-featureflags.modulemap\"\ -fmodule-map-file\=\"/Users/dawitsahle/Documents/kalat/ios/Pods/Headers/Public/react_renderer_debug/React-rendererdebug.modulemap\"\ -fmodule-map-file\=\"/Users/dawitsahle/Documents/kalat/ios/Pods/Headers/Public/react_runtime/React-jsitooling.modulemap\"\ -fmodule-map-file\=\"/Users/dawitsahle/Documents/kalat/ios/Pods/Headers/Public/react_utils/React-utils.modulemap\"\ -fmodule-map-file\=\"/Users/dawitsahle/Documents/kalat/ios/Pods/Headers/Public/reacthermes/React-hermes.modulemap\"\ -fmodule-map-file\=\"/Users/dawitsahle/Documents/kalat/ios/Pods/Headers/Public/yoga/Yoga.modulemap\"\ \ -DFOLLY_NO_CONFIG\ -DFOLLY_MOBILE\=1\ -DFOLLY_USE_LIBCPP\=1\ -DFOLLY_CFG_NO_COROUTINES\=1\ -DFOLLY_HAVE_CLOCK_GETTIME\=1\ -Wno-comma\ -Wno-shorten-64-to-32\ -DRCT_NEW_ARCH_ENABLED\=1
+    export OTHER_CPLUSPLUSFLAGS\=\ -fmodule-map-file\=\"/Users/dawitsahle/Documents/kalat/ios/Pods/Headers/Public/DoubleConversion/DoubleConversion.modulemap\"\ -fmodule-map-file\=\"/Users/dawitsahle/Documents/kalat/ios/Pods/Headers/Public/RCTDeprecation/RCTDeprecation.modulemap\"\ -fmodule-map-file\=\"/Users/dawitsahle/Documents/kalat/ios/Pods/Headers/Public/RCTTypeSafety/RCTTypeSafety.modulemap\"\ -fmodule-map-file\=\"/Users/dawitsahle/Documents/kalat/ios/Pods/Headers/Public/React/React-Core.modulemap\"\ -fmodule-map-file\=\"/Users/dawitsahle/Documents/kalat/ios/Pods/Headers/Public/ReactCommon/ReactCommon.modulemap\"\ -fmodule-map-file\=\"/Users/dawitsahle/Documents/kalat/ios/Pods/Headers/Public/React_NativeModulesApple/React-NativeModulesApple.modulemap\"\ -fmodule-map-file\=\"/Users/dawitsahle/Documents/kalat/ios/Pods/Headers/Public/folly/RCT-Folly.modulemap\"\ -fmodule-map-file\=\"/Users/dawitsahle/Documents/kalat/ios/Pods/Headers/Public/glog/glog.modulemap\"\ -fmodule-map-file\=\"/Users/dawitsahle/Documents/kalat/ios/Pods/Headers/Public/jsi/React-jsi.modulemap\"\ -fmodule-map-file\=\"/Users/dawitsahle/Documents/kalat/ios/Pods/Headers/Public/jsinspector_modern/React-jsinspector.modulemap\"\ -fmodule-map-file\=\"/Users/dawitsahle/Documents/kalat/ios/Pods/Headers/Public/jsinspector_modern_tracing/React-jsinspectortracing.modulemap\"\ -fmodule-map-file\=\"/Users/dawitsahle/Documents/kalat/ios/Pods/Headers/Public/react_debug/React-debug.modulemap\"\ -fmodule-map-file\=\"/Users/dawitsahle/Documents/kalat/ios/Pods/Headers/Public/react_featureflags/React-featureflags.modulemap\"\ -fmodule-map-file\=\"/Users/dawitsahle/Documents/kalat/ios/Pods/Headers/Public/react_renderer_debug/React-rendererdebug.modulemap\"\ -fmodule-map-file\=\"/Users/dawitsahle/Documents/kalat/ios/Pods/Headers/Public/react_runtime/React-jsitooling.modulemap\"\ -fmodule-map-file\=\"/Users/dawitsahle/Documents/kalat/ios/Pods/Headers/Public/react_utils/React-utils.modulemap\"\ -fmodule-map-file\=\"/Users/dawitsahle/Documents/kalat/ios/Pods/Headers/Public/reacthermes/React-hermes.modulemap\"\ -fmodule-map-file\=\"/Users/dawitsahle/Documents/kalat/ios/Pods/Headers/Public/yoga/Yoga.modulemap\"\ \ -DFOLLY_NO_CONFIG\ -DFOLLY_MOBILE\=1\ -DFOLLY_USE_LIBCPP\=1\ -DFOLLY_CFG_NO_COROUTINES\=1\ -DFOLLY_HAVE_CLOCK_GETTIME\=1\ -Wno-comma\ -Wno-shorten-64-to-32\ -DRCT_NEW_ARCH_ENABLED\=1
+    export PACKAGE_TYPE\=com.apple.package-type.static-library
+    export PASCAL_STRINGS\=YES
+    export PATH\=/Applications/Xcode.app/Contents/SharedFrameworks/SwiftBuild.framework/Versions/A/PlugIns/SWBBuildService.bundle/Contents/PlugIns/SWBUniversalPlatformPlugin.bundle/Contents/Frameworks/SWBUniversalPlatform.framework/Resources:/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin:/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/local/bin:/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/libexec:/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/usr/bin:/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/usr/local/bin:/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/local/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/local/bin:/Users/dawitsahle/Documents/kalat/node_modules/.bin:/Users/dawitsahle/Documents/node_modules/.bin:/Users/dawitsahle/node_modules/.bin:/Users/node_modules/.bin:/node_modules/.bin:/opt/homebrew/lib/node_modules/npm/node_modules/@npmcli/run-script/lib/node-gyp-bin:/Users/dawitsahle/google-cloud-sdk/bin:/opt/homebrew/bin:/opt/homebrew/sbin:/Users/dawitsahle/.rbenv/shims:/usr/local/bin:/System/Cryptexes/App/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/local/bin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/bin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin:/Library/Apple/usr/bin:/Users/dawitsahle/.npm-global/bin
+    export PATH_PREFIXES_EXCLUDED_FROM_HEADER_DEPENDENCIES\=/usr/include\ /usr/local/include\ /System/Library/Frameworks\ /System/Library/PrivateFrameworks\ /Applications/Xcode.app/Contents/Developer/Headers\ /Applications/Xcode.app/Contents/Developer/SDKs\ /Applications/Xcode.app/Contents/Developer/Platforms
+    export PER_ARCH_MODULE_FILE_DIR\=/Users/dawitsahle/Library/Developer/Xcode/DerivedData/kalat-guvktuqfjhpnxhbmofycdlivdirv/Build/Intermediates.noindex/Pods.build/Debug-iphonesimulator/React-RCTFBReactNativeSpec.build/Objects-normal/undefined_arch
+    export PER_ARCH_OBJECT_FILE_DIR\=/Users/dawitsahle/Library/Developer/Xcode/DerivedData/kalat-guvktuqfjhpnxhbmofycdlivdirv/Build/Intermediates.noindex/Pods.build/Debug-iphonesimulator/React-RCTFBReactNativeSpec.build/Objects-normal/undefined_arch
+    export PER_VARIANT_OBJECT_FILE_DIR\=/Users/dawitsahle/Library/Developer/Xcode/DerivedData/kalat-guvktuqfjhpnxhbmofycdlivdirv/Build/Intermediates.noindex/Pods.build/Debug-iphonesimulator/React-RCTFBReactNativeSpec.build/Objects-normal
+    export PKGINFO_FILE_PATH\=/Users/dawitsahle/Library/Developer/Xcode/DerivedData/kalat-guvktuqfjhpnxhbmofycdlivdirv/Build/Intermediates.noindex/Pods.build/Debug-iphonesimulator/React-RCTFBReactNativeSpec.build/PkgInfo
+    export PLATFORM_DEVELOPER_APPLICATIONS_DIR\=/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/Applications
+    export PLATFORM_DEVELOPER_BIN_DIR\=/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin
+    export PLATFORM_DEVELOPER_LIBRARY_DIR\=/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/Library
+    export PLATFORM_DEVELOPER_SDK_DIR\=/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs
+    export PLATFORM_DEVELOPER_TOOLS_DIR\=/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/Tools
+    export PLATFORM_DEVELOPER_USR_DIR\=/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/usr
+    export PLATFORM_DIR\=/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform
+    export PLATFORM_DISPLAY_NAME\=iOS\ Simulator
+    export PLATFORM_FAMILY_NAME\=iOS
+    export PLATFORM_NAME\=iphonesimulator
+    export PLATFORM_PREFERRED_ARCH\=x86_64
+    export PLATFORM_PRODUCT_BUILD_VERSION\=22E235
+    export PLATFORM_REQUIRES_SWIFT_AUTOLINK_EXTRACT\=NO
+    export PLATFORM_REQUIRES_SWIFT_MODULEWRAP\=NO
+    export PLIST_FILE_OUTPUT_FORMAT\=binary
+    export PODS_BUILD_DIR\=/Users/dawitsahle/Library/Developer/Xcode/DerivedData/kalat-guvktuqfjhpnxhbmofycdlivdirv/Build/Products
+    export PODS_CONFIGURATION_BUILD_DIR\=/Users/dawitsahle/Library/Developer/Xcode/DerivedData/kalat-guvktuqfjhpnxhbmofycdlivdirv/Build/Products/Debug-iphonesimulator
+    export PODS_DEVELOPMENT_LANGUAGE\=en
+    export PODS_ROOT\=/Users/dawitsahle/Documents/kalat/ios/Pods
+    export PODS_TARGET_SRCROOT\=/Users/dawitsahle/Documents/kalat/ios/Pods/../../node_modules/react-native/React
+    export PODS_XCFRAMEWORKS_BUILD_DIR\=/Users/dawitsahle/Library/Developer/Xcode/DerivedData/kalat-guvktuqfjhpnxhbmofycdlivdirv/Build/Products/Debug-iphonesimulator/XCFrameworkIntermediates
+    export PRECOMPS_INCLUDE_HEADERS_FROM_BUILT_PRODUCTS_DIR\=YES
+    export PRECOMP_DESTINATION_DIR\=/Users/dawitsahle/Library/Developer/Xcode/DerivedData/kalat-guvktuqfjhpnxhbmofycdlivdirv/Build/Intermediates.noindex/Pods.build/Debug-iphonesimulator/React-RCTFBReactNativeSpec.build/PrefixHeaders
+    export PROCESSED_INFOPLIST_PATH\=/Users/dawitsahle/Library/Developer/Xcode/DerivedData/kalat-guvktuqfjhpnxhbmofycdlivdirv/Build/Intermediates.noindex/Pods.build/Debug-iphonesimulator/React-RCTFBReactNativeSpec.build/Objects-normal/undefined_arch/Processed-Info.plist
+    export PRODUCT_BUNDLE_IDENTIFIER\=org.cocoapods.React-RCTFBReactNativeSpec
+    export PRODUCT_MODULE_NAME\=FBReactNativeSpec
+    export PRODUCT_NAME\=React-RCTFBReactNativeSpec
+    export PRODUCT_SETTINGS_PATH\=
+    export PRODUCT_TYPE\=com.apple.product-type.library.static
+    export PROFILING_CODE\=NO
+    export PROJECT\=Pods
+    export PROJECT_DERIVED_FILE_DIR\=/Users/dawitsahle/Library/Developer/Xcode/DerivedData/kalat-guvktuqfjhpnxhbmofycdlivdirv/Build/Intermediates.noindex/Pods.build/DerivedSources
+    export PROJECT_DIR\=/Users/dawitsahle/Documents/kalat/ios/Pods
+    export PROJECT_FILE_PATH\=/Users/dawitsahle/Documents/kalat/ios/Pods/Pods.xcodeproj
+    export PROJECT_GUID\=8699adb1dd336b26511df848a716bd42
+    export PROJECT_NAME\=Pods
+    export PROJECT_TEMP_DIR\=/Users/dawitsahle/Library/Developer/Xcode/DerivedData/kalat-guvktuqfjhpnxhbmofycdlivdirv/Build/Intermediates.noindex/Pods.build
+    export PROJECT_TEMP_ROOT\=/Users/dawitsahle/Library/Developer/Xcode/DerivedData/kalat-guvktuqfjhpnxhbmofycdlivdirv/Build/Intermediates.noindex
+    export REACT_NATIVE_PATH\=/Users/dawitsahle/Documents/kalat/ios/Pods/../../node_modules/react-native
+    export RECOMMENDED_IPHONEOS_DEPLOYMENT_TARGET\=15.0
+    export RECURSIVE_SEARCH_PATHS_FOLLOW_SYMLINKS\=YES
+    export REMOVE_CVS_FROM_RESOURCES\=YES
+    export REMOVE_GIT_FROM_RESOURCES\=YES
+    export REMOVE_HEADERS_FROM_EMBEDDED_BUNDLES\=YES
+    export REMOVE_HG_FROM_RESOURCES\=YES
+    export REMOVE_STATIC_EXECUTABLES_FROM_EMBEDDED_BUNDLES\=YES
+    export REMOVE_SVN_FROM_RESOURCES\=YES
+    export RESCHEDULE_INDEPENDENT_HEADERS_PHASES\=YES
+    export REZ_COLLECTOR_DIR\=/Users/dawitsahle/Library/Developer/Xcode/DerivedData/kalat-guvktuqfjhpnxhbmofycdlivdirv/Build/Intermediates.noindex/Pods.build/Debug-iphonesimulator/React-RCTFBReactNativeSpec.build/ResourceManagerResources
+    export REZ_EXECUTABLE\=YES
+    export REZ_OBJECTS_DIR\=/Users/dawitsahle/Library/Developer/Xcode/DerivedData/kalat-guvktuqfjhpnxhbmofycdlivdirv/Build/Intermediates.noindex/Pods.build/Debug-iphonesimulator/React-RCTFBReactNativeSpec.build/ResourceManagerResources/Objects
+    export REZ_SEARCH_PATHS\=/Users/dawitsahle/Library/Developer/Xcode/DerivedData/kalat-guvktuqfjhpnxhbmofycdlivdirv/Build/Products/Debug-iphonesimulator/React-RCTFBReactNativeSpec\ 
+    export SCAN_ALL_SOURCE_FILES_FOR_INCLUDES\=NO
+    export SCRIPT_INPUT_FILE_COUNT\=0
+    export SCRIPT_INPUT_FILE_LIST_COUNT\=0
+    export SCRIPT_OUTPUT_FILE_COUNT\=0
+    export SCRIPT_OUTPUT_FILE_LIST_COUNT\=0
+    export SDKROOT\=/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator18.4.sdk
+    export SDK_DIR\=/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator18.4.sdk
+    export SDK_DIR_iphonesimulator\=/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator18.4.sdk
+    export SDK_DIR_iphonesimulator18_4\=/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator18.4.sdk
+    export SDK_NAME\=iphonesimulator18.4
+    export SDK_NAMES\=iphonesimulator18.4
+    export SDK_PRODUCT_BUILD_VERSION\=22E235
+    export SDK_STAT_CACHE_DIR\=/Users/dawitsahle/Library/Developer/Xcode/DerivedData
+    export SDK_STAT_CACHE_ENABLE\=YES
+    export SDK_STAT_CACHE_PATH\=/Users/dawitsahle/Library/Developer/Xcode/DerivedData/SDKStatCaches.noindex/iphonesimulator18.4-22E235-71825a6d136aa4733edcbe86ece5525b.sdkstatcache
+    export SDK_VERSION\=18.4
+    export SDK_VERSION_ACTUAL\=180400
+    export SDK_VERSION_MAJOR\=180000
+    export SDK_VERSION_MINOR\=180400
+    export SED\=/usr/bin/sed
+    export SEPARATE_STRIP\=NO
+    export SEPARATE_SYMBOL_EDIT\=NO
+    export SET_DIR_MODE_OWNER_GROUP\=YES
+    export SET_FILE_MODE_OWNER_GROUP\=NO
+    export SHALLOW_BUNDLE\=NO
+    export SHARED_DERIVED_FILE_DIR\=/Users/dawitsahle/Library/Developer/Xcode/DerivedData/kalat-guvktuqfjhpnxhbmofycdlivdirv/Build/Products/Debug-iphonesimulator/React-RCTFBReactNativeSpec/DerivedSources
+    export SHARED_PRECOMPS_DIR\=/Users/dawitsahle/Library/Developer/Xcode/DerivedData/kalat-guvktuqfjhpnxhbmofycdlivdirv/Build/Intermediates.noindex/PrecompiledHeaders
+    export SKIP_INSTALL\=YES
+    export SOURCE_ROOT\=/Users/dawitsahle/Documents/kalat/ios/Pods
+    export SRCROOT\=/Users/dawitsahle/Documents/kalat/ios/Pods
+    export STRINGSDATA_DIR\=/Users/dawitsahle/Library/Developer/Xcode/DerivedData/kalat-guvktuqfjhpnxhbmofycdlivdirv/Build/Intermediates.noindex/Pods.build/Debug-iphonesimulator/React-RCTFBReactNativeSpec.build/Objects-normal/undefined_arch
+    export STRINGSDATA_ROOT\=/Users/dawitsahle/Library/Developer/Xcode/DerivedData/kalat-guvktuqfjhpnxhbmofycdlivdirv/Build/Intermediates.noindex/Pods.build/Debug-iphonesimulator/React-RCTFBReactNativeSpec.build
+    export STRINGS_FILE_INFOPLIST_RENAME\=YES
+    export STRINGS_FILE_OUTPUT_ENCODING\=binary
+    export STRIP_BITCODE_FROM_COPIED_FILES\=NO
+    export STRIP_INSTALLED_PRODUCT\=NO
+    export STRIP_STYLE\=debugging
+    export STRIP_SWIFT_SYMBOLS\=YES
+    export SUPPORTED_DEVICE_FAMILIES\=1,2
+    export SUPPORTED_PLATFORMS\=iphoneos\ iphonesimulator
+    export SUPPORTS_TEXT_BASED_API\=NO
+    export SUPPRESS_WARNINGS\=NO
+    export SWIFT_ACTIVE_COMPILATION_CONDITIONS\=\ DEBUG\ 
+    export SWIFT_EMIT_LOC_STRINGS\=NO
+    export SWIFT_INSTALL_OBJC_HEADER\=YES
+    export SWIFT_OPTIMIZATION_LEVEL\=-Onone
+    export SWIFT_PLATFORM_TARGET_PREFIX\=ios
+    export SWIFT_RESPONSE_FILE_PATH_normal_arm64\=/Users/dawitsahle/Library/Developer/Xcode/DerivedData/kalat-guvktuqfjhpnxhbmofycdlivdirv/Build/Intermediates.noindex/Pods.build/Debug-iphonesimulator/React-RCTFBReactNativeSpec.build/Objects-normal/arm64/React-RCTFBReactNativeSpec.SwiftFileList
+    export SWIFT_VERSION\=5.0
+    export SYMROOT\=/Users/dawitsahle/Library/Developer/Xcode/DerivedData/kalat-guvktuqfjhpnxhbmofycdlivdirv/Build/Products
+    export SYSTEM_ADMIN_APPS_DIR\=/Applications/Utilities
+    export SYSTEM_APPS_DIR\=/Applications
+    export SYSTEM_CORE_SERVICES_DIR\=/System/Library/CoreServices
+    export SYSTEM_DEMOS_DIR\=/Applications/Extras
+    export SYSTEM_DEVELOPER_APPS_DIR\=/Applications/Xcode.app/Contents/Developer/Applications
+    export SYSTEM_DEVELOPER_BIN_DIR\=/Applications/Xcode.app/Contents/Developer/usr/bin
+    export SYSTEM_DEVELOPER_DEMOS_DIR\=/Applications/Xcode.app/Contents/Developer/Applications/Utilities/Built\ Examples
+    export SYSTEM_DEVELOPER_DIR\=/Applications/Xcode.app/Contents/Developer
+    export SYSTEM_DEVELOPER_DOC_DIR\=/Applications/Xcode.app/Contents/Developer/ADC\ Reference\ Library
+    export SYSTEM_DEVELOPER_GRAPHICS_TOOLS_DIR\=/Applications/Xcode.app/Contents/Developer/Applications/Graphics\ Tools
+    export SYSTEM_DEVELOPER_JAVA_TOOLS_DIR\=/Applications/Xcode.app/Contents/Developer/Applications/Java\ Tools
+    export SYSTEM_DEVELOPER_PERFORMANCE_TOOLS_DIR\=/Applications/Xcode.app/Contents/Developer/Applications/Performance\ Tools
+    export SYSTEM_DEVELOPER_RELEASENOTES_DIR\=/Applications/Xcode.app/Contents/Developer/ADC\ Reference\ Library/releasenotes
+    export SYSTEM_DEVELOPER_TOOLS\=/Applications/Xcode.app/Contents/Developer/Tools
+    export SYSTEM_DEVELOPER_TOOLS_DOC_DIR\=/Applications/Xcode.app/Contents/Developer/ADC\ Reference\ Library/documentation/DeveloperTools
+    export SYSTEM_DEVELOPER_TOOLS_RELEASENOTES_DIR\=/Applications/Xcode.app/Contents/Developer/ADC\ Reference\ Library/releasenotes/DeveloperTools
+    export SYSTEM_DEVELOPER_USR_DIR\=/Applications/Xcode.app/Contents/Developer/usr
+    export SYSTEM_DEVELOPER_UTILITIES_DIR\=/Applications/Xcode.app/Contents/Developer/Applications/Utilities
+    export SYSTEM_DEXT_INSTALL_PATH\=/System/Library/DriverExtensions
+    export SYSTEM_DOCUMENTATION_DIR\=/Library/Documentation
+    export SYSTEM_KEXT_INSTALL_PATH\=/System/Library/Extensions
+    export SYSTEM_LIBRARY_DIR\=/System/Library
+    export TAPI_DEMANGLE\=YES
+    export TAPI_ENABLE_PROJECT_HEADERS\=NO
+    export TAPI_LANGUAGE\=objective-c
+    export TAPI_LANGUAGE_STANDARD\=compiler-default
+    export TAPI_USE_SRCROOT\=YES
+    export TAPI_VERIFY_MODE\=Pedantic
+    export TARGETED_DEVICE_FAMILY\=1,2
+    export TARGETNAME\=React-RCTFBReactNativeSpec
+    export TARGET_BUILD_DIR\=/Users/dawitsahle/Library/Developer/Xcode/DerivedData/kalat-guvktuqfjhpnxhbmofycdlivdirv/Build/Products/Debug-iphonesimulator/React-RCTFBReactNativeSpec
+    export TARGET_DEVICE_IDENTIFIER\=301E4219-49AB-4C5F-999E-4CECCEAF2923
+    export TARGET_DEVICE_MODEL\=iPhone17,4
+    export TARGET_DEVICE_OS_VERSION\=18.4
+    export TARGET_DEVICE_PLATFORM_NAME\=iphonesimulator
+    export TARGET_NAME\=React-RCTFBReactNativeSpec
+    export TARGET_TEMP_DIR\=/Users/dawitsahle/Library/Developer/Xcode/DerivedData/kalat-guvktuqfjhpnxhbmofycdlivdirv/Build/Intermediates.noindex/Pods.build/Debug-iphonesimulator/React-RCTFBReactNativeSpec.build
+    export TEMP_DIR\=/Users/dawitsahle/Library/Developer/Xcode/DerivedData/kalat-guvktuqfjhpnxhbmofycdlivdirv/Build/Intermediates.noindex/Pods.build/Debug-iphonesimulator/React-RCTFBReactNativeSpec.build
+    export TEMP_FILES_DIR\=/Users/dawitsahle/Library/Developer/Xcode/DerivedData/kalat-guvktuqfjhpnxhbmofycdlivdirv/Build/Intermediates.noindex/Pods.build/Debug-iphonesimulator/React-RCTFBReactNativeSpec.build
+    export TEMP_FILE_DIR\=/Users/dawitsahle/Library/Developer/Xcode/DerivedData/kalat-guvktuqfjhpnxhbmofycdlivdirv/Build/Intermediates.noindex/Pods.build/Debug-iphonesimulator/React-RCTFBReactNativeSpec.build
+    export TEMP_ROOT\=/Users/dawitsahle/Library/Developer/Xcode/DerivedData/kalat-guvktuqfjhpnxhbmofycdlivdirv/Build/Intermediates.noindex
+    export TEMP_SANDBOX_DIR\=/Users/dawitsahle/Library/Developer/Xcode/DerivedData/kalat-guvktuqfjhpnxhbmofycdlivdirv/Build/Intermediates.noindex/TemporaryTaskSandboxes
+    export TEST_FRAMEWORK_SEARCH_PATHS\=\ /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/Library/Frameworks\ /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator18.4.sdk/Developer/Library/Frameworks
+    export TEST_LIBRARY_SEARCH_PATHS\=\ /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/lib
+    export TOOLCHAINS\=com.apple.dt.toolchain.XcodeDefault
+    export TOOLCHAIN_DIR\=/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain
+    export TREAT_MISSING_BASELINES_AS_TEST_FAILURES\=NO
+    export TREAT_MISSING_SCRIPT_PHASE_OUTPUTS_AS_ERRORS\=NO
+    export UID\=501
+    export UNINSTALLED_PRODUCTS_DIR\=/Users/dawitsahle/Library/Developer/Xcode/DerivedData/kalat-guvktuqfjhpnxhbmofycdlivdirv/Build/Intermediates.noindex/UninstalledProducts
+    export UNSTRIPPED_PRODUCT\=NO
+    export USER\=dawitsahle
+    export USER_APPS_DIR\=/Users/dawitsahle/Applications
+    export USER_LIBRARY_DIR\=/Users/dawitsahle/Library
+    export USE_DYNAMIC_NO_PIC\=YES
+    export USE_HEADERMAP\=YES
+    export USE_HEADER_SYMLINKS\=NO
+    export USE_HERMES\=true
+    export USE_RECURSIVE_SCRIPT_INPUTS_IN_SCRIPT_PHASES\=YES
+    export VALIDATE_DEVELOPMENT_ASSET_PATHS\=YES_ERROR
+    export VALIDATE_PRODUCT\=NO
+    export VALID_ARCHS\=arm64\ arm64e\ x86_64
+    export VERBOSE_PBXCP\=NO
+    export VERSION_INFO_BUILDER\=dawitsahle
+    export VERSION_INFO_FILE\=React-RCTFBReactNativeSpec_vers.c
+    export VERSION_INFO_STRING\=\"@\(\#\)PROGRAM:React-RCTFBReactNativeSpec\ \ PROJECT:Pods-\"
+    export WORKSPACE_DIR\=/Users/dawitsahle/Documents/kalat/ios
+    export WRAP_ASSET_PACKS_IN_SEPARATE_DIRECTORIES\=NO
+    export XCODE_APP_SUPPORT_DIR\=/Applications/Xcode.app/Contents/Developer/Library/Xcode
+    export XCODE_PRODUCT_BUILD_VERSION\=16E140
+    export XCODE_VERSION_ACTUAL\=1630
+    export XCODE_VERSION_MAJOR\=1600
+    export XCODE_VERSION_MINOR\=1630
+    export XPCSERVICES_FOLDER_PATH\=/XPCServices
+    export YACC\=yacc
+    export _DISCOVER_COMMAND_LINE_LINKER_INPUTS\=YES
+    export _DISCOVER_COMMAND_LINE_LINKER_INPUTS_INCLUDE_WL\=YES
+    export __DIAGNOSE_DEPRECATED_ARCHS\=YES
+    export arch\=undefined_arch
+    export variant\=normal
+    /bin/sh -c /Users/dawitsahle/Library/Developer/Xcode/DerivedData/kalat-guvktuqfjhpnxhbmofycdlivdirv/Build/Intermediates.noindex/Pods.build/Debug-iphonesimulator/React-RCTFBReactNativeSpec.build/Script-46EB2E0001E020.sh
 Checking whether Codegen has run...
 
 note: Run script build phase '[CP-User] [RN]Check rncore' will be run during every build because the option to run the script phase "Based on dependency analysis" is unchecked. (in target 'React-FabricComponents' from project 'Pods')
@@ -3001,43 +2955,7 @@ PhaseScriptExecution [CP-User]\ [RN]Check\ rncore /Users/dawitsahle/Library/Deve
     /bin/sh -c /Users/dawitsahle/Library/Developer/Xcode/DerivedData/kalat-guvktuqfjhpnxhbmofycdlivdirv/Build/Intermediates.noindex/Pods.build/Debug-iphonesimulator/React-FabricComponents.build/Script-46EB2E0001E010.sh
 Checking whether Codegen has run...
 
-ProcessInfoPlistFile /Users/dawitsahle/Library/Developer/Xcode/DerivedData/kalat-guvktuqfjhpnxhbmofycdlivdirv/Build/Products/Debug-iphonesimulator/RNCAsyncStorage/RNCAsyncStorage_resources.bundle/Info.plist /Users/dawitsahle/Documents/kalat/ios/Pods/Target\ Support\ Files/RNCAsyncStorage/ResourceBundle-RNCAsyncStorage_resources-RNCAsyncStorage-Info.plist (in target 'RNCAsyncStorage-RNCAsyncStorage_resources' from project 'Pods')
-    cd /Users/dawitsahle/Documents/kalat/ios/Pods
-    builtin-infoPlistUtility /Users/dawitsahle/Documents/kalat/ios/Pods/Target\ Support\ Files/RNCAsyncStorage/ResourceBundle-RNCAsyncStorage_resources-RNCAsyncStorage-Info.plist -producttype com.apple.product-type.bundle -expandbuildsettings -format binary -platform iphonesimulator -o /Users/dawitsahle/Library/Developer/Xcode/DerivedData/kalat-guvktuqfjhpnxhbmofycdlivdirv/Build/Products/Debug-iphonesimulator/RNCAsyncStorage/RNCAsyncStorage_resources.bundle/Info.plist
-
-ProcessProductPackaging "" /Users/dawitsahle/Library/Developer/Xcode/DerivedData/kalat-guvktuqfjhpnxhbmofycdlivdirv/Build/Intermediates.noindex/kalat.build/Debug-iphonesimulator/kalat.build/kalat.app-Simulated.xcent (in target 'kalat' from project 'kalat')
-    cd /Users/dawitsahle/Documents/kalat/ios
-    
-    Entitlements:
-    
-    {
-    "application-identifier" = "L877GN477K.org.reactjs.native.example.kalat";
-}
-    
-    builtin-productPackagingUtility -entitlements -format xml -o /Users/dawitsahle/Library/Developer/Xcode/DerivedData/kalat-guvktuqfjhpnxhbmofycdlivdirv/Build/Intermediates.noindex/kalat.build/Debug-iphonesimulator/kalat.build/kalat.app-Simulated.xcent
-
-ProcessProductPackagingDER /Users/dawitsahle/Library/Developer/Xcode/DerivedData/kalat-guvktuqfjhpnxhbmofycdlivdirv/Build/Intermediates.noindex/kalat.build/Debug-iphonesimulator/kalat.build/kalat.app-Simulated.xcent /Users/dawitsahle/Library/Developer/Xcode/DerivedData/kalat-guvktuqfjhpnxhbmofycdlivdirv/Build/Intermediates.noindex/kalat.build/Debug-iphonesimulator/kalat.build/kalat.app-Simulated.xcent.der (in target 'kalat' from project 'kalat')
-    cd /Users/dawitsahle/Documents/kalat/ios
-    /usr/bin/derq query -f xml -i /Users/dawitsahle/Library/Developer/Xcode/DerivedData/kalat-guvktuqfjhpnxhbmofycdlivdirv/Build/Intermediates.noindex/kalat.build/Debug-iphonesimulator/kalat.build/kalat.app-Simulated.xcent -o /Users/dawitsahle/Library/Developer/Xcode/DerivedData/kalat-guvktuqfjhpnxhbmofycdlivdirv/Build/Intermediates.noindex/kalat.build/Debug-iphonesimulator/kalat.build/kalat.app-Simulated.xcent.der --raw
-
-Ld /Users/dawitsahle/Library/Developer/Xcode/DerivedData/kalat-guvktuqfjhpnxhbmofycdlivdirv/Build/Products/Debug-iphonesimulator/kalat.app/kalat.debug.dylib normal (in target 'kalat' from project 'kalat')
-    cd /Users/dawitsahle/Documents/kalat/ios
-    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -Xlinker -reproducible -target arm64-apple-ios15.1-simulator -dynamiclib -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator18.4.sdk -O0 -L/Users/dawitsahle/Library/Developer/Xcode/DerivedData/kalat-guvktuqfjhpnxhbmofycdlivdirv/Build/Intermediates.noindex/EagerLinkingTBDs/Debug-iphonesimulator -L/Users/dawitsahle/Library/Developer/Xcode/DerivedData/kalat-guvktuqfjhpnxhbmofycdlivdirv/Build/Products/Debug-iphonesimulator -L/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator18.4.sdk/usr/lib/swift -L/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator -L/Users/dawitsahle/Library/Developer/Xcode/DerivedData/kalat-guvktuqfjhpnxhbmofycdlivdirv/Build/Products/Debug-iphonesimulator/DoubleConversion -L/Users/dawitsahle/Library/Developer/Xcode/DerivedData/kalat-guvktuqfjhpnxhbmofycdlivdirv/Build/Products/Debug-iphonesimulator/RCT-Folly -L/Users/dawitsahle/Library/Developer/Xcode/DerivedData/kalat-guvktuqfjhpnxhbmofycdlivdirv/Build/Products/Debug-iphonesimulator/RCTDeprecation -L/Users/dawitsahle/Library/Developer/Xcode/DerivedData/kalat-guvktuqfjhpnxhbmofycdlivdirv/Build/Products/Debug-iphonesimulator/RCTTypeSafety -L/Users/dawitsahle/Library/Developer/Xcode/DerivedData/kalat-guvktuqfjhpnxhbmofycdlivdirv/Build/Products/Debug-iphonesimulator/RNCAsyncStorage -L/Users/dawitsahle/Library/Developer/Xcode/DerivedData/kalat-guvktuqfjhpnxhbmofycdlivdirv/Build/Products/Debug-iphonesimulator/RNGestureHandler -L/Users/dawitsahle/Library/Developer/Xcode/DerivedData/kalat-guvktuqfjhpnxhbmofycdlivdirv/Build/Products/Debug-iphonesimulator/RNReanimated -L/Users/dawitsahle/Library/Developer/Xcode/DerivedData/kalat-guvktuqfjhpnxhbmofycdlivdirv/Build/Products/Debug-iphonesimulator/RNScreens -L/Users/dawitsahle/Library/Developer/Xcode/DerivedData/kalat-guvktuqfjhpnxhbmofycdlivdirv/Build/Products/Debug-iphonesimulator/React-Core -L/Users/dawitsahle/Library/Developer/Xcode/DerivedData/kalat-guvktuqfjhpnxhbmofycdlivdirv/Build/Products/Debug-iphonesimulator/React-CoreModules -L/Users/dawitsahle/Library/Developer/Xcode/DerivedData/kalat-guvktuqfjhpnxhbmofycdlivdirv/Build/Products/Debug-iphonesimulator/React-Fabric -L/Users/dawitsahle/Library/Developer/Xcode/DerivedData/kalat-guvktuqfjhpnxhbmofycdlivdirv/Build/Products/Debug-iphonesimulator/React-FabricComponents -L/Users/dawitsahle/Library/Developer/Xcode/DerivedData/kalat-guvktuqfjhpnxhbmofycdlivdirv/Build/Products/Debug-iphonesimulator/React-FabricImage -L/Users/dawitsahle/Library/Developer/Xcode/DerivedData/kalat-guvktuqfjhpnxhbmofycdlivdirv/Build/Products/Debug-iphonesimulator/React-ImageManager -L/Users/dawitsahle/Library/Developer/Xcode/DerivedData/kalat-guvktuqfjhpnxhbmofycdlivdirv/Build/Products/Debug-iphonesimulator/React-Mapbuffer -L/Users/dawitsahle/Library/Developer/Xcode/DerivedData/kalat-guvktuqfjhpnxhbmofycdlivdirv/Build/Products/Debug-iphonesimulator/React-NativeModulesApple -L/Users/dawitsahle/Library/Developer/Xcode/DerivedData/kalat-guvktuqfjhpnxhbmofycdlivdirv/Build/Products/Debug-iphonesimulator/React-RCTAnimation -L/Users/dawitsahle/Library/Developer/Xcode/DerivedData/kalat-guvktuqfjhpnxhbmofycdlivdirv/Build/Products/Debug-iphonesimulator/React-RCTAppDelegate -L/Users/dawitsahle/Library/Developer/Xcode/DerivedData/kalat-guvktuqfjhpnxhbmofycdlivdirv/Build/Products/Debug-iphonesimulator/React-RCTBlob -L/Users/dawitsahle/Library/Developer/Xcode/DerivedData/kalat-guvktuqfjhpnxhbmofycdlivdirv/Build/Products/Debug-iphonesimulator/React-RCTFBReactNativeSpec -L/Users/dawitsahle/Library/Developer/Xcode/DerivedData/kalat-guvktuqfjhpnxhbmofycdlivdirv/Build/Products/Debug-iphonesimulator/React-RCTFabric -L/Users/dawitsahle/Library/Developer/Xcode/DerivedData/kalat-guvktuqfjhpnxhbmofycdlivdirv/Build/Products/Debug-iphonesimulator/React-RCTImage -L/Users/dawitsahle/Library/Developer/Xcode/DerivedData/kalat-guvktuqfjhpnxhbmofycdlivdirv/Build/Products/Debug-iphonesimulator/React-RCTLinking -L/Users/dawitsahle/Library/Developer/Xcode/DerivedData/kalat-guvktuqfjhpnxhbmofycdlivdirv/Build/Products/Debug-iphonesimulator/React-RCTNetwork -L/Users/dawitsahle/Library/Developer/Xcode/DerivedData/kalat-guvktuqfjhpnxhbmofycdlivdirv/Build/Products/Debug-iphonesimulator/React-RCTRuntime -L/Users/dawitsahle/Library/Developer/Xcode/DerivedData/kalat-guvktuqfjhpnxhbmofycdlivdirv/Build/Products/Debug-iphonesimulator/React-RCTSettings -L/Users/dawitsahle/Library/Developer/Xcode/DerivedData/kalat-guvktuqfjhpnxhbmofycdlivdirv/Build/Products/Debug-iphonesimulator/React-RCTText -L/Users/dawitsahle/Library/Developer/Xcode/DerivedData/kalat-guvktuqfjhpnxhbmofycdlivdirv/Build/Products/Debug-iphonesimulator/React-RCTVibration -L/Users/dawitsahle/Library/Developer/Xcode/DerivedData/kalat-guvktuqfjhpnxhbmofycdlivdirv/Build/Products/Debug-iphonesimulator/React-RuntimeApple -L/Users/dawitsahle/Library/Developer/Xcode/DerivedData/kalat-guvktuqfjhpnxhbmofycdlivdirv/Build/Products/Debug-iphonesimulator/React-RuntimeCore -L/Users/dawitsahle/Library/Developer/Xcode/DerivedData/kalat-guvktuqfjhpnxhbmofycdlivdirv/Build/Products/Debug-iphonesimulator/React-RuntimeHermes -L/Users/dawitsahle/Library/Developer/Xcode/DerivedData/kalat-guvktuqfjhpnxhbmofycdlivdirv/Build/Products/Debug-iphonesimulator/React-cxxreact -L/Users/dawitsahle/Library/Developer/Xcode/DerivedData/kalat-guvktuqfjhpnxhbmofycdlivdirv/Build/Products/Debug-iphonesimulator/React-debug -L/Users/dawitsahle/Library/Developer/Xcode/DerivedData/kalat-guvktuqfjhpnxhbmofycdlivdirv/Build/Products/Debug-iphonesimulator/React-defaultsnativemodule -L/Users/dawitsahle/Library/Developer/Xcode/DerivedData/kalat-guvktuqfjhpnxhbmofycdlivdirv/Build/Products/Debug-iphonesimulator/React-domnativemodule -L/Users/dawitsahle/Library/Developer/Xcode/DerivedData/kalat-guvktuqfjhpnxhbmofycdlivdirv/Build/Products/Debug-iphonesimulator/React-featureflags -L/Users/dawitsahle/Library/Developer/Xcode/DerivedData/kalat-guvktuqfjhpnxhbmofycdlivdirv/Build/Products/Debug-iphonesimulator/React-featureflagsnativemodule -L/Users/dawitsahle/Library/Developer/Xcode/DerivedData/kalat-guvktuqfjhpnxhbmofycdlivdirv/Build/Products/Debug-iphonesimulator/React-graphics -L/Users/dawitsahle/Library/Developer/Xcode/DerivedData/kalat-guvktuqfjhpnxhbmofycdlivdirv/Build/Products/Debug-iphonesimulator/React-hermes -L/Users/dawitsahle/Library/Developer/Xcode/DerivedData/kalat-guvktuqfjhpnxhbmofycdlivdirv/Build/Products/Debug-iphonesimulator/React-idlecallbacksnativemodule -L/Users/dawitsahle/Library/Developer/Xcode/DerivedData/kalat-guvktuqfjhpnxhbmofycdlivdirv/Build/Products/Debug-iphonesimulator/React-jserrorhandler -L/Users/dawitsahle/Library/Developer/Xcode/DerivedData/kalat-guvktuqfjhpnxhbmofycdlivdirv/Build/Products/Debug-iphonesimulator/React-jsi -L/Users/dawitsahle/Library/Developer/Xcode/DerivedData/kalat-guvktuqfjhpnxhbmofycdlivdirv/Build/Products/Debug-iphonesimulator/React-jsiexecutor -L/Users/dawitsahle/Library/Developer/Xcode/DerivedData/kalat-guvktuqfjhpnxhbmofycdlivdirv/Build/Products/Debug-iphonesimulator/React-jsinspector -L/Users/dawitsahle/Library/Developer/Xcode/DerivedData/kalat-guvktuqfjhpnxhbmofycdlivdirv/Build/Products/Debug-iphonesimulator/React-jsinspectortracing -L/Users/dawitsahle/Library/Developer/Xcode/DerivedData/kalat-guvktuqfjhpnxhbmofycdlivdirv/Build/Products/Debug-iphonesimulator/React-jsitooling -L/Users/dawitsahle/Library/Developer/Xcode/DerivedData/kalat-guvktuqfjhpnxhbmofycdlivdirv/Build/Products/Debug-iphonesimulator/React-logger -L/Users/dawitsahle/Library/Developer/Xcode/DerivedData/kalat-guvktuqfjhpnxhbmofycdlivdirv/Build/Products/Debug-iphonesimulator/React-microtasksnativemodule -L/Users/dawitsahle/Library/Developer/Xcode/DerivedData/kalat-guvktuqfjhpnxhbmofycdlivdirv/Build/Products/Debug-iphonesimulator/React-oscompat -L/Users/dawitsahle/Library/Developer/Xcode/DerivedData/kalat-guvktuqfjhpnxhbmofycdlivdirv/Build/Products/Debug-iphonesimulator/React-perflogger -L/Users/dawitsahle/Library/Developer/Xcode/DerivedData/kalat-guvktuqfjhpnxhbmofycdlivdirv/Build/Products/Debug-iphonesimulator/React-performancetimeline -L/Users/dawitsahle/Library/Developer/Xcode/DerivedData/kalat-guvktuqfjhpnxhbmofycdlivdirv/Build/Products/Debug-iphonesimulator/React-rendererconsistency -L/Users/dawitsahle/Library/Developer/Xcode/DerivedData/kalat-guvktuqfjhpnxhbmofycdlivdirv/Build/Products/Debug-iphonesimulator/React-renderercss -L/Users/dawitsahle/Library/Developer/Xcode/DerivedData/kalat-guvktuqfjhpnxhbmofycdlivdirv/Build/Products/Debug-iphonesimulator/React-rendererdebug -L/Users/dawitsahle/Library/Developer/Xcode/DerivedData/kalat-guvktuqfjhpnxhbmofycdlivdirv/Build/Products/Debug-iphonesimulator/React-runtimescheduler -L/Users/dawitsahle/Library/Developer/Xcode/DerivedData/kalat-guvktuqfjhpnxhbmofycdlivdirv/Build/Products/Debug-iphonesimulator/React-utils -L/Users/dawitsahle/Library/Developer/Xcode/DerivedData/kalat-guvktuqfjhpnxhbmofycdlivdirv/Build/Products/Debug-iphonesimulator/ReactAppDependencyProvider -L/Users/dawitsahle/Library/Developer/Xcode/DerivedData/kalat-guvktuqfjhpnxhbmofycdlivdirv/Build/Products/Debug-iphonesimulator/ReactCodegen -L/Users/dawitsahle/Library/Developer/Xcode/DerivedData/kalat-guvktuqfjhpnxhbmofycdlivdirv/Build/Products/Debug-iphonesimulator/ReactCommon -L/Users/dawitsahle/Library/Developer/Xcode/DerivedData/kalat-guvktuqfjhpnxhbmofycdlivdirv/Build/Products/Debug-iphonesimulator/SocketRocket -L/Users/dawitsahle/Library/Developer/Xcode/DerivedData/kalat-guvktuqfjhpnxhbmofycdlivdirv/Build/Products/Debug-iphonesimulator/Yoga -L/Users/dawitsahle/Library/Developer/Xcode/DerivedData/kalat-guvktuqfjhpnxhbmofycdlivdirv/Build/Products/Debug-iphonesimulator/fmt -L/Users/dawitsahle/Library/Developer/Xcode/DerivedData/kalat-guvktuqfjhpnxhbmofycdlivdirv/Build/Products/Debug-iphonesimulator/glog -L/Users/dawitsahle/Library/Developer/Xcode/DerivedData/kalat-guvktuqfjhpnxhbmofycdlivdirv/Build/Products/Debug-iphonesimulator/react-native-safe-area-context -F/Users/dawitsahle/Library/Developer/Xcode/DerivedData/kalat-guvktuqfjhpnxhbmofycdlivdirv/Build/Intermediates.noindex/EagerLinkingTBDs/Debug-iphonesimulator -F/Users/dawitsahle/Library/Developer/Xcode/DerivedData/kalat-guvktuqfjhpnxhbmofycdlivdirv/Build/Products/Debug-iphonesimulator -F/Users/dawitsahle/Documents/kalat/ios/Pods/hermes-engine/destroot/Library/Frameworks/universal -F/Users/dawitsahle/Library/Developer/Xcode/DerivedData/kalat-guvktuqfjhpnxhbmofycdlivdirv/Build/Products/Debug-iphonesimulator/XCFrameworkIntermediates/hermes-engine/Pre-built -filelist /Users/dawitsahle/Library/Developer/Xcode/DerivedData/kalat-guvktuqfjhpnxhbmofycdlivdirv/Build/Intermediates.noindex/kalat.build/Debug-iphonesimulator/kalat.build/Objects-normal/arm64/kalat.LinkFileList -install_name @rpath/kalat.debug.dylib -Xlinker -rpath -Xlinker /usr/lib/swift -Xlinker -rpath -Xlinker @executable_path/Frameworks -Xlinker -rpath -Xlinker @loader_path/Frameworks -dead_strip -Xlinker -object_path_lto -Xlinker /Users/dawitsahle/Library/Developer/Xcode/DerivedData/kalat-guvktuqfjhpnxhbmofycdlivdirv/Build/Intermediates.noindex/kalat.build/Debug-iphonesimulator/kalat.build/Objects-normal/arm64/kalat_lto.o -rdynamic -Xlinker -no_deduplicate -Xlinker -objc_abi_version -Xlinker 2 -Xlinker -dependency_info -Xlinker /Users/dawitsahle/Library/Developer/Xcode/DerivedData/kalat-guvktuqfjhpnxhbmofycdlivdirv/Build/Intermediates.noindex/kalat.build/Debug-iphonesimulator/kalat.build/Objects-normal/arm64/kalat_dependency_info.dat -fobjc-link-runtime -L/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator -L/usr/lib/swift -Xlinker -add_ast_path -Xlinker /Users/dawitsahle/Library/Developer/Xcode/DerivedData/kalat-guvktuqfjhpnxhbmofycdlivdirv/Build/Intermediates.noindex/kalat.build/Debug-iphonesimulator/kalat.build/Objects-normal/arm64/kalat.swiftmodule -ObjC -lDoubleConversion -lRCT-Folly -lRCTDeprecation -lRCTTypeSafety -lRNCAsyncStorage -lRNGestureHandler -lRNReanimated -lRNScreens -lReact-Core -lReact-CoreModules -lReact-Fabric -lReact-FabricComponents -lReact-FabricImage -lReact-ImageManager -lReact-Mapbuffer -lReact-NativeModulesApple -lReact-RCTAnimation -lReact-RCTAppDelegate -lReact-RCTBlob -lReact-RCTFBReactNativeSpec -lReact-RCTFabric -lReact-RCTImage -lReact-RCTLinking -lReact-RCTNetwork -lReact-RCTRuntime -lReact-RCTSettings -lReact-RCTText -lReact-RCTVibration -lReact-RuntimeApple -lReact-RuntimeCore -lReact-RuntimeHermes -lReact-cxxreact -lReact-debug -lReact-defaultsnativemodule -lReact-domnativemodule -lReact-featureflags -lReact-featureflagsnativemodule -lReact-graphics -lReact-hermes -lReact-idlecallbacksnativemodule -lReact-jserrorhandler -lReact-jsi -lReact-jsiexecutor -lReact-jsinspector -lReact-jsinspectortracing -lReact-jsitooling -lReact-logger -lReact-microtasksnativemodule -lReact-oscompat -lReact-perflogger -lReact-performancetimeline -lReact-rendererconsistency -lReact-renderercss -lReact-rendererdebug -lReact-runtimescheduler -lReact-utils -lReactAppDependencyProvider -lReactCodegen -lReactCommon -lSocketRocket -lYoga -lc++ -lc++abi -lfmt -lglog -licucore -lreact-native-safe-area-context -framework Accelerate -framework AudioToolbox -framework CFNetwork -framework CoreGraphics -framework ImageIO -framework MobileCoreServices -framework QuartzCore -framework Security -framework UIKit -framework hermes -weak_framework JavaScriptCore -ObjC -lc++ -Xlinker -alias -Xlinker _main -Xlinker ___debug_main_executable_dylib_entry_point -lPods-kalat -Xlinker -no_adhoc_codesign -o /Users/dawitsahle/Library/Developer/Xcode/DerivedData/kalat-guvktuqfjhpnxhbmofycdlivdirv/Build/Products/Debug-iphonesimulator/kalat.app/kalat.debug.dylib
-ld: warning: ignoring duplicate libraries: '-lc++'
-
-ProcessInfoPlistFile /Users/dawitsahle/Library/Developer/Xcode/DerivedData/kalat-guvktuqfjhpnxhbmofycdlivdirv/Build/Products/Debug-iphonesimulator/kalat.app/Info.plist /Users/dawitsahle/Documents/kalat/ios/kalat/Info.plist (in target 'kalat' from project 'kalat')
-    cd /Users/dawitsahle/Documents/kalat/ios
-    builtin-infoPlistUtility /Users/dawitsahle/Documents/kalat/ios/kalat/Info.plist -producttype com.apple.product-type.application -genpkginfo /Users/dawitsahle/Library/Developer/Xcode/DerivedData/kalat-guvktuqfjhpnxhbmofycdlivdirv/Build/Products/Debug-iphonesimulator/kalat.app/PkgInfo -expandbuildsettings -format binary -platform iphonesimulator -additionalcontentfile /Users/dawitsahle/Library/Developer/Xcode/DerivedData/kalat-guvktuqfjhpnxhbmofycdlivdirv/Build/Intermediates.noindex/kalat.build/Debug-iphonesimulator/kalat.build/LaunchScreen-SBPartialInfo.plist -additionalcontentfile /Users/dawitsahle/Library/Developer/Xcode/DerivedData/kalat-guvktuqfjhpnxhbmofycdlivdirv/Build/Intermediates.noindex/kalat.build/Debug-iphonesimulator/kalat.build/assetcatalog_generated_info.plist -o /Users/dawitsahle/Library/Developer/Xcode/DerivedData/kalat-guvktuqfjhpnxhbmofycdlivdirv/Build/Products/Debug-iphonesimulator/kalat.app/Info.plist
-
-ConstructStubExecutorLinkFileList /Users/dawitsahle/Library/Developer/Xcode/DerivedData/kalat-guvktuqfjhpnxhbmofycdlivdirv/Build/Intermediates.noindex/kalat.build/Debug-iphonesimulator/kalat.build/kalat-ExecutorLinkFileList-normal-arm64.txt (in target 'kalat' from project 'kalat')
-    cd /Users/dawitsahle/Documents/kalat/ios
-    construct-stub-executor-link-file-list /Users/dawitsahle/Library/Developer/Xcode/DerivedData/kalat-guvktuqfjhpnxhbmofycdlivdirv/Build/Products/Debug-iphonesimulator/kalat.app/kalat.debug.dylib /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/lib/libPreviewsJITStubExecutor_no_swift_entry_point.a /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/lib/libPreviewsJITStubExecutor.a --output /Users/dawitsahle/Library/Developer/Xcode/DerivedData/kalat-guvktuqfjhpnxhbmofycdlivdirv/Build/Intermediates.noindex/kalat.build/Debug-iphonesimulator/kalat.build/kalat-ExecutorLinkFileList-normal-arm64.txt
-note: Using stub executor library with Swift entry point. (in target 'kalat' from project 'kalat')
-
-Ld /Users/dawitsahle/Library/Developer/Xcode/DerivedData/kalat-guvktuqfjhpnxhbmofycdlivdirv/Build/Products/Debug-iphonesimulator/kalat.app/kalat normal (in target 'kalat' from project 'kalat')
-    cd /Users/dawitsahle/Documents/kalat/ios
-    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -Xlinker -reproducible -target arm64-apple-ios15.1-simulator -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator18.4.sdk -O0 -L/Users/dawitsahle/Library/Developer/Xcode/DerivedData/kalat-guvktuqfjhpnxhbmofycdlivdirv/Build/Products/Debug-iphonesimulator -L/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator18.4.sdk/usr/lib/swift -L/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator -L/Users/dawitsahle/Library/Developer/Xcode/DerivedData/kalat-guvktuqfjhpnxhbmofycdlivdirv/Build/Products/Debug-iphonesimulator/DoubleConversion -L/Users/dawitsahle/Library/Developer/Xcode/DerivedData/kalat-guvktuqfjhpnxhbmofycdlivdirv/Build/Products/Debug-iphonesimulator/RCT-Folly -L/Users/dawitsahle/Library/Developer/Xcode/DerivedData/kalat-guvktuqfjhpnxhbmofycdlivdirv/Build/Products/Debug-iphonesimulator/RCTDeprecation -L/Users/dawitsahle/Library/Developer/Xcode/DerivedData/kalat-guvktuqfjhpnxhbmofycdlivdirv/Build/Products/Debug-iphonesimulator/RCTTypeSafety -L/Users/dawitsahle/Library/Developer/Xcode/DerivedData/kalat-guvktuqfjhpnxhbmofycdlivdirv/Build/Products/Debug-iphonesimulator/RNCAsyncStorage -L/Users/dawitsahle/Library/Developer/Xcode/DerivedData/kalat-guvktuqfjhpnxhbmofycdlivdirv/Build/Products/Debug-iphonesimulator/RNGestureHandler -L/Users/dawitsahle/Library/Developer/Xcode/DerivedData/kalat-guvktuqfjhpnxhbmofycdlivdirv/Build/Products/Debug-iphonesimulator/RNReanimated -L/Users/dawitsahle/Library/Developer/Xcode/DerivedData/kalat-guvktuqfjhpnxhbmofycdlivdirv/Build/Products/Debug-iphonesimulator/RNScreens -L/Users/dawitsahle/Library/Developer/Xcode/DerivedData/kalat-guvktuqfjhpnxhbmofycdlivdirv/Build/Products/Debug-iphonesimulator/React-Core -L/Users/dawitsahle/Library/Developer/Xcode/DerivedData/kalat-guvktuqfjhpnxhbmofycdlivdirv/Build/Products/Debug-iphonesimulator/React-CoreModules -L/Users/dawitsahle/Library/Developer/Xcode/DerivedData/kalat-guvktuqfjhpnxhbmofycdlivdirv/Build/Products/Debug-iphonesimulator/React-Fabric -L/Users/dawitsahle/Library/Developer/Xcode/DerivedData/kalat-guvktuqfjhpnxhbmofycdlivdirv/Build/Products/Debug-iphonesimulator/React-FabricComponents -L/Users/dawitsahle/Library/Developer/Xcode/DerivedData/kalat-guvktuqfjhpnxhbmofycdlivdirv/Build/Products/Debug-iphonesimulator/React-FabricImage -L/Users/dawitsahle/Library/Developer/Xcode/DerivedData/kalat-guvktuqfjhpnxhbmofycdlivdirv/Build/Products/Debug-iphonesimulator/React-ImageManager -L/Users/dawitsahle/Library/Developer/Xcode/DerivedData/kalat-guvktuqfjhpnxhbmofycdlivdirv/Build/Products/Debug-iphonesimulator/React-Mapbuffer -L/Users/dawitsahle/Library/Developer/Xcode/DerivedData/kalat-guvktuqfjhpnxhbmofycdlivdirv/Build/Products/Debug-iphonesimulator/React-NativeModulesApple -L/Users/dawitsahle/Library/Developer/Xcode/DerivedData/kalat-guvktuqfjhpnxhbmofycdlivdirv/Build/Products/Debug-iphonesimulator/React-RCTAnimation -L/Users/dawitsahle/Library/Developer/Xcode/DerivedData/kalat-guvktuqfjhpnxhbmofycdlivdirv/Build/Products/Debug-iphonesimulator/React-RCTAppDelegate -L/Users/dawitsahle/Library/Developer/Xcode/DerivedData/kalat-guvktuqfjhpnxhbmofycdlivdirv/Build/Products/Debug-iphonesimulator/React-RCTBlob -L/Users/dawitsahle/Library/Developer/Xcode/DerivedData/kalat-guvktuqfjhpnxhbmofycdlivdirv/Build/Products/Debug-iphonesimulator/React-RCTFBReactNativeSpec -L/Users/dawitsahle/Library/Developer/Xcode/DerivedData/kalat-guvktuqfjhpnxhbmofycdlivdirv/Build/Products/Debug-iphonesimulator/React-RCTFabric -L/Users/dawitsahle/Library/Developer/Xcode/DerivedData/kalat-guvktuqfjhpnxhbmofycdlivdirv/Build/Products/Debug-iphonesimulator/React-RCTImage -L/Users/dawitsahle/Library/Developer/Xcode/DerivedData/kalat-guvktuqfjhpnxhbmofycdlivdirv/Build/Products/Debug-iphonesimulator/React-RCTLinking -L/Users/dawitsahle/Library/Developer/Xcode/DerivedData/kalat-guvktuqfjhpnxhbmofycdlivdirv/Build/Products/Debug-iphonesimulator/React-RCTNetwork -L/Users/dawitsahle/Library/Developer/Xcode/DerivedData/kalat-guvktuqfjhpnxhbmofycdlivdirv/Build/Products/Debug-iphonesimulator/React-RCTRuntime -L/Users/dawitsahle/Library/Developer/Xcode/DerivedData/kalat-guvktuqfjhpnxhbmofycdlivdirv/Build/Products/Debug-iphonesimulator/React-RCTSettings -L/Users/dawitsahle/Library/Developer/Xcode/DerivedData/kalat-guvktuqfjhpnxhbmofycdlivdirv/Build/Products/Debug-iphonesimulator/React-RCTText -L/Users/dawitsahle/Library/Developer/Xcode/DerivedData/kalat-guvktuqfjhpnxhbmofycdlivdirv/Build/Products/Debug-iphonesimulator/React-RCTVibration -L/Users/dawitsahle/Library/Developer/Xcode/DerivedData/kalat-guvktuqfjhpnxhbmofycdlivdirv/Build/Products/Debug-iphonesimulator/React-RuntimeApple -L/Users/dawitsahle/Library/Developer/Xcode/DerivedData/kalat-guvktuqfjhpnxhbmofycdlivdirv/Build/Products/Debug-iphonesimulator/React-RuntimeCore -L/Users/dawitsahle/Library/Developer/Xcode/DerivedData/kalat-guvktuqfjhpnxhbmofycdlivdirv/Build/Products/Debug-iphonesimulator/React-RuntimeHermes -L/Users/dawitsahle/Library/Developer/Xcode/DerivedData/kalat-guvktuqfjhpnxhbmofycdlivdirv/Build/Products/Debug-iphonesimulator/React-cxxreact -L/Users/dawitsahle/Library/Developer/Xcode/DerivedData/kalat-guvktuqfjhpnxhbmofycdlivdirv/Build/Products/Debug-iphonesimulator/React-debug -L/Users/dawitsahle/Library/Developer/Xcode/DerivedData/kalat-guvktuqfjhpnxhbmofycdlivdirv/Build/Products/Debug-iphonesimulator/React-defaultsnativemodule -L/Users/dawitsahle/Library/Developer/Xcode/DerivedData/kalat-guvktuqfjhpnxhbmofycdlivdirv/Build/Products/Debug-iphonesimulator/React-domnativemodule -L/Users/dawitsahle/Library/Developer/Xcode/DerivedData/kalat-guvktuqfjhpnxhbmofycdlivdirv/Build/Products/Debug-iphonesimulator/React-featureflags -L/Users/dawitsahle/Library/Developer/Xcode/DerivedData/kalat-guvktuqfjhpnxhbmofycdlivdirv/Build/Products/Debug-iphonesimulator/React-featureflagsnativemodule -L/Users/dawitsahle/Library/Developer/Xcode/DerivedData/kalat-guvktuqfjhpnxhbmofycdlivdirv/Build/Products/Debug-iphonesimulator/React-graphics -L/Users/dawitsahle/Library/Developer/Xcode/DerivedData/kalat-guvktuqfjhpnxhbmofycdlivdirv/Build/Products/Debug-iphonesimulator/React-hermes -L/Users/dawitsahle/Library/Developer/Xcode/DerivedData/kalat-guvktuqfjhpnxhbmofycdlivdirv/Build/Products/Debug-iphonesimulator/React-idlecallbacksnativemodule -L/Users/dawitsahle/Library/Developer/Xcode/DerivedData/kalat-guvktuqfjhpnxhbmofycdlivdirv/Build/Products/Debug-iphonesimulator/React-jserrorhandler -L/Users/dawitsahle/Library/Developer/Xcode/DerivedData/kalat-guvktuqfjhpnxhbmofycdlivdirv/Build/Products/Debug-iphonesimulator/React-jsi -L/Users/dawitsahle/Library/Developer/Xcode/DerivedData/kalat-guvktuqfjhpnxhbmofycdlivdirv/Build/Products/Debug-iphonesimulator/React-jsiexecutor -L/Users/dawitsahle/Library/Developer/Xcode/DerivedData/kalat-guvktuqfjhpnxhbmofycdlivdirv/Build/Products/Debug-iphonesimulator/React-jsinspector -L/Users/dawitsahle/Library/Developer/Xcode/DerivedData/kalat-guvktuqfjhpnxhbmofycdlivdirv/Build/Products/Debug-iphonesimulator/React-jsinspectortracing -L/Users/dawitsahle/Library/Developer/Xcode/DerivedData/kalat-guvktuqfjhpnxhbmofycdlivdirv/Build/Products/Debug-iphonesimulator/React-jsitooling -L/Users/dawitsahle/Library/Developer/Xcode/DerivedData/kalat-guvktuqfjhpnxhbmofycdlivdirv/Build/Products/Debug-iphonesimulator/React-logger -L/Users/dawitsahle/Library/Developer/Xcode/DerivedData/kalat-guvktuqfjhpnxhbmofycdlivdirv/Build/Products/Debug-iphonesimulator/React-microtasksnativemodule -L/Users/dawitsahle/Library/Developer/Xcode/DerivedData/kalat-guvktuqfjhpnxhbmofycdlivdirv/Build/Products/Debug-iphonesimulator/React-oscompat -L/Users/dawitsahle/Library/Developer/Xcode/DerivedData/kalat-guvktuqfjhpnxhbmofycdlivdirv/Build/Products/Debug-iphonesimulator/React-perflogger -L/Users/dawitsahle/Library/Developer/Xcode/DerivedData/kalat-guvktuqfjhpnxhbmofycdlivdirv/Build/Products/Debug-iphonesimulator/React-performancetimeline -L/Users/dawitsahle/Library/Developer/Xcode/DerivedData/kalat-guvktuqfjhpnxhbmofycdlivdirv/Build/Products/Debug-iphonesimulator/React-rendererconsistency -L/Users/dawitsahle/Library/Developer/Xcode/DerivedData/kalat-guvktuqfjhpnxhbmofycdlivdirv/Build/Products/Debug-iphonesimulator/React-renderercss -L/Users/dawitsahle/Library/Developer/Xcode/DerivedData/kalat-guvktuqfjhpnxhbmofycdlivdirv/Build/Products/Debug-iphonesimulator/React-rendererdebug -L/Users/dawitsahle/Library/Developer/Xcode/DerivedData/kalat-guvktuqfjhpnxhbmofycdlivdirv/Build/Products/Debug-iphonesimulator/React-runtimescheduler -L/Users/dawitsahle/Library/Developer/Xcode/DerivedData/kalat-guvktuqfjhpnxhbmofycdlivdirv/Build/Products/Debug-iphonesimulator/React-utils -L/Users/dawitsahle/Library/Developer/Xcode/DerivedData/kalat-guvktuqfjhpnxhbmofycdlivdirv/Build/Products/Debug-iphonesimulator/ReactAppDependencyProvider -L/Users/dawitsahle/Library/Developer/Xcode/DerivedData/kalat-guvktuqfjhpnxhbmofycdlivdirv/Build/Products/Debug-iphonesimulator/ReactCodegen -L/Users/dawitsahle/Library/Developer/Xcode/DerivedData/kalat-guvktuqfjhpnxhbmofycdlivdirv/Build/Products/Debug-iphonesimulator/ReactCommon -L/Users/dawitsahle/Library/Developer/Xcode/DerivedData/kalat-guvktuqfjhpnxhbmofycdlivdirv/Build/Products/Debug-iphonesimulator/SocketRocket -L/Users/dawitsahle/Library/Developer/Xcode/DerivedData/kalat-guvktuqfjhpnxhbmofycdlivdirv/Build/Products/Debug-iphonesimulator/Yoga -L/Users/dawitsahle/Library/Developer/Xcode/DerivedData/kalat-guvktuqfjhpnxhbmofycdlivdirv/Build/Products/Debug-iphonesimulator/fmt -L/Users/dawitsahle/Library/Developer/Xcode/DerivedData/kalat-guvktuqfjhpnxhbmofycdlivdirv/Build/Products/Debug-iphonesimulator/glog -L/Users/dawitsahle/Library/Developer/Xcode/DerivedData/kalat-guvktuqfjhpnxhbmofycdlivdirv/Build/Products/Debug-iphonesimulator/react-native-safe-area-context -F/Users/dawitsahle/Library/Developer/Xcode/DerivedData/kalat-guvktuqfjhpnxhbmofycdlivdirv/Build/Products/Debug-iphonesimulator -F/Users/dawitsahle/Documents/kalat/ios/Pods/hermes-engine/destroot/Library/Frameworks/universal -F/Users/dawitsahle/Library/Developer/Xcode/DerivedData/kalat-guvktuqfjhpnxhbmofycdlivdirv/Build/Products/Debug-iphonesimulator/XCFrameworkIntermediates/hermes-engine/Pre-built -Xlinker -rpath -Xlinker @executable_path -Xlinker -rpath -Xlinker /usr/lib/swift -Xlinker -rpath -Xlinker @executable_path/Frameworks -Xlinker -rpath -Xlinker @loader_path/Frameworks -rdynamic -Xlinker -no_deduplicate -Xlinker -objc_abi_version -Xlinker 2 -e ___debug_blank_executor_main -Xlinker -sectcreate -Xlinker __TEXT -Xlinker __debug_dylib -Xlinker /Users/dawitsahle/Library/Developer/Xcode/DerivedData/kalat-guvktuqfjhpnxhbmofycdlivdirv/Build/Intermediates.noindex/kalat.build/Debug-iphonesimulator/kalat.build/kalat-DebugDylibPath-normal-arm64.txt -Xlinker -sectcreate -Xlinker __TEXT -Xlinker __debug_instlnm -Xlinker /Users/dawitsahle/Library/Developer/Xcode/DerivedData/kalat-guvktuqfjhpnxhbmofycdlivdirv/Build/Intermediates.noindex/kalat.build/Debug-iphonesimulator/kalat.build/kalat-DebugDylibInstallName-normal-arm64.txt -Xlinker -filelist -Xlinker /Users/dawitsahle/Library/Developer/Xcode/DerivedData/kalat-guvktuqfjhpnxhbmofycdlivdirv/Build/Intermediates.noindex/kalat.build/Debug-iphonesimulator/kalat.build/kalat-ExecutorLinkFileList-normal-arm64.txt -Xlinker -sectcreate -Xlinker __TEXT -Xlinker __entitlements -Xlinker /Users/dawitsahle/Library/Developer/Xcode/DerivedData/kalat-guvktuqfjhpnxhbmofycdlivdirv/Build/Intermediates.noindex/kalat.build/Debug-iphonesimulator/kalat.build/kalat.app-Simulated.xcent -Xlinker -sectcreate -Xlinker __TEXT -Xlinker __ents_der -Xlinker /Users/dawitsahle/Library/Developer/Xcode/DerivedData/kalat-guvktuqfjhpnxhbmofycdlivdirv/Build/Intermediates.noindex/kalat.build/Debug-iphonesimulator/kalat.build/kalat.app-Simulated.xcent.der /Users/dawitsahle/Library/Developer/Xcode/DerivedData/kalat-guvktuqfjhpnxhbmofycdlivdirv/Build/Products/Debug-iphonesimulator/kalat.app/kalat.debug.dylib -Xlinker -no_adhoc_codesign -o /Users/dawitsahle/Library/Developer/Xcode/DerivedData/kalat-guvktuqfjhpnxhbmofycdlivdirv/Build/Products/Debug-iphonesimulator/kalat.app/kalat
-
+warning: Run script build phase 'Bundle React Native code and images' will be run during every build because it does not specify any outputs. To address this issue, either add output dependencies to the script phase, or configure it to run in every build by unchecking "Based on dependency analysis" in the script phase. (in target 'kalat' from project 'kalat')
 PhaseScriptExecution Bundle\ React\ Native\ code\ and\ images /Users/dawitsahle/Library/Developer/Xcode/DerivedData/kalat-guvktuqfjhpnxhbmofycdlivdirv/Build/Intermediates.noindex/kalat.build/Debug-iphonesimulator/kalat.build/Script-00DD1BFF1BD5951E006B06BC.sh (in target 'kalat' from project 'kalat')
     cd /Users/dawitsahle/Documents/kalat/ios
     export ACTION\=build
@@ -3630,43 +3548,6 @@ Node found at: /opt/homebrew/Cellar/node/23.11.0/bin/node
 Skipping bundling in Debug for the Simulator (since the packager bundles for you). Use the FORCE_BUNDLING flag to change this behavior.
 + exit 0
 
-ExtractAppIntentsMetadata (in target 'kalat' from project 'kalat')
-    cd /Users/dawitsahle/Documents/kalat/ios
-    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/appintentsmetadataprocessor --toolchain-dir /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain --module-name kalat --sdk-root /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator18.4.sdk --xcode-version 16E140 --platform-family iOS --deployment-target 15.1 --bundle-identifier org.reactjs.native.example.kalat --output /Users/dawitsahle/Library/Developer/Xcode/DerivedData/kalat-guvktuqfjhpnxhbmofycdlivdirv/Build/Products/Debug-iphonesimulator/kalat.app --target-triple arm64-apple-ios15.1-simulator --binary-file /Users/dawitsahle/Library/Developer/Xcode/DerivedData/kalat-guvktuqfjhpnxhbmofycdlivdirv/Build/Products/Debug-iphonesimulator/kalat.app/kalat --dependency-file /Users/dawitsahle/Library/Developer/Xcode/DerivedData/kalat-guvktuqfjhpnxhbmofycdlivdirv/Build/Intermediates.noindex/kalat.build/Debug-iphonesimulator/kalat.build/Objects-normal/arm64/kalat_dependency_info.dat --stringsdata-file /Users/dawitsahle/Library/Developer/Xcode/DerivedData/kalat-guvktuqfjhpnxhbmofycdlivdirv/Build/Intermediates.noindex/kalat.build/Debug-iphonesimulator/kalat.build/Objects-normal/arm64/ExtractedAppShortcutsMetadata.stringsdata --source-file-list /Users/dawitsahle/Library/Developer/Xcode/DerivedData/kalat-guvktuqfjhpnxhbmofycdlivdirv/Build/Intermediates.noindex/kalat.build/Debug-iphonesimulator/kalat.build/Objects-normal/arm64/kalat.SwiftFileList --metadata-file-list /Users/dawitsahle/Library/Developer/Xcode/DerivedData/kalat-guvktuqfjhpnxhbmofycdlivdirv/Build/Intermediates.noindex/kalat.build/Debug-iphonesimulator/kalat.build/kalat.DependencyMetadataFileList --static-metadata-file-list /Users/dawitsahle/Library/Developer/Xcode/DerivedData/kalat-guvktuqfjhpnxhbmofycdlivdirv/Build/Intermediates.noindex/kalat.build/Debug-iphonesimulator/kalat.build/kalat.DependencyStaticMetadataFileList --swift-const-vals-list /Users/dawitsahle/Library/Developer/Xcode/DerivedData/kalat-guvktuqfjhpnxhbmofycdlivdirv/Build/Intermediates.noindex/kalat.build/Debug-iphonesimulator/kalat.build/Objects-normal/arm64/kalat.SwiftConstValuesFileList --compile-time-extraction --deployment-aware-processing --validate-assistant-intents --no-app-shortcuts-localization
-2025-05-12 02:48:19.462 appintentsmetadataprocessor[76373:1725522] Starting appintentsmetadataprocessor export
-2025-05-12 02:48:19.470 appintentsmetadataprocessor[76373:1725522] warning: Metadata extraction skipped. No AppIntents.framework dependency found.
-
-CopySwiftLibs /Users/dawitsahle/Library/Developer/Xcode/DerivedData/kalat-guvktuqfjhpnxhbmofycdlivdirv/Build/Products/Debug-iphonesimulator/kalat.app (in target 'kalat' from project 'kalat')
-    cd /Users/dawitsahle/Documents/kalat/ios
-    builtin-swiftStdLibTool --copy --verbose --sign - --scan-executable /Users/dawitsahle/Library/Developer/Xcode/DerivedData/kalat-guvktuqfjhpnxhbmofycdlivdirv/Build/Products/Debug-iphonesimulator/kalat.app/kalat.debug.dylib --scan-folder /Users/dawitsahle/Library/Developer/Xcode/DerivedData/kalat-guvktuqfjhpnxhbmofycdlivdirv/Build/Products/Debug-iphonesimulator/kalat.app/Frameworks --scan-folder /Users/dawitsahle/Library/Developer/Xcode/DerivedData/kalat-guvktuqfjhpnxhbmofycdlivdirv/Build/Products/Debug-iphonesimulator/kalat.app/PlugIns --scan-folder /Users/dawitsahle/Library/Developer/Xcode/DerivedData/kalat-guvktuqfjhpnxhbmofycdlivdirv/Build/Products/Debug-iphonesimulator/kalat.app/SystemExtensions --scan-folder /Users/dawitsahle/Library/Developer/Xcode/DerivedData/kalat-guvktuqfjhpnxhbmofycdlivdirv/Build/Products/Debug-iphonesimulator/kalat.app/Extensions --platform iphonesimulator --toolchain /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain --destination /Users/dawitsahle/Library/Developer/Xcode/DerivedData/kalat-guvktuqfjhpnxhbmofycdlivdirv/Build/Products/Debug-iphonesimulator/kalat.app/Frameworks --strip-bitcode --strip-bitcode-tool /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/bitcode_strip --emit-dependency-info /Users/dawitsahle/Library/Developer/Xcode/DerivedData/kalat-guvktuqfjhpnxhbmofycdlivdirv/Build/Intermediates.noindex/kalat.build/Debug-iphonesimulator/kalat.build/SwiftStdLibToolInputDependencies.dep --filter-for-swift-os
-
-GenerateDSYMFile /Users/dawitsahle/Library/Developer/Xcode/DerivedData/kalat-guvktuqfjhpnxhbmofycdlivdirv/Build/Products/Debug-iphonesimulator/kalat.app.dSYM /Users/dawitsahle/Library/Developer/Xcode/DerivedData/kalat-guvktuqfjhpnxhbmofycdlivdirv/Build/Products/Debug-iphonesimulator/kalat.app/kalat (in target 'kalat' from project 'kalat')
-    cd /Users/dawitsahle/Documents/kalat/ios
-    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/dsymutil -q /Users/dawitsahle/Library/Developer/Xcode/DerivedData/kalat-guvktuqfjhpnxhbmofycdlivdirv/Build/Products/Debug-iphonesimulator/kalat.app/kalat -o /Users/dawitsahle/Library/Developer/Xcode/DerivedData/kalat-guvktuqfjhpnxhbmofycdlivdirv/Build/Products/Debug-iphonesimulator/kalat.app.dSYM
-
-GenerateDSYMFile /Users/dawitsahle/Library/Developer/Xcode/DerivedData/kalat-guvktuqfjhpnxhbmofycdlivdirv/Build/Products/Debug-iphonesimulator/kalat.app.dSYM /Users/dawitsahle/Library/Developer/Xcode/DerivedData/kalat-guvktuqfjhpnxhbmofycdlivdirv/Build/Products/Debug-iphonesimulator/kalat.app/kalat.debug.dylib (in target 'kalat' from project 'kalat')
-    cd /Users/dawitsahle/Documents/kalat/ios
-    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/dsymutil /Users/dawitsahle/Library/Developer/Xcode/DerivedData/kalat-guvktuqfjhpnxhbmofycdlivdirv/Build/Products/Debug-iphonesimulator/kalat.app/kalat.debug.dylib -o /Users/dawitsahle/Library/Developer/Xcode/DerivedData/kalat-guvktuqfjhpnxhbmofycdlivdirv/Build/Products/Debug-iphonesimulator/kalat.app.dSYM
-
-CodeSign /Users/dawitsahle/Library/Developer/Xcode/DerivedData/kalat-guvktuqfjhpnxhbmofycdlivdirv/Build/Products/Debug-iphonesimulator/kalat.app/kalat.debug.dylib (in target 'kalat' from project 'kalat')
-    cd /Users/dawitsahle/Documents/kalat/ios
-    
-    Signing Identity:     "Sign to Run Locally"
-    
-    /usr/bin/codesign --force --sign - --timestamp\=none --generate-entitlement-der /Users/dawitsahle/Library/Developer/Xcode/DerivedData/kalat-guvktuqfjhpnxhbmofycdlivdirv/Build/Products/Debug-iphonesimulator/kalat.app/kalat.debug.dylib
-
-CodeSign /Users/dawitsahle/Library/Developer/Xcode/DerivedData/kalat-guvktuqfjhpnxhbmofycdlivdirv/Build/Products/Debug-iphonesimulator/kalat.app (in target 'kalat' from project 'kalat')
-    cd /Users/dawitsahle/Documents/kalat/ios
-    
-    Signing Identity:     "Sign to Run Locally"
-    
-    /usr/bin/codesign --force --sign - --timestamp\=none --generate-entitlement-der /Users/dawitsahle/Library/Developer/Xcode/DerivedData/kalat-guvktuqfjhpnxhbmofycdlivdirv/Build/Products/Debug-iphonesimulator/kalat.app
-
-Validate /Users/dawitsahle/Library/Developer/Xcode/DerivedData/kalat-guvktuqfjhpnxhbmofycdlivdirv/Build/Products/Debug-iphonesimulator/kalat.app (in target 'kalat' from project 'kalat')
-    cd /Users/dawitsahle/Documents/kalat/ios
-    builtin-validationUtility /Users/dawitsahle/Library/Developer/Xcode/DerivedData/kalat-guvktuqfjhpnxhbmofycdlivdirv/Build/Products/Debug-iphonesimulator/kalat.app -infoplist-subpath Info.plist
-
-note: Run script build phase '[CP-User] [RN]Check rncore' will be run during every build because the option to run the script phase "Based on dependency analysis" is unchecked. (in target 'React-Fabric' from project 'Pods')
-warning: Run script build phase 'Bundle React Native code and images' will be run during every build because it does not specify any outputs. To address this issue, either add output dependencies to the script phase, or configure it to run in every build by unchecking "Based on dependency analysis" in the script phase. (in target 'kalat' from project 'kalat')
+note: Run script build phase '[CP-User] [RN]Check FBReactNativeSpec' will be run during every build because the option to run the script phase "Based on dependency analysis" is unchecked. (in target 'React-RCTFBReactNativeSpec' from project 'Pods')
 ** BUILD SUCCEEDED **
 

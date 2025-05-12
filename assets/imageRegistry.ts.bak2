@@ -1,0 +1,59 @@
+// assets/imageRegistry.ts
+import { Platform } from 'react-native';
+import React from 'react';
+
+// Handle image imports differently based on platform
+// Specifically to address "Property 'require' doesn't exist" error with Hermes
+
+// Pre-require all assets at module definition time, not at runtime
+// This is the key to avoiding the "Property 'require' doesn't exist" error with Hermes/imageRegistry.ts
+import { Platform } from 'react-native';
+import React from 'react';
+
+// Handle image imports differently based on platform
+// Specifically to address "Property 'require' doesn't exist" error with Hermes
+
+// Import SVGs directly to benefit from the react-native-svg-transformer
+const KalatLogo = require('./images/ቃላት.svg');
+
+// Define types for our image assets
+type ImageAssetType = number | { default?: any };
+type SVGAssetType = React.ComponentType<any>;
+
+// Using specific types for image assets
+const imageAssets: Record<string, ImageAssetType> = {
+  // Main images
+  'adey': require('./images/adey.png'),
+  'dave': require('./images/dave.png'),
+  'dog': require('./images/dog.png'),
+  // Icons
+  'adey_icon': require('./images/icons/adey.png'),
+  'icon_home': require('./images/icons/icon_home.png'),
+  'icon_feedback': require('./images/icons/icon_feedback.png'),
+  'icon_share': require('./images/icons/icon_share.png'),
+};
+
+// Add SVGs to the main imageAssets object
+// We'll use require for consistency, even though it makes the linter unhappy
+// to ensure that SVGs are handled at compile time, not runtime
+imageAssets['kalat_logo_svg'] = require('./images/ቃላት.svg');
+
+export const getImageSource = (name: string) => {
+  if (Platform.OS === 'web') {
+    // For web, return the URI directly
+    return {uri: name};
+  }
+  // Check if it's an SVG asset
+  if (svgAssets[name]) {
+    return svgAssets[name];
+  }
+  // For native platforms, return the required module
+  return imageAssets[name] || null;
+};
+
+// For backwards compatibility, maintain the registerImages function
+export const registerImages = () => {
+  // This function now exists just for backward compatibility
+  // The actual registration happens when the module is imported
+  return { ...imageAssets, ...svgAssets };
+};

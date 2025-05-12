@@ -1,9 +1,16 @@
 // assets/imageRegistry.ts
 import { Platform } from 'react-native';
+import React from 'react';
 
 // Handle image imports differently based on platform
 // Specifically to address "Property 'require' doesn't exist" error with Hermes
-const imageAssets = {
+
+// Define types for our image assets
+type ImageAssetType = number | React.ComponentType<any> | { default?: any };
+
+// Using specific types for image assets - with all assets consolidated in one object
+// The key is to pre-require all assets at module definition time, not at runtime
+const imageAssets: Record<string, ImageAssetType> = {
   // Main images
   'adey': require('./images/adey.png'),
   'dave': require('./images/dave.png'),
@@ -13,8 +20,8 @@ const imageAssets = {
   'icon_home': require('./images/icons/icon_home.png'),
   'icon_feedback': require('./images/icons/icon_feedback.png'),
   'icon_share': require('./images/icons/icon_share.png'),
-  // SVG files - handled differently to work with react-native-svg
-  'kalat_logo_svg': require('./images/ቃላት.svg'),
+  // SVG files
+  'kalat_logo_svg': require('./images/ቃላት.svg')
 };
 
 export const getImageSource = (name: string) => {
@@ -26,7 +33,7 @@ export const getImageSource = (name: string) => {
   return imageAssets[name] || null;
 };
 
-// For backwards compatibility, maintain the registerImages function
+// For backwards compatibility
 export const registerImages = () => {
   // This function now exists just for backward compatibility
   // The actual registration happens when the module is imported

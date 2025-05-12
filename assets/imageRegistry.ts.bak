@@ -3,7 +3,11 @@ import { Platform } from 'react-native';
 
 // Handle image imports differently based on platform
 // Specifically to address "Property 'require' doesn't exist" error with Hermes
-const imageAssets = {
+// Define types for our image assets
+type ImageAssetType = number | { default?: any } | React.FC<any>;
+
+// Using a more specific type for image assets
+const imageAssets: Record<string, ImageAssetType> = {
   // Main images
   'adey': require('./images/adey.png'),
   'dave': require('./images/dave.png'),
@@ -13,14 +17,25 @@ const imageAssets = {
   'icon_home': require('./images/icons/icon_home.png'),
   'icon_feedback': require('./images/icons/icon_feedback.png'),
   'icon_share': require('./images/icons/icon_share.png'),
-  // SVG files - handled differently to work with react-native-svg
-  'kalat_logo_svg': require('./images/ቃላት.svg'),
+};
+
+// SVG files need to be handled differently with the SVG transformer
+// Import SVGs directly to benefit from the SVG transformer
+import KalatLogo from './images/ቃላት.svg';
+
+// Add SVGs to a separate object
+const svgAssets: Record<string, any> = {
+  'kalat_logo_svg': KalatLogo,
 };
 
 export const getImageSource = (name: string) => {
   if (Platform.OS === 'web') {
     // For web, return the URI directly
     return {uri: name};
+  }
+  // Check if it's an SVG asset
+  if (svgAssets[name]) {
+    return svgAssets[name];
   }
   // For native platforms, return the required module
   return imageAssets[name] || null;
@@ -30,5 +45,5 @@ export const getImageSource = (name: string) => {
 export const registerImages = () => {
   // This function now exists just for backward compatibility
   // The actual registration happens when the module is imported
-  return imageAssets;
+  return { ...imageAssets, ...svgAssets };
 };
