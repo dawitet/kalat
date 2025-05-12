@@ -10,7 +10,6 @@ import {
 import {rootReducer} from './reducers/rootReducer'; // Use the combined reducer
 import {WORD_LENGTH, MAX_GUESSES} from '../game-state';
 import {getDateString} from '../core/utils/calendar';
-// Removed analytics import
 import * as Notifications from 'expo-notifications';
 
 // Modified to return the full MobileDifficultyProgress type
@@ -110,7 +109,6 @@ export const GameProvider: React.FC<{children: ReactNode}> = ({children}) => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []); // Effect runs once on mount
 
-  // Removed analytics effect
 
   // Daily Reminder Notification Effect
   useEffect(() => {
