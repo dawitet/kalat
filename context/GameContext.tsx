@@ -10,7 +10,6 @@ import {
 import {rootReducer} from './reducers/rootReducer'; // Use the combined reducer
 import {WORD_LENGTH, MAX_GUESSES} from '../game-state';
 import {getDateString} from '../core/utils/calendar';
-import * as Notifications from 'expo-notifications';
 
 // Modified to return the full MobileDifficultyProgress type
 const createInitialDifficultyProgress = (): MobileDifficultyProgress => ({
@@ -109,46 +108,7 @@ export const GameProvider: React.FC<{children: ReactNode}> = ({children}) => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []); // Effect runs once on mount
 
-
-  // Daily Reminder Notification Effect
-  useEffect(() => {
-    const scheduleDailyReminder = async () => {
-      // Request permissions if not already granted
-      const {status} = await Notifications.requestPermissionsAsync();
-      if (status !== 'granted') {
-        return;
-      }
-      // Cancel all previous reminders to avoid duplicates
-      await Notifications.cancelAllScheduledNotificationsAsync();
-      // Schedule a new daily notification at 8:00 AM
-      await Notifications.scheduleNotificationAsync({
-        content: {
-          title: 'ቃላት ይጫወቱ!',
-          body: 'ዛሬ የቃላት ቀን ቃል ይጠብቁ።',
-          sound: true,
-        },
-        trigger: {
-          hour: 8,
-          minute: 0,
-          repeats: true,
-        },
-      });
-    };
-    const cancelReminder = async () => {
-      await Notifications.cancelAllScheduledNotificationsAsync();
-    };
-    if (gameState.dailyReminderEnabled) {
-      scheduleDailyReminder();
-    } else {
-      cancelReminder();
-    }
-    // Cleanup: cancel on unmount if needed
-    return () => {
-      if (!gameState.dailyReminderEnabled) {
-        cancelReminder();
-      }
-    };
-  }, [gameState.dailyReminderEnabled]);
+  // Removed the notifications-related useEffect hook
 
   return (
     <GameContext.Provider value={{gameState, dispatch}}>

@@ -1,3 +1,5 @@
+ENV['RCT_NEW_ARCH_ENABLED'] = '0'
+ENV['NO_FLIPPER'] = '1'
 # Resolve react_native_pods.rb with node to allow for hoisting
 require Pod::Executable.execute_command('node', ['-p',
   'require.resolve(
@@ -13,6 +15,9 @@ if linkage != nil
   Pod::UI.puts "Configuring Pod with #{linkage}ally linked Frameworks".green
   use_frameworks! :linkage => linkage.to_sym
 end
+
+# Remove this duplicate line:
+# ENV['RCT_NEW_ARCH_ENABLED'] = '0'
 
 target 'kalat' do
   config = use_native_modules!
@@ -31,7 +36,7 @@ target 'kalat' do
       installer,
       config[:reactNativePath],
       :mac_catalyst_enabled => false,
-      # :ccache_enabled => true
+      # :cache_enabled => true
     )
   end
 end

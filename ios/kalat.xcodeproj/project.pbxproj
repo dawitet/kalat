@@ -41,10 +41,10 @@
 		A378126728A34934B172070C /* icon_feedback_wip.png in Resources */ = {isa = PBXBuildFile; fileRef = BDAE4744B9C9437392AC5692 /* icon_feedback_wip.png */; };
 		A8222AFE75EE410582065E72 /* icon_home.png in Resources */ = {isa = PBXBuildFile; fileRef = 41E1521F8D8E49669362782F /* icon_home.png */; };
 		A9976920B4C14B07A01E141A /* icon_friends.png in Resources */ = {isa = PBXBuildFile; fileRef = 71056D90964548DEA6851C65 /* icon_friends.png */; };
+		B7E7A00CCA503CDA387C9CD6 /* libPods-kalat.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1C6BBC74960D2CE84EFA1D6A /* libPods-kalat.a */; };
 		BFCE424F9DEE459CB3146F7C /* dave.png in Resources */ = {isa = PBXBuildFile; fileRef = 5B946E901D5342CABDF8A662 /* dave.png */; };
 		C17CC416B6F447069DEC97E0 /* icon_share.png in Resources */ = {isa = PBXBuildFile; fileRef = B0EF2C39C8554E6EB0751B0E /* icon_share.png */; };
 		C1D5B2FDA76F4EA29C0B3095 /* icon_streak.png in Resources */ = {isa = PBXBuildFile; fileRef = 9ED36E01B7194B10A96CEE6B /* icon_streak.png */; };
-		C3DFA1EA2516005BD034C0D6 /* libPods-kalat.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C844D9D426C84E2E71EC0A61 /* libPods-kalat.a */; };
 		C646E8619D2749D58482901A /* icon_continue.png in Resources */ = {isa = PBXBuildFile; fileRef = 12F6AA2DA39B4A0EAF25A044 /* icon_continue.png */; };
 		C75E59D580414EA58384D9FD /* icon_add_home.png in Resources */ = {isa = PBXBuildFile; fileRef = 2C351DD8053142A591D29E73 /* icon_add_home.png */; };
 		CB08E7E8DAB949B9B8F161E0 /* one.png in Resources */ = {isa = PBXBuildFile; fileRef = 2EF02D17EC344727BC45139B /* one.png */; };
@@ -58,59 +58,59 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		00E67D8F8E4F4BB189686877 /* icon_mute_on.png */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = icon_mute_on.png; path = ../assets/images/icons/icon_mute_on.png; sourceTree = "<group>"; };
-		12F6AA2DA39B4A0EAF25A044 /* icon_continue.png */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = icon_continue.png; path = ../assets/images/icons/icon_continue.png; sourceTree = "<group>"; };
+		00E67D8F8E4F4BB189686877 /* icon_mute_on.png */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = icon_mute_on.png; path = ../assets/images/icons/icon_mute_on.png; sourceTree = "<group>"; };
+		12F6AA2DA39B4A0EAF25A044 /* icon_continue.png */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = icon_continue.png; path = ../assets/images/icons/icon_continue.png; sourceTree = "<group>"; };
 		13B07F961A680F5B00A75B9A /* kalat.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = kalat.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		13B07FB51A68108700A75B9A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = kalat/Images.xcassets; sourceTree = "<group>"; };
 		13B07FB61A68108700A75B9A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = kalat/Info.plist; sourceTree = "<group>"; };
 		13B07FB81A68108700A75B9A /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = PrivacyInfo.xcprivacy; path = kalat/PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
-		20F33064F5A746808C088EB9 /* a.png */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = a.png; path = ../assets/images/icons/a.png; sourceTree = "<group>"; };
-		225BB4A2233F47C4ACFA02CF /* dog.png */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = dog.png; path = ../assets/images/dog.png; sourceTree = "<group>"; };
-		24368CA1B7D146AFB924AD3B /* icon_hints_off.png */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = icon_hints_off.png; path = ../assets/images/icons/icon_hints_off.png; sourceTree = "<group>"; };
-		2C351DD8053142A591D29E73 /* icon_add_home.png */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = icon_add_home.png; path = ../assets/images/icons/icon_add_home.png; sourceTree = "<group>"; };
-		2EF02D17EC344727BC45139B /* one.png */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = one.png; path = ../assets/images/ad/one.png; sourceTree = "<group>"; };
-		3C0DF7494C8D4A3A9CFD0B8C /* icon_mute_off.png */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = icon_mute_off.png; path = ../assets/images/icons/icon_mute_off.png; sourceTree = "<group>"; };
-		41E1521F8D8E49669362782F /* icon_home.png */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = icon_home.png; path = ../assets/images/icons/icon_home.png; sourceTree = "<group>"; };
-		4B012CC0E7594C77B813B971 /* n.png */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = n.png; path = ../assets/images/icons/n.png; sourceTree = "<group>"; };
-		4B6A6AFD9F164A9898516686 /* icon_close.png */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = icon_close.png; path = ../assets/images/icons/icon_close.png; sourceTree = "<group>"; };
-		4BD3E6D291F9447BA3523025 /* favicon.png */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = favicon.png; path = ../assets/images/icons/favicon.png; sourceTree = "<group>"; };
-		4CDB692679C34F0DB203D78D /* icon_feedback.png */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = icon_feedback.png; path = ../assets/images/icons/icon_feedback.png; sourceTree = "<group>"; };
-		5B946E901D5342CABDF8A662 /* dave.png */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = dave.png; path = ../assets/images/dave.png; sourceTree = "<group>"; };
-		5EFCB82516F34C518FE720CA /* j.png */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = j.png; path = ../assets/images/icons/j.png; sourceTree = "<group>"; };
-		60DB6472C558C3F5B7E068F6 /* Pods-kalat.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-kalat.release.xcconfig"; path = "Target Support Files/Pods-kalat/Pods-kalat.release.xcconfig"; sourceTree = "<group>"; };
-		6A38C096445443ACB082D089 /* c.png */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = c.png; path = ../assets/images/icons/c.png; sourceTree = "<group>"; };
-		6D476FED025B4279A00C715F /* icon_difficulty_easy.png */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = icon_difficulty_easy.png; path = ../assets/images/icons/icon_difficulty_easy.png; sourceTree = "<group>"; };
-		6D786A47661F4D53B0DBCAB1 /* ቃላት.svg */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "ቃላት.svg"; path = "../assets/images/icons/ቃላት.svg"; sourceTree = "<group>"; };
-		71056D90964548DEA6851C65 /* icon_friends.png */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = icon_friends.png; path = ../assets/images/icons/icon_friends.png; sourceTree = "<group>"; };
+		1C6BBC74960D2CE84EFA1D6A /* libPods-kalat.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-kalat.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		20F33064F5A746808C088EB9 /* a.png */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = a.png; path = ../assets/images/icons/a.png; sourceTree = "<group>"; };
+		225BB4A2233F47C4ACFA02CF /* dog.png */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = dog.png; path = ../assets/images/dog.png; sourceTree = "<group>"; };
+		24368CA1B7D146AFB924AD3B /* icon_hints_off.png */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = icon_hints_off.png; path = ../assets/images/icons/icon_hints_off.png; sourceTree = "<group>"; };
+		2C351DD8053142A591D29E73 /* icon_add_home.png */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = icon_add_home.png; path = ../assets/images/icons/icon_add_home.png; sourceTree = "<group>"; };
+		2EF02D17EC344727BC45139B /* one.png */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = one.png; path = ../assets/images/ad/one.png; sourceTree = "<group>"; };
+		3C0DF7494C8D4A3A9CFD0B8C /* icon_mute_off.png */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = icon_mute_off.png; path = ../assets/images/icons/icon_mute_off.png; sourceTree = "<group>"; };
+		3D779EBA2FDCC5D35B9CA08E /* Pods-kalat.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-kalat.release.xcconfig"; path = "Target Support Files/Pods-kalat/Pods-kalat.release.xcconfig"; sourceTree = "<group>"; };
+		41E1521F8D8E49669362782F /* icon_home.png */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = icon_home.png; path = ../assets/images/icons/icon_home.png; sourceTree = "<group>"; };
+		4B012CC0E7594C77B813B971 /* n.png */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = n.png; path = ../assets/images/icons/n.png; sourceTree = "<group>"; };
+		4B6A6AFD9F164A9898516686 /* icon_close.png */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = icon_close.png; path = ../assets/images/icons/icon_close.png; sourceTree = "<group>"; };
+		4BD3E6D291F9447BA3523025 /* favicon.png */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = favicon.png; path = ../assets/images/icons/favicon.png; sourceTree = "<group>"; };
+		4CDB692679C34F0DB203D78D /* icon_feedback.png */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = icon_feedback.png; path = ../assets/images/icons/icon_feedback.png; sourceTree = "<group>"; };
+		5B946E901D5342CABDF8A662 /* dave.png */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = dave.png; path = ../assets/images/dave.png; sourceTree = "<group>"; };
+		5EFCB82516F34C518FE720CA /* j.png */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = j.png; path = ../assets/images/icons/j.png; sourceTree = "<group>"; };
+		6A38C096445443ACB082D089 /* c.png */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = c.png; path = ../assets/images/icons/c.png; sourceTree = "<group>"; };
+		6D476FED025B4279A00C715F /* icon_difficulty_easy.png */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = icon_difficulty_easy.png; path = ../assets/images/icons/icon_difficulty_easy.png; sourceTree = "<group>"; };
+		6D786A47661F4D53B0DBCAB1 /* ቃላት.svg */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "ቃላት.svg"; path = "../assets/images/icons/ቃላት.svg"; sourceTree = "<group>"; };
+		71056D90964548DEA6851C65 /* icon_friends.png */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = icon_friends.png; path = ../assets/images/icons/icon_friends.png; sourceTree = "<group>"; };
 		761780EC2CA45674006654EE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AppDelegate.swift; path = kalat/AppDelegate.swift; sourceTree = "<group>"; };
-		79DCBBFB79F041149D339FCE /* check.png */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = check.png; path = ../assets/images/icons/check.png; sourceTree = "<group>"; };
-		7A01AF01D8A7442793414091 /* icon_theme_system.png */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = icon_theme_system.png; path = ../assets/images/icons/icon_theme_system.png; sourceTree = "<group>"; };
+		79DCBBFB79F041149D339FCE /* check.png */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = check.png; path = ../assets/images/icons/check.png; sourceTree = "<group>"; };
+		7A01AF01D8A7442793414091 /* icon_theme_system.png */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = icon_theme_system.png; path = ../assets/images/icons/icon_theme_system.png; sourceTree = "<group>"; };
 		81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = kalat/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		83102FB92220475BAAF0901E /* icon_theme_dark.png */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = icon_theme_dark.png; path = ../assets/images/icons/icon_theme_dark.png; sourceTree = "<group>"; };
-		870A9E8EC0F246AE827DDA5D /* icon_difficulty_hard.png */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = icon_difficulty_hard.png; path = ../assets/images/icons/icon_difficulty_hard.png; sourceTree = "<group>"; };
-		993D940878AE4A3A9E7C21A1 /* default_avatar.png */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = default_avatar.png; path = ../assets/images/icons/default_avatar.png; sourceTree = "<group>"; };
-		9B285DD3654948E6B1BF7EF6 /* icon_hint.png */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = icon_hint.png; path = ../assets/images/icons/icon_hint.png; sourceTree = "<group>"; };
-		9ED36E01B7194B10A96CEE6B /* icon_streak.png */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = icon_streak.png; path = ../assets/images/icons/icon_streak.png; sourceTree = "<group>"; };
-		A308175FE239481DA63CD4B4 /* icon_rules.png */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = icon_rules.png; path = ../assets/images/icons/icon_rules.png; sourceTree = "<group>"; };
-		A6B81440AB274B908071CCBD /* g.png */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = g.png; path = ../assets/images/icons/g.png; sourceTree = "<group>"; };
-		A95333E979AC4F7CBE37D342 /* icon_fullscreen_enter.png */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = icon_fullscreen_enter.png; path = ../assets/images/icons/icon_fullscreen_enter.png; sourceTree = "<group>"; };
-		AACC6AC8B1C042CDA5664068 /* icon_hints_on.png */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = icon_hints_on.png; path = ../assets/images/icons/icon_hints_on.png; sourceTree = "<group>"; };
-		B0EF2C39C8554E6EB0751B0E /* icon_share.png */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = icon_share.png; path = ../assets/images/icons/icon_share.png; sourceTree = "<group>"; };
-		B392763E4C43249D85C9CB2C /* Pods-kalat.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-kalat.debug.xcconfig"; path = "Target Support Files/Pods-kalat/Pods-kalat.debug.xcconfig"; sourceTree = "<group>"; };
-		B8F0B6FDA26D4E4C8676B505 /* icon_theme_light.png */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = icon_theme_light.png; path = ../assets/images/icons/icon_theme_light.png; sourceTree = "<group>"; };
-		BDAE4744B9C9437392AC5692 /* icon_feedback_wip.png */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = icon_feedback_wip.png; path = ../assets/images/icons/icon_feedback_wip.png; sourceTree = "<group>"; };
-		BF0523E871634FE8BDD295BB /* invite.png */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = invite.png; path = ../assets/images/icons/invite.png; sourceTree = "<group>"; };
-		C2EDC6A1163248D8B60B4D41 /* icon_settings.png */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = icon_settings.png; path = ../assets/images/icons/icon_settings.png; sourceTree = "<group>"; };
-		C844D9D426C84E2E71EC0A61 /* libPods-kalat.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-kalat.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		D0B812A5668945A0AEDB85F9 /* icon_about.png */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = icon_about.png; path = ../assets/images/icons/icon_about.png; sourceTree = "<group>"; };
-		DB6ECD2BD950467E8232BED1 /* icon_start.png */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = icon_start.png; path = ../assets/images/icons/icon_start.png; sourceTree = "<group>"; };
-		E1C377B54A704190BA26BC57 /* s.png */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = s.png; path = ../assets/images/icons/s.png; sourceTree = "<group>"; };
-		E960C43F9F9249918CAE8E84 /* icon_reset.png */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = icon_reset.png; path = ../assets/images/icons/icon_reset.png; sourceTree = "<group>"; };
+		83102FB92220475BAAF0901E /* icon_theme_dark.png */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = icon_theme_dark.png; path = ../assets/images/icons/icon_theme_dark.png; sourceTree = "<group>"; };
+		870A9E8EC0F246AE827DDA5D /* icon_difficulty_hard.png */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = icon_difficulty_hard.png; path = ../assets/images/icons/icon_difficulty_hard.png; sourceTree = "<group>"; };
+		993D940878AE4A3A9E7C21A1 /* default_avatar.png */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = default_avatar.png; path = ../assets/images/icons/default_avatar.png; sourceTree = "<group>"; };
+		9B285DD3654948E6B1BF7EF6 /* icon_hint.png */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = icon_hint.png; path = ../assets/images/icons/icon_hint.png; sourceTree = "<group>"; };
+		9ED36E01B7194B10A96CEE6B /* icon_streak.png */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = icon_streak.png; path = ../assets/images/icons/icon_streak.png; sourceTree = "<group>"; };
+		A308175FE239481DA63CD4B4 /* icon_rules.png */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = icon_rules.png; path = ../assets/images/icons/icon_rules.png; sourceTree = "<group>"; };
+		A6B81440AB274B908071CCBD /* g.png */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = g.png; path = ../assets/images/icons/g.png; sourceTree = "<group>"; };
+		A95333E979AC4F7CBE37D342 /* icon_fullscreen_enter.png */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = icon_fullscreen_enter.png; path = ../assets/images/icons/icon_fullscreen_enter.png; sourceTree = "<group>"; };
+		AACC6AC8B1C042CDA5664068 /* icon_hints_on.png */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = icon_hints_on.png; path = ../assets/images/icons/icon_hints_on.png; sourceTree = "<group>"; };
+		B0EF2C39C8554E6EB0751B0E /* icon_share.png */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = icon_share.png; path = ../assets/images/icons/icon_share.png; sourceTree = "<group>"; };
+		B8F0B6FDA26D4E4C8676B505 /* icon_theme_light.png */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = icon_theme_light.png; path = ../assets/images/icons/icon_theme_light.png; sourceTree = "<group>"; };
+		BDAE4744B9C9437392AC5692 /* icon_feedback_wip.png */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = icon_feedback_wip.png; path = ../assets/images/icons/icon_feedback_wip.png; sourceTree = "<group>"; };
+		BF0523E871634FE8BDD295BB /* invite.png */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = invite.png; path = ../assets/images/icons/invite.png; sourceTree = "<group>"; };
+		C2EDC6A1163248D8B60B4D41 /* icon_settings.png */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = icon_settings.png; path = ../assets/images/icons/icon_settings.png; sourceTree = "<group>"; };
+		D0B812A5668945A0AEDB85F9 /* icon_about.png */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = icon_about.png; path = ../assets/images/icons/icon_about.png; sourceTree = "<group>"; };
+		DB6ECD2BD950467E8232BED1 /* icon_start.png */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = icon_start.png; path = ../assets/images/icons/icon_start.png; sourceTree = "<group>"; };
+		DCFA46D2A169FC183D83D5AF /* Pods-kalat.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-kalat.debug.xcconfig"; path = "Target Support Files/Pods-kalat/Pods-kalat.debug.xcconfig"; sourceTree = "<group>"; };
+		E1C377B54A704190BA26BC57 /* s.png */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = s.png; path = ../assets/images/icons/s.png; sourceTree = "<group>"; };
+		E960C43F9F9249918CAE8E84 /* icon_reset.png */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = icon_reset.png; path = ../assets/images/icons/icon_reset.png; sourceTree = "<group>"; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
-		F065C128EA094DCB8D201BAA /* adey.png */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = adey.png; path = ../assets/images/adey.png; sourceTree = "<group>"; };
-		F075CED019D743A6BB721960 /* icon_leaderboard.png */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = icon_leaderboard.png; path = ../assets/images/icons/icon_leaderboard.png; sourceTree = "<group>"; };
-		F717EDE2D4C4412D93942846 /* icon_fullscreen_exit.png */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = icon_fullscreen_exit.png; path = ../assets/images/icons/icon_fullscreen_exit.png; sourceTree = "<group>"; };
-		FEB1D8756F5F443F9F03D22C /* icon_reset_on.png */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = icon_reset_on.png; path = ../assets/images/icons/icon_reset_on.png; sourceTree = "<group>"; };
+		F065C128EA094DCB8D201BAA /* adey.png */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = adey.png; path = ../assets/images/adey.png; sourceTree = "<group>"; };
+		F075CED019D743A6BB721960 /* icon_leaderboard.png */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = icon_leaderboard.png; path = ../assets/images/icons/icon_leaderboard.png; sourceTree = "<group>"; };
+		F717EDE2D4C4412D93942846 /* icon_fullscreen_exit.png */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = icon_fullscreen_exit.png; path = ../assets/images/icons/icon_fullscreen_exit.png; sourceTree = "<group>"; };
+		FEB1D8756F5F443F9F03D22C /* icon_reset_on.png */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = icon_reset_on.png; path = ../assets/images/icons/icon_reset_on.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -118,7 +118,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C3DFA1EA2516005BD034C0D6 /* libPods-kalat.a in Frameworks */,
+				B7E7A00CCA503CDA387C9CD6 /* libPods-kalat.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -185,14 +185,13 @@
 				6D786A47661F4D53B0DBCAB1 /* ቃላት.svg */,
 			);
 			name = Resources;
-			path = "";
 			sourceTree = "<group>";
 		};
 		2D16E6871FA4F8E400B85C8A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
 				ED297162215061F000B7C4FE /* JavaScriptCore.framework */,
-				C844D9D426C84E2E71EC0A61 /* libPods-kalat.a */,
+				1C6BBC74960D2CE84EFA1D6A /* libPods-kalat.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -230,8 +229,8 @@
 		BBD78D7AC51CEA395F1C20DB /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				B392763E4C43249D85C9CB2C /* Pods-kalat.debug.xcconfig */,
-				60DB6472C558C3F5B7E068F6 /* Pods-kalat.release.xcconfig */,
+				DCFA46D2A169FC183D83D5AF /* Pods-kalat.debug.xcconfig */,
+				3D779EBA2FDCC5D35B9CA08E /* Pods-kalat.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -243,13 +242,13 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 13B07F931A680F5B00A75B9A /* Build configuration list for PBXNativeTarget "kalat" */;
 			buildPhases = (
-				74BE7836A89128B12A9E494C /* [CP] Check Pods Manifest.lock */,
+				A6C406CA8EAD8588E462828E /* [CP] Check Pods Manifest.lock */,
 				13B07F871A680F5B00A75B9A /* Sources */,
 				13B07F8C1A680F5B00A75B9A /* Frameworks */,
 				13B07F8E1A680F5B00A75B9A /* Resources */,
 				00DD1BFF1BD5951E006B06BC /* Bundle React Native code and images */,
-				94A071A4073ECF5B62A6AA8F /* [CP] Embed Pods Frameworks */,
-				4E6CE5C59FE4655999073748 /* [CP] Copy Pods Resources */,
+				92FD6FCE70D55B842601E215 /* [CP] Embed Pods Frameworks */,
+				2E645768E8F977514B0F8BFB /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -266,7 +265,8 @@
 		83CBB9F71A601CBA00E9B192 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 1210;
+				BuildIndependentTargetsInParallel = YES;
+				LastUpgradeCheck = 1630;
 				TargetAttributes = {
 					13B07F861A680F5B00A75B9A = {
 						LastSwiftMigration = 1120;
@@ -364,7 +364,7 @@
 			shellPath = /bin/sh;
 			shellScript = "set -e\n\nWITH_ENVIRONMENT=\"$REACT_NATIVE_PATH/scripts/xcode/with-environment.sh\"\nREACT_NATIVE_XCODE=\"$REACT_NATIVE_PATH/scripts/react-native-xcode.sh\"\n\n/bin/sh -c \"$WITH_ENVIRONMENT $REACT_NATIVE_XCODE\"\n";
 		};
-		4E6CE5C59FE4655999073748 /* [CP] Copy Pods Resources */ = {
+		2E645768E8F977514B0F8BFB /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -381,7 +381,24 @@
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-kalat/Pods-kalat-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		74BE7836A89128B12A9E494C /* [CP] Check Pods Manifest.lock */ = {
+		92FD6FCE70D55B842601E215 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-kalat/Pods-kalat-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-kalat/Pods-kalat-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-kalat/Pods-kalat-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		A6C406CA8EAD8588E462828E /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -403,23 +420,6 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		94A071A4073ECF5B62A6AA8F /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-kalat/Pods-kalat-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-kalat/Pods-kalat-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-kalat/Pods-kalat-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -436,12 +436,11 @@
 /* Begin XCBuildConfiguration section */
 		13B07F941A680F5B00A75B9A /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = B392763E4C43249D85C9CB2C /* Pods-kalat.debug.xcconfig */;
+			baseConfigurationReference = DCFA46D2A169FC183D83D5AF /* Pods-kalat.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = L877GN477K;
 				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = kalat/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 15.1;
@@ -455,6 +454,7 @@
 					"-ObjC",
 					"-lc++",
 				);
+				"PODS_CONFIGURATION_BUILD_DIR[arch=*]" = "${PODS_BUILD_DIR}/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)";
 				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = kalat;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -465,12 +465,11 @@
 		};
 		13B07F951A680F5B00A75B9A /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 60DB6472C558C3F5B7E068F6 /* Pods-kalat.release.xcconfig */;
+			baseConfigurationReference = 3D779EBA2FDCC5D35B9CA08E /* Pods-kalat.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = L877GN477K;
 				INFOPLIST_FILE = kalat/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 15.1;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -493,6 +492,7 @@
 		83CBBA201A601CBA00E9B192 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				"ADDITIONAL_SDKS[arch=*]" = "";
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "c++20";
@@ -521,8 +521,10 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
+				DEVELOPMENT_TEAM = L877GN477K;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
 				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = "";
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
@@ -601,8 +603,10 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = YES;
+				DEVELOPMENT_TEAM = L877GN477K;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
 				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = "";
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -637,6 +641,7 @@
 				);
 				REACT_NATIVE_PATH = "${PODS_ROOT}/../../node_modules/react-native";
 				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
 				USE_HERMES = true;
 				VALIDATE_PRODUCT = YES;
 			};
