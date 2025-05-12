@@ -7,6 +7,7 @@ import {
   ScrollView,
   Share,
   Alert,
+  Image,
 } from 'react-native';
 import {getImageSource} from '../../assets/imageRegistry';
 import * as Haptics from 'expo-haptics';
@@ -25,6 +26,7 @@ import {useTheme} from '../../providers/ThemeProvider';
 import Modal from '../common/Modal';
 import Button from '../common/Button';
 import StatCard from './StatCard';
+import { style } from 'framer-motion/client';
 
 interface StreakModalProps {
   visible: boolean;
@@ -126,6 +128,8 @@ const StreakModal: React.FC<StreakModalProps> = ({visible, onClose}) => {
     cardsWrapper: { flexDirection: 'row', justifyContent: 'space-around', marginBottom: 20 },
     footer: { flexDirection: 'row', justifyContent: 'space-between', paddingHorizontal: 20 },
     buttonSpacing: { marginTop: 10 },
+    shareIcon: { width: 24, height: 24 },
+    homeIcon: { width: 24, height: 24 },
     // added modalContent style
     modalContent: { padding: 0 },
     errorPlaceholder: { padding: 20, alignItems: 'center', justifyContent: 'center' },
@@ -210,11 +214,10 @@ const StreakModal: React.FC<StreakModalProps> = ({visible, onClose}) => {
           />
         </View>
 
-        <View style={styles.footer}>
           <Button
             label="ማጋራት"
             onPress={handleShareStreak}
-            leftIcon={getImageSource('icon_share')}
+            leftIcon={<Image source={getImageSource('icon_share') || undefined} style={styles.shareIcon} />}
             variant="secondary"
             disabled={
               currentStreak === 0 && maxStreak === 0 && bestTimeHard === null
@@ -225,10 +228,9 @@ const StreakModal: React.FC<StreakModalProps> = ({visible, onClose}) => {
           <Button
             label="ዝጋ"
             onPress={handleClose}
-            leftIcon={getImageSource('icon_home')}
+            leftIcon={<Image source={getImageSource('icon_home') || undefined} style={styles.homeIcon} />}
             variant="primary"
           />
-        </View>
       </ScrollView>
     </Modal>
   );

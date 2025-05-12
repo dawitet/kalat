@@ -1,0 +1,177 @@
+{
+  "migIndex": 1,
+  "data": [
+    {
+      "path": "assets/images/ad/one.png",
+      "sha1": "6b75ba54ad01af680837d2a48466dd7543b2e9e8"
+    },
+    {
+      "path": "assets/images/adey.png",
+      "sha1": "f88ec95f27a6f671fbdb9500aa84144ab2065f15"
+    },
+    {
+      "path": "assets/images/dave.png",
+      "sha1": "2a28807d32b16c94905c30cf98fafb11ecdc7470"
+    },
+    {
+      "path": "assets/images/dog.png",
+      "sha1": "147571b074862f457cc60e48aaf02c7d3916793d"
+    },
+    {
+      "path": "assets/images/icons/a.png",
+      "sha1": "7827a0f03d8b9ca34fb300a535f5d90633c32cc0"
+    },
+    {
+      "path": "assets/images/icons/c.png",
+      "sha1": "48801551264aba263cd25355f967b05c6f8b62d1"
+    },
+    {
+      "path": "assets/images/icons/check.png",
+      "sha1": "e3c31cb03df289ae0d911ebc5a8b8f89f0e1b32f"
+    },
+    {
+      "path": "assets/images/icons/default_avatar.png",
+      "sha1": "87520571c4f4ffe5a7097383e9aa71e00e35d995"
+    },
+    {
+      "path": "assets/images/icons/favicon.png",
+      "sha1": "fcba0cb0f5b94941c27fda2e6900bbbc5322966b"
+    },
+    {
+      "path": "assets/images/icons/g.png",
+      "sha1": "d47cdddf9d8ae8e21158c730f67aa6ad5d67f16a"
+    },
+    {
+      "path": "assets/images/icons/icon_about.png",
+      "sha1": "65e5d771da04b79b307d2c058ddde50250c9c80a"
+    },
+    {
+      "path": "assets/images/icons/icon_add_home.png",
+      "sha1": "74e017972fd4dbc52c9994d2a6a2ef21d96f4cdf"
+    },
+    {
+      "path": "assets/images/icons/icon_close.png",
+      "sha1": "80ad2e2935506353bf65252ead41270042d5bb90"
+    },
+    {
+      "path": "assets/images/icons/icon_continue.png",
+      "sha1": "7a2ea93de608e392a5b9315a159abdb1d812a4d1"
+    },
+    {
+      "path": "assets/images/icons/icon_difficulty_easy.png",
+      "sha1": "6c9b07bc4f167eeb6ef0d657af30bbcb32fe56f4"
+    },
+    {
+      "path": "assets/images/icons/icon_difficulty_hard.png",
+      "sha1": "9352001bb7810579dab10083b374b5f7504fcada"
+    },
+    {
+      "path": "assets/images/icons/icon_feedback.png",
+      "sha1": "a43044a1c7c99e6fbdcad5e09341077daf0812c2"
+    },
+    {
+      "path": "assets/images/icons/icon_feedback_wip.png",
+      "sha1": "9794707fffc286d2bd567a6a07a507a7f0d6e46d"
+    },
+    {
+      "path": "assets/images/icons/icon_friends.png",
+      "sha1": "c2e5440740c52e7f8e2c80a1acc897c5adb2cba0"
+    },
+    {
+      "path": "assets/images/icons/icon_fullscreen_enter.png",
+      "sha1": "88760d6c9969f9399dd56df5e9be7739d5c328f7"
+    },
+    {
+      "path": "assets/images/icons/icon_fullscreen_exit.png",
+      "sha1": "38308420990a2665c34bbf42b1dc7cfe5008149a"
+    },
+    {
+      "path": "assets/images/icons/icon_hint.png",
+      "sha1": "edb08ecac3ba93dddcbe923b501201034f5e7414"
+    },
+    {
+      "path": "assets/images/icons/icon_hints_off.png",
+      "sha1": "35c2ee91f360281c0495d692bd6683aa6810f341"
+    },
+    {
+      "path": "assets/images/icons/icon_hints_on.png",
+      "sha1": "f8e2d2b129e4a1ce858ee596c28467e3eed9bf2e"
+    },
+    {
+      "path": "assets/images/icons/icon_home.png",
+      "sha1": "b672d4dfdc505b12de12297b31b8a8a88210c3f8"
+    },
+    {
+      "path": "assets/images/icons/icon_leaderboard.png",
+      "sha1": "df09aae34f72e4e00d9fd63f824cc4a5dafb836a"
+    },
+    {
+      "path": "assets/images/icons/icon_mute_off.png",
+      "sha1": "8d452d1c356cfe30b09f11d16f36d12a56e9945b"
+    },
+    {
+      "path": "assets/images/icons/icon_mute_on.png",
+      "sha1": "be06235cb85280d97136d6fff7ae803d8c9f292d"
+    },
+    {
+      "path": "assets/images/icons/icon_reset.png",
+      "sha1": "f529a751893c347aa850fe978a3ff75715db6810"
+    },
+    {
+      "path": "assets/images/icons/icon_reset_on.png",
+      "sha1": "7a9b08e032dc61f967ac15ecb675f3eff6748a0f"
+    },
+    {
+      "path": "assets/images/icons/icon_rules.png",
+      "sha1": "63ccc79b1415f864b2043fb6f1ec1ae3fbbd76b6"
+    },
+    {
+      "path": "assets/images/icons/icon_settings.png",
+      "sha1": "44024c60cb651a780c5c01321107252470f1592e"
+    },
+    {
+      "path": "assets/images/icons/icon_share.png",
+      "sha1": "5bba8be6315b2e99ef1c07dab5bbde06c46ff72d"
+    },
+    {
+      "path": "assets/images/icons/icon_start.png",
+      "sha1": "9bd376a94ee2207eabe0bee64b222aa400ef0a7d"
+    },
+    {
+      "path": "assets/images/icons/icon_streak.png",
+      "sha1": "659009da85c294edd456d0366da8109751184041"
+    },
+    {
+      "path": "assets/images/icons/icon_theme_dark.png",
+      "sha1": "cd778d1921be7128c28e66ebb86bf31a401bbdfa"
+    },
+    {
+      "path": "assets/images/icons/icon_theme_light.png",
+      "sha1": "94b4fce6ecb89861bdef0068e9c9cfa631cf94a3"
+    },
+    {
+      "path": "assets/images/icons/icon_theme_system.png",
+      "sha1": "99cfa54ced1c3da6bb18f58c6aae52e105df7d87"
+    },
+    {
+      "path": "assets/images/icons/invite.png",
+      "sha1": "03fe2a75a46c03a97074610412f1f2cc0712f7a7"
+    },
+    {
+      "path": "assets/images/icons/j.png",
+      "sha1": "7f80b2e6fafe53653e2c8c91a440f2f7113411fe"
+    },
+    {
+      "path": "assets/images/icons/n.png",
+      "sha1": "1277f73ea38d0e84ee196975e3574442bbb06aea"
+    },
+    {
+      "path": "assets/images/icons/s.png",
+      "sha1": "8d452d1c356cfe30b09f11d16f36d12a56e9945b"
+    },
+    {
+      "path": "assets/images/icons/ቃላት.svg",
+      "sha1": "2b00db3d12e4e59a25c483e58c6959ff7a39579f"
+    }
+  ]
+}

@@ -7,6 +7,7 @@ import {
   ScrollView,
   Image,
   Alert,
+  ImageSourcePropType,
 } from 'react-native';
 // Use require for native Linking so jest.mock('react-native/Libraries/Linking/Linking') applies
 // eslint-disable-next-line @typescript-eslint/no-var-requires
@@ -120,6 +121,14 @@ const CreditsModal: React.FC<CreditsModalProps> = ({visible, onClose}) => {
     modalContent: {
       maxHeight: '90%',
     },
+    feedbackIcon: {
+      width: 24,
+      height: 24,
+    },
+    homeIcon: {
+      width: 24,
+      height: 24,
+    },
     footerButton: {
       marginTop: 16,
     },
@@ -137,33 +146,29 @@ const CreditsModal: React.FC<CreditsModalProps> = ({visible, onClose}) => {
 
           <View style={styles.creatorSection}>
             <Image
-              source={getImageSource('dave')}
+              source={getImageSource('dave') || undefined}
               style={styles.creatorImage}
               resizeMode="cover"
             />
             <Text style={styles.creatorName}>{creatorName}</Text>
             <Text style={styles.studioName}>{studioName}</Text>
           </View>
-
-          <Text style={styles.sectionTitle}>ፕሮግራም</Text>
-          <Text>Developed with React Native</Text>
-
           <Button
             label="ግብረመልስ ይስጡ"
             variant="primary"
             onPress={handleFeedbackLink}
-            leftIcon={getImageSource('icon_feedback')}
+            leftIcon={getImageSource('icon_feedback') ? <Image source={getImageSource('icon_feedback') as ImageSourcePropType} style={styles.feedbackIcon} /> : undefined}
             style={styles.feedbackButton}
           />
 
           <Text style={styles.copyright}>
             © {currentYear} {studioName}. መብቱ በሕግ የተጠበቀ ነው።
           </Text>
-
+            leftIcon={getImageSource('icon_home') ? <Image source={getImageSource('icon_home') as ImageSourcePropType} style={styles.homeIcon} /> : null}
           <Button
             label="ዝጋ"
             onPress={handleClose}
-            leftIcon={getImageSource('icon_home')}
+            leftIcon={getImageSource('icon_home') ? <Image source={getImageSource('icon_home') as ImageSourcePropType} style={styles.homeIcon} /> : null}
             variant="secondary"
             style={styles.footerButton}
           />

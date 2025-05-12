@@ -6,6 +6,7 @@ import {
   StyleSheet,
   ScrollView,
   Platform,
+  Image,
 } from 'react-native';
 import * as Haptics from 'expo-haptics';
 
@@ -253,13 +254,10 @@ const RulesModal: React.FC<RulesModalProps> = ({visible, onClose}) => {
             <Text style={styles.strong}>ከባድ፡</Text> ቃሉ 2 ወይም ከዚያ በታች 'አባት' ፊደላት
             ሊኖረው ይችላል።
           </Text>
-        </View>
-
-        <View style={styles.footer}>
           <Button
             label="ዝጋ"
             onPress={handleClose}
-            leftIcon={getImageSource('icon_home')}
+            leftIcon={<Image source={getImageSource('icon_home') || undefined} />}
             variant="primary"
           />
         </View>

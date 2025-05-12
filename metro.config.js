@@ -1,4 +1,6 @@
-const {getDefaultConfig} = require('@react-native/metro-config');
+// filepath: /Users/dawitsahle/Documents/kalat/metro.config.js
+import {getDefaultConfig} from '@react-native/metro-config';
+import path from 'path';
 
 /**
  * Metro configuration
@@ -11,7 +13,7 @@ const defaultConfig = getDefaultConfig(__dirname);
 // Add svg support
 const { assetExts, sourceExts } = defaultConfig.resolver;
 
-// Configure SVG transformer
+// Configure Metro bundler for proper asset handling
 const config = {
   transformer: {
     getTransformOptions: async () => ({

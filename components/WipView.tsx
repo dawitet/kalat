@@ -62,7 +62,7 @@ const WipScreen: React.FC<WipScreenProps> = ({
   return (
     <View style={styles.container}>
       <Image
-        source={getImageSource('adey_icon')}
+        source={getImageSource('adey_icon') || undefined}
         style={styles.icon}
       />
       <Text style={styles.titleText}>{title}</Text>
