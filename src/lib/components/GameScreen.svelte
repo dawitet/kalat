@@ -1,11 +1,11 @@
 <script lang="ts">
   import { onMount } from 'svelte';
-  import { SDK } from '@telegram-apps/sdk';
+  
   import levels from '$lib/levels.json';
 
   // --- SDK and Haptic Feedback ---
-  let sdk: SDK;
-  let haptic: ReturnType<SDK['hapticFeedback']>;
+  let sdk: any; // Will be assigned dynamically
+  let haptic: any; // Will be assigned dynamically
 
   // --- State Management ---
   let currentLevelIndex = 0;
