@@ -1,11 +1,7 @@
 <script lang="ts">
   import { onMount } from 'svelte';
-  
   import levels from '$lib/levels.json';
-
-  // --- SDK and Haptic Feedback ---
-  let sdk: any; // Will be assigned dynamically
-  let haptic: any; // Will be assigned dynamically
+  import { telegram } from '$lib/stores/telegram';
 
   // --- State Management ---
   let currentLevelIndex = 0;
@@ -20,55 +16,46 @@
   $: correctAnswer = currentLevel.answer.replace(/\s/g, '');
   $: formattedGuess = formatGuess(currentGuess, currentLevel.answer);
 
-  // --- Keyboard ---
-  const amharicAlphabet = [
-    'ሀ', 'ለ', 'ሐ', 'መ', 'ሠ', 'ረ', 'ሰ', 'ሸ', 'ቀ', 'በ', 'ተ', 'ቸ',
-    'ኀ', 'ነ', 'ኘ', 'አ', 'ከ', 'ኸ', 'ወ', 'ዐ', 'ዘ', 'ዠ', 'የ', 'ደ',
-    'ጀ', 'ገ', 'ጠ', 'ጨ', 'ጰ', 'ጸ', 'ፀ', 'ፈ', 'ፐ'
-  ];
-
   // --- Core Functions ---
   onMount(async () => {
-    try {
-      sdk = new SDK();
-      await sdk.init();
-      haptic = sdk.hapticFeedback;
-
-      // Attempt to load saved progress from Telegram Cloud
-      const savedLevelIndex = await sdk.cloudStorage.getItem('currentLevelIndex');
-      if (savedLevelIndex && !isNaN(parseInt(savedLevelIndex))) {
-        currentLevelIndex = parseInt(savedLevelIndex);
+    // Wait for the SDK to be ready from the store
+    const unsubscribe = telegram.subscribe(async ($telegram) => {
+      if ($telegram.isReady && $telegram.sdk) {
+        // Attempt to load saved progress from Telegram Cloud
+        const savedLevelIndex = await $telegram.sdk.cloudStorage.getItem('currentLevelIndex');
+        if (savedLevelIndex && !isNaN(parseInt(savedLevelIndex))) {
+          currentLevelIndex = parseInt(savedLevelIndex);
+        }
+        isLoading = false; // Stop loading, show the game
+        unsubscribe(); // Unsubscribe once ready
+      } else if ($telegram.isReady && !$telegram.sdk) {
+        // SDK failed to initialize, but we are ready to show the game
+        isLoading = false;
+        unsubscribe();
       }
-      sdk.ready();
-    } catch (e) {
-      console.error("Could not initialize Telegram SDK or load data.", e);
-    } finally {
-      isLoading = false; // Stop loading, show the game
-    }
+    });
   });
 
-  function handleKeyPress(char: string) {
-    haptic.impactOccurred('light');
-    if (currentGuess.length < correctAnswer.length) {
-      currentGuess += char;
-    }
-  }
-
-  function handleDelete() {
-    haptic.impactOccurred('light');
-    currentGuess = currentGuess.slice(0, -1);
+  function handleInput(event: Event) {
+    const input = event.target as HTMLInputElement;
+    currentGuess = input.value;
   }
 
   async function checkAnswer() {
+    if (!$telegram.sdk) {
+      showNotification('Telegram SDK not available.', 'error');
+      return;
+    }
+
     if (currentGuess.toLowerCase() === correctAnswer.toLowerCase()) {
-      haptic.notificationOccurred('success');
+      $telegram.sdk.hapticFeedback.notificationOccurred('success');
       showNotification('Correct!', 'success');
       
       // Check if there is a next level
       if (currentLevelIndex < levels.length - 1) {
         const nextLevelIndex = currentLevelIndex + 1;
         // Save the *next* level index to the cloud
-        await sdk.cloudStorage.setItem('currentLevelIndex', nextLevelIndex.toString());
+        await $telegram.sdk.cloudStorage.setItem('currentLevelIndex', nextLevelIndex.toString());
         // Move to the next level after a short delay
         setTimeout(() => {
           currentLevelIndex = nextLevelIndex;
@@ -77,10 +64,10 @@
       } else {
         // Game finished!
         showNotification('You finished all the levels!', 'success');
-        await sdk.cloudStorage.setItem('currentLevelIndex', '0'); // Reset for next time
+        await $telegram.sdk.cloudStorage.setItem('currentLevelIndex', '0'); // Reset for next time
       }
     } else {
-      haptic.notificationOccurred('error');
+      $telegram.sdk.hapticFeedback.notificationOccurred('error');
       showNotification('Incorrect. Try again.', 'error');
     }
   }
@@ -112,7 +99,7 @@
 {#if isLoading}
   <p class="text-center mt-10">Loading your game...</p>
 {:else}
-  <div class="w-full max-w-md mx-auto flex flex-col items-center gap-4 mt-8 relative">
+  <div class="w-full max-w-md mx-auto flex flex-col items-center justify-center min-h-[calc(100vh-8rem)] gap-4 relative">
     
     <!-- Notification Popup -->
     {#if notification.show}
@@ -133,18 +120,17 @@
       {formattedGuess || correctAnswer.replace(/./g, '_')}
     </div>
 
-    <!-- Keyboard -->
-    <div class="grid grid-cols-7 gap-1.5 w-full">
-      {#each amharicAlphabet as char}
-        <button on:click={() => handleKeyPress(char)} class="p-2 bg-gray-700 rounded-md text-xl active:bg-gray-500 transition-colors">
-          {char}
-        </button>
-      {/each}
-    </div>
+    <!-- Input Field -->
+    <input
+      type="text"
+      bind:value={currentGuess}
+      on:input={handleInput}
+      class="w-full p-3 text-center text-xl bg-gray-700 rounded-lg text-white placeholder-gray-400"
+      placeholder="Type your answer here"
+    />
 
     <!-- Control Buttons -->
     <div class="flex gap-2 w-full mt-2">
-      <button on:click={handleDelete} class="flex-1 p-3 bg-red-600 rounded-lg text-white font-bold">Delete</button>
       <button on:click={checkAnswer} class="flex-1 p-3 bg-green-600 rounded-lg text-white font-bold">Submit</button>
     </div>
   </div>

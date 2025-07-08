@@ -1,30 +1,15 @@
 <script lang="ts">
   import '../app.css'; // This imports the Tailwind CSS styles
   import { onMount } from 'svelte';
+  import { telegram, initTelegramSdk } from '$lib/stores/telegram';
 
-  let sdk: any; // Will be assigned dynamically
-  let userName = '...'; // Default name
-
-  onMount(async () => {
-    try {
-      const { SDK } = await import('@telegram-apps/sdk');
-      sdk = new SDK();
-      await sdk.init();
-
-      // Get user's first name, with a fallback
-      userName = sdk.initData?.user?.firstName ?? 'Guest';
-
-      // Tell Telegram the app is ready to be shown
-      sdk.ready();
-    } catch (e) {
-      console.error(e);
-      userName = 'Not in Telegram';
-    }
+  onMount(() => {
+    initTelegramSdk();
   });
 </script>
 
 <div class="bg-gray-900 text-white min-h-screen p-4">
-  <h1 class="text-xl font-bold">Welcome to ቃላት, {userName}!</h1>
+  <h1 class="text-xl font-bold">Welcome to ቃላት, {$telegram.userFirstName}!</h1>
   
   <!-- The main content of our pages will be rendered here -->
   <slot />
