@@ -1,6 +1,7 @@
 <script lang="ts">
   import { onMount } from 'svelte';
-  import { SDK, HapticFeedback } from '@telegram-apps/sdk';
+  import { SDK } from '@telegram-apps/sdk';
+  import type { HapticFeedback } from '@telegram-apps/sdk';
   import levels from '$lib/levels.json';
 
   // --- SDK and Haptic Feedback ---
