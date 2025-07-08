@@ -1,16 +1,15 @@
 <script lang="ts">
   import '../app.css'; // This imports the Tailwind CSS styles
   import { onMount } from 'svelte';
-  import { SDK } from '@telegram-apps/sdk';
 
-  let sdk: SDK;
+  let sdk: any; // Will be assigned dynamically
   let userName = '...'; // Default name
 
-  onMount(() => {
+  onMount(async () => {
     try {
-      // Initialize the SDK
+      const { SDK } = await import('@telegram-apps/sdk');
       sdk = new SDK();
-      sdk.init();
+      await sdk.init();
 
       // Get user's first name, with a fallback
       userName = sdk.initData?.user?.firstName ?? 'Guest';
