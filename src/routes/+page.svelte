@@ -1,15 +1,17 @@
 <script lang="ts">
   import { onMount } from 'svelte';
-  import GameScreen from '$lib/components/GameScreen.svelte';
 
-  let showGame = false;
+  let GameScreen: any;
 
-  onMount(() => {
-    // This code only runs in the browser, not on the server.
-    showGame = true;
+  onMount(async () => {
+    // Dynamically import the component only on the client-side.
+    const module = await import('$lib/components/GameScreen.svelte');
+    GameScreen = module.default;
   });
 </script>
 
-{#if showGame}
-  <GameScreen />
+{#if GameScreen}
+  <svelte:component this={GameScreen} />
+{:else}
+  <p class="text-center mt-10">Loading game...</p>
 {/if}
