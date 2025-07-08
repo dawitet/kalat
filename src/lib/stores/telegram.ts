@@ -1,5 +1,5 @@
 import { writable } from 'svelte/store';
-import { SDK } from '@telegram-apps/sdk';
+import type { SDK } from '@telegram-apps/sdk'; // Keep type import for type checking
 
 interface TelegramStore {
   sdk: SDK | null;
@@ -17,6 +17,8 @@ export const telegram = writable<TelegramStore>(initialStore);
 
 export async function initTelegramSdk() {
   try {
+    // Dynamically import SDK only when needed (client-side)
+    const { SDK } = await import('@telegram-apps/sdk');
     const currentSdk = new SDK();
     await currentSdk.init();
     currentSdk.ready();
