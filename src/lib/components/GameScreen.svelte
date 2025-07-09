@@ -24,6 +24,14 @@
       console.log("GameScreen: telegram store updated. isReady:", $telegram.isReady, "sdk:", !!$telegram.sdk);
       if ($telegram.isReady) {
         if ($telegram.sdk) {
+          $telegram.sdk.MainButton.setParams({
+            text: 'Submit',
+            is_visible: true,
+            is_active: false, // Initially disabled
+          });
+
+          $telegram.sdk.MainButton.onClick(checkAnswer);
+
           try {
             // Attempt to load saved progress from Telegram Cloud
             const savedLevelIndex = await $telegram.sdk.cloudStorage.getItem('currentLevelIndex');
@@ -47,6 +55,9 @@
   function handleInput(event: Event) {
     const input = event.target as HTMLInputElement;
     currentGuess = input.value;
+    if ($telegram.sdk) {
+      $telegram.sdk.MainButton.setParams({ is_active: currentGuess.length > 0 });
+    }
   }
 
   async function checkAnswer() {
@@ -54,6 +65,8 @@
       showNotification('Telegram SDK not available.', 'error');
       return;
     }
+
+    $telegram.sdk.MainButton.showProgress();
 
     if (currentGuess.toLowerCase() === correctAnswer.toLowerCase()) {
       $telegram.sdk.hapticFeedback.notificationOccurred('success');
@@ -78,13 +91,25 @@
       $telegram.sdk.hapticFeedback.notificationOccurred('error');
       showNotification('Incorrect. Try again.', 'error');
     }
+    $telegram.sdk.MainButton.hideProgress();
+  }
+
+  function share() {
+    if ($telegram.sdk) {
+      $telegram.sdk.switchInlineQuery(`I'm on level ${currentLevelIndex + 1} in ቃላት!`);
+    }
   }
   
   function showNotification(message: string, type: 'success' | 'error') {
-    notification = { show: true, message, type };
-    setTimeout(() => {
-      notification.show = false;
-    }, 2000);
+    if ($telegram.sdk) {
+      $telegram.sdk.showAlert(message);
+    } else {
+      // Fallback for when the SDK is not available
+      notification = { show: true, message, type };
+      setTimeout(() => {
+        notification.show = false;
+      }, 2000);
+    }
   }
 
   
@@ -112,7 +137,7 @@
     <!-- Letter Boxes -->
     <div class="flex justify-center gap-2">
       {#each currentLevel.answer.split('') as char, i}
-        <div class="w-10 h-10 bg-gray-800 rounded-lg flex items-center justify-center text-2xl font-bold text-golden-yellow">
+        <div class="w-10 h-10 rounded-lg flex items-center justify-center text-2xl font-bold" style="background-color: var(--button-color); color: var(--button-text-color);">
           {currentGuess[i] || (char === ' ' ? '' : '_')}
         </div>
       {/each}
@@ -123,13 +148,16 @@
       type="text"
       bind:value={currentGuess}
       on:input={handleInput}
-      class="w-full p-3 text-center text-xl bg-gray-700 rounded-lg text-white placeholder-gray-400"
+      class="w-full p-3 text-center text-xl rounded-lg"
+      style="background-color: var(--bg-color); color: var(--text-color); border: 1px solid var(--hint-color);"
       placeholder="Type your answer here"
     />
 
-    <!-- Control Buttons -->
-    <div class="flex gap-2 w-full mt-2">
-      <button on:click={checkAnswer} class="flex-1 p-3 bg-green-600 rounded-lg text-white font-bold">Submit</button>
+    <!-- Share Button -->
+    <div class="w-full mt-2">
+      <button on:click={share} class="w-full p-3 rounded-lg text-white font-bold" style="background-color: var(--link-color);">Share</button>
     </div>
+
+    
   </div>
 {/if}

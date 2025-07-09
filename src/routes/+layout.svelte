@@ -8,7 +8,7 @@
   });
 </script>
 
-<div class="bg-gray-900 text-white min-h-screen p-4">
+<div class="min-h-screen p-4" style="background-color: var(--bg-color); color: var(--text-color);">
   <h1 class="text-xl font-bold text-golden-yellow">Welcome to ቃላት, {$telegram.userFirstName}!</h1>
   
   <!-- The main content of our pages will be rendered here -->

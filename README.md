@@ -1,38 +1,44 @@
-# sv
+# ቃላት (Qalat) - Amharic Pictionary Game
 
-Everything you need to build a Svelte project, powered by [`sv`](https://github.com/sveltejs/cli).
+This is a simple Pictionary-style game built as a Telegram Web App. The game is written in Amharic and presents the user with two images that hint at a two-word Amharic phrase.
 
-## Creating a project
+## How it Works
 
-If you're seeing this, you've probably already done this step. Congrats!
+The game is built using SvelteKit and the Telegram Web App SDK. Here's a breakdown of the project structure:
 
-```bash
-# create a new project in the current directory
-npx sv create
+- **`src/`**: This directory contains the main source code for the application.
+  - **`lib/`**: This directory contains the core logic and components of the game.
+    - **`components/GameScreen.svelte`**: This is the main game component. It handles the game logic, state management, and UI.
+    - **`levels.json`**: This file contains the game levels. Each level has two images and an answer.
+    - **`stores/telegram.ts`**: This file initializes the Telegram Web App SDK and handles communication with the Telegram client.
+  - **`routes/`**: This directory contains the pages for the application.
+    - **`+layout.svelte`**: This is the main layout for the application. It sets up the overall page structure and theme.
+    - **`+page.svelte`**: This is the main page of the application. It dynamically loads the `GameScreen.svelte` component.
+    - **`+page.ts`**: This file contains the page load logic.
+- **`static/`**: This directory contains static assets, such as images.
+- **`package.json`**: This file contains the project dependencies and scripts.
 
-# create a new project in my-app
-npx sv create my-app
-```
+## Features
 
-## Developing
+The game includes the following features:
 
-Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
+- **Telegram Web App Integration**: The game is fully integrated with the Telegram Web App SDK.
+- **Fullscreen Mode**: The game launches in fullscreen mode for an immersive experience.
+- **Native Main Button**: The game uses Telegram's native main button for submitting answers.
+- **Native Popups**: The game uses Telegram's native popups for notifications.
+- **Dynamic Theming**: The game adapts to the user's Telegram color scheme.
+- **Sharing**: Users can share their progress with their friends.
+- **Cloud Storage**: The game saves the user's progress to Telegram's cloud storage.
 
-```bash
-npm run dev
+## Development
 
-# or start the server and open the app in a new browser tab
-npm run dev -- --open
-```
+To run the game locally, you'll need to have Node.js and npm installed. Then, follow these steps:
 
-## Building
+1. Clone the repository.
+2. Install the dependencies with `npm install`.
+3. Run the development server with `npm run dev`.
+4. To see the game in action, you'll need to create a Telegram bot and configure it to point to your local development server.
 
-To create a production version of your app:
+## Deployment
 
-```bash
-npm run build
-```
-
-You can preview the production build with `npm run preview`.
-
-> To deploy your app, you may need to install an [adapter](https://svelte.dev/docs/kit/adapters) for your target environment.
+The game is deployed to Vercel. Any changes pushed to the `main` branch will automatically trigger a new deployment.

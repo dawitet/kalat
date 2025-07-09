@@ -39,6 +39,18 @@ export async function initTelegramSdk() {
     currentSdk.ready();
     currentSdk.requestFullscreen();
 
+    // Apply theme colors
+    if (currentSdk.themeParams) {
+      const theme = currentSdk.themeParams;
+      const style = document.documentElement.style;
+      style.setProperty('--bg-color', theme.bg_color || '#212121');
+      style.setProperty('--text-color', theme.text_color || '#ffffff');
+      style.setProperty('--hint-color', theme.hint_color || '#aaaaaa');
+      style.setProperty('--link-color', theme.link_color || '#8774e1');
+      style.setProperty('--button-color', theme.button_color || '#8774e1');
+      style.setProperty('--button-text-color', theme.button_text_color || '#ffffff');
+    }
+
     telegram.update((store) => ({
       ...store,
       sdk: currentSdk,
