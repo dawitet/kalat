@@ -14,7 +14,7 @@
   // --- Reactive variables ---
   $: currentLevel = levels[currentLevelIndex];
   $: correctAnswer = currentLevel.answer.replace(/\s/g, '');
-  $: formattedGuess = formatGuess(currentGuess, currentLevel.answer);
+  
 
   // --- Core Functions ---
   onMount(async () => {
@@ -87,21 +87,7 @@
     }, 2000);
   }
 
-  // Helper function to format the guess display
-  function formatGuess(guess: string, answerFormat: string): string {
-    if (!answerFormat) return '';
-    let result = '';
-    let guessIndex = 0;
-    for (const char of answerFormat) {
-      if (char === ' ') {
-        result += ' ';
-      } else {
-        result += guess[guessIndex] ?? '_';
-        guessIndex++;
-      }
-    }
-    return result;
-  }
+  
 </script>
 
 {#if isLoading}
@@ -123,9 +109,13 @@
       <img src={currentLevel.image2} alt="Hint 2" class="w-32 h-32 object-cover bg-gray-700 rounded-lg shadow-lg" />
     </div>
 
-    <!-- Answer Display -->
-    <div class="text-3xl tracking-[0.5em] font-mono text-center p-4 bg-gray-800 rounded-lg w-full text-golden-yellow">
-      {formattedGuess || correctAnswer.replace(/./g, '_')}
+    <!-- Letter Boxes -->
+    <div class="flex justify-center gap-2">
+      {#each currentLevel.answer.split('') as char, i}
+        <div class="w-10 h-10 bg-gray-800 rounded-lg flex items-center justify-center text-2xl font-bold text-golden-yellow">
+          {currentGuess[i] || (char === ' ' ? '' : '_')}
+        </div>
+      {/each}
     </div>
 
     <!-- Input Field -->

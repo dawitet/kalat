@@ -16,5 +16,11 @@
     "image1": "/images/work.png",
     "image2": "/images/masresha.png",
     "answer": "ወርቅ ማስረሻ"
+  },
+  {
+    "id": 4,
+    "image1": "/images/እሰጥ.png",
+    "image2": "/images/አገባ.jpg",
+    "answer": "እሰጥ አገባ"
   }
 ]
