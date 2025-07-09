@@ -37,6 +37,7 @@ export async function initTelegramSdk() {
     const currentSdk = new SDK();
     await currentSdk.init();
     currentSdk.ready();
+    currentSdk.requestFullscreen();
 
     telegram.update((store) => ({
       ...store,
