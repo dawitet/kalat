@@ -18,20 +18,28 @@
 
   // --- Core Functions ---
   onMount(async () => {
+    console.log("GameScreen: onMount started.");
     // Wait for the SDK to be ready from the store
     const unsubscribe = telegram.subscribe(async ($telegram) => {
-      if ($telegram.isReady && $telegram.sdk) {
-        // Attempt to load saved progress from Telegram Cloud
-        const savedLevelIndex = await $telegram.sdk.cloudStorage.getItem('currentLevelIndex');
-        if (savedLevelIndex && !isNaN(parseInt(savedLevelIndex))) {
-          currentLevelIndex = parseInt(savedLevelIndex);
+      console.log("GameScreen: telegram store updated. isReady:", $telegram.isReady, "sdk:", !!$telegram.sdk);
+      if ($telegram.isReady) {
+        if ($telegram.sdk) {
+          try {
+            // Attempt to load saved progress from Telegram Cloud
+            const savedLevelIndex = await $telegram.sdk.cloudStorage.getItem('currentLevelIndex');
+            if (savedLevelIndex && !isNaN(parseInt(savedLevelIndex))) {
+              currentLevelIndex = parseInt(savedLevelIndex);
+              console.log("GameScreen: Loaded saved level index:", currentLevelIndex);
+            }
+          } catch (e) {
+            console.error("GameScreen: Error loading saved progress:", e);
+          }
         }
         isLoading = false; // Stop loading, show the game
+        console.log("GameScreen: isLoading set to false.");
         unsubscribe(); // Unsubscribe once ready
-      } else if ($telegram.isReady && !$telegram.sdk) {
-        // SDK failed to initialize, but we are ready to show the game
-        isLoading = false;
-        unsubscribe();
+      } else {
+        console.log("GameScreen: SDK not yet ready.");
       }
     });
   });
@@ -97,7 +105,7 @@
 </script>
 
 {#if isLoading}
-  <p class="text-center mt-10">Loading your game...</p>
+  <p class="text-center mt-10 text-golden-yellow">Loading your game...</p>
 {:else}
   <div class="w-full max-w-md mx-auto flex flex-col items-center justify-center min-h-[calc(100vh-8rem)] gap-4 relative">
     
@@ -116,7 +124,7 @@
     </div>
 
     <!-- Answer Display -->
-    <div class="text-3xl tracking-[0.5em] font-mono text-center p-4 bg-gray-800 rounded-lg w-full">
+    <div class="text-3xl tracking-[0.5em] font-mono text-center p-4 bg-gray-800 rounded-lg w-full text-golden-yellow">
       {formattedGuess || correctAnswer.replace(/./g, '_')}
     </div>
 

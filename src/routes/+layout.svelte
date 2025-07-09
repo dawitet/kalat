@@ -9,7 +9,7 @@
 </script>
 
 <div class="bg-gray-900 text-white min-h-screen p-4">
-  <h1 class="text-xl font-bold">Welcome to ቃላት, {$telegram.userFirstName}!</h1>
+  <h1 class="text-xl font-bold text-golden-yellow">Welcome to ቃላት, {$telegram.userFirstName}!</h1>
   
   <!-- The main content of our pages will be rendered here -->
   <slot />
