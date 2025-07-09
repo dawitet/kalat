@@ -16,7 +16,22 @@ const initialStore: TelegramStore = {
 export const telegram = writable<TelegramStore>(initialStore);
 
 export async function initTelegramSdk() {
+  // Ensure this code only runs in the browser
+  if (typeof window === 'undefined') {
+    console.warn("initTelegramSdk called on server, skipping.");
+    return;
+  }
+
   try {
+    // Wait for window.Telegram to be available
+    await new Promise<void>((resolve) => {
+      if (window.Telegram && window.Telegram.WebApp) {
+        resolve();
+      } else {
+        window.addEventListener('telegramWebAppReady', () => resolve(), { once: true });
+      }
+    });
+
     // Dynamically import SDK only when needed (client-side)
     const { SDK } = await import('@telegram-apps/sdk');
     const currentSdk = new SDK();
@@ -29,6 +44,7 @@ export async function initTelegramSdk() {
       userFirstName: currentSdk.initData?.user?.firstName ?? 'Guest',
       isReady: true,
     }));
+    console.log("Telegram SDK initialized successfully.");
   } catch (e) {
     console.error("Telegram SDK initialization failed:", e);
     telegram.update((store) => ({
